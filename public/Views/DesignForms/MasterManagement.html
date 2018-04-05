@@ -1,0 +1,227 @@
+<style>
+    .pagination > li {
+        display: contents !important;
+    }
+</style>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">MasterManagment</li>
+    </ul>
+    <!-- /.breadcrumb -->
+
+    <div class="nav-search" id="nav-search">
+    </div>
+    <!-- /.nav-search -->
+</div>
+<div>
+    <div class="form-group" style="margin-top: 20px;">
+        <label class="col-sm-3 control-label no-padding-right" style="text-align: right; vertical-align: middle;"
+            for="MasterName">
+            Select Master:
+        </label>
+        <div class="col-sm-3">
+            <select id="MasterName" class="col-xs-10 col-sm-3 chosen-select form-control" onchange="MasterTypeChange()">
+                <option value="">Select Master</option>
+            </select>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div style="width: 100%;">
+            <button onclick='AddNewRowtoTheMaster()' class='btn btn-primary table-btns btn-sm' id="MasterTableNewButton" style="float: left; margin: 5px;">AddNew</button>
+            <button onclick='UploadCSVtoTheMaster()' class='btn btn-primary table-btns btn-sm' id="MasterTableUploadCSV" style="float: left; margin: 5px;display:none;">Upload CSV</button>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="table-responsive">
+
+            <table id="MasterDisplayTable" class="table table-bordered">
+                <thead></thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="MasterDataPopUp" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style='background-color: #438eb9;'>
+                <button type="button" class="close" data-dismiss="modal">
+                    x</button>
+                <h4 class="modal-title" id="MasterAddEditModelHeader" style="color: white;"></h4>
+                <input type="text" style="display: none;" id="OpenSecretCode" />
+            </div>
+            <div class="modal-body" style='background-color: White;'>
+                <div class="modal-content">
+
+                    <div class="modal-body2">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="DataTableModelSave" onclick="SaveTheDataToDatabase()">Save</button>
+                        <button type="button" class="btn btn-warning" id="DataTableModelDelete" onclick="ConfirmDelete()">Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="UploadCSVPopUp" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style='background-color: #438eb9;'>
+                <button type="button" class="close" data-dismiss="modal">
+                    x</button>
+                <h4 class="modal-title" id="CSVUploadPopUp" style="color: white;">Master Management</h4>
+                <input type="text" style="display: none;" id="HiddenSecretCode" />
+            </div>
+            <div class="modal-body" style='background-color: White;'>
+
+
+                <div class="modal-content">
+
+
+                    <br />
+                    <br />
+                    <!--  <div class="form-group">-->
+
+                    <div class="" style="width: 80%; margin-left: 5%;">
+                        <label>Choose File:</label>
+                        <label class="ace-file-input">
+                            <input id="flie_id" type="file">
+                            <span class="" data-title="Choose">
+                                <span class="ace-file-name" data-title="No File ..."></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a>
+                        </label>
+                    </div>
+                    <br />
+                    <div class="modal-footer" style="">
+                        <button onclick="UploadFile()" class="btn btn-sm btn-primary" id="btn_save" style="">Upload</button>
+                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+                    <!-- </div>-->
+                </div>
+                <div id="UploadFileHeadersDiv">
+                    <label id="UploadStatusLabel"></label>
+                    <input type="text" id="FolderFileName" style="display: none;" />
+                    <table id="UploadFileHeadersTable" style="width: 100%;" class="table table-bordered table-hover">
+                        <thead>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                    <table id="UploadOptionCheckBox" style="width: 50%;">
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="UpdateExisting" />
+                            <td>Update Existing</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="IgnoreDuplicate" />
+                            <td>Ignore Duplicates</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="AppendNew" />
+                            <td>Append New</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="DeleteNonExisting" />
+                            <td>Delete Non Existing</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+
+                    <div class="modal-footer" style="background-color: white !important;">
+                        <button onclick="SaveUpLoadedFile()" class="btn btn-sm btn-primary" id="SaveUpLoadedFile" style="float: right;">Save To Database</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="MasterSelect" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style='background-color: #438eb9;'>
+                <button type="button" class="close" data-dismiss="modal">
+                    x</button>
+                <h4 class="modal-title" id="H1" style="color: white;">Select Master Data</h4>
+                <input type="text" style="display: none;" id="_TextBoxName" />
+            </div>
+            <div class="modal-body" style='background-color: White;'>
+                <div class="table-responsive">
+                    <table id="MasterSelectTable" class="table table-bordered">
+                        <thead></thead>
+                        <tbody></tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $('#flie_id').ace_file_input({
+        no_file: 'No File ...',
+        btn_choose: 'Choose',
+        btn_change: 'Change',
+        droppable: false,
+        onchange: null,
+        thumbnail: false,
+        onchange: $("#flie_id").prop("files")[0]
+    });
+
+    $("#UpdateExisting").click(function () {
+        if ($("#UpdateExisting").prop('checked') == true) {
+            $("#IgnoreDuplicate").attr("disabled", true);
+            $("#DeleteNonExisting").attr("disabled", true);
+            $("#IgnoreDuplicate").prop("checked", false);
+            $("#DeleteNonExisting").attr("checked", false);
+        }
+        else if ($("#UpdateExisting").prop('checked') == false) {
+            $("#IgnoreDuplicate").attr("disabled", false);
+            $("#DeleteNonExisting").attr("disabled", false);
+        }
+    });
+
+    $("#DeleteNonExisting").click(function () {
+        if ($("#DeleteNonExisting").prop('checked') == true) {
+            $("#AppendNew").attr("disabled", true);
+            $("#IgnoreDuplicate").attr("disabled", true);
+            $("#UpdateExisting").attr("disabled", true);
+            $("#IgnoreDuplicate").prop("checked", false);
+            $("#UpdateExisting").prop("checked", false);
+            $("#AppendNew").prop("checked", false);
+
+        }
+        else if ($("#DeleteNonExisting").prop('checked') == false) {
+            $("#AppendNew").attr("disabled", false);
+            $("#IgnoreDuplicate").attr("disabled", false);
+            $("#UpdateExisting").attr("disabled", false);
+        }
+    });
+
+    $("#MasterName").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+</script>

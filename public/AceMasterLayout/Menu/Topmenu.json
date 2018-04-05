@@ -1,0 +1,522 @@
+<ul style="top: 0px; display: block;" class="nav nav-list" id="Topmenu_parent">
+  <li class="hover liclass" id="TopMenu_Studio" style="display:none;">
+    <a href="##">
+      <i class="menu-icon fa fa-list-alt"></i>
+      <span class="menu-text">Studio</span>
+    </a>
+    <b class="arrow"></b>
+    <ul style="" class="submenu can-scroll ace-scroll scroll-disabled">
+      <li class="hover liclass" id="TopMenu_DataModel" style="display:none;">
+        <a href="#DomainModel">
+          <i class="menu-icon fa fa-caret-right"></i>Data Model
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_MicroFlow" style="display:none;">
+        <a href="#MicroFlowdummy">
+          <i class="menu-icon fa fa-caret-right"></i>Micro Flow
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_FormDesigner" style="display:none;">
+        <a href="#ELogsheet">
+          <i class="menu-icon fa fa-caret-right"></i>Form Designer
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass pull_up" id="TopMenu_Analytics" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Analytics
+        </a>
+        <b class="arrow"></b>
+        <ul style="top: -177px;" class="submenu can-scroll ace-scroll scroll-disabled">
+          <li class="hover liclass" id="TopMenu_DataConnectors" style="display:none;">
+            <a href="#DatabaseMenu">
+              <i class="menu-icon fa fa-caret-right"></i>Data Connectors
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_DashboardCreation" style="display:none;">
+            <a href="#CreateDashboard">
+              <i class="menu-icon fa fa-caret-right"></i>Dashboard Creation
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_ManageDashboards" style="display:none;">
+            <a href="#ManageReports">
+              <i class="menu-icon fa fa-caret-right"></i>Manage Dashboards
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_ConfigureParameters" style="display:none;">
+            <a href="#CreateParameter">
+              <i class="menu-icon fa fa-caret-right"></i>Configure Parameters
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_HMIDesigner" style="display:none;">
+            <a href=""  onclick="window.open('/viewer')">
+              <i class="menu-icon fa fa-caret-right"></i>HMI Designer
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_Trends" style="display:none;">
+            <a href="" onclick="window.open('/TrendsView')">
+              <i class="menu-icon fa fa-caret-right"></i>Trends
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_ExceltoTableCreation" style="display:none;">
+            <a  href="" onclick="window.open('/ExceltoTableList')">
+              <i class="menu-icon fa fa-caret-right"></i>Excel to Table Creation
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_TabularReportDesigner"style="display:none;">
+            <a href=""  onclick="window.open('/Reporting')">
+              <i class="menu-icon fa fa-caret-right"></i>Tabular Report Designer
+            </a>
+            <b class="arrow"></b>
+          </li>
+        </ul>
+        <div style="display: none; height: 199px; top: -176px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="height: 138px; top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div style="display: none; height: 199px; top: 1px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="height: 138px; top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div style="display: none; height: 199px; top: 1px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="height: 138px; top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div style="display: none; height: 199px; top: -176px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="height: 138px; top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div style="display: none; top: 1px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="top: 0px;" class="scroll-bar"></div>
+        </div>
+      </li>
+      <li class="hover liclass" id="TopMenu_SideMenuConfig" style="display:none;">
+        <a href="#SideMenu">
+          <i class="menu-icon fa fa-caret-right"></i>SideMenuConfig
+        </a>
+        <b class="arrow"></b>
+      </li>
+    </ul>
+    <div style="display: none; top: 42px; left: 183px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+  </li>
+  <li class="hover liclass" id="TopMenu_ConditionMonitoring" style="display:none;">
+    <a href="##">
+      <i class="menu-icon fa fa-desktop"></i>
+      <span class="menu-text">Condition Monitoring</span>
+    </a>
+    <b class="arrow"></b>
+    <ul style="" class="submenu can-scroll ace-scroll scroll-disabled">
+      <li class="hover liclass" id="TopMenu_ManageLocations" style="display:none;">
+        <a href="#ManageLocations">
+          <i class="menu-icon fa fa-caret-right"></i>Manage Locations
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_ManageAssets" style="display:none;">
+        <a href="#ManageAssets">
+          <i class="menu-icon fa fa-caret-right"></i>Manage Assets
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_ManageMeters" style="display:none;">
+        <a href="#ManageMeters">
+          <i class="menu-icon fa fa-caret-right"></i>Manage Meters
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_RuleEngine" style="display:none;">
+        <a href="#RuleEngineList">
+          <i class="menu-icon fa fa-caret-right"></i>Rule Engine
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_VirtualTags" style="display:none;">
+        <a href="#Virtualtagslist">
+          <i class="menu-icon fa fa-caret-right"></i>Virtual Tags
+        </a>
+        <b class="arrow"></b>
+      </li>
+    </ul>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 42px; left: 183px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+  </li>
+  <li class="hover liclass" id="TopMenu_Masters" style="display:none;">
+    <a href="##">
+      <i class="menu-icon fa fa-pencil-square-o"></i>
+      <span class="menu-text">Masters</span>
+    </a>
+    <b class="arrow"></b>
+    <ul class="submenu can-scroll ace-scroll scroll-disabled">
+      <div style="display: none;" class="scroll-track">
+        <div style="top: 0px;" class="scroll-bar"></div>
+      </div>
+      <li id="TopMenu_Asset" class="hover liclass" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Asset
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li id="TopMenu_AssetType" class="hover liclass" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Asset Type
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li id="TopMenu_UOM" class="hover liclass" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>UOM
+        </a>
+        <b class="arrow"></b>
+        <ul class="submenu can-scroll ace-scroll scroll-disabled" style="">
+          <div style="display: none; top: 1px; left: 374px;" class="scroll-track">
+            <div style="top: 0px;" class="scroll-bar"></div>
+          </div>
+
+
+          <li id="TopMenu_Length" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Length
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_Weight" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Weight
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_Light" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Light
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_Power" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Power
+            </a>
+            <b class="arrow"></b>
+          </li>
+
+
+
+        </ul>
+        <div style="display: none; top: 1px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible" style="display: none; top: 1px; left: 372px;">
+          <div class="scroll-bar" style="top: 0px;"></div>
+        </div>
+      </li>
+      <li id="TopMenu_Location" class="hover liclass" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Location
+        </a>
+        <b class="arrow"></b>
+        <ul class="submenu can-scroll ace-scroll scroll-disabled" style="">
+          <div style="display: none; top: 1px; left: 374px;" class="scroll-track">
+            <div style="top: 0px;" class="scroll-bar"></div>
+          </div>
+
+          <li id="TopMenu_Country" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Country
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_State" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>State
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_City" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>City
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_Zipcode" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Zipcode
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li id="TopMenu_Locationtype" class="hover liclass" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Location type
+            </a>
+            <b class="arrow"></b>
+          </li>
+
+        </ul>
+        <div class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible" style="display: none; top: 1px; left: 372px;">
+          <div class="scroll-bar" style="top: 0px;"></div>
+        </div>
+      </li>
+      <li class="hover liclass pull_up" id="TopMenu_Organization" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Organization
+        </a>
+        <b class="arrow"></b>
+        <ul style="top: -71px;" class="submenu can-scroll ace-scroll scroll-disabled">
+          <li class="hover liclass" id="TopMenu_WorkLocationtype" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Work Location type
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_BusinessType" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Business Type
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_Departments" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Departments
+            </a>
+            <b class="arrow"></b>
+          </li>
+          <li class="hover liclass" id="TopMenu_Designation" style="display:none;">
+            <a href="##">
+              <i class="menu-icon fa fa-caret-right"></i>Designation
+            </a>
+            <b class="arrow"></b>
+          </li>
+        </ul>
+        <div style="display: none; top: -70px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div style="display: none; top: 1px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="top: 0px;" class="scroll-bar"></div>
+        </div>
+        <div style="display: none; top: 1px; left: 368px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+          <div style="top: 0px;" class="scroll-bar"></div>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li class="hover liclass" id="TopMenu_Admin" style="display:none;">
+    <a href="##">
+      <i class="menu-icon fa fa-tag"></i>
+      <span class="menu-text">Admin</span>
+    </a>
+    <b class="arrow"></b>
+    <ul style="" class="submenu can-scroll ace-scroll scroll-disabled">
+      <li class="hover liclass" id="TopMenu_User" style="display:none;">
+        <a href="#UserFormList">
+          <i class="menu-icon fa fa-caret-right"></i>User
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_RoleBasedFormAccessList" style="display:none;">
+        <a href="#RoleBasedFormAccessList">
+          <i class="menu-icon fa fa-caret-right"></i>Roles
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_PasswordPolicy" style="display:none;">
+        <a href="#PasswordPolicyList">
+          <i class="menu-icon fa fa-caret-right"></i>Password Policy
+        </a>
+        <b class="arrow"></b>
+      </li>
+    </ul>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 42px; left: 183px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+  </li>
+  <li class="hover liclass" id="TopMenu_Employee" style="display:none;">
+    <a href="#">
+      <i class="menu-icon fa fa-user"></i>
+      <span class="menu-text">Employee</span>
+    </a>
+    <b class="arrow"></b>
+    <ul style="" class="submenu can-scroll ace-scroll scroll-disabled">
+      <li class="hover liclass" id="EmployeeList" style="display:none;">
+        <a href="#EmployeeList">
+          <i class="menu-icon fa fa-caret-right"></i>Employee
+        </a>
+        <b class="arrow"></b>
+      </li>
+    </ul>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+  </li>
+  <li class="hover liclass" id="TopMenu_Inspections" style="display:none;">
+    <a href="##">
+      <i class="menu-icon fa fa-file-text-o"></i>
+      <span class="menu-text">Inspections</span>
+    </a>
+    <b class="arrow"></b>
+    <ul style="" class="submenu can-scroll ace-scroll scroll-disabled">
+      <li class="hover liclass" id="TopMenu_AssetConfiguration" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Asset Configuration
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_AssignInspection" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Assign Inspection
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_ScheduleInspection" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Schedule Inspection
+        </a>
+        <b class="arrow"></b>
+      </li>
+    </ul>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 42px; left: 183px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+  </li>
+  <li class="hover liclass" id="TopMenu_Reports" style="display:none;">
+    <a href="##">
+      <i class="menu-icon fa fa-tachometer"></i>
+      <span class="menu-text">Reports</span>
+    </a>
+    <b class="arrow"></b>
+    <ul style="" class="submenu can-scroll ace-scroll scroll-disabled">
+      <li class="hover liclass" id="TopMenu_Conditionmonitoring" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Condition monitoring
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_Inspections" style="display:none;">
+        <a href="##">
+          <i class="menu-icon fa fa-caret-right"></i>Inspections
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_GeneralDashboards" style="display:none;">
+        <a href="" onclick="window.open('/ViewReports')">
+          <i class="menu-icon fa fa-caret-right"></i>General Dashboards
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="hover liclass" id="TopMenu_Userloginreport" style="display:none;">
+        <a href="#">
+          <i class="menu-icon fa fa-caret-right"></i>User login report
+        </a>
+        <b class="arrow"></b>
+      </li>
+    </ul>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+    <div style="display: none; top: 1px; left: 185px;" class="scroll-track scroll-detached no-track scroll-thin scroll-margin scroll-visible">
+      <div style="top: 0px;" class="scroll-bar"></div>
+    </div>
+  </li>
+</ul>
+<!-- /.nav-list -->

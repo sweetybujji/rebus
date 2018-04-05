@@ -1,0 +1,311 @@
+﻿/*#region Toggled buttons*/
+button.toggled {
+    color: cornflowerblue;
+}
+
+    button.toggled:hover {
+        color: #9BF !important;
+    }
+
+#SortByContainer {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#SortByContainer .sortByReverseButton{
+    padding-left: 0px;
+}
+
+.customCheckbox {
+    overflow: hidden;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 16px !important;
+    height: 16px !important;
+    color: black;
+    font-size: 14px;
+    line-height: 14px !important;
+    border: 1px solid #CCC;
+    background-color: white;
+    cursor: default;
+}
+    .customCheckbox:hover {
+        border: 1px solid cornflowerblue !important;
+    }
+    .customCheckbox:not(.checked) {
+        color: transparent;
+    }
+/*#endregion*/
+
+/*#region Explorer on ANY View Mode*/
+#Explorer #ExplorerHeader > .customCheckbox {
+    float: left;
+}
+
+
+#Explorer #ItemsContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#Explorer #ItemsContainer .mCSB_container {
+    margin: 0;
+}
+
+#Explorer #ItemsContainer .explorer-group .explorer-item {
+    position: relative;
+}
+
+#Explorer #ItemsContainer .explorer-group .explorer-item .processingOverlay {
+    /*background-color: rgba(128, 128, 128, 0.5);*/
+    display: block;
+}
+/*#endregion*/
+
+
+/*#region Explorer on ICONS View Mode*/
+#Explorer.icons #ItemsContainer {
+    /*padding: 20px;*/
+}
+
+#Explorer.icons #ItemsContainer .explorer-groups {
+    margin: 20px;
+}
+
+#Explorer.icons #ItemsContainer .explorer-group .explorer-item {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 160px;
+    height: 160px;
+    border: 1px solid rgba(0,0,0,.2);
+    background: white;
+    -webkit-box-shadow: 0 0 5px 0px rgba(0,0,0,.2);
+    box-shadow: 0 0 5px 0px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+#Explorer.icons #ItemsContainer .explorer-group .explorer-item:hover {
+    z-index: 10;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    box-shadow: 0 0 10px rgba(0,0,0,.4);
+    cursor: pointer;
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -moz-transition: all .13s ease-out;
+    -o-transition: all .13s ease-out;
+    -webkit-transition: all .13s ease-out;
+    transition: all .13s ease-out;
+}
+
+#Explorer.icons #ItemsContainer .explorer-group .explorer-item .customCheckbox {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    z-index: 2;
+}
+
+#Explorer.icons #ItemsContainer .explorer-group .explorer-item .customCheckbox.checked {
+    -webkit-text-shadow: 0px 0px 5px white;
+    text-shadow: 0px 0px 5px white;
+}
+
+#Explorer.icons #ItemsContainer .explorer-group .explorer-item:not(:hover) .customCheckbox {
+    border: none;
+    background-color: transparent;
+}
+
+#Explorer.icons #ItemsContainer .explorer-group .explorer-item.selected {
+    border-color: rgb(73,155,234);
+}
+
+#Explorer.icons #ItemsContainer .explorer-group #NewItem i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 95px;
+    height: 95px;
+    color: #DDD;
+    text-align: center;
+    font-size: 70pt;
+}
+/*#endregion*/
+
+
+/*#region Explorer on DETAILS View Mode */
+#Explorer.details {
+    margin: 10px;
+    border-radius: 5px;
+    background: whitesmoke;
+}
+
+#Explorer.details #ItemsContainer {
+    top: 35px;
+    border-top: 1px solid #DDD;
+}
+
+#Explorer.details #ItemsContainer .explorer-group > ul {
+    position: relative;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item {
+    display: block;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 20px 5px 5px;
+    height: 50px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    cursor: pointer;
+    -moz-transition: background-color linear 0.1s;
+    -o-transition: background-color linear 0.1s;
+    -webkit-transition: background-color linear 0.1s;
+    transition: background-color linear 0.1s;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .customCheckbox {
+    float: left;
+    margin: 11px 5px;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:last-child {
+    border-bottom: none;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item.selected {
+    background: -moz-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+    background: -ms-linear-gradient(top, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: -o-linear-gradient(top, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(73,155,234,1)), color-stop(100%,rgba(32,124,229,1)));
+    background: -webkit-linear-gradient(top, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: linear-gradient(to bottom, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: rgb(73,155,234);
+    color: whitesmoke;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 );
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:not(.selected):hover {
+    background-color: #EEE;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item > * {
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .itemActions {
+    float: right;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .itemActions button {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 14pt;
+    -moz-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    -webkit-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:not(:hover) .itemActions  {
+    display: none;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:not(:hover) .itemActions > *:not(.toggled) {
+    opacity: 0;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:hover .itemActions button:disabled {
+    opacity: 0.20;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:hover .itemActions button:not(.toggled):not(:disabled) {
+    opacity: 0.60;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .itemActions .separator {
+    margin: 10px 5px 0px 5px;
+    height: 20px;
+    border-left: 1px solid #ddd;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item:hover .itemActions button:not(:hover):not(:disabled):not(.toggled) {
+    opacity: 0.80;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .itemActions button:hover:not(:disabled) {
+    opacity: 1;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item.selected:hover .itemActions .separator {
+    border-left: 1px solid #AAA;
+    opacity: 0.5;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item.selected .itemActions button {
+    color: white;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item.selected .itemActions button:hover:not(:disabled):not(.toggle) {
+    -webkit-box-shadow: 0 0 3px white;
+    box-shadow: 0 0 3px white;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item.selected .itemActions .toggled {
+    color: #ff7 !important;
+}
+
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .explorer-cell {
+    float: right;
+    display: inline-block;
+    margin-left: 10px;
+    min-width: 120px;
+    width: 10%;
+    min-height: 1px;
+    color: gray;
+    text-align: center;
+    overflow: hidden;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item.selected .explorer-cell {
+    color: #DDD;
+}
+#Explorer.details #ItemsContainer .explorer-group .explorer-item .explorer-cell > .explorer-cell-info {
+    line-height: 20px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+#Explorer.details #ItemsContainer .explorer-group #NewItem i {
+    margin: 0 55px 0 35px;
+    color: #DDD;
+    text-align: center;
+    font-size: 32pt;
+}
+#Explorer.details #ItemsContainer #NewItem {
+    background-color: #EEE;
+}
+#Explorer.details #ItemsContainer #NewItem:hover {
+    background-color: #DDD !important;
+}
+#Explorer.details #ItemsContainer #NewItem i {
+    color: #CCC !important;
+}
+#Explorer.details #ItemsContainer #NewItem:hover i {
+    color: #BBB !important;
+}
+/*#endregion*/
+
+/* Virtual Scrolling tooltip positioning */
+.InfoBalloon {
+    right: 20px;
+    bottom: 10px;
+}

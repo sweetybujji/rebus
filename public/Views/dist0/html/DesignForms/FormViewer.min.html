@@ -1,0 +1,936 @@
+<html lang="en">
+<head>
+    <!--
+    <link href="~/bootstrap/css/datepicker.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/stylesheets/Formviewer.css" rel="stylesheet" />
+-->
+    <!--@Scripts.Render("~/bundles/bi")-->
+    <!--<script src="~/Scripts/LogSheetScripts/FormViewer.js"></script>-->
+    <!--<script src="stylesheets/stylesheets/jquery.dataTables.min.js"></script>-->
+    <!--<script type="text/javascript" src="~/bootstrap/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap-datetimepicker.min.js"></script>
+-->
+    <title>Form Viewer</title>
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.select.min.js"></script>
+    <link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet">
+
+
+    <!-- <link href="stylesheets/Formviewer.css" rel="stylesheet" />-->
+    <script type="text/javascript" src="Scripts/moment.js"></script>
+
+    <script type="text/javascript" src="Scripts/bootstrap-datepicker.js"></script>
+    <script src="Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="Scripts/bootstrap-datetimepicker.min.css">
+    <!--<link href="stylesheets/Formviewer.css" rel="stylesheet" />-->
+
+    <script type="text/javascript" src="Scripts/AppScripts/DesignForms/LogSheetScripts/FormViewer.js"></script>
+
+    <script src="../Scripts/AppScripts/Microflow/Microflow.js" type="text/javascript"></script>
+
+
+
+    <style type="text/css">
+        .info {
+            display: inline-block;
+            clear: both;
+            margin: 0 0 5px 0;
+            /*padding: 1% 1% 1.1em 1%;*/
+            border-bottom: 1px dotted #ccc;
+            text-align: center;
+        }
+
+            .info[class] {
+                display: block;
+                background-color: #00477e;
+                color: white;
+            }
+
+        .hideHeader .info, #payment.hideHeader li.first {
+            display: none;
+        }
+
+        .info h2 {
+            font-weight: normal;
+            font-size: 160%;
+            margin: 0 0 5px 0;
+            clear: left;
+        }
+
+        .info div {
+            font-size: 95%;
+            line-height: 135%;
+            color: white;
+        }
+
+
+        .embed #container {
+            width: 100% !important;
+            border: none !important;
+            background: transparent;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            -o-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+
+        .cover {
+            height: 490px;
+            overflow: auto;
+        }
+
+        .selectedwidget {
+            border: none;
+        }
+
+        span.symbol {
+            font-size: 120%;
+            line-height: 135%;
+            float: left;
+        }
+
+        .navbar-default {
+            /*background-image: linear-gradient(to bottom, black 0px, black 100%);*/
+            background-repeat: repeat-x;
+        }
+
+            .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+                background-color: #234e96; /*color: #555;*/
+            }
+
+        footer {
+            background-color: black;
+            border-radius: 0;
+            bottom: 0;
+            color: #fff !important;
+            height: 50px;
+            left: 0;
+            min-height: 24px;
+            padding: 10px 20px;
+            position: fixed;
+            right: 0;
+            z-index: 2000;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul, ol {
+            margin-left: 2px !important;
+        }
+
+        .select {
+            overflow: auto;
+        }
+
+        .chosen-container .chosen-results li {
+            margin: 0 7px 0 0 !important;
+        }
+    </style>
+</head>
+<body style="background-color: #a2a7ad;">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Home</a>
+            </li>
+            <li class="active">Form</li>
+        </ul>
+        <!-- /.breadcrumb -->
+
+        <div class="nav-search" id="nav-search">
+        </div>
+        <!-- /.nav-search -->
+    </div>
+    <div class="ltr col-sm-12" id="container">
+        <header class="info" id="header" style="">
+            <!--<label style="font-size: 20px; font-weight: bold;">BMRCL</label>-->
+            <h2 id="LogSheetHeader">
+                <!-- <span class="label label-info arrowed arrowed-in-right" style="float: left; cursor: pointer; margin-top: -20px; margin-left: 15px;" onclick="BackToPage();"><b>Back</b></span>
+                <label id="LogSheetHeader" style="font-size: 18px; font-weight: bold; margin: 2px -15px 3px -23px;">
+                </label>
+                <span onclick="fn_Logout()" class=" label label-primary arrowed-in arrowed-right" style="float: right; cursor: pointer; margin-right: 14px; font-size: 11px; margin-top: -20px; line-height: 1; padding: 4px 5px 0px 8px; background-color: rgb(58, 135, 173); font-weight: bold;">
+                   
+                    Logout
+                </span>-->
+            </h2>
+            <input type="text" style="display: none" id="_tagid">
+            <input type="text" style="display: none" id="txt_KeyId">
+            <input type="text" style="display: none" id="txt_KeyValue">
+            <input type="text" style="display: none" id="txt_TableName">
+            <div></div>
+        </header>
+        <div id="formview" class="widget-body cover">
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- DataTableAddEditModel -->
+    <div class="modal fade" id="DataTableAddEditModel" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: White;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;</button>
+                    <h4 class="modal-title" id="DataTableAddEditModelHeader"></h4>
+                    <input type="text" style="display: none;" id="DataTableHTMLID">
+                    <input type="text" style="display: none;" id="SelectEntity">
+                    <input type="text" style="display: none;" id="DataSourceType">
+                    <input type="text" style="display: none;" id="Operation">
+                </div>
+                <div class="modal-body" style="background-color: White;">
+                </div>
+                <div class="modal-footer" style="background-color: White;">
+                    <button type="button" class="btn btn-primary" id="DataTableModelSave" onclick="SaveTheDataToDatabase()">
+                        Save</button>
+                    <button type="button" class="btn btn-warning" id="DataTableModelDelete" onclick="DeleteTheRowFromDataBase()">
+                        Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="DataTableAddEditModel2" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: White;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;</button>
+                    <h4 class="modal-title" id="DataTableAddEditModelHeader2"></h4>
+                    <input type="text" style="display: none;" id="DataTableHTMLID2">
+                    <input type="text" id="SelectEntity2" style="display: none;">
+                    <input type="text" style="display: none;" id="DataSourceType2">
+                    <input type="text" id="tblcol" style="display: none;">
+                    <input type="text" id="row_data" style="display: none;">
+                    <input type="text" id="Operation2" style="display: none;">
+                    <input type="text" id="data_type" style="display: none;">
+                </div>
+                <div class="modal-body" style="background-color: White;">
+                </div>
+                <div class="modal-footer" style="background-color: White;">
+                    <button type="button" class="btn btn-primary" id="DataTableModelSave2" onclick="SaveTheDataToDatabase2()">
+                        Save</button>
+                    <button type="button" class="btn btn-warning" id="DataTableModelDelete2" onclick="DeleteTheDataFromDataBase2()">
+                        Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function OpenDataTableAddEditModel(TableId, Operation) {
+        try {
+
+            if (Operation == 0) {
+
+                $("#DataTableAddEditModelHeader").text("Add New Model");
+
+                TableId = TableId.replace('btn-add-', 'tbl_');
+
+                $("#SelectEntity").val($("#" + TableId + "").attr("selectentity"));
+                $("#DataSourceType").val($("#" + TableId + "").attr("datasourcetype"));
+                $("#Operation").val(Operation);
+
+                var ColumnsNames = new Array();
+                $("#DataTableHTMLID").val(TableId);
+                var FormHtml = "<table style='width:90%;'>";
+                $("#" + TableId + " thead tr").find('th').each(function () {
+                    FormHtml += "<tr input-id='Form_" + ($(this).attr('col-id')) + "' col-id='" + ($(this).attr('col-id')) + "' col-type='" + ($(this).attr('col-type')) + "' ><td style='width:50%;text-align:right;padding:5px;'><label class='desc' >" + ($(this).text()) + " : </label></td><td style='width:50%;padding:10px;'><input type='text' id='Form_" + ($(this).attr('col-id')) + "' class='form-control input' /></td></tr>";
+                });
+                FormHtml += "</table>"
+
+                $('#DataTableAddEditModel .modal-body').empty();
+                $('#DataTableAddEditModel .modal-body').append(FormHtml);
+
+                $("#DataTableModelDelete").hide();
+
+            }
+            else if (Operation == 1) {
+                RowID = TableId;
+
+                TableId = "tbl_" + (TableId.split('_'))[1];
+                $("#DataTableAddEditModelHeader").text("Edit Model");
+                //TableId = TableId.replace('tr-edit-', 'tbl_');
+
+                $("#SelectEntity").val($("#" + TableId + "").attr("selectentity"));
+                $("#DataSourceType").val($("#" + TableId + "").attr("datasourcetype"));
+                $("#Operation").val(Operation);
+                var ColumnsNames = new Array();
+                var FormHtml = "<table style='width:90%;'>";
+                $("#DataTableHTMLID").val(TableId);
+                var i = 1;
+                $("#" + TableId + " thead tr").find('th').each(function () {
+                    FormHtml += "<tr input-id='Form_" + ($(this).attr('col-id')) + "' col-id='" + ($(this).attr('col-id')) + "' col-type='" + ($(this).attr('col-type')) + "' ><td style='width:50%;text-align:right;padding:5px;'><label class='desc'>" + ($(this).text()) + " : </label></td><td style='width:50%;padding:10px;'><input type='text' id='Form_" + ($(this).attr('col-id')) + "' class='form-control input' value='" + ($("#" + RowID + "").find("td:nth-child(" + i + ")").html()) + "' /></td></tr>";
+                    i = i + 1;
+                });
+
+                FormHtml += "</table>"
+                $('#DataTableAddEditModel .modal-body').empty();
+                $('#DataTableAddEditModel .modal-body').append(FormHtml);
+                $("#DataTableModelDelete").show();
+            }
+
+            $('#DataTableAddEditModel').modal('show');
+        }
+        catch (e) {
+            alert("Error : DataTableAddEditModel : " + e);
+        }
+    }
+
+
+    function SaveTheDataToDatabase() {
+        try {
+
+            var SelectEntity = $("#SelectEntity").val();
+            var DataSourceType = $("#DataSourceType").val();
+            var Operation = $("#Operation").val();
+
+            var FormData = new Array();
+
+            $("#DataTableAddEditModel table tbody").find('tr').each(function () {
+
+                //alert($(this).attr('col-id'));
+                //alert($(this).attr('col-type'));
+                //alert($(this).attr('input-id'));
+                //alert($("#" + ($(this).attr('input-id')) + "").val());
+
+                var Key = ($(this).attr('col-id'));
+                var Type = $(this).attr('col-type');
+                var Value = ($("#" + ($(this).attr('input-id')) + "").val());
+
+                FormData.push({
+                    Key: Key,
+                    Type: Type,
+                    Value: Value
+                });
+            });
+
+            FormData = JSON.stringify({
+                SelectEntity: SelectEntity,
+                DataSourceType: DataSourceType,
+                Operation: Operation,
+                FormData: FormData
+            });
+
+            $.ajax({
+                url: "../SaveDataIntoTable",
+                type: "POST",
+                contentType: "application/json",
+                data: FormData,
+                success: function (data) {
+                    if (data == true) {
+                        alert("Successfully saved the data");
+                    }
+                    else if (data == false) {
+                        alert("Error Occurred.\nPlease try again");
+                    }
+                    var DataTableHTMLID = $("#DataTableHTMLID").val();
+                    ReloadDataTable(DataTableHTMLID);
+                    $('#DataTableAddEditModel').modal('hide');
+                }
+            });
+        }
+        catch (e) {
+            alert("Error : SaveTheDataToDatabase : " + e);
+        }
+    }
+
+
+    function DeleteTheRowFromDataBase() {
+        try {
+
+            if (confirm("Are You Sure?")) {
+            }
+            else {
+                return;
+            }
+
+
+            var SelectEntity = $("#SelectEntity").val();
+            var DataSourceType = $("#DataSourceType").val();
+            var Operation = $("#Operation").val();
+
+            var FormData = new Array();
+
+            $("#DataTableAddEditModel table tbody").find('tr').each(function () {
+
+                var Key = (($(this).text()).replace(':', '')).trim();
+                var Value = $("#Form_" + (($(this).text()).replace(':', '')).trim() + "").val();
+
+                FormData.push({
+                    Key: Key,
+                    Value: Value
+                });
+
+            });
+
+            FormData = JSON.stringify({
+                SelectEntity: SelectEntity,
+                DataSourceType: DataSourceType,
+                IdColumnName: 'tagid',
+                IdColumnValue: $("#Form_tagid").val()
+            });
+
+            $.ajax({
+                url: "../DeleteTheRowFromDataBase",
+                type: "POST",
+                contentType: "application/json",
+                data: FormData,
+                success: function (data) {
+                    if (data == true) {
+                        alert("Successfully deleted the data");
+                        var DataTableHTMLID = $("#DataTableHTMLID").val();
+                        ReloadDataTable(DataTableHTMLID);
+                        $('#DataTableAddEditModel').modal('hide');
+                    }
+                    else if (data == false) {
+                        alert("Error Occurred.\nPlease try again");
+                    }
+                }
+            });
+        }
+        catch (e) {
+            alert("Error : SaveTheDataToDatabase : " + e);
+        }
+    }
+
+
+    function ReloadDataTable(TableIdentity) {
+
+        try {
+            var TableInfo = JSON.stringify({
+                "tblname": $("#" + TableIdentity + "").attr("selectentity")
+            });
+
+            $.ajax({
+                //url: "../tbldata",
+                url: "../GetTheDataInTable",
+                type: "POST",
+                contentType: "application/json",
+                data: TableInfo,
+                success: function (data) {
+                    $("#" + TableIdentity + "").dataTable().fnDestroy();
+
+                    $("#" + TableIdentity + " thead").empty();
+                    $("#" + TableIdentity + " tfoot").empty();
+                    $("#" + TableIdentity + " tbody").empty();
+
+                    //var ColumnData = data.columns;
+                    var ColumnData = data["0"]["ColumnData"]
+
+                    var Theadhtml = "<tr>";
+                    for (var i = 0; i < ColumnData.length; i++) {
+                        //Theadhtml += '<th>' + ColumnData[i].name + '</th>';
+                        Theadhtml += "<th col-id='" + ColumnData[i].columnid + "' col-type='" + ColumnData[i].col_datatype + "' >" + ColumnData[i].columnname + "</th>";
+                    }
+                    Theadhtml += "</tr>";
+                    //$("#" + TableIdentity + " thead").empty();
+                    $("#" + TableIdentity + " thead").append(Theadhtml);
+                    $("#" + TableIdentity + " tfoot").append(Theadhtml);
+
+                    //alert("Check 2");
+
+                    //var RowsData = data.rows;
+                    var RowsData = data["0"]["RowsData"];
+
+                    var THeadHtml = "";
+                    var TRId = TableIdentity.replace('tbl_', '');
+                    for (var i = 0; i < RowsData.length; i++) {
+                        //THeadHtml += "<tr style='cursor:pointer;' id='tr-" + i + "_" + TRId + "' onclick='OpenDataTableAddEditModel(this.id,1)'>";
+                        THeadHtml += "<tr style='cursor:pointer;' id='tr-" + i + "_" + TRId + "' onclick='OpenDataTableAddEditModel(this,1)'>";
+                        for (var j = 0; j < ColumnData.length; j++) {
+                            //THeadHtml += "<td>" + RowsData[i]["" + ColumnData[j].name + ""] + "</td>";
+                            THeadHtml += "<td col-id='" + ColumnData[j].columnid + "' col-type='" + ColumnData[j].col_datatype + "' >" + RowsData[i]["" + ColumnData[j].columnid + ""] + "</td>";
+                        }
+                        THeadHtml += "</tr>";
+                    }
+
+                    $("#" + TableIdentity + " tbody").append(THeadHtml);
+
+
+                    $("#" + TableIdentity + "").dataTable({
+                        "bdestroy": true,
+                        "aaSorting": [],
+                        //Filter Code Start
+
+                        initComplete: function () {
+                            this.api().columns().every(function () {
+                                var column = this;
+                                var select = $('<select><option value=""></option></select>')
+                    .appendTo($(column.footer()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                    $(this).val()
+                    );
+
+                        column
+                    .search(val ? '^' + val + '$' : '', true, false)
+                    .draw();
+                    });
+
+                                column.data().unique().sort().each(function (d, j) {
+                                    select.append('<option value="' + d + '">' + d + '</option>')
+                                });
+                            });
+                        }
+
+                        //Filter Code Ends
+                    });
+
+
+                }
+
+            });
+
+        }
+        catch (e) {
+            alert("Error : ReloadDataTable : " + e);
+        }
+
+    }
+
+
+    function OpenDataTableAddEditModellist(TableId, Operation) {
+        try {
+
+            if (Operation == 0) {
+
+                $("#DataTableAddEditModelHeader2").text("Add New Model");
+
+                TableId = TableId.replace('btn-add-', 'tbl_');
+                //alert(TableId);
+                $("#SelectEntity2").val($("#" + TableId + "").attr("tbl-name"));
+                $("#DataSourceType2").val($("#" + TableId + "").attr("datasourcetype"));
+                $("#Operation2").val(Operation);
+                $("#tblcol").val($("#" + TableId + "").attr("tblid"));
+
+
+                var ColumnsNames = new Array();
+                $("#DataTableHTMLID2").val(TableId);
+                var FormHtml = "<table style='width:90%;'>";
+                $("#" + TableId + " thead tr").find('th').each(function () {
+                    FormHtml += "<tr tabid=" + ($(this).attr("tblid")) + " d-type=" + ($(this).attr("data_type")) + "><td style='width:50%;text-align:right;padding:5px;'><label class='desc'>" + ($(this).text()) + " : </label></td><td style='width:50%;padding:10px;'><input type='text' id='Form_" + ($(this).text()) + "' class='form-control input' /></td></tr>";
+                });
+                FormHtml += "</table>"
+
+
+                $('#DataTableAddEditModel2 .modal-body').empty();
+                $('#DataTableAddEditModel2 .modal-body').append(FormHtml);
+
+                $("#DataTableModelDelete2").hide();
+
+            }
+            else if (Operation == 1) {
+
+                RowID = TableId;
+
+                TableId = "tbl_" + (TableId.split('_'))[1];
+                $("#DataTableAddEditModelHeader2").text("Edit Model");
+                //TableId = TableId.replace('tr-edit-', 'tbl_');
+
+                $("#SelectEntity2").val($("#" + TableId + "").attr("tbl-name"));
+                $("#data_type").val($("#" + TableId + " tr th").attr("data_type"))
+                $("#tblcol").val($("#" + TableId + " tr th").attr("tblid"));
+                $("#DataSourceType2").val($("#" + TableId + "").attr("datasourcetype"));
+                $("#Operation2").val(Operation);
+
+                ;
+
+
+                var tblmyname = $("#" + TableId + "").attr("tbl-name");
+
+                // alert(tblmyname);
+                var mydata4 = JSON.stringify({
+                    "tblmyname": tblmyname
+                });
+                //$.ajax({
+                //    url: "../getprimarykey",
+                //    type: "POST",
+                //    contentType: "application/json",
+                //    data: mydata4,
+                //    success: function (data) {
+
+                //        var row_data = data.rows;
+
+                //        var myrow_data = row_data[0].column_name;
+
+                //        $("#tblcol").val(myrow_data);
+
+
+
+                //    }
+
+                //});
+
+
+
+
+                var ColumnsNames = new Array();
+                var FormHtml = "<table style='width:90%;'>";
+                $("#DataTableHTMLID2").val(TableId);
+                var i = 1;
+                $("#" + TableId + " thead tr").find('th').each(function () {
+                    FormHtml += "<tr tabid=" + ($(this).attr("tblid")) + " d-type=" + ($(this).attr("data_type")) + "><td style='width:50%;text-align:right;padding:5px;'><label class='desc'>" + ($(this).text()) + " : </label></td><td style='width:50%;padding:10px;'><input type='text' id='Form_" + ($(this).text()) + "' class='form-control input' value='" + ($("#" + RowID + "").find("td:nth-child(" + i + ")").html()) + "' /></td></tr>";
+                    i = i + 1;
+                });
+
+                FormHtml += "</table>"
+
+
+
+                ////var primaykey_value = '';
+                //$('#' + TableId).on('click', 'tr', function () {
+
+                //    var td = this.cells[0];
+
+                //   // var th = this.cells[0];
+                //    // the first <td>
+                ////  //  primaykey_value = $(td).text();
+                // $("#row_data").val($(td).text());
+
+                // //$("#data_type").val($(th).attr("data_type"));
+                //});
+
+                $('#' + TableId).on('click', 'tr', function () {
+
+                    var td = this.cells[0];  // the first <td>
+                    //    //  //  primaykey_value = $(td).text();
+                    $("#row_data").val($(td).text());
+
+                });
+
+                $('#DataTableAddEditModel2 .modal-body').empty();
+                $('#DataTableAddEditModel2 .modal-body').append(FormHtml);
+                $("#DataTableModelDelete2").show();
+            }
+
+            $('#DataTableAddEditModel2').modal('show');
+        }
+        catch (e) {
+            alert("Error : DataTableAddEditModel2 : " + e);
+        }
+    }
+
+
+    function SaveTheDataToDatabase2() {
+        try {
+            // $("#tblcol").val($("#" + TableId + "").attr("tblid"));
+            var SelectEntity = $("#SelectEntity2").val();
+
+            var Operation = $("#Operation2").val();
+            var th_name = $("#tblcol").val();
+            var td_name = $("#row_data").val();
+
+            var data_type = $("#data_type").val();
+            var FormData = new Array();
+            var FormData2 = new Array();
+            var query = "update " + SelectEntity + " set ";
+            // var whereclause = "";
+
+            $("#DataTableAddEditModel2 table tbody").find('tr').each(function () {
+
+                var Key = (($(this).attr("tabid")).replace(':', '')).trim();
+                var Value = $("#Form_" + (($(this).text()).replace(':', '')).trim() + "").val();
+
+                FormData.push({
+                    Key: Key,
+                    Value: Value
+                });
+
+
+
+                // query += Key + "=" + Value + ",";
+
+
+            });
+
+            $("#DataTableAddEditModel2 table tbody").find('tr').each(function () {
+
+                var data_type = (($(this).attr("d-type")).replace(':', '')).trim();
+                //var Value = $("#Form_" + (($(this).text()).replace(':', '')).trim() + "").val();
+
+                FormData2.push({
+                    data_type: data_type
+
+                });
+
+
+            });
+
+
+            FormData = JSON.stringify({
+                SelectEntity: SelectEntity,
+                th_name: th_name,
+                td_name: td_name,
+                Operation: Operation,
+                FormData: FormData,
+                FormData2: FormData2
+            });
+
+            //   alert(FormData);
+
+            $.ajax({
+                url: "../SaveDataIntoTablelist",
+                type: "POST",
+                contentType: "application/json",
+                data: FormData,
+                success: function (data) {
+                    if (data == true) {
+                        alert("Successfully saved the data");
+                    }
+                    else if (data == false) {
+                        alert("Error Occurred.\nPlease try again");
+                    }
+                    var DataTableHTMLID = $("#DataTableHTMLID2").val();
+                    ReloadDataTable2(DataTableHTMLID);
+                    $('#DataTableAddEditModel2').modal('hide');
+                }
+            });
+        }
+        catch (e) {
+            alert("Error : SaveTheDataToDatabase : " + e);
+        }
+    }
+
+
+    function DeleteTheDataFromDataBase2() {
+        try {
+
+            var Model = "DataTableAddEditModel2";
+
+            var SelectEntity = $("#SelectEntity2").val();
+            var DataSourceType = $("#DataSourceType2").val();
+            var Operation = $("#Operation2").val();
+            var th_name = $("#tblcol").val();
+
+            var td_name = $("#row_data").val();
+            var FormData = new Array();
+            var FormData2 = new Array();
+            $("#DataTableAddEditModel2 table tbody").find('tr').each(function () {
+
+                var Key = (($(this).attr("tabid")).replace(':', '')).trim();
+                var Value = $("#Form_" + (($(this).text()).replace(':', '')).trim() + "").val();
+
+                FormData.push({
+                    Key: Key,
+                    Value: Value
+                });
+
+            });
+
+            //   alert(JSON.stringify(FormData));
+            $("#DataTableAddEditModel2 table tbody").find('tr').each(function () {
+
+                var data_type = (($(this).attr("d-type")).replace(':', '')).trim();
+                //var Value = $("#Form_" + (($(this).text()).replace(':', '')).trim() + "").val();
+
+                FormData2.push({
+                    data_type: data_type
+
+                });
+
+
+            });
+
+
+
+
+
+
+            FormData = JSON.stringify({
+                SelectEntity: SelectEntity,
+                DataSourceType: DataSourceType,
+                Operation: 2,
+                th_name: th_name,
+                td_name: td_name,
+                FormData: FormData,
+                FormData2: FormData2
+            });
+
+            $.ajax({
+                url: "../SaveDataIntoTablelist",
+                type: "POST",
+                contentType: "application/json",
+                data: FormData,
+                success: function (data) {
+                    if (data == true) {
+                        alert("Successfully Deleted row");
+                    }
+                    else if (data == false) {
+                        alert("Error Occurred.\nPlease try again");
+                    }
+                    var DataTableHTMLID = $("#DataTableHTMLID2").val();
+                    ReloadDataTable2(DataTableHTMLID);
+                    $('#DataTableAddEditModel2').modal('hide');
+                }
+            });
+        }
+        catch (e) {
+            alert("Error : SaveTheDataToDatabase : " + e);
+        }
+    }
+
+
+    function ReloadDataTable2(TableIdentity) {
+
+        //alert(TableIdentity);
+        try {
+            var TableInfo = JSON.stringify({
+                "tbl_name": $("#" + TableIdentity + "").attr("tbl-name")
+            });
+
+            var COL_NAME2 = [];
+            $.ajax({
+                url: "../getformdata2",
+                type: "post",
+                contentType: "application/json",
+                data: TableInfo,
+                success: function (data) {
+
+                    //alert("getformdata2 :"+JSON.stringify(data));
+                    for (var i = 0; i < data.length; i++) {
+                        //  alert(data[i]["columnname"]);
+                        COL_NAME2.push({ "columnname": data[i]["columnname"], "columnid": data[i]["columnid"], "data_type": data[i]["col_datatype"] });
+
+                    }
+
+                    //alert(JSON.stringify(COL_NAME2));
+
+                    $.ajax({
+                        url: "../getformlist",
+                        type: "POST",
+                        contentType: "application/json",
+                        data: TableInfo,
+                        success: function (data) {
+
+                            //  alert(JSON.stringify(data));
+                            $("#" + TableIdentity + "").dataTable().fnDestroy();
+
+                            $("#" + TableIdentity + " thead").empty();
+                            $("#" + TableIdentity + " tbody").empty();
+
+                            var ColumnData = data.columns;
+                            //  alert(JSON.stringify(ColumnData));
+                            var Theadhtml = "<tr>";
+                            for (var i = 0; i < ColumnData.length; i++) {
+                                //Theadhtml += '<th>' + ColumnData[i].name + '</th>';
+
+                                var myname = ColumnData[i]["name"];
+
+                                //   var data_type=ColumnData[i]["name"];
+                                // alert(COL_NAME2.length);
+                                for (var j = 0; j < COL_NAME2.length; j++) {
+
+                                    //  alert(JSON.stringify(COL_NAME2[j].columnname));
+                                    if (COL_NAME2[j].columnid == ColumnData[i].name) {
+                                        // Theadhtml += '<th tblid=' + myname + ' data_type=' + COL_NAME[j].data_type + '>' + COL_NAME[j].columnname + '</th>';
+
+                                        Theadhtml += '<th tblid=' + myname + ' data_type=' + COL_NAME2[j].data_type + '>' + COL_NAME2[j].columnname + '</th>';
+                                    }
+                                }
+                            }
+                            Theadhtml += "</tr>";
+
+
+                            //$("#" + TableIdentity + " thead").empty();
+                            $("#" + TableIdentity + " thead").append(Theadhtml);
+
+                            //alert("Check 2");
+
+                            var RowsData = data.rows;
+                            var THeadHtml = "";
+
+                            var TRId = TableIdentity.replace('tbl_', '');
+                            for (var i = 0; i < RowsData.length; i++) {
+                                THeadHtml += "<tr style='cursor:pointer;' id='tr-" + i + "_" + TRId + "' onclick='OpenDataTableAddEditModellist(this.id,1)'>";
+                                for (var j = 0; j < ColumnData.length; j++) {
+                                    THeadHtml += "<td>" + RowsData[i]["" + ColumnData[j].name + ""] + "</td>";
+                                }
+                                THeadHtml += "</tr>";
+                            }
+
+                            $("#" + TableIdentity + " tbody").append(THeadHtml);
+
+
+                            $("#" + TableIdentity + "").dataTable({
+                                "bdestroy": true,
+                                "aaSorting": []
+                            });
+
+                        }
+
+                    });
+
+                }
+            });
+
+
+            // alert("this is COL_NAME Array:"+COL_NAME);
+
+
+        }
+        catch (e) {
+            alert("Error : ReloadDataTable : " + e);
+        }
+
+    }
+
+
+    function TakeMetoEditPage(RowId) {
+
+        try {
+            var HtmlTableId = ($("#" + RowId).parent()).parent().attr('id');
+            var DBTableName = $("#" + HtmlTableId).attr('tbl-name');
+            var EditSheet = $("#" + HtmlTableId).attr('edit_col_id');
+
+
+            var ColData = new Object();
+
+            $("#" + HtmlTableId + " #" + RowId + "").find('td').each(function () {
+                ColData["" + $(this).attr('col-id') + ""] = $(this).text();
+            });
+
+            var EditObj = JSON.stringify({
+                DBTableName: DBTableName,
+                ColData: ColData
+            });
+
+            //alert(EditObj);
+
+            localStorage.setItem('EditObj', EditObj);
+            window.location.href = "../../Home#/FormViewer?_tagid=" + EditSheet + "";
+            //window.open("../../Home#/FormViewer?_tagid=" + EditSheet + "");
+
+        }
+        catch (e) {
+            alert("Error : TakeMetoEditPage : RowId : " + RowId + "\t" + e);
+        }
+
+    }
+
+
+
+
+</script>

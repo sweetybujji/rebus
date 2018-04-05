@@ -1,0 +1,19 @@
+  #gritter-notice-wrapper {
+            position: fixed;
+            right: 40% !important;
+            top: 40% !important;
+            width: 301px;
+            z-index: 9999;
+        }
+
+        @media only screen and (max-width 500px) {
+            #gritter-notice-wrapper {
+                right: 20px !important;
+            }
+        }
+
+        .gritter-close {
+            margin-left: 90%;
+            display: block !important;
+            float: right !important;
+        }

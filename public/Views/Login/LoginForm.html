@@ -1,0 +1,337 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>Rubus</title>
+
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" type="text/css" href="../AceMasterLayout/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../AceMasterLayout/assets/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../AceMasterLayout/assets/css/chosen.min.css" />
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" type="text/css" href="../AceMasterLayout/assets/fonts/fonts.googleapis.com.css" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" type="text/css" href="../AceMasterLayout/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <script src="../AceMasterLayout/assets/js/jquery.2.1.1.min.js" type="text/javascript"></script>
+    <script src="../AceMasterLayout/assets/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+    <script src="../AceMasterLayout/assets/js/ace-extra.min.js" type="text/javascript"></script>
+    <script src="../AceMasterLayout/assets/js/jquery.nestable.min.js" type="text/javascript"></script>
+    <script src="../AceMasterLayout/assets/js/spin.min.js" type="text/javascript"></script>
+
+    <script src="../Scripts/angular.min.js" type="text/javascript"></script>
+    <script src="../Scripts/angular-ui-router.min.js" type="text/javascript"></script>
+    <script src="../Scripts/angular-route.js" type="text/javascript"></script>
+    <script src="../Scripts/AppScripts/Login/Login.js" type="text/javascript"></script>
+    <!--<script src="/js/Login.js" type="text/javascript"></script>-->
+    <script src="../Scripts/AppScripts/Utility/error_Notifications.js" type="text/javascript"></script>
+    <script src="../Scripts/AppScripts/Utility/rubus-notifications.js" type="text/javascript"></script>
+    <script src="../AceMasterLayout/assets/js/bootstrap.min.js"></script>
+    <script src="../Scripts/UserExampleJs/Newform.js" type="text/javascript"></script>
+    <script src="../Scripts/UserExampleJs/formnavigation.js" type="text/javascript"></script>
+    <!-- bootbox.min.js-->
+    <script src="../Scripts/bootbox.min.js" type="text/javascript"></script>
+    <!-- bootbox.min.js-->
+    <script src="../Scripts/AppScripts/Firebug/Firebug.js" type="text/javascript"></script>
+    <style>
+        .OR-footer {
+            padding-top: 0;
+            width: 100%;
+            background-color: #438EB9;
+            z-index: 1027 !important;
+            color: #1d2537;
+            text-align: center;
+            min-height: 30px;
+            line-height: 2;
+        }
+
+        .navbar {
+            background: none !important;
+        }
+
+            .navbar .navbar-brand {
+                padding: 10px 0 !important;
+                margin: 0 !important;
+            }
+
+        .custom-LoginSC {
+        }
+
+        .loginedit {
+            border: none !important;
+            border-bottom: 1px solid #cbcdc8 !important;
+            background-color: transparent !important;
+            text-align: center !important;
+        }
+
+        .Error {
+            color: #a94442;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+<!--<body ng-app="loginapp" >-->
+
+<body ng-app="loginapp" class="login-layout" style="background: url('/Images/RubusBG01.jpg') no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand pull-left" href="#">
+                    <img src="../Images/EnvisionWhite-logo.png" alt="">
+                </a>
+                <!--<a class="navbar-brand pull-right" href="#">
+                    <img src="../Images/Rubus-logo.png" alt="">
+                </a>-->
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="main-content" ng-controller="loginctrl">
+
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+
+                    <div class="login-container">
+                        <!--login box-->
+                        <div class="space-6"></div>
+                        <div class="position-relative" id="Login_form">
+                            <div id="Div1" class="login-box visible widget-box" style="background: rgba(250,250,250,0.5) !important; padding: 0; border-radius: 15px; border: none;">
+                                <div class="widget-body custom-LoginSC" style="background: rgba(250,250,250,0.5) !important; border-radius: 15px;">
+                                    <div class="widget-main" style="background: rgba(250,250,250,0.5) !important; border-radius: 15px;">
+                                        <form>
+                                            <fieldset>
+                                                <div class="space-6"></div>
+                                                <div class="text-center">
+                                                    <a href="#">
+                                                        <!--<img src="../Images/Rubus-logoCO.png" alt="">-->
+
+                                                         <img src="../Images/Rubus-logo.png" alt="" width="140px">
+
+                                                    </a>
+                                                </div>
+                                                <div class="space-6"></div>
+                                                <div class="space-6"></div>
+                                                <div class="space-6"></div>
+                                                <span class="Error" id="er_LoginForm" hidden></span>
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input class="form-control loginedit" placeholder="Username" ng-model="Username" type="text" id="txt_login_UserName" tabindex="1" onkeypress="capLock(event,'divMayus1')" />
+                                                    </span>
+                                                    <span class="Error" id="divMayus1" style="display: none;">Capslock is on</span>
+                                                    <span class="Error" id="er_login_UserName" hidden></span>
+                                                </label>
+                                                <div class="space"></div>
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input class="form-control loginedit" placeholder="Password" type="password" ng-model="user_password" id="txt_login_Password" tabindex="2" onkeypress="capLock(event,'divMayus2')" />
+                                                    </span>
+
+                                                    <span class="Error" id="divMayus2" style="display: none;">Capslock is on</span>
+                                                    <span class="Error" id="er_login_Password" hidden></span>
+                                                </label>
+                                                <div class="space"></div>
+                                                <div class="form-group" id="Captcha_Login" style="display: none; margin-bottom: 50px;">
+                                                    <input type="text" class="form-control" id="ex_Captcha" style="display: none;">
+                                                    <div style="padding-left: 4px;" id="Img_Captcha" class="col-sm-6 Captcha_Div">
+                                                        <img src="">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group" style="width: 108%;">
+                                                            <input type="text" class="form-control loginedit" id="txt_Captcha" placeholder="Captcha">
+                                                            <span class="input-group-addon" style="background-color: transparent !important; border: none !important;">
+                                                                <a href="#" onclick="LoadLoginCaptcha()"><span class="glyphicon glyphicon-refresh"></span></a>
+                                                            </span>
+                                                        </div>
+                                                        <span class="Error" id="er_Captcha" hidden></span>
+                                                    </div>
+                                                </div>
+                                                <div class="space"></div>
+                                                <div class="clearfix">
+                                                    <label class="inline">
+                                                        <input class="ace" type="checkbox" id="chk_remember" tabindex="3" />
+                                                        <span class="lbl">&nbsp;&nbsp;Remember Me</span>
+                                                    </label>
+                                                </div>
+                                                <div class="text-center">
+                                                    <div class="clearfix">
+                                                        <button style="color: #fff !important; border: none !important; border-radius: 4px !important;" class="btn" id="btn_Login" onclick="fn_login()" tabindex="4">
+                                                            <i class="ace-icon fa fa-key"></i>
+                                                            <span class="bigger-110">Login</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="space-6"></div>
+                                                <div class="space-6"></div>
+                                             <!--   <div class="text-center">
+                                                    
+                                                    <a style="color: #fff !important; border: none !important; border-radius: 4px !important;" href="/auth/google" title="Google+" class="btn "><i class="fa fa-google-plus fa-fw fa-lg"></i>| Single Sign On</a>
+                                                </div>-->
+                                                <div class="space-6"></div>
+                                                <div class="text-center">
+                                                    <a href="#" class="forgot-password-link" style="color: #5e7390;" onclick="OpenForgotpassword()">I forgot my password     
+                                                    </a>
+                                                </div>
+                                                <!--<div class="text-center"><span style="color: #5e7390;">Powered by rubus</span></div>-->
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="position-relative" id="Forgot_form" hidden>
+                            <div id="Div3" class="login-box visible widget-box" style="background: rgba(250,250,250,0.5) !important; padding: 0; border-radius: 15px; border: none;">
+                                <div class="widget-body custom-LoginSC" style="background: rgba(250,250,250,0.5) !important; border-radius: 15px;">
+                                    <div class="widget-main" style="background: rgba(250,250,250,0.5) !important; border-radius: 15px;">
+                                        <form>
+                                            <fieldset>
+                                                <div class="space-6"></div>
+                                                <div class="text-center">
+                                                    <a href="#">
+                                                        <img src="../Images/Rubus-logoCO.png" alt=""></a>
+                                                </div>
+                                                <div class="space-6"></div>
+                                                <div class="space-6"></div>
+                                                <div class="space-6"></div>
+                                                <span class="Error green" id="er_FP_Success"></span>
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input class="form-control loginedit" placeholder="Email" ng-model="Username" type="text" id="txt_FP_Email" tabindex="1" />
+                                                    </span>
+                                                    <span class="Error" id="er_FP_Email"></span>
+                                                </label>
+                                                <div class="space"></div>
+                                                <div class="text-center">
+                                                    <div class="clearfix">
+                                                        <button style="background: rgba(188,190,187,0.5) !important; color: #fff !important; border: none !important; border-radius: 4px !important;" type="button" class="btn btn-white btn-primary" id="Button1" ng-click="SendPassword_Forgot()" tabindex="4">
+                                                            <i class="ace-icon fa fa-key"></i>
+                                                            <span class="bigger-110">Send</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="space-6"></div>
+                                                <div class="text-center">
+                                                    <a href="#" class="forgot-password-link" style="color: #5e7390;" onclick="OpenLogin()">Back to Login     
+                                                    </a>
+                                                </div>
+                                                <!--<div class="text-center"><span style="color: #5e7390;">Powered by rubus</span></div>-->
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer navbar navbar-default navbar-fixed-bottom OR-footer" style="color: white; margin-bottom: -8px;">
+
+        <script>document.write(Date().slice(11, 15))</script>
+        &copy; Envision Enterprise Solutions Pvt. Ltd.&nbsp; &nbsp;
+    </div>
+
+    <div id="PageLoader" style="background-color: rgba(0, 0, 0, 0.4); z-index: 2000; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; display: none;">
+        <!-- <div style="position: absolute; left: 49%; top: 15%; z-index: 55555555555">-->
+        <div style="position: absolute; left: 47%; top: 56%; z-index: 55555555555">
+            <i class="ace-icon fa fa-spinner fa-spin orange bigger-300"></i>
+        </div>
+    </div>
+  <!--  <script type="text/javascript">
+        var AttemptCount = 0;
+        $(document).ready(function () {
+            LoadLoginCaptcha();
+            checkCookie();
+        });
+
+        /**
+         * @summary Get Captcha Image 
+         */
+        function LoadLoginCaptcha() {
+            try {
+                $.ajax({
+                    url: '/LoadLoginCaptcha',
+                    type: 'get',
+                    contentType: 'application/json',
+                    success: function (res) {
+
+                        $("#ex_Captcha").val(res.number);
+                        if ($("#Captcha_Login").is(':hidden')) {
+                            $("#txt_Captcha").val(res.number);
+                        }
+                        else {
+                            $("#txt_Captcha").val("");
+                        }
+                        $('#Img_Captcha').html('<img src="data:image/jpeg;base64,' + res.validcode + '">')
+                    }
+                });
+            }
+            catch (error) {
+                alert("error: " + error.message);
+            }
+        }
+
+        /**
+         * @summary checkCookie Of userName and Password
+         */
+        function checkCookie() {
+
+            try {
+                var UserName = readCookie("rubus_username");
+                var Password = readCookie("rubus_Password");
+                if (UserName != "" && UserName != "null" && UserName != null &&
+                    Password != "" && Password != "null" && Password != null && UserName != 'ace_settings=%7B%22sidebar-collapsed%22%3A-1%7D' &&
+                    UserName != undefined && Password != undefined && UserName.indexOf("_gat") < 0 && Password.indexOf("_gat") < 0 && UserName != "__session:0.8810590325154017:=https:" && UserName != '__session:0.1351871365190781:menuids=[{"mainmenuid":"ReportsList","submenuid":"TicketsReport"}]') {
+                    $("#txt_login_UserName").val(UserName);
+                    $("#txt_login_Password").val(Password);
+                    $('#chk_remember').prop("checked", "checked");
+                }
+                else {
+                    $("#txt_login_UserName").val("");
+                    $("#txt_login_Password").val("");
+                }
+            }
+            catch (error) {
+                alert("error: " + error.message);
+            }
+
+        }
+
+    </script>
+    <script type="text/javascript">
+
+        function OpenLogin() {
+            checkCookie();
+            $(".Error").hide();
+            $("#Captcha_Login").hide();
+            LoadLoginCaptcha();
+            AttemptCount = 0;
+            $("#Forgot_form").hide();
+            $("#Login_form").show();
+        }
+
+        function OpenForgotpassword() {
+            $(".Error").hide();
+            $("#txt_FP_Email").val("");
+            $("#Login_form").hide();
+            $("#Forgot_form").show();
+        }
+
+        disableRightClick();
+    </script>-->
+
+
+
+</body>
+</html>

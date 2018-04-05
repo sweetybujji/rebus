@@ -1,0 +1,192 @@
+﻿#build #overlay {
+    opacity: 0.5;
+}
+
+.slide-out-panel {
+    position: absolute;
+    top: 0;
+    left: -384px;
+    height: 100%;
+    width: 380px;
+    background: #2d2d2d;
+    border-right: 4px solid #eabf56;
+    z-index: 6000;
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -ms-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+}
+
+    .slide-out-panel.open {
+        left: 0;
+    }
+
+#signup-iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#welcome-panel {
+    background-image: url(/images/demo/demo-welcome.png);
+    background-repeat: no-repeat;
+    text-align: left;
+    padding: 20px 20px 0 20px;
+    width: 317px;
+}
+
+    #welcome-panel hgroup {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+        #welcome-panel hgroup h2 {
+            color: white;
+            font-size: 15px;
+        }
+
+            #welcome-panel hgroup h2 img {
+                vertical-align: middle;
+                position: relative;
+                top: -3px;
+            }
+
+        #welcome-panel hgroup h1 {
+            color: #e9be56;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 50px;
+            line-height: 1;
+            margin-top: 10px;
+        }
+
+.es #welcome-panel hgroup h1 {
+    font-size: 40px;
+}
+
+#welcome-panel hgroup h1 span {
+    display: block;
+    background-color: #2d2d2d;
+    background: -webkit-linear-gradient(left,#2d2d2d,#eee,#2d2d2d);
+    background: -moz-linear-gradient(left,#2d2d2d,#eee,#2d2d2d);
+    background: -ms-linear-gradient(left,#2d2d2d,#eee,#2d2d2d);
+    background: -o-linear-gradient(left,#2d2d2d,#eee,#2d2d2d);
+    padding: 1px;
+    margin: 10px 0 50px 0;
+    position: relative;
+}
+
+    #welcome-panel hgroup h1 span:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -50px;
+        width: 200px;
+        margin-left: -100px;
+        margin-top: -41px;
+        height: 200px;
+        background-color: #2d2d2d;
+        background: -webkit-radial-gradient(50% 50%,ellipse closest-side,rgba(255,255,255,0.2),rgba(255,255,255,0));
+        background: -moz-radial-gradient(50% 50%,ellipse closest-side,rgba(255,255,255,0.2),rgba(255,255,255,0));
+        background: -ms-radial-gradient(50% 50%,ellipse closest-side,rgba(255,255,255,0.2),rgba(255,255,255,0));
+        background: -o-radial-gradient(50% 50%,ellipse closest-side,rgba(255,255,255,0.2),rgba(255,255,255,0));
+        z-index: -1;
+    }
+
+.msie8 #welcome-panel hgroup h1 span:before {
+    display: none;
+}
+
+#welcome-panel hgroup h1 span strong {
+    background: #2D2D2D;
+    display: block;
+    padding: 5px 5px 5px 30px;
+    text-decoration: none;
+    letter-spacing: 30px;
+    color: white;
+    font-size: 14px;
+}
+
+.es #welcome-panel hgroup h1 span strong {
+    letter-spacing: 7px;
+    padding-left: 7px;
+}
+
+#welcome-panel p {
+    color: white;
+    margin: 0 0 20px 0;
+    width: 150px;
+}
+
+#welcome-panel .button {
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #ffd778;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffd778), to(#e5ab20));
+    background: -webkit-linear-gradient(top, #ffd778, #e5ab20);
+    background: -moz-linear-gradient(top, #ffd778, #e5ab20);
+    background: -ms-linear-gradient(top, #ffd778, #e5ab20);
+    background: -o-linear-gradient(top, #ffd778, #e5ab20);
+    border-color: #ffb400;
+    color: black;
+}
+
+    #welcome-panel .button:hover, #welcome-panel .button:focus {
+        background: #ffc843;
+    }
+
+    #welcome-panel .button:active {
+        -webkit-box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.25);
+        -moz-box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.25);
+        box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.25);
+    }
+
+#sorry-panel h1 {
+    font-weight: bold;
+    font-size: 60px;
+    color: #eabf56;
+    padding: 80px 0 10px 0;
+}
+
+#sorry-panel p {
+    margin: 20px 60px;
+    color: white;
+}
+
+#mobile-warning {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    #mobile-warning {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        z-index: 10000;
+        text-align: left;
+        padding: 30px;
+    }
+
+        #mobile-warning h1 {
+            color: #eabf56;
+            font-weight: bold;
+            font-size: 40px;
+            margin: 0 0 20px 0;
+        }
+
+        #mobile-warning p {
+            color: white;
+            margin: 0 0 10px 0;
+        }
+
+        #mobile-warning a {
+            color: #eabf56;
+        }
+}

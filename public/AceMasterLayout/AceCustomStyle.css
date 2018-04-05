@@ -1,0 +1,75 @@
+.center {
+    text-align: center;
+}
+
+    .center [class*="col-"] {
+        margin-bottom: 2px;
+        margin-top: 2px;
+        position: relative;
+        text-overflow: ellipsis;
+    }
+
+        .center [class*="col-"] div {
+            /* background-color: #fce6a6; */
+            display: block;
+            overflow: hidden;
+            padding-bottom: 4px;
+            padding-top: 4px;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            z-index: 2;
+        }
+
+            .center [class*="col-"] div span {
+                position: relative;
+                z-index: 2;
+                font-size: 15px;
+            }
+
+            .center [class*="col-"] div::before {
+                border: 3px solid #ddd;
+                bottom: 0;
+                content: "";
+                display: block;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+            }
+
+            .center [class*="col-"] div:hover::before {
+                /* background-color: #fce6a6; */
+                border-color: #efd27a;
+                border: 4px solid #ddd;
+            }
+
+.headerh4 {
+    font-size: 14px;
+    line-height: 1.25;
+    text-align: left;
+    font-weight: bold;
+}
+
+.greyheader {
+    color: #616161 !important;
+    font-size: 14px;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.widget-image {
+    height: 26px !important;
+    margin: 5px 0;
+    padding-left: 10px !important;
+}
+
+.pricing-box .widget-header {
+    text-align: left !important;
+}
+
+.breadcrumb a {
+    cursor: pointer;
+}

@@ -1,0 +1,157 @@
+<style>
+    .Error {
+        color: #a94442;
+        font-size: 12px;
+    }
+</style>
+<script type="text/javascript" src="../Scripts/AppScripts/User/User.js"></script>
+<body>
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+            <ul class="breadcrumb">
+                <li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a></li>
+                <li><a>Admin</a></li>
+                <li>Users</li>
+            </ul>
+        </div>
+    </div>
+    <div class="icon-bar">
+        <a class="disableicons Toolbar_Settings" title="Settings">
+            <img src="../Images/ToolbarIcons/Settings.png" /></a>
+        <a class="disableicons Toolbar_UploadImage" title="Upload Image">
+            <img src="../Images/ToolbarIcons/UploadImage.png" /></a>
+        <a class="disableicons Toolbar_UploadFile" title="Upload CSV">
+            <img src="../Images/ToolbarIcons/UploadFile.png" /></a>
+        <a class="disableicons Toolbar_ExportPDF" title="Export PDF">
+            <img src="../Images/ToolbarIcons/ExportPDF.png" /></a>
+        <a class="disableicons Toolbar_ExportExcel" title="Export Excel">
+            <img src="../Images/ToolbarIcons/ExportExcel.png" /></a>
+        <a class="disableicons Toolbar_Draft" title="Open Draft">
+            <img src="../Images/ToolbarIcons/OpenDraft.png" /></a>
+        <a class="disableicons Toolbar_Preview" title="Preview">
+            <img src="../Images/ToolbarIcons/Preview.png"></a>
+         <a class="disableicons Toolbar_Create" title="Invoke">
+            <img src="../Images/ToolbarIcons/Invoke.png" /></a>
+        <a class="Toolbar_Cancel" title="Cancel">
+            <img src="../Analytics/Content/Images/ToolbarIcons/Cancel.png"></a>
+        <a class="disableicons Toolbar_Delete" title="Delete Record">
+            <img src="../Images/ToolbarIcons/Delete.png" /></a>
+        <a class="Toolbar_List" title="View Entries" href="#UserFormList">
+            <img src="../Images/ToolbarIcons/List.png" /></a>
+        <a class="disableicons Toolbar_Edit" title="Edit">
+            <img src="../Images/ToolbarIcons/Edit.png" /></a>
+        <a class="Toolbar_Save" title="Save" id="savelink" onclick="fn_save_Userdetails()">
+            <img src="../Images/ToolbarIcons/Save.png" /></a>
+        <a class="disableicons Toolbar_AddConnection" title="Add Connection">
+            <img src="../Images/ToolbarIcons/AddConnection.png"></a>
+        <a class="disableicons Toolbar_AddDB" title="Add Stored Procedure">
+            <img src="../Images/ToolbarIcons/AddDB.png"></a>
+        <a class="Toolbar_Create" title="Create" onclick="ClearTextbox()">
+            <img src="../Images/ToolbarIcons/Create.png" /></a>
+        
+        <div class="page-header">
+            <h1>Users Creation <small><i class="ace-icon fa fa-angle-double-right"></i>
+            </small>
+            </h1>
+        </div>
+    </div>
+    <div class="formdiv" style="margin-left: 5%;">
+        <div class="row  newform">
+            <input type="text" id="idUserlabel" style="display: none" />
+            <div class="col-xs-10 col-sm-4">
+                <label>First Name<i style="color: red;">*</i></label>
+                <input type="text" id="txt_firstname" placeholder="First Name" tabindex="1" />
+                <span class="Error row" id="er_fName" hidden></span>
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Middle Name</label>
+                <input type="text" id="txt_MiddelName" placeholder="Middle Name" tabindex="2" />
+            </div>
+        </div>
+        <div class="row newform">
+            <div class="col-xs-10 col-sm-4">
+                <label>Last Name<i style="color: red;">*</i></label>
+                <input type="text" id="txt_lastname" placeholder="Last Name" tabindex="3" />
+                <span class="Error row" id="er_LName" hidden></span>
+            </div>
+            <!--   <div class="col-xs-10 col-sm-4">
+                <label>Email ID<i style="color: red;">*</i></label>
+                <input type="text" id="txt_EmailId" placeholder="Email Id" tabindex="4" />
+                <span class="Error row" id="er_EmailID" hidden></span>
+            </div>-->
+            <div class="col-xs-10 col-sm-4">
+                <label>Employee ID<i style="color: red;">*</i></label>
+                <input type="text" id="txt_EmpId" placeholder="EmpId" tabindex="7" onchange="fn_GetAllDetails()" />&nbsp;&nbsp;<i class="ace-icon fa fa-external-link fa-large" style="cursor: pointer;" onclick="fn_EmployeeId()"></i>
+                <span class="Error row" id="er_Empid" hidden></span>
+            </div>
+
+        </div>
+        <div class="row newform">
+            <div class="col-xs-10 col-sm-1">
+                <label>Code<i style="color: red;">*</i></label>
+                <input type="text" id="txt_countrycode" placeholder="ex:+91" tabindex="5" />
+                <span class="Error row" id="er_Ccode" hidden></span>
+            </div>
+            &nbsp;&nbsp;
+                            <div class="col-xs-10 col-sm-3">
+                                <label>Mobile Number<i style="color: red;">*</i></label>
+                                <input type="text" id="txt_Mobilenumber" placeholder="Mobile Number" tabindex="6" style="width: 87%;" />
+                                <span class="Error row" id="er_MNumber" hidden></span>
+                            </div>
+
+            <div class="col-xs-10 col-sm-4">
+                <label>Email ID<i style="color: red;">*</i></label>
+                <input type="text" id="txt_EmailId" placeholder="Email Id" tabindex="4" />
+                <span class="Error row" id="er_EmailID" hidden></span>
+            </div>
+        </div>
+        <div class="row newform">
+            <!-- <div class="col-xs-10 col-sm-4">
+                <label>Role<i style="color: red;">*</i></label>
+                <input type="text" id="txt_role" placeholder="Role" tabindex="8" />
+                <span class="Error row" id="er_role" hidden></span>
+            </div>-->
+            <div class="col-xs-10 col-sm-4">
+                <label>Role<i style="color: red;">*</i></label>
+                <select id="txt_Role" tabindex="8">
+                </select>
+                <span class="Error row" id="er_role" hidden></span>
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <!--<label>Active:</label><input type="text" id="Text5" placeholder="Email" tabindex="8" />-->
+                <div class="">
+                    <!-- <label><input name="form-field-checkbox" id="chk_active" class="ace" type="checkbox" tabindex="9" />
+                        <span class="lbl">&nbsp;&nbsp;Active</span>
+                    </label>-->
+                    <label>Password Policy<i style="color: red;">*</i></label>
+                    <select id="txt_passwordPolicy" tabindex="9">
+                    </select>
+                    <span class="Error row" id="er_PasswordPolicy" hidden></span>
+                </div>
+            </div>
+        </div>
+        <div class="row newform">
+            <!--<div class="col-xs-10 col-sm-4">
+                <label>Role<i style="color: red;">*</i></label>
+                <input type="text" id="txt_role" placeholder="Role" tabindex="8" />
+                <span class="Error row" id="er_role" hidden></span>
+            </div>-->
+            <div class="col-xs-10 col-sm-4">
+                <!--<label>Active:</label><input type="text" id="Text5" placeholder="Email" tabindex="8" />-->
+                <div class="checkbox">
+                    <br />
+                    <label>
+                        <input name="form-field-checkbox" id="chk_active" class="ace" type="checkbox" tabindex="10" />
+                        <span class="lbl">&nbsp;&nbsp;Active</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

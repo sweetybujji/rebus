@@ -1,0 +1,103 @@
+svg {
+	width: 100%;
+	height: 100%;
+}
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
+.labelValue
+{
+	font-size: 60%;
+	opacity: .5;
+	
+}
+.tick text {
+    fill:#555;
+}
+.toolTip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+text { 
+   /*color:#555;*/
+}
+    /*.axis line {
+        fill: none;
+        stroke: grey;
+        stroke-width: 1;
+        shape-rendering: crispEdges;
+    }*/
+    .axis path {
+        fill: none;
+        stroke: #000;
+    }
+
+    .line path {
+        fill: none;
+    }
+
+    .GaugeMeter {
+  position: Relative;
+  text-align: Center;
+  overflow: Hidden;
+  cursor: Default;
+  display: inline-block;
+}
+
+.GaugeMeter SPAN, .GaugeMeter B {
+  width: 54%;
+  position: Absolute;
+  text-align: Center;
+  display: Inline-Block;
+  color: RGBa(0,0,0,.8);
+  font-weight: 100;
+  font-family: "Open Sans", Arial;
+  overflow: Hidden;
+  white-space: NoWrap;
+  text-overflow: Ellipsis;
+  margin: 0 23%;
+}
+
+.GaugeMeter[data-style="Semi"] B {
+  width: 80%;
+  margin: 0 10%;
+}
+
+.GaugeMeter S, .GaugeMeter U {
+  text-decoration: None;
+  font-size: .60em;
+  font-weight: 200;
+  opacity: .6;
+}
+
+.GaugeMeter B {
+  color: #000;
+  font-weight: 200;
+  opacity: .8;
+}
+.GaugeMeter span {
+  font-weight:bold !important;
+  font-size:15px !important;
+  line-height:30px !important;
+}
+
+        

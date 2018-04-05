@@ -1,0 +1,278 @@
+﻿.FirstColumn h3
+{
+    background: none repeat scroll 0 0 whitesmoke;
+    border-bottom: 1px solid #e8e8e8;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0;
+    padding: 8px;
+    position: relative;
+}
+
+.tileRegular
+{
+}
+
+.tile
+{
+    background: none repeat scroll 0 0 #cdcdcd;
+    border: 3px solid #cdcdcd;
+    box-sizing: border-box;
+    float: left;
+    margin: 3px;
+    position: relative;
+    height: 40px;
+    width: 90%;
+    margin: 3px;
+}
+
+.tileselected
+{
+    background: none repeat scroll 0 0 sandybrown;
+    border: 3px solid sandybrown;
+    box-sizing: border-box;
+    float: left;
+    margin: 3px;
+    position: relative;
+    height: 40px;
+    width: 90%;
+    margin: 3px;
+}
+
+.tile:hover
+{
+    background: none repeat scroll 0 0 #bbb;
+    border: 3px solid #999;
+    cursor: pointer;
+}
+
+.FirstColumn .GetStarted > div
+{
+    float: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 90%;
+}
+
+.tile img
+{
+    height: 32px;
+    left: 4px;
+    position: absolute;
+    top: 1px;
+}
+
+.tile span
+{
+    bottom: 7px;
+    color: #333;
+    font-size: 16px;
+    left: 48px;
+    position: absolute;
+}
+
+.tile ul
+{
+    left: 110px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 24px;
+}
+
+    .tile ul li
+    {
+        color: #666;
+        line-height: 13px;
+    }
+
+
+.tileselected img
+{
+    height: 32px;
+    left: 4px;
+    position: absolute;
+    top: 1px;
+}
+
+.tileselected span
+{
+    bottom: 7px;
+    color: #333;
+    font-size: 16px;
+    left: 48px;
+    position: absolute;
+}
+
+.tileselected ul
+{
+    left: 110px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 24px;
+}
+
+    .tileselected ul li
+    {
+        color: #666;
+        line-height: 13px;
+    }
+
+
+.icondelete
+{
+    right: 0;
+    position: absolute;
+    font-size: 16px;
+    top: 5px;
+    cursor: pointer;
+}
+
+    .icondelete:hover
+    {
+        font-size: 20px;
+        color: #0077D4;
+    }
+
+.icondedit
+{
+      right: 22px;
+    position: absolute;
+    font-size: 16px;
+    top: 5px;
+    cursor: pointer;
+}
+
+    .icondedit:hover
+    {
+        font-size: 20px;
+        color: #0077D4;
+    }
+
+.iconadd
+{
+    left: 76%;
+    position: absolute;
+    font-size: 16px;
+    top: 5px;
+    cursor: pointer;
+}
+
+    .iconadd:hover
+    {
+        font-size: 20px;
+        color: #0077D4;
+    }
+
+
+
+
+
+    .tileRegular1
+{
+}
+
+.tile1
+{
+    background: none repeat scroll 0 0 #cdcdcd;
+    border: 3px solid #cdcdcd;
+    box-sizing: border-box;
+    float: left;
+    margin: 3px;
+    position: relative;
+    height: 40px;
+    width: 90%;
+    margin: 3px;
+}
+
+.tileselected1
+{
+    background: none repeat scroll 0 0 sandybrown;
+    border: 3px solid sandybrown;
+    box-sizing: border-box;
+    float: left;
+    margin: 3px;
+    position: relative;
+    height: 40px;
+    width: 90%;
+    margin: 3px;
+}
+
+.tile1:hover
+{
+    background: none repeat scroll 0 0 #bbb;
+    border: 3px solid #999;
+    cursor: pointer;
+}
+.tile1 img
+{
+    height: 32px;
+    left: 4px;
+    position: absolute;
+    top: 1px;
+}
+
+.tile1 span
+{
+    bottom: 7px;
+    color: #333;
+    font-size: 16px;
+    left: 48px;
+    position: absolute;
+}
+
+.tile1 ul
+{
+    left: 110px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 24px;
+}
+
+    .tile1 ul li
+    {
+        color: #666;
+        line-height: 13px;
+    }
+
+
+.tileselected1 img
+{
+    height: 32px;
+    left: 4px;
+    position: absolute;
+    top: 1px;
+}
+
+.tileselected1 span
+{
+    bottom: 7px;
+    color: #333;
+    font-size: 16px;
+    left: 48px;
+    position: absolute;
+}
+
+.tileselected1 ul
+{
+    left: 110px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 24px;
+}
+
+    .tileselected1 ul li
+    {
+        color: #666;
+        line-height: 13px;
+    }

@@ -1,0 +1,62 @@
+﻿.active
+{
+    background-color: #F5F5DC;
+    border: 2px solid red;
+}
+.rotate
+{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg); /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; /* Should be unset in IE9+ I think. */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+
+
+.btn
+{
+    width: 150px;
+    background-color: #e6eaff;
+    border: 2px solid #3399cc;
+    padding: 4px;
+    cursor: default;
+}
+.cfse_a
+{
+    background-color: Red;
+    z-index: 5;
+}
+td
+{
+    background-color: whitesmoke;
+    height: 30px;
+    width: 40px;
+}
+
+
+
+.swipe-area
+{
+    height: auto;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 5%;
+    z-index: 0;
+}
+
+.dragn
+{
+    cursor: move;
+}
+.drag
+{
+    cursor: move;
+}

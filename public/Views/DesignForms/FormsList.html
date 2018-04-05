@@ -1,0 +1,1486 @@
+<html>
+<head>
+    <title>E-LogSheet::FormsList</title>
+    <link rel="stylesheet" type="text/css"
+        href="../AceMasterLayout/assets/css/ace.min.css" />
+    <!-- <link href="stylesheets/stylesheets/formindex.css" rel="stylesheet" />-->
+    <!-- <link href="stylesheets/stylesheets/index.css" rel="stylesheet" />-->
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.select.min.js"></script>
+
+
+    <!--DATETIME PICKERS-->
+    <!--   <link rel="stylesheet" href="../stylesheets/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="../Scripts/bootstrap-datetimepicker.min.css" />
+    <script type="text/javascript" src="../Scripts/moment.js"></script>
+    <script src="../Scripts/bootstrap-datetimepicker.min.js"></script>-->
+    <!--DATETIME PICKERS-->
+
+    <!--DATE PICKER-->
+    <link rel="stylesheet" href="Scripts/datepicker/css/datepicker.css" />
+    <script type="text/javascript" src="Scripts/bootstrap-datepicker.js"></script>
+    <!--DATE PICKER-->
+
+
+
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Home</a>
+            </li>
+            <li class="active">Forms List</li>
+        </ul>
+        <!-- /.breadcrumb -->
+
+        <div class="nav-search" id="nav-search">
+        </div>
+        <!-- /.nav-search -->
+    </div>
+
+
+    <style type="text/css">
+        .Linking:hover {
+            cursor: pointer;
+            font-weight: bold;
+            color: #4286F4;
+        }
+
+        .LinkingDel:hover {
+            cursor: pointer;
+            font-weight: bold;
+            color: #FF0000;
+        }
+
+
+
+        /* The Modal (background) */
+
+
+        /* Modal Content */
+
+
+        .modal-header {
+            background-color: #438eb9;
+            color: white;
+        }
+
+        .dd2-item.dd-item > button {
+            margin-left: 0px !important;
+        }
+
+        .dd-list .dd-list {
+            padding-left: 0px;
+        }
+
+        .dd2-content {
+            margin-bottom: 0px;
+        }
+
+        .custom-list-style {
+            border: 1px solid #d0d3d4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 0px;
+            border-top: none;
+            border-top-right-radius: 0px !important;
+            border-top-left-radius: 0px !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="tooLong" id="container" ng-controller="MySecondController " style="min-height: 500px; height: auto;">
+        <br />
+        <!--  <div style="background-color: #438eb9; margin-bottom: 1px;" class="col-sm-12 table-header visible_list">
+            <label style="color: white; font: bold;">Created Forms  </label>            
+        </div>-->
+        <div style="margin-left: 10px; margin-bottom: 10px;"><a class="btn btn-sm btn-primary" href="#ELogsheet">Form Design</a></div>
+        <table id="Tbl_Formslist" class='table table-striped table-bordered table-hover'>
+        </table>
+
+    </div>
+
+    <!-- For model pouup-->
+    <div id="myModal" class="modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" id="txt_tagid" style="display: none;" />
+                    <h4 class="modal-title"><span>&nbsp;Assignments</span></h4>
+                </div>
+
+
+
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div style="margin-left: 1%;">
+                                <label for="form-field-select-3">Form Type:&nbsp;&nbsp; </label>
+                                <select id="Select_type" class="col-xs-10 col-sm-3 chosen-select form-control">
+                                    <option value="">--Select Type--</option>
+                                    <option value="Form">Form</option>
+                                    <option value="Transaction">Transaction</option>
+                                    <option value="Logsheet">Logsheet</option>
+                                    <option value="Inspection">Inspection</option>
+                                    <option value="Audit">Audit</option>
+                                </select>
+                            </div>
+                            <br>
+                            <form id="SuccessForm" class="ng-pristine ng-valid">
+                                <ol class="dd-list Assiged_id">
+                                    <li class="dd-item dd2-item" data-id="15">
+                                        <div class="dd2-content">Give Access</div>
+                                        <ol class="dd-list ">
+                                            <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                                <div>
+                                                    <label for="form-field-select-3">Role Type:&nbsp;&nbsp;</label><select id="Role_type" class="col-xs-10 col-sm-3 chosen-select form-control" style=""><option value="">Select Role</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                                <br>
+                                <ol class="dd-list give_acess">
+                                    <li class="dd-item dd2-item" data-id="15">
+                                        <div class="dd2-content">Assignment</div>
+                                        <ol class="dd-list ">
+                                            <li class="dd-item dd2-item custom-list-style row" data-id="16">
+                                                <div class=" col-sm-6 " id="Designation">
+                                                    <label for="sel1">Select Designation:</label><select class="col-xs-10 col-sm-3 chosen-select form-control" multiple="" data-placeholder="Select Designation" id="Designation_sel"></select>
+                                                </div>
+                                                <div class=" col-sm-6 " id="Div1">
+                                                    <label>Select Name:</label><select class="form-control" data-placeholder="Select Name" multiple="" id="user_data3"></select>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-info btn-sm" type="button" style="" id='' onclick="SaveTheAssignments()"><i class="ace-icon fa fa-check bigger-110"></i>Next</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- For model pouup-->
+
+
+    <!-- For Secound Popup-->
+    <div id="FormScheduleAssignments" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Appointment Recurrence</h4>
+                </div>
+
+                <div class="modal-body" style="height: 470px; min-height: 470px; overflow: auto;">
+
+                    <form id="attributeform">
+
+                        <input type="text" id="ReccurencePatternId" style="display: none;" />
+
+                        <ol class="dd-list">
+                            <li class="dd-item dd2-item" data-id="15">
+                                <div class="dd2-content">Appointment Time</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 control-label" for="AR_Start_Time">Start Time:</label>
+                                            <div class="col-lg-5">
+                                                <input class="form-control" id="AR_Start_Time" placeholder="Enter Start Time" type="text" onchange="AR_Start_End_Change(0)" readonly="readonly" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 control-label" for="AR_End_Time">End Time:</label>
+                                            <div class="col-lg-5">
+                                                <input class="form-control" id="AR_End_Time" placeholder="Enter Start Time" type="text" onchange="AR_Start_End_Change(1)" readonly="readonly" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 control-label" for="AR_Duration">Duration:</label>
+                                            <div class="col-lg-5">
+                                                <input class="form-control" id="AR_Duration" placeholder="Enter Duration" type="text" readonly="readonly">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+
+                        </ol>
+
+                        <ol class="dd-list">
+                            <li class="dd-item dd2-item" data-id="15">
+                                <div class="dd2-content">Recurrence Pattern</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                        <div>
+                                            <input class="form-check-input" name="RP_Type" id="Daily" type="radio" onchange="RecPatChange()" />Daily &nbsp;&nbsp;
+                                        <input class="form-check-input" name="RP_Type" id="Weekly" type="radio" onchange="RecPatChange()" />Weekly&nbsp;&nbsp;
+                                        <input class="form-check-input" name="RP_Type" id="Monthly" type="radio" onchange="RecPatChange()" />Monthly&nbsp;&nbsp;
+                                        <input class="form-check-input" name="RP_Type" id="Yearly" type="radio" onchange="RecPatChange()" />Yearly
+                                        </div>
+
+                                        <br />
+
+                                        <div id="AR_Daily" style="display: none;">
+                                            <div class="form-group row">
+                                                <div class="col-lg-4">
+                                                    <input class="form-check-input" name="ARD_Check" id="DailyCheck" type="radio" onchange="DailyCheckChange()" />Every&nbsp&nbsp&nbsp
+                                                <input type="text" id="DailyCheck_Nos" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />
+                                                    day(s)
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-4">
+                                                    <input class="form-check-input" name="ARD_Check" id="EveryWeekday" type="radio" onchange="DailyCheckChange()" />Every Weekday&nbsp&nbsp&nbsp
+                                                <select id="EveryWeekdaySelect" style="width: 50%;" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="Sunday">Sunday</option>
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="AR_Weekly" style="display: none;">
+                                            <div class="form-group row">
+                                                <div class="col-lg-4">
+                                                    Recur every&nbsp&nbsp&nbsp
+                                                <input type="text" id="WeeklyRP_Nos" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" />
+                                                    week(s) on:
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <input class="form-check-input" name="ARD_Check" id="Weekly_Sunday" type="radio" />&nbsp;Sunday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Monday" type="radio" />&nbsp;Monday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Tuesday" type="radio" />&nbsp;Tuesday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Wednesday" type="radio" />&nbsp;Wednesday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Thursday" type="radio" />&nbsp;Thursday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Friday" type="radio" />&nbsp;Friday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Saturday" type="radio" />&nbsp;Saturday&nbsp;&nbsp;&nbsp
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div id="AR_Monthly" style="display: none;">
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <input class="form-check-input" name="ARD_Check" id="AR_Monthly_NumberredDay" type="radio" onchange="MonthlyCheckChange()" />Day&nbsp&nbsp&nbsp
+                                                <input type="text" id="AR_Month_NumberredDay_Recc" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />
+                                                    of every<input type="text" id="AR_Month_NumberredDay_Repeat" style="width: 25%;" onchange="" disabled="disabled" />&nbsp;&nbsp;months(s)
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-10">
+                                                    <input class="form-check-input" name="ARD_Check" id="AR_Monthly_WeekNo" type="radio" onchange="MonthlyCheckChange()" />The&nbsp&nbsp&nbsp;
+                                                <select id="AR_Month_WeekNos" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="1">First</option>
+                                                    <option value="2">Second</option>
+                                                    <option value="3">Third</option>
+                                                    <option value="4">Fourth</option>
+                                                </select>
+                                                    <select id="AR_Month_WeekDay" disabled="disabled">
+                                                        <option value="">Select</option>
+                                                        <option value="Sunday">Sunday</option>
+                                                        <option value="Monday">Monday</option>
+                                                        <option value="Tuesday">Tuesday</option>
+                                                        <option value="Wednesday">Wednesday</option>
+                                                        <option value="Thursday">Thursday</option>
+                                                        <option value="Friday">Friday</option>
+                                                        <option value="Saturday">Saturday</option>
+                                                    </select>
+                                                    of every<input type="text" id="AR_Month_WeekNo_Repeat" style="width: 25%;" onchange="" disabled="disabled" />&nbsp;&nbsp;months(s)
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="AR_Yearly" style="display: none;">
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    Recur every&nbsp&nbsp&nbsp
+                                                <input type="text" id="AR_Yearly_Nos" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" />
+                                                    year(s)
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-10">
+                                                    <input class="form-check-input" name="ARD_Check" id="AR_Yearly_RP_Date" type="radio" onchange="YearlyCheckChange()" />On&nbsp&nbsp&nbsp;   
+                                                <select id="EveryYearlySelect" id="AR_Yearly_RP_Date_Month" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                    <option value="April">April</option>
+                                                    <option value="May">May</option>
+                                                    <option value="June">June</option>
+                                                    <option value="July">July</option>
+                                                    <option value="August">August</option>
+                                                    <option value="September">September</option>
+                                                    <option value="October">October</option>
+                                                    <option value="November">November</option>
+                                                    <option value="December">December</option>
+                                                </select>
+                                                    <input type="text" id="AR_Yearly_RP_Date_Date" style="width: 13%;" onchange="" disabled="disabled" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-10">
+                                                    <input class="form-check-input" name="ARD_Check" id="AR_Yearly_RP_MonthWeekDay" type="radio" onchange="YearlyCheckChange()" />On The&nbsp&nbsp&nbsp;   
+                                                <select id="AR_Yearly_RP_MonthWeekDay_WeekNos" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="1">First</option>
+                                                    <option value="2">Second</option>
+                                                    <option value="3">Third</option>
+                                                    <option value="4">Fourth</option>
+                                                </select>
+                                                    <select id="AR_Yearly_RP_MonthWeekDay_WeekDay" disabled="disabled">
+                                                        <option value="">Select</option>
+                                                        <option value="Sunday">Sunday</option>
+                                                        <option value="Monday">Monday</option>
+                                                        <option value="Tuesday">Tuesday</option>
+                                                        <option value="Wednesday">Wednesday</option>
+                                                        <option value="Thursday">Thursday</option>
+                                                        <option value="Friday">Friday</option>
+                                                        <option value="Saturday">Saturday</option>
+                                                    </select>of&nbsp;
+                                                <select id="AR_Yearly_RP_MonthWeekDay_WeekMonth" style="" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                    <option value="April">April</option>
+                                                    <option value="May">May</option>
+                                                    <option value="June">June</option>
+                                                    <option value="July">July</option>
+                                                    <option value="August">August</option>
+                                                    <option value="September">September</option>
+                                                    <option value="October">October</option>
+                                                    <option value="November">November</option>
+                                                    <option value="December">December</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+
+                        <ol class="dd-list">
+                            <li class="dd-item dd2-item" data-id="15">
+                                <div class="dd2-content">Range of recurrence</div>
+                                <ol class="dd-list">
+                                    <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                        <div class="form-group row">
+                                            <div class=" col-sm-6 row">
+                                                <label class="col-sm-3 control-label" for="AR_Start_Time">Start:</label>
+                                                <div class="col-lg-6 row">
+                                                    <input class="form-control" id="Range_rec_start" placeholder="Enter Start Time" type="text" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 col-sm-6">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" name="RR_NoEndTime" id="RR_NoEnd" type="radio" onchange="Rangerecurance_CheckChange()">
+                                                    No end date
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" name="RR_NoEndTime" id="RR_EndNos" type="radio" onchange="Rangerecurance_CheckChange()">
+                                                    End after:&nbsp;&nbsp;<input type="text" id="RR_Endafter" style="width: 25%;" />&nbsp;&nbsp;occurrences
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" name="RR_NoEndTime" id="RR_EndDate" type="radio" onchange="Rangerecurance_CheckChange()">
+                                                    End by:&nbsp;&nbsp;<input type="text" id="RR_endTime" style="width: 55%;" placeholder="Enter end Time" readonly="readonly" />
+                                                </label>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" onclick="SaveRecurrencePattern()">Ok</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- For Secound Popup-->
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(".nav-list").show();
+    $(".sidebar").show();
+    $("#breadcrumbs").show();
+    $(".footer-content").show();
+    $(".navbar-header").show();
+    $(".navbar-buttons").show();
+    $(".navbar").show();
+    $("#ace-settings-btn").show();
+    var myTable;
+    $(document).ready(function () {
+        FormsListLoading();
+    });
+    $(".dd-list").nestable();
+    /**************************************************************************************Formslist Datatime Picker ***************************************/
+    /**************************************************************************************Formslist Datatime Picker ***************************************/
+    $('#AR_Start_Time').datetimepicker({
+        pickDate: false,
+        //format: 'LT',
+        format: 'HH:mm',
+        pick12HourFormat: false
+    });
+    $('#AR_End_Time').datetimepicker({
+        pickDate: false,
+        //format: 'LT',
+        format: 'HH:mm',
+        pick12HourFormat: false
+    });
+    $("#Range_rec_end").datetimepicker({
+        format: 'DD/MM/YYYY',
+        pickTime: false
+    });
+    var startDate;
+    var endDate;
+    $('#Range_rec_start').datepicker({ format: 'dd/mm/yyyy' })
+    			.on('changeDate', function (ev) {
+    			    startDate = new Date(ev.date.valueOf());
+    			    startDate.setDate(startDate.getDate(new Date(ev.date.valueOf())));
+    			    $('#RR_endTime').datepicker('setStartDate', startDate);
+    			});
+    $('#RR_endTime').on('changeDate', function (ev) {
+
+        startDate = new Date(ev.date.valueOf());
+        startDate.setDate(startDate.getDate(new Date(ev.date.valueOf())));
+        $('#Range_rec_start').datepicker('setEndDate', startDate);
+    });
+    $("#RR_endTime").datepicker({
+        format: 'dd/mm/yyyy'
+    });
+    $(".prev i").addClass("ace-icon glyphicon glyphicon-backward");
+    $(".next i").addClass("ace-icon glyphicon glyphicon-forward");
+    /**************************************************************************************Formslist Datatime Picker ***************************************/
+    /**************************************************************************************Formslist Datatime Picker ***************************************/
+
+    function FormsListLoading1532() {
+        try {
+            $.ajax({
+                url: "../GetFormsList",
+                type: "GET",
+                data: {},
+                async: false,
+                cache: false,
+                success: function (data) {
+
+                    if (data != "false") {
+                        var TableCode = "";
+                        TableCode = TableCode + "<thead>\n";
+                        TableCode = TableCode + "<tr>\n";
+                        //TableCode = TableCode + "<th class='center'>Form Id</th>\n";
+                        TableCode = TableCode + "<th class='center'>Form Name</th>\n";
+                        TableCode = TableCode + "<th class='center'>Form Type</th>\n";
+                        TableCode = TableCode + "<th class='center'>Edit Form</th>\n";
+                        TableCode = TableCode + "<th class='center'>View Form</th>\n";
+                        // TableCode = TableCode + "<th class='center'>Assignments</th>\n";
+                        TableCode = TableCode + "<th class='center'>Created By</th>\n";
+                        TableCode = TableCode + "<th class='center'>Created Date</th>\n";
+                        TableCode = TableCode + "</tr>\n";
+                        TableCode = TableCode + "</thead>\n";
+                        TableCode = TableCode + "<tbody>\n";
+
+                        for (var i = 0; i < data.length; i++) {
+                            var date = data[i]["createdate"];
+                            var d = new Date(date.split("/").reverse().join("-"));
+                            var dd = d.getDate();
+                            var mm = d.getMonth() + 1;
+                            var yy = d.getFullYear();
+                            TableCode = TableCode + "<tr id='TRID_" + data[i]["tagid"] + "'>";
+                            //TableCode = TableCode + "<td>" + data[i]["tagid"] + "</td>";
+                            TableCode = TableCode + "<td>" + data[i]["logsheetname"] + "</td>";
+                            if (data[i]["type_form"] == null || data[i]["type_form"] == "") {
+                                TableCode = TableCode + "<td></td>";
+                            }
+                            else {
+                                TableCode = TableCode + "<td>" + data[i]["type_form"] + "</td>";
+                            }
+                            //TableCode = TableCode + "<td class='Linking'><i class='glyphicon glyphicon-file'></i>Entries</td>";
+                            TableCode = TableCode + "<td class='Linking' onclick=FormEditClick('" + data[i]["tagid"] + "')><i class='glyphicon glyphicon-edit'></i>Edit</td>";
+                            TableCode = TableCode + "<td class='Linking' onclick=FormViewClick('" + data[i]["tagid"] + "')><i class='glyphicon glyphicon-search'></i>View</td>";
+                            // TableCode = TableCode + "<td class='Linking' onclick=FormPopupClick('" + data[i]["tagid"] + "')><i class='glyphicon glyphicon-edit'></i>Edit Assignments</td>";
+                            //TableCode = TableCode + "<td class='LinkingDel'><i class='glyphicon glyphicon-trash'></i>Delete</td>";
+                            TableCode = TableCode + "<td>" + data[i]["userid"] + "</td>";
+                            TableCode = TableCode + "<td>" + dd + "-" + mm + "-" + yy + "</td>";
+                            TableCode = TableCode + "</tr>";
+                        }
+                        TableCode = TableCode + "</tbody>\n";
+                        var tbody = $("#Tbl_Formslist");
+                        tbody.append(TableCode);
+                        $('#Tbl_Formslist').dataTable({
+                            bAutoWidth: false,
+                            "aaSorting": []
+                        });
+                    }
+                    else {
+                        alert("No data found");
+                    }
+
+                },
+                error: function () {
+                    alert("Ajax Error");
+                }
+            });
+        }
+        catch (e) {
+            alert("Error :FormsListLoading" + "\t" + e);
+        }
+    }
+
+    function FormsListLoading() {
+        try {
+            $.ajax({
+                url: "../GetFormsList",
+                type: "GET",
+                data: {},
+                async: false,
+                cache: false,
+                success: function (data) {
+
+                    if (data != "false") {
+                        var TableCode = "";
+                        TableCode = TableCode + "<thead>\n";
+                        TableCode = TableCode + "<tr>\n";
+                        TableCode = TableCode + "<th class='center'>Form Name</th>\n";
+                        TableCode = TableCode + "<th class='center'>Module</th>\n";
+                        TableCode = TableCode + "<th class='center'>Form Type</th>\n";
+                        TableCode = TableCode + "<th class='center'>Edit Form</th>\n";
+                        TableCode = TableCode + "<th class='center'>View Form</th>\n";
+                        TableCode = TableCode + "<th class='center'>Created By</th>\n";
+                        TableCode = TableCode + "<th class='center'>Created Date</th>\n";
+                        TableCode = TableCode + "</tr>\n";
+                        TableCode = TableCode + "</thead>\n";
+                        TableCode = TableCode + "<tbody>\n";
+
+                        for (var i = 0; i < data.length; i++) {
+                            var Date = data[i]["CreatedDate"].split('T');
+                            var newDate = Date[0].split('-');
+                            var FinalDate = newDate[2] + '-' + newDate[1] + '-' + newDate[0];
+                            TableCode = TableCode + "<tr id='TRID_" + data[i]["FormId"] + "'>";
+                            TableCode = TableCode + "<td>" + data[i]["FormName"] + "</td>";
+                            TableCode = TableCode + "<td>" + data[i]["ModuleCode"] + "</td>";
+                            TableCode = TableCode + "<td>" + data[i]["FormTypeName"] + "</td>";
+                            TableCode = TableCode + "<td class='Linking' onclick=FormEditClick('" + data[i]["FormId"] + "')><i class='glyphicon glyphicon-edit'></i>Edit</td>";
+                            TableCode = TableCode + "<td class='Linking' onclick=FormViewClick('" + data[i]["FormId"] + "')><i class='glyphicon glyphicon-search'></i>View</td>";
+                            TableCode = TableCode + "<td>" + data[i]["CreatedBy"] + "</td>";
+                            TableCode = TableCode + "<td>" + FinalDate + "</td>";
+                            TableCode = TableCode + "</tr>";
+                        }
+                        TableCode = TableCode + "</tbody>\n";
+                        var tbody = $("#Tbl_Formslist");
+                        tbody.append(TableCode);
+                        $('#Tbl_Formslist').dataTable({
+                            bAutoWidth: false,
+                            "aaSorting": []
+                        });
+                    }
+                    else {
+                        alert("No data found");
+                    }
+
+                },
+                error: function () {
+                    alert("Ajax Error");
+                }
+            });
+        }
+        catch (e) {
+            alert("Error :FormsListLoading" + "\t" + e);
+        }
+    }
+
+    function FormViewClick(_tagid) {
+
+        //location.reload();
+        //window.open("../../Home#/FormViewer?_tagid=" + _tagid + "");
+        window.location.href = "../../Home#/FormViewer?_tagid=" + _tagid + "";
+    }
+
+    function FormEditClick(_tagid) {
+        ///window.open("../../Home#/ELogsheet?_tagid=" + _tagid + "");
+        window.location.href = "../../Home#/ELogsheet?_tagid=" + _tagid + "";
+    }
+
+    function FormPopupClick(_tagid) {
+        try {
+            $("#myModal").show();
+            $.ajax({
+                url: "../getAssigedData",
+                type: "GET",
+                success: function (responce) {
+                    var assigdata = '';
+                    var ass_data = responce.rows;
+                    for (var i = 0; i < ass_data.length; i++) {
+                        assigdata += '<option value=' + ass_data[i]["roleid"] + '>' + ass_data[i]["rolename"] + '</option>';
+                    }
+                    // $("#Designation_sel").append(assigdata);
+                    $("#Designation_sel").empty();
+                    $("#Designation_sel").append(assigdata).trigger("chosen:updated");
+                }
+
+            });
+
+            $.ajax({
+                url: "../getUserData",
+                type: "GET",
+                success: function (responce) {
+                    var userdata = '';
+                    var user_data = responce.rows;
+                    for (var i = 0; i < user_data.length; i++) {
+                        userdata += '<option value=' + user_data[i]["userid"] + '>' + user_data[i]["username"] + '</option>';
+                    }
+                    $("#user_data3").empty();
+                    $("#user_data3").append(userdata).trigger("chosen:updated");
+                }
+
+            });
+
+            $("#txt_tagid").val(_tagid);
+            $("#ReccurencePatternId").val(_tagid);
+            $("#myModal").modal('show');
+            if (_tagid) {
+                $("#save_lbl").remove();
+                $("#lbl_form").prepend("<span>Edit</span>&nbsp;");
+                var elogsheetupdate = JSON.stringify({
+                    _tagid: _tagid,
+                });
+
+                $.ajax({
+                    url: "../getdashboardbyid",
+                    type: "post",
+                    contentType: "application/json",
+                    data: elogsheetupdate,
+                    success: function (data) {
+                        var mydatarow = data.DataFromDB;
+                        for (var i = 0; i < mydatarow.length; i++) {
+                            // alert(mydatarow[i]["type_form"]);
+                            $("#Select_type").val(mydatarow[i]["type_form"]).trigger("chosen:updated");
+                        }
+                        $(".give_acess").show();
+                        $.ajax({
+                            url: "../EditFormdata",
+                            type: "GET",
+                            success: function (data) {
+                                var myeditdata = data.rows;
+                                var dsg_arr = new Array();
+                                var usr_arr = new Array();
+                                for (var i = 0; i < myeditdata.length; i++) {
+                                    if (myeditdata[i]["tagid"] == _tagid) {
+                                        if (myeditdata[i]["assignedlist"] == "Designation") {
+                                            dsg_arr.push(myeditdata[i]["assignedto"]);
+                                            $("#Designation_sel").val(dsg_arr).attr("selected", true).trigger("chosen:updated");
+                                        }
+                                        else if (myeditdata[i]["assignedlist"] == "Name") {
+                                            usr_arr.push(myeditdata[i]["assignedto"]);
+                                            $("#user_data3").val(usr_arr).attr("selected", true).trigger("chosen:updated");
+                                        }
+                                    }
+                                }
+                            }
+
+                        });
+                    }
+                });
+            }
+        }
+        catch (e) {
+            alert("Error :FormPopupClick" + "\t" + e);
+        }
+    }
+
+
+    $("#Select_type").chosen({
+        allow_single_deselect: true,
+        "width": "40%"
+    });
+    $("#Role_type").chosen({
+        allow_single_deselect: true,
+        "width": "40%"
+    });
+    $("#Designation_sel").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#user_data3").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $('#Select_type').on('change', function () {
+        if (this.value == "Form") {
+            $(".give_acess").hide();
+            $(".Assiged_id").show();
+            $("#user_data3 option").removeAttr("selected").trigger("chosen:updated");
+            $("#Designation_sel option").removeAttr("selected").trigger("chosen:updated");
+        }
+        else if (this.value == "Transaction") {
+            $(".give_acess").hide();
+            $(".Assiged_id").show();
+            $("#Designation_sel option").removeAttr("selected").trigger("chosen:updated");
+            $("#user_data3 option").removeAttr("selected").trigger("chosen:updated");
+        }
+
+        else {
+
+            $(".give_acess").show();
+            $(".Assiged_id").hide();
+            $(".nam").hide();
+            $(".desg").hide();
+
+
+        }
+    });
+    $("#Designation_sel").chosen().change(function (e, params) {
+        $("#user_data3 option").removeAttr("selected").trigger("chosen:updated");
+    });
+    $("#user_data3").chosen().change(function (e, params) {
+        $("#Designation_sel option").removeAttr("selected").trigger("chosen:updated");
+    });
+    $(".give_acess").hide();
+    $(".Assiged_id").hide();
+
+    function AR_Start_End_Change(_id) {
+        try {
+
+            var timefrom = new Date();
+            temp = $('#AR_Start_Time').val().split(":");
+            timefrom.setHours((parseInt(temp[0]) - 1 + 24) % 24);
+            timefrom.setMinutes(parseInt(temp[1]));
+
+            var timeto = new Date();
+            temp = $('#AR_End_Time').val().split(":");
+            timeto.setHours((parseInt(temp[0]) - 1 + 24) % 24);
+            timeto.setMinutes(parseInt(temp[1]));
+
+            if (timeto < timefrom) {
+                alert('End time Should be greater than Start time');
+            }
+            else {
+                var AR_Start_Time = $("#AR_Start_Time").val(), AR_End_Time = $("#AR_End_Time").val();
+                var ary1 = AR_Start_Time.split(':'), ary2 = AR_End_Time.split(':');
+                var minsdiff = parseInt(ary2[0], 10) * 60 + parseInt(ary2[1], 10) - parseInt(ary1[0], 10) * 60 - parseInt(ary1[1], 10);
+                var duration = String(100 + Math.floor(minsdiff / 60)).substr(1) + ':' + String(100 + minsdiff % 60).substr(1);
+                $("#AR_Duration").val(duration);
+
+            }
+
+
+            if ($("#AR_Start_Time").val() == "" || $("#AR_End_Time").val() == "") {
+                $("#AR_Duration").val("");
+            }
+
+        }
+        catch (e) {
+            alert("Error : AR_Start_End_Change : " + e);
+        }
+    }
+
+    function SaveTheAssignments() {
+
+
+        try {
+            var FormId = $("#txt_tagid").val();
+            //var FormId = myid;
+            var FormType = $("#Select_type").val();
+            var AssignmentType = "";
+            var Assignees = new Array();
+
+            if (FormType == "") {
+                alert("Select FormType");
+                return;
+            }
+            else if (FormType == "Form" || FormType == "Transaction") {
+
+            }
+            else if (FormType == "Logsheet" || FormType == "Inspection" || FormType == "Audit") {
+                if ($("#Designation_sel option:selected").val()) {
+                    AssignmentType = "Designation";
+                    //$("#Designation_sel").find('input').each(function () {
+                    //    if ($(this).prop('checked')) {
+                    //        Assignees.push($(this).attr("value"));
+                    //    }
+                    //});
+                    $('#Designation_sel :selected').each(function (i, selected) {
+                        // alert(selected);
+                        Assignees[i] = $(selected).val();
+                    })
+                }
+                else if ($("#user_data3 option:selected").val()) {
+                    AssignmentType = "Name";
+                    //$("#user_data2").find('input').each(function () {
+                    //    if ($(this).prop('checked')) {
+                    //        Assignees.push($(this).attr("value"));
+                    //    }
+                    //});
+                    $('#user_data3 :selected').each(function (i, selected) {
+                        // alert(selected);
+                        Assignees[i] = $(selected).val();
+                    })
+
+
+                }
+                else {
+                    alert("Select Assignment Type");
+                    return;
+                }
+            }
+
+            var FormData = JSON.stringify({
+                FormId: FormId,
+                FormType: FormType,
+                AssignmentType: AssignmentType,
+                Assignees: Assignees
+            });
+
+
+            $.ajax({
+                type: 'POST',
+                datatype: 'json',
+                url: "../../SaveFormTypeandAssignments",
+                data: FormData,
+                contentType: 'application/json',
+                async: false,
+                cache: false,
+                success: function (Response) {
+                    // alert(Response);
+                    if (Response == true) {
+                        $("#myModal").fadeOut();
+                        $("#FormScheduleAssignments").modal('show');
+
+                        FormData = JSON.stringify({
+                            FormId: FormId
+                        });
+
+                        $.ajax({
+                            type: 'POST',
+                            datatype: 'json',
+                            url: "../../GetFormReccurencePattern_FormId",
+                            data: FormData,
+                            contentType: 'application/json',
+                            async: false,
+                            cache: false,
+                            success: function (Res) {
+
+                                if (Res == false) {
+                                }
+                                else {
+                                    Res = JSON.parse(Res);
+                                    var PatternData = Res["PatternData"];
+                                    var ReccurenceData = Res["ReccurenceData"];
+
+                                    $("#ReccurencePatternId").val(PatternData["pattern_id"]);
+                                    $("#AR_Start_Time").val(PatternData["start_time"]);
+                                    $("#AR_End_Time").val(PatternData["end_time"]);
+                                    $("#AR_Duration").val(PatternData["duration"]);
+
+                                    var StartDate = PatternData["start_date"];
+                                    //StartDate = StartDate.split('-')[2] + "/" + StartDate.split('-')[1] + "/" + StartDate.split('-')[0];
+
+                                    var dateformat = new Date(StartDate.split('-')[0], StartDate.split('-')[1], StartDate.split('-')[2]);
+                                    // alert(dateformat);
+                                    $("#Range_rec_start").datepicker("setDate", dateformat);
+
+
+                                    //  $("#Range_rec_start").val(StartDate);
+
+                                    if (PatternData["end_pattern"] == "0") {
+                                        $("#RR_NoEnd").attr("checked", "checked");
+                                    }
+                                    else if (PatternData["end_pattern"] == "EndNos") {
+                                        $("#RR_EndNos").attr("checked", "checked");
+                                        $("#RR_Endafter").val(PatternData["end_nos"]);
+                                        $("#RR_endTime").val("");
+                                        $("#RR_endTime").attr("disabled", "disabled");
+                                    }
+                                    else if (PatternData["end_pattern"] == "EndDate") {
+                                        $("#RR_EndDate").attr("checked", "checked");
+                                        $("#RR_Endafter").val("");
+                                        $("#RR_Endafter").attr("disabled", "disabled");
+                                        var EndDate = PatternData["end_date"];
+                                        //  EndDate = EndDate.split('-')[2] + "/" + EndDate.split('-')[1] + "/" + EndDate.split('-')[0];
+
+                                        var dateformat2 = new Date(EndDate.split('-')[0], EndDate.split('-')[1], EndDate.split('-')[2]);
+                                        $("#RR_endTime").datepicker("setDate", dateformat2);
+
+                                        // $("#RR_endTime").val(EndDate);
+                                    }
+
+
+                                    if (PatternData["reccurance_interval"] == "Daily") {
+                                        $("#Daily").attr("checked", "checked");
+                                        $("#AR_Daily").css("display", "block");
+                                        $("#AR_Weekly").css("display", "none");
+                                        $("#AR_Monthly").css("display", "none");
+                                        $("#AR_Yearly").css("display", "none");
+
+                                        if (ReccurenceData["interval_weekday"] == "DailyCheck") {
+                                            $("#DailyCheck").attr("checked", "checked");
+                                            $("#DailyCheck_Nos").val(ReccurenceData["days_nos"]);
+                                            $("#EveryWeekdaySelect").val("");
+                                            $("#EveryWeekdaySelect").attr("disabled", "disabled");
+                                        }
+                                        else if (ReccurenceData["interval_weekday"] == "WeekDayCheck") {
+                                            $("#EveryWeekday").attr("checked", "checked");
+                                            $("#DailyCheck_Nos").val("");
+                                            $("#DailyCheck_Nos").attr("disabled", "disabled");
+                                            $("#EveryWeekdaySelect").val(ReccurenceData["weekday"]);
+                                            $("#EveryWeekdaySelect").attr("disabled", false);
+                                        }
+
+                                    }
+                                    else if (PatternData["reccurance_interval"] == "Weekly") {
+                                        $("#Weekly").attr("checked", "checked");
+                                        $("#AR_Daily").css("display", "none");
+                                        $("#AR_Weekly").css("display", "block");
+                                        $("#AR_Monthly").css("display", "none");
+                                        $("#AR_Yearly").css("display", "none");
+
+                                        $("#WeeklyRP_Nos").val(ReccurenceData["weeks_interval"]);
+                                        $("#Weekly_" + ReccurenceData["weeks_interval_day"] + "").attr("checked", "checked");
+
+                                    }
+                                    else if (PatternData["reccurance_interval"] == "Monthly") {
+                                        $("#Monthly").attr("checked", "checked");
+                                        $("#AR_Daily").css("display", "none");
+                                        $("#AR_Weekly").css("display", "none");
+                                        $("#AR_Monthly").css("display", "block");
+                                        $("#AR_Yearly").css("display", "none");
+
+                                        if (ReccurenceData["datemonth_weekdayofthemonth"] == "Day") {
+                                            $("#AR_Monthly_NumberredDay").attr("checked", "checked");
+
+                                            $("#AR_Month_NumberredDay_Recc").val(ReccurenceData["dateofthemonth"]);
+                                            $("#AR_Month_NumberredDay_Repeat").val(ReccurenceData["monthinterval"]);
+                                            $("#AR_Month_NumberredDay_Recc").attr("disabled", false);
+                                            $("#AR_Month_NumberredDay_Repeat").attr("disabled", false);
+
+                                            $("#AR_Month_WeekNos").val("");
+                                            $("#AR_Month_WeekDay").val("");
+                                            $("#AR_Month_WeekNo_Repeat").val("");
+
+                                            $("#AR_Month_WeekNos").attr("disabled", "disabled");
+                                            $("#AR_Month_WeekDay").attr("disabled", "disabled");
+                                            $("#AR_Month_WeekNo_Repeat").attr("disabled", "disabled");
+                                        }
+                                        else if (ReccurenceData["datemonth_weekdayofthemonth"] == "NumberedWeekDay") {
+                                            $("#AR_Monthly_WeekNo").attr("checked", "checked");
+
+                                            $("#AR_Month_NumberredDay_Recc").val("");
+                                            $("#AR_Month_NumberredDay_Repeat").val("");
+                                            $("#AR_Month_NumberredDay_Recc").attr("disabled", "disabled");
+                                            $("#AR_Month_NumberredDay_Repeat").attr("disabled", "disabled");
+
+                                            $("#AR_Month_WeekNos").val(ReccurenceData["monthinterval_week"]);
+                                            $("#AR_Month_WeekDay").val(ReccurenceData["weekday"]);
+                                            $("#AR_Month_WeekNo_Repeat").val(ReccurenceData["weekno"]);
+
+                                            $("#AR_Month_WeekNos").attr("disabled", false);
+                                            $("#AR_Month_WeekDay").attr("disabled", false);
+                                            $("#AR_Month_WeekNo_Repeat").attr("disabled", false);
+                                        }
+
+                                    }
+                                    else if (PatternData["reccurance_interval"] == "Yearly") {
+                                        $("#Yearly").attr("checked", "checked");
+                                        $("#AR_Daily").css("display", "none");
+                                        $("#AR_Weekly").css("display", "none");
+                                        $("#AR_Monthly").css("display", "none");
+                                        $("#AR_Yearly").css("display", "block");
+
+                                        if (ReccurenceData["datemonth_weekdayofthemonth"] == "Date") {
+
+                                            $("#AR_Yearly_RP_Date").attr("checked", "checked");
+                                            $("#AR_Yearly_Nos").val(ReccurenceData["yearlyinterval"]);
+
+                                            $("#EveryYearlySelect").val(ReccurenceData["datemonth_month"]);
+                                            $("#AR_Yearly_RP_Date_Date").val(ReccurenceData["datemonth_date"]);
+                                            $("#EveryYearlySelect").attr("disabled", false);
+                                            $("#AR_Yearly_RP_Date_Date").attr("disabled", false);
+
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val("");
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val("");
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val("");
+
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", "disabled");
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", "disabled");
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", "disabled");
+
+                                        }
+                                        else if (ReccurenceData["datemonth_weekdayofthemonth"] == "MonthWeekDay") {
+
+                                            $("#AR_Yearly_RP_MonthWeekDay").attr("checked", "checked");
+                                            $("#AR_Yearly_Nos").val(ReccurenceData["yearlyinterval"]);
+
+                                            $("#EveryYearlySelect").val("");
+                                            $("#AR_Yearly_RP_Date_Date").val("");
+                                            $("#EveryYearlySelect").attr("disabled", "disabled");
+                                            $("#AR_Yearly_RP_Date_Date").attr("disabled", "disabled");
+
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val(ReccurenceData["weekno"]);
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val(ReccurenceData["weekday"]);
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val(ReccurenceData["monthname"]);
+
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", false);
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", false);
+                                            $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", false);
+
+
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+                        });
+
+                    }
+                    else {
+
+                    }
+                }
+            });
+
+
+
+        }
+        catch (e) {
+            alert("Error : SaveTheAssignments : " + e);
+        }
+
+
+    }
+
+    function RecPatChange() {
+        try {
+            if ($("#Daily").is(':checked')) {
+                $("#AR_Daily").css("display", "block");
+                $("#AR_Weekly").css("display", "none");
+                $("#AR_Monthly").css("display", "none");
+                $("#AR_Yearly").css("display", "none");
+
+
+            }
+            else if ($("#Weekly").is(':checked')) {
+                $("#AR_Daily").css("display", "none");
+                $("#AR_Weekly").css("display", "block");
+                $("#AR_Monthly").css("display", "none");
+                $("#AR_Yearly").css("display", "none");
+            }
+            else if ($("#Monthly").is(':checked')) {
+                $("#AR_Daily").css("display", "none");
+                $("#AR_Weekly").css("display", "none");
+                $("#AR_Monthly").css("display", "block");
+                $("#AR_Yearly").css("display", "none");
+            }
+            else if ($("#Yearly").is(':checked')) {
+                $("#AR_Daily").css("display", "none");
+                $("#AR_Weekly").css("display", "none");
+                $("#AR_Monthly").css("display", "none");
+                $("#AR_Yearly").css("display", "block");
+            }
+        }
+        catch (e) {
+            alert("Error : RecPatChange: " + e)
+        }
+    }
+
+    function DailyCheckChange() {
+        try {
+            if ($("#DailyCheck").is(':checked')) {
+                $("#DailyCheck_Nos").removeAttr("disabled");
+                $("#DailyCheck_Nos").val("1");
+                $("#EveryWeekdaySelect").attr("disabled", "disabled");
+                $("#EveryWeekdaySelect").val("");
+            }
+            else if ($("#EveryWeekday").is(':checked')) {
+                $("#DailyCheck_Nos").attr("disabled", "disabled");
+                $("#DailyCheck_Nos").val("");
+                $("#EveryWeekdaySelect").removeAttr("disabled");
+                $("#EveryWeekdaySelect").val("");
+            }
+            else {
+
+            }
+        }
+        catch (e) {
+            alert("Error : DailyCheckChange: " + e)
+        }
+    }
+
+    function YearlyCheckChange() {
+        try {
+
+
+            if ($("#AR_Yearly_RP_Date").is(':checked')) {
+
+                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", true);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", true);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", true);
+                $("#EveryYearlySelect").attr("disabled", false);
+                $("#AR_Yearly_RP_Date_Date").attr("disabled", false);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val("");
+                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val("");
+                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val("");
+
+
+            }
+
+            else if ($("#AR_Yearly_RP_MonthWeekDay").is(':checked')) {
+                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", false);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", false);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", false);
+                $("#EveryYearlySelect").attr("disabled", true);
+                $("#AR_Yearly_RP_Date_Date").attr("disabled", true);
+                $("#EveryYearlySelect").val("");
+                $("#AR_Yearly_RP_Date_Date").val("");
+
+            }
+
+        } catch (e) {
+
+            alert("Error : YearlyCheckChange" + e);
+        }
+
+
+    }
+
+    function MonthlyCheckChange() {
+
+        try {
+
+            if ($("#AR_Monthly_NumberredDay").is(':checked')) {
+                $("#AR_Month_NumberredDay_Recc").attr("disabled", false);
+                $("#AR_Month_NumberredDay_Repeat").attr("disabled", false);
+                $("#AR_Month_WeekNos").attr("disabled", true);
+                $("#AR_Month_WeekDay").attr("disabled", true);
+                $("#AR_Month_WeekNo_Repeat").attr("disabled", true);
+                $("#AR_Month_WeekNo_Repeat").val("");
+                $("#AR_Month_WeekNos").val("");
+                $("#AR_Month_WeekDay").val("");
+
+            }
+
+            else if ($("#AR_Monthly_WeekNo").is(':checked')) {
+                $("#AR_Month_NumberredDay_Recc").attr("disabled", true);
+                $("#AR_Month_NumberredDay_Repeat").attr("disabled", true);
+                $("#AR_Month_WeekNos").attr("disabled", false);
+                $("#AR_Month_WeekDay").attr("disabled", false);
+                $("#AR_Month_WeekNo_Repeat").attr("disabled", false);
+                $("#AR_Month_NumberredDay_Recc").val("");
+                $("#AR_Month_NumberredDay_Repeat").val("");
+            }
+
+
+
+        } catch (e) {
+
+            alert("Error :MonthlyCheckChange" + e);
+        }
+
+    }
+
+    function Rangerecurance_CheckChange() {
+        try {
+
+
+
+            if ($("#RR_NoEnd").is(':checked')) {
+                $("#RR_Endafter").val("");
+                $("#RR_endTime").val("");
+                $("#RR_Endafter").attr("disabled", "disabled");
+                $("#RR_endTime").attr("disabled", "disabled");
+            }
+            else if ($("#RR_EndNos").is(':checked')) {
+                $("#RR_Endafter").val("");
+                $("#RR_endTime").val("");
+                $("#RR_Endafter").attr("disabled", false);
+                $("#RR_endTime").attr("disabled", "disabled");
+            }
+            else if ($("#RR_EndDate").is(':checked')) {
+                $("#RR_Endafter").val("");
+                $("#RR_endTime").val("");
+                $("#RR_Endafter").attr("disabled", "disabled");
+                $("#RR_endTime").attr("disabled", false);
+            }
+
+
+
+        } catch (e) {
+
+            alert("Error : Rangerecurance_CheckChange" + e);
+        }
+
+
+    }
+
+    function SaveRecurrencePattern() {
+        try {
+
+            var AR_Start_Time = $("#AR_Start_Time").val();
+            var AR_End_Time = $("#AR_End_Time").val();
+            var AR_Duration = $("#AR_Duration").val();
+
+            var RecurrencePattern = "";
+            var ReccurenceInterval = "";
+            var PatternObject = new Array();
+
+            if ($("#Daily").is(':checked')) {
+                RecurrencePattern = "Daily";
+                ReccurenceInterval = "1";
+
+                if ($("#DailyCheck").is(':checked')) {
+                    DailyRecurrenceType = "DailyCheck";
+                    var DailyCheck_DaysNos = $("#DailyCheck_Nos").val();
+                    PatternObject.push({
+                        DailyRecurrenceType: DailyRecurrenceType,
+                        DailyCheck_DaysNos: DailyCheck_DaysNos,
+                        EveryWeekdaySelect: ""
+                    });
+                }
+                else if ($("#EveryWeekday").is(':checked')) {
+                    DailyRecurrenceType = "WeekDayCheck";
+                    var EveryWeekdaySelect = $("#EveryWeekdaySelect").val();
+
+                    PatternObject.push({
+                        DailyRecurrenceType: DailyRecurrenceType,
+                        DailyCheck_DaysNos: "",
+                        EveryWeekdaySelect: EveryWeekdaySelect
+                    });
+                }
+
+            }
+            else if ($("#Weekly").is(':checked')) {
+                RecurrencePattern = "Weekly";
+                ReccurenceInterval = $("#WeeklyRP_Nos").val();
+
+                var WeeklyRP_Day = "";
+                if ($("#Weekly_Sunday").is(':checked')) { WeeklyRP_Day = "Sunday"; }
+                else if ($("#Weekly_Monday").is(':checked')) { WeeklyRP_Day = "Monday"; }
+                else if ($("#Weekly_Tuesday").is(':checked')) { WeeklyRP_Day = "Tuesday"; }
+                else if ($("#Weekly_Wednesday").is(':checked')) { WeeklyRP_Day = "Wednesday"; }
+                else if ($("#Weekly_Thursday").is(':checked')) { WeeklyRP_Day = "Thursday"; }
+                else if ($("#Weekly_Friday").is(':checked')) { WeeklyRP_Day = "Friday"; }
+                else if ($("#Weekly_Saturday").is(':checked')) { WeeklyRP_Day = "Saturday"; }
+                else { alert("Select recurring week day"); }
+
+                PatternObject.push({
+                    ReccurenceInterval: ReccurenceInterval,
+                    WeeklyRP_Day: WeeklyRP_Day
+                });
+
+            }
+            else if ($("#Monthly").is(':checked')) {
+                RecurrencePattern = "Monthly";
+                ReccurenceInterval = "1";
+
+                if ($("#AR_Monthly_NumberredDay").is(':checked')) {
+                    RecurrencePattern_Monthly = "Day";
+
+                    var AR_Month_NumberredDay_Recc = $("#AR_Month_NumberredDay_Recc").val();
+                    var AR_Month_NumberredDay_Repeat = $("#AR_Month_NumberredDay_Repeat").val();
+
+                    PatternObject.push({
+                        RecurrencePattern_Monthly: RecurrencePattern_Monthly,
+                        AR_Month_NumberredDay_Recc: AR_Month_NumberredDay_Recc,
+                        AR_Month_NumberredDay_Repeat: AR_Month_NumberredDay_Repeat,
+                        AR_Month_WeekNos: "",
+                        AR_Month_WeekDay: "",
+                        AR_Month_WeekNo_Repeat: ""
+
+                    });
+
+                }
+                else if ($("#AR_Monthly_WeekNo").is(':checked')) {
+                    RecurrencePattern_Monthly = "NumberedWeekDay";
+
+                    var AR_Month_WeekNos = $("#AR_Month_WeekNos").val();
+                    var AR_Month_WeekDay = $("#AR_Month_WeekDay").val();
+                    var AR_Month_WeekNo_Repeat = $("#AR_Month_WeekNo_Repeat").val();
+
+                    PatternObject.push({
+                        RecurrencePattern_Monthly: RecurrencePattern_Monthly,
+                        AR_Month_NumberredDay_Recc: "",
+                        AR_Month_NumberredDay_Repeat: "",
+                        AR_Month_WeekNos: AR_Month_WeekNos,
+                        AR_Month_WeekDay: AR_Month_WeekDay,
+                        AR_Month_WeekNo_Repeat: AR_Month_WeekNo_Repeat
+                    });
+
+                }
+
+            }
+            else if ($("#Yearly").is(':checked')) {
+
+                RecurrencePattern = "Yearly";
+                var ReccurenceInterval = $("#AR_Yearly_Nos").val();
+
+                if ($("#AR_Yearly_RP_Date").is(':checked')) {
+                    ReccuringPoint = "Date";
+                    var EveryYearlySelect = $("#EveryYearlySelect").val();
+                    var AR_Yearly_RP_Date_Date = $("#AR_Yearly_RP_Date_Date").val();
+
+                    PatternObject.push({
+                        ReccuringPoint: ReccuringPoint,
+                        ReccurenceInterval: ReccurenceInterval,
+                        EveryYearlySelect: EveryYearlySelect,
+                        AR_Yearly_RP_Date_Date: AR_Yearly_RP_Date_Date,
+
+                        AR_Yearly_RP_MonthWeekDay_WeekNos: "",
+                        AR_Yearly_RP_MonthWeekDay_WeekDay: "",
+                        AR_Yearly_RP_MonthWeekDay_WeekMonth: ""
+                    });
+
+                }
+                else if ($("#AR_Yearly_RP_MonthWeekDay").is(':checked')) {
+                    ReccuringPoint = "MonthWeekDay";
+                    var AR_Yearly_RP_MonthWeekDay_WeekNos = $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val();
+                    var AR_Yearly_RP_MonthWeekDay_WeekDay = $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val();
+                    var AR_Yearly_RP_MonthWeekDay_WeekMonth = $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val();
+
+                    PatternObject.push({
+                        ReccuringPoint: ReccuringPoint,
+                        ReccurenceInterval: ReccurenceInterval,
+                        EveryYearlySelect: "",
+                        AR_Yearly_RP_Date_Date: "",
+
+                        AR_Yearly_RP_MonthWeekDay_WeekNos: AR_Yearly_RP_MonthWeekDay_WeekNos,
+                        AR_Yearly_RP_MonthWeekDay_WeekDay: AR_Yearly_RP_MonthWeekDay_WeekDay,
+                        AR_Yearly_RP_MonthWeekDay_WeekMonth: AR_Yearly_RP_MonthWeekDay_WeekMonth
+
+                    });
+
+                }
+
+            }
+
+            var RecStartDate = $("#Range_rec_start").val();
+
+            if (RecStartDate == "") {
+                alert("Enter Start Date");
+                return;
+            }
+            else {
+                RecStartDate = RecStartDate.split('/')[2] + "-" + RecStartDate.split('/')[1] + "-" + RecStartDate.split('/')[0];
+            }
+
+            var RecEndReason = "";
+            var RecEndNos = "";
+            var RecEndDate = "";
+
+            if ($("#RR_NoEnd").is(':checked')) {
+                RecEndReason = "0";
+            }
+            else if ($("#RR_EndNos").is(':checked')) {
+                RecEndReason = "EndNos";
+                RecEndNos = $("#RR_Endafter").val();
+            }
+            else if ($("#RR_EndDate").is(':checked')) {
+                RecEndReason = "EndDate";
+                RecEndDate = $("#RR_endTime").val();
+
+                if (RecEndDate == "") {
+                    alert("Enter End Date");
+                    return;
+                }
+                else {
+                    RecEndDate = RecEndDate.split('/')[2] + "-" + RecEndDate.split('/')[1] + "-" + RecEndDate.split('/')[0];
+                }
+            }
+
+            RecPatObj = JSON.stringify({
+                _tagid: $("#ReccurencePatternId").val(),
+                ReccurencePatternId: $("#ReccurencePatternId").val(),
+                AR_Start_Time: AR_Start_Time,
+                AR_End_Time: AR_End_Time,
+                AR_Duration: AR_Duration,
+                RecurrencePattern: RecurrencePattern,
+                RecStartDate: RecStartDate,
+                RecEndReason: RecEndReason,
+                RecEndNos: RecEndNos,
+                RecEndDate: RecEndDate,
+                PatternObject: PatternObject
+            });
+
+            $.ajax({
+                url: "../SaveRecurrencePattern",
+                type: "post",
+                contentType: "application/json",
+                data: RecPatObj,
+                success: function (Resp) {
+
+                    if (Resp == false) {
+                        alert("Please try again");
+                    }
+                    else {
+                        $("#ReccurencePatternId").val(Resp);
+
+                        alert("Successfully Saved : " + Resp);
+                        $("#FormScheduleAssignments").fadeOut();
+                    }
+
+                }
+            });
+
+        }
+        catch (e) {
+            alert("Error : SaveRecurrencePattern " + e);
+        }
+    }
+
+</script>
+

@@ -1,0 +1,159 @@
+<div>
+    <form class="form-horizontal" role="form" id="ProjectTitles">
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" for="LogSheetProjectName">
+            Name of the Project:
+        </label>
+        <div class="col-sm-9">
+            <input type="text" id="LogSheetProjectName" class="col-xs-10 col-sm-5" placeholder="Project Name" />
+            <input type="text" id="LogSheetProjectIdentity" style="display: none;" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" for="LogSheetProjectDescription">
+            Project Description:
+        </label>
+        <div class="col-sm-9">
+            <textarea id="LogSheetProjectDescription" class="col-xs-10 col-sm-5" placeholder="Project Description"
+                maxlength="3000" style="resize: none;"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" for="LogSheetProjectUsersList">
+            Users:
+        </label>
+        <div class="col-sm-9">
+            <div class="col-xs-10 col-sm-5" id="UserListDivision" style="border: 1px solid #CCC;
+                height: 125px; overflow: auto;">
+                <div class="checkbox">
+                    <label>
+                        <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" id="UserOne"><span
+                            class="lbl">User One</span></label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" id="UserTwo"><span
+                            class="lbl">User Two</span></label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" id="UserThree"><span
+                            class="lbl">User Three</span></label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" id="UserFour"><span
+                            class="lbl">User Four</span></label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" id="UserFive"><span
+                            class="lbl">User Five</span></label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" id="UserSix"><span
+                            class="lbl">User Six</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="button" ng-click="CreateUpdateProject()">
+                <i class="ace-icon fa fa-check bigger-110"></i>Create Project
+            </button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">
+            Page Default Header Text:
+        </label>
+        <div class="col-sm-9">
+            <input type="text" id="PageDefaultHeader" class="col-xs-6 col-sm-5" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">
+            Page Default Footer Text:
+        </label>
+        <div class="col-sm-9">
+            <input type="text" id="PageDefaultFooter" class="col-xs-6 col-sm-5" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">
+            Font Size:
+        </label>
+        <div class="col-sm-9">
+            <input type="text" id="FontSize" class="col-xs-6 col-sm-5" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">
+            Font Family:
+        </label>
+        <div class="col-sm-9">
+            <select id="FontFamily" class="col-xs-6 col-sm-5">
+                <option>Font Family</option>
+                <option value="Arial" style="font-family: Arial">Arial</option>
+                <option value="Calibri" style="font-family: Calibri">Calibri</option>
+                <option value="Comic Sans MS" style="font-family: 'Comic Sans MS'">Comic Sans MS</option>
+                <option value="Courier" style="font-family: 'Courier New'">Courier</option>
+                <option value="Cursive" style="font-family: cursive">Cursive</option>
+                <option value="Fantasy" style="font-family: fantasy">Fantasy</option>
+                <option value="Georgia" style="font-family: Georgia">Georgia</option>
+                <option value="Impact" style="font-family: Impact">Impact</option>
+                <option value="Monospace" style="font-family: monospace">Monospace</option>
+                <option value="Sans-serif" style="font-family: sans-serif">Sans-serif</option>
+                <option value="Serif" style="font-family: serif">Serif</option>
+                <option value="Segoe UI" style="font-family: 'Segoe UI'">Segoe UI</option>
+                <option value="Segoe UI" style="font-family: 'Segoe UI Symbol'">Segoe UI Symbol</option>
+                <option value="Times New Roman" style="font-family: 'Times New Roman'">Times New Roman</option>
+                <option value="Verdana" style="font-family: Verdana">Verdana</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">
+            Font Style:
+        </label>
+        <div class="col-sm-9">
+            <select id="FontStyle" class="col-xs-6 col-sm-5">
+                <option value="">Font Style</option>
+                <option value="normal" style="font-style: normal;">Normal</option>
+                <option value="italic" style="font-style: italic;">Italic</option>
+                <option value="oblique" style="font-style: oblique;">Oblique</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right">
+            Default Background Color:
+        </label>
+        <div class="col-sm-9">
+            <input type="color" onchange="ColorPickerChange()" id="ColorPickerValue" class="col-xs-6 col-sm-5" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="button" ng-click="SaveTheValues()">
+                <i class="ace-icon fa fa-check bigger-110"></i>Save The Default
+            </button>
+        </div>
+    </div>
+
+    </form>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //        $("#ProjectTitles").css("display", "block");
+        //        $("#ProjectDefaultCSS").css("display", "block");
+
+    });
+
+
+</script>

@@ -1,0 +1,455 @@
+
+<style>
+    .icon-bar {
+        background-color: white;
+        border-bottom: 1px solid lightgrey;
+        overflow: auto;
+        width: 100%;
+    }
+</style>
+    <!-- <script src="../Scripts/Controllers/drag.js" type="text/javascript"></script> -->
+<body >
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+        <ul class="breadcrumb">
+            <li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a></li>
+            <li><a>Admin</a></li>
+            <li>imagedrage</li>
+        </ul>
+    </div>
+    <div class="icon-bar">
+        <a class="disableicons Toolbar_Settings" title="Settings">
+            <img src="../Images/ToolbarIcons/Settings.png" /></a>
+        <a class="disableicons Toolbar_UploadImage" title="Upload Image">
+            <img src="../Images/ToolbarIcons/UploadImage.png" /></a>
+        <a class="disableicons Toolbar_UploadFile" title="Upload CSV">
+            <img src="../Images/ToolbarIcons/UploadFile.png" /></a>
+        <a class="disableicons Toolbar_ExportPDF" title="Export PDF">
+            <img src="../Images/ToolbarIcons/ExportPDF.png" /></a>
+        <a class="disableicons Toolbar_ExportExcel" title="Export Excel">
+            <img src="../Images/ToolbarIcons/ExportExcel.png" /></a>
+        <a class="disableicons Toolbar_Draft" title="Open Draft">
+            <img src="../Images/ToolbarIcons/OpenDraft.png" /></a>
+        <a class="disableicons Toolbar_Preview" title="Preview">
+            <img src="../Images/ToolbarIcons/Preview.png"></a>
+         <a class="disableicons Toolbar_Create" title="Invoke">
+            <img src="../Images/ToolbarIcons/Invoke.png" /></a>
+        <a class="disableicons Toolbar_Cancel" title="Cancel">
+            <img src="../Analytics/Content/Images/ToolbarIcons/Cancel.png"></a>
+        <a class="Toolbar_Delete" title="Delete Record">
+            <img src="../Images/ToolbarIcons/Delete.png" /></a>
+        <a class="Toolbar_List" title="View Entries" href="#dragform" >
+            <img src="../Images/ToolbarIcons/List.png" /></a>
+        <a class="Toolbar_Edit" title="Edit" >
+            <img src="../Images/ToolbarIcons/Edit.png" /></a>
+        <a class="Toolbar_Save" title="Save" >
+            <img src="../Images/ToolbarIcons/Save.png" /></a>
+        <a class="disableicons Toolbar_AddConnection" title="Add Connection">
+            <img src="../Images/ToolbarIcons/AddConnection.png"></a>
+        <a class="disableicons Toolbar_AddDB" title="Add Stored Procedure">
+            <img src="../Images/ToolbarIcons/AddDB.png"></a>
+        <a class="Toolbar_Create" title="Create" >
+            <img src="../Images/ToolbarIcons/Create.png" /></a>
+</div>
+<div class="container-fluid" style="margin-top:16px;border: 1px solid black;">
+    <div class="row" style="margin-left: 210px">
+          <!-- <div class="col-md-4" id="formdata">
+            <lable>form name</lable>
+            <input type="text" id="datatext" >
+          </div> -->
+        <div  id="droppable" class="col-md-9 " style=" text-align: center">
+           <div>
+
+             <div id="sartable" style="margin-left: 28px;" >
+                <h1 >UserInputs</h1>
+             </div>
+
+           </div>
+        </div>
+     </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      <lable>username</label>
+      <input type="text"  id="label">
+      <lable>width</label>
+      <input type="text"  id="width">
+     <input type="hidden" name="userid" id="userid">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveFun">Save changes</button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- UserFormList -->
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <lable>form name</lable>
+        <input type="text" id="datatext" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveFun1">Save changes</button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+<style>
+#circle {
+      width: 50px;
+      height: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: #b7338e;
+    }
+     .rrr{
+      height: 100px;
+      width: 105px;
+      background-color: #988fe0;
+      border-radius: 20px;
+
+    }
+    .highlight {
+    border: 2px solid red;
+    font-weight: bold;
+}
+.datamodel{
+ color: red
+}
+ .visuble1{
+   border: 1px solid red;
+   margin-top: 7px;
+   margin-bottom: 8px;
+  padding: 12px;
+ }
+
+</style>
+
+
+<script>
+$(document).ready(function(){
+  //alert("hii")
+  $("p").hide();
+$("#formdata").hide();
+//$(".visuble1").hide();
+})
+
+$(function() {
+
+ var i=1;
+
+
+
+$('.Toolbar_Create').draggable({
+  helper:'clone'
+});
+$("#droppable").droppable({
+    accept:'.Toolbar_Create',
+    drop : function(event, ui){
+
+      $("#sartable").append('<div  id="popup'+i+'"  ondblclick="openModal(this.id)" class="data1 form-group" ><label id="lable'+i+'">username</label><input type="text" style="margin: 11px 0px;" id="text'+i+'" class="form-control"></div>')
+        i++;
+    },
+
+});
+
+      $('.Toolbar_Create').click(function(){
+
+        //var a='<div id="popup'+i+'"  ondblclick="openModal(this.id)" class="data1" ><label id="lable'+i+'">username</label><input type="text" style="margin: 11px 0px;" id="text'+i+'" ></div>'
+        $("#sartable").append('<div id="visuble" class="visuble1"><div  id="popup'+i+'"  ondblclick="openModal(this.id)" class="data1 form-group" ><label id="lable'+i+'">username</label><input type="text" style="margin: 11px 0px;" id="text'+i+'"  class="form-control"></div></div>')
+           i++;
+      })
+      })
+
+  $("#saveFun").dblclick(function(){
+    debugger;
+    //$("visuble").show();
+    var userId = $("#userid").val();
+    //alert(userId)
+         $("#"+userId).find('label').text($("#label").val());
+         $("#"+userId).find('input').width($("#width").val());
+          $("#myModal").modal('hide');
+
+})
+$("#saveFun1").click(function(){
+  var textdata=$("#datatext").val()
+  alert(textdata);
+  debugger;
+  var mydata=JSON.stringify({'textdata':textdata,'data':jsonarry});
+
+
+  alert(mydata);
+ console.log(mydata)
+ //console.log(data)
+        $.ajax({
+            url: "/updatedrg",
+           type: 'POST',
+           contentType: 'application/json',
+           data: mydata,
+            success: function (response) {
+
+                    fn_SuccessNotification(response, "success_alert", "", "");
+                   //  localStorage.setItem('id', '');
+                   // localStorage.setItem('type', '');
+                   //  window.location.href = "#pwdList";
+
+
+            },
+            error: function (jqXHR, exception) {
+                 fn_errorNotification(jqXHR.status, jqXHR, exception, "error occured at update with code fn_save_Userdetails", "error_alert", "", "");
+  //               StopPageLoader();
+            }
+        });
+
+  $("#myModal1").modal('hide');
+})
+
+
+
+
+// $('.Toolbar_Save').click(function(){
+//     var jsondetails=[];
+//  $('#sartable .data1').each(function(){
+//    //debugger;
+//
+// //alert(this.id);
+// var maindivid=this.id;
+// //alert(maindivid);
+// //  jsondetails.push(this.id)
+//   var label=  $(this).find('label').attr('id');
+//   var text=  $(this).find('input').attr('id');
+//   var textdata = $(this).find('label').text();
+//    //ar textdata=$(this).find('lable').text();
+//
+//    var width=$(this).find('input').width();
+//   //alert(text);
+//   //console.log(textdata)
+//   //alert(textdata)
+//   //var width=  $(this.id).find('input')
+// //jsondetails.push(label)
+// var str="";
+//  str='{"'+maindivid+'"';
+//
+//   str +=':[{"label":{"labelid":"'+label+'","textdata":"'+textdata+'"}},{"input":{"inputid":"'+text+'","width":"'+width+'"}}]}';
+// // alert(str);
+//    jsondetails.push(str);
+// //console.log((((JSON.stringify(jsondetails)).replace(/"/g , "/")).replace(/\\/g,'"')).replace(/\//g,''));
+//  })
+//
+// var finaljson=(((JSON.stringify(jsondetails)).replace(/"/g , "/")).replace(/\\/g,'"')).replace(/\//g,'');
+//
+//
+// alert(finaljson);
+//
+// $( '#sartable .data1' ).remove();
+//   var data=JSON.parse(finaljson);
+//
+//   //alert(data.length);
+// //$("#sartable").empty();
+// var html_up;
+// var k;
+// for (var i = 0; i < data.length; i++) {
+//
+// alert(JSON.stringify(data[i]));
+//
+//    $.each(data[i], function (key, value) {
+//
+//       // alert(key + "\t" + JSON.stringify(value));
+//        //alert(data[i])
+//        html_up += '<div id="' + key + '" ondblclick="openModal(this.id)" class="data1">';
+//        for (var j = 0; j < value.length; j++) {
+//          //  alert(JSON.stringify(value[i]));
+//          //alert(value[i])
+//            $.each(value[j], function (key, value) {
+// //alert(key + "\t" + JSON.stringify());
+//                if(key =='label'){
+//                   html_up += '<label id="' + value.labelid + '">' + value.textdata + '</label>';
+//
+// }
+// if(key =='input'){
+// //alert(key + "\t" + JSON.stringify(value));
+// //alert(value.width)
+//   html_up +='<input type="text" style="margin: 11px 0px;width:'+value.width+'px" id="'+value.inputid+'"></div>';
+// }
+//
+//            });
+// //html_up +='</div>'
+//
+//
+//
+// }
+//
+//        //html += '<label id="lable1">username</label><input type="text" style="margin: 11px 0px;" id="text1"></div>';
+//
+//
+//    });
+//
+// //
+// //   html += '<div id="popup1" onclick="openModal(this.id)" class="data1"><label id="lable1">username</label><input type="text" style="margin: 11px 0px;" id="text1"></div>';
+//
+// }
+// alert(html_up);
+// //var arr = html_up.split('$1');
+// $("#sartable").empty();
+// //$('#date').split('$undefined')
+// //$("#sartable").replace("undefined","");
+// //$("#sartable").replace('undefined', '');
+// $("#sartable").append(html_up);
+//
+// });
+
+$("#sartable").sortable();
+function openModal(userId){
+  //alert(userId)
+//debugger;
+    $("#myModal").modal('show');
+      $("#userid").val(userId);
+//$("#user").val('');
+//$("#width").val('');
+
+}
+var html_up;
+var jsonarry = [];
+$(".Toolbar_Save").click(function(){
+  $("#formdata").show();
+  $("#myModal1").modal('show');
+//var textdata=  $("#datatext").val();
+ //alert("textdat")
+         $("#sartable .data1").each(function(){
+            var json_obj = {};
+             var parentId = this.id;
+            var labelText = $("#"+parentId).find('label').text();
+            var labelId = $("#"+parentId).find('label').attr('id');
+            var inputWidth =parseInt($("#"+parentId).find('input').width());
+            var inputId = $("#"+parentId).find('input').attr('id');
+            json_obj[parentId] =  [{"label":{"label_id":labelId,"label_name":labelText}},{"input":{"input_id":inputId,"input_width":inputWidth}}];
+            //var jsonobj=JSON.stringify(json_obj)
+            jsonarry.push(JSON.stringify(json_obj));
+          //alert(json_obj)
+          console.log(JSON.stringify(json_obj));
+            alert("MyJSONarr"+jsonarry)
+        });
+          //var string=JSON.stringify(jsonarry);
+
+// var MyArray = JSON.stringify({
+//   'json_arry':json_arry
+// });
+
+//
+
+   //onsole.log(textdata);
+ //   var mydata=JSON.stringify({'textdata':textdata,
+ //   data:jsonarry
+ // });
+ //
+ //         $.ajax({
+ //             url: "/updatedrg",
+ //            type: 'POST',
+ //            contentType: 'application/json',
+ //            data: mydata,
+ //             success: function (response) {
+ //
+ //                     //fn_SuccessNotification(response, "success_alert", "", "");
+ //                    //  localStorage.setItem('id', '');
+ //                    // localStorage.setItem('type', '');
+ //                    //  window.location.href = "#pwdList";
+ //
+ //
+ //             },
+ //             error: function (jqXHR, exception) {
+ //                  fn_errorNotification(jqXHR.status, jqXHR, exception, "error occured at update with code fn_save_Userdetails", "error_alert", "", "");
+ //   //               StopPageLoader();
+ //             }
+ //         });
+
+
+
+//          $('#sartable').remove();
+//          var data=string;
+//          alert(json_arry)
+//          for (var i = 0; i < data.length; i++) {
+//          //
+//          // alert(JSON.stringify(data[i]));
+//          //
+//              $.each(data[i], function (key, value) {
+//
+//          //
+//          //       // alert(key + "\t" + JSON.stringify(value));
+//          //        //alert(data[i])
+//
+//                 html_up += '<div  id="popup'+key+'"  ondblclick="openModal(this.id)" class="data1 form-group" >';
+//                  for (var j = 0; j < value.length; j++) {
+//          //          //  alert(JSON.stringify(value[i]));
+//          //          //alert(value[i])
+//                      $.each(value[j], function (key, value) {
+//
+//          // //alert(key + "\t" + JSON.stringify());
+//                          if(key =='label'){
+//                            html_up += '<label id="lable'+value.label_id+'">'+value.label_name+'</label>';
+//
+//           }
+//           if(key =='input'){
+//          // //alert(key + "\t" + JSON.stringify(value));
+//          // //alert(value.width)
+//              html_up +='<input type="text" style="margin: 11px 0px;" id="text'+value.input_id+'"  class="form-control" width="'+value.input_width+'px" ></div>';
+//           }
+//          //
+//          //            });
+//          // //html_up +='</div>'
+//          //
+//          //
+//          //
+//          // }
+//          //
+//          //        //html += '<label id="lable1">username</label><input type="text" style="margin: 11px 0px;" id="text1"></div>';
+//          //
+//          //
+//              });
+//          //
+//          // //
+//          // //   html += '<div id="popup1" onclick="openModal(this.id)" class="data1"><label id="lable1">username</label><input type="text" style="margin: 11px 0px;" id="text1"></div>';
+//          //
+//           }
+//          // alert(html_up);
+//          // //var arr = html_up.split('$1');
+//          // $("#sartable").empty();
+//          // //$('#date').split('$undefined')
+//          // //$("#sartable").replace("undefined","");
+//          // //$("#sartable").replace('undefined', '');
+//
+//
+// })
+// }
+// $("#sartable").append(html_up);
+})
+//})
+</script>

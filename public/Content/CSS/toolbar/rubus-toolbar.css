@@ -1,0 +1,83 @@
+.icon-bar {
+    width: 100%;
+    background-color: white;
+    overflow: auto;
+    /*border-bottom: 1px solid lightgrey;*/
+}
+
+    .icon-bar a {
+        float: right;
+        width: auto;
+        text-align: center;
+        padding: 12px 9px !important;
+        transition: all 0.3s ease;
+        /*color: #ffb752;*/
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+.disableicons {
+    opacity: 0.3;
+    pointer-events: none !important;
+    cursor: default;
+}
+
+.icon-bar a img {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.icon-bar input {
+    float: right;
+    margin-top: 1%;
+}
+
+
+.icon-bar a:hover {
+    background-color: lightgrey;
+}
+
+.active {
+    background-color: white !important;
+}
+
+.newform {
+    margin-top: 2%;
+}
+
+.footer {
+    margin-top: 45px !important;
+}
+
+.row input {
+    width: 90%;
+}
+
+.navbar {
+    width: 101% !important;
+}
+
+body {
+    width: 99% !important;
+}
+
+.row select {
+    width: 90%;
+}
+
+.Error {
+    color: #a94442;
+    font-size: 12px;
+}
+
+.red-text {
+    color: #F44336!important;
+}
+
+table tr td {
+    cursor: pointer;
+}
+
+.breadcrumb a {
+    cursor: pointer;
+}

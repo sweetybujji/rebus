@@ -1,0 +1,553 @@
+﻿.PanelContainer {
+    display:block;
+    width:900px;
+    margin-left: auto;
+    margin-right: auto;
+    color:#555; 
+
+}
+
+.ContentArea .Content {
+    background: rgb(238,238,238); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(221,221,221,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(221,221,221,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(221,221,221,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(221,221,221,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(221,221,221,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(221,221,221,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+    border-top: 1px solid #ccc;
+    min-width:0;
+}
+
+/* First row of home page: User Name and quick infos on dashboard data and space */
+.FirstRow {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    text-align: left;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.FirstRow .Welcome {
+    margin-top:20px;
+    text-align:left;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size:20pt;
+}
+
+    .FirstRow .Welcome > span {
+        font-size:20pt;
+        line-height:60px;
+    }
+    .FirstRow .Welcome > span:first-of-type {
+        float: left;
+        margin-right: 4px;
+    }
+
+    .FirstRow .Welcome > .Username {
+        display: block;
+        font-weight: bold;
+        font-size: 20pt;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.FirstRow .QuickStats {
+    float:right;
+    text-align:right;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.FirstRow .QuickStats p {
+    margin: 0 0 10px 0;
+}
+.FirstRow .QuickStats span {
+    font-weight:bold;
+}
+
+/* Second row of home: get started and recent dashboard and data */
+.SecondRow {
+    height: 400px;
+}
+
+.SecondRow h3 {
+    margin: 0;
+    color: #555;
+    border-bottom: 1px solid #e8e8e8;
+    background:whitesmoke;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.SecondRow .FirstColumn {  
+    float:left;
+    width:66%;
+    height:100%;
+}
+
+.SecondRow .SecondColumn {
+    float:left;
+    width:33%;
+    height:100%;
+}
+
+/* Global Style of first 3 panel */
+.FirstColumn > div {
+    margin: 0;
+    padding: 0;
+    width:66%;
+}
+.FirstColumn .GetStartedContainer {
+    width: 100%;
+height:400px;
+    margin-bottom:10px;
+}
+
+.FirstColumn .GetStartedContainer h2 {
+    text-align:center;
+    padding:10px;
+    color:#333;
+}
+
+.FirstColumn .GetStarted {  
+    text-align: center;
+}
+
+.FirstColumn .GetStarted > div {
+    width:50%;
+    float:left;
+    text-align:center;
+    margin: 15px 0 15px 0;
+}
+.FirstColumn .GetStarted > button:hover {
+    cursor:pointer;
+}
+
+.FirstColumn .GetStarted span > a {
+    color: #555;
+    text-decoration: underline;
+}
+
+.FirstColumn .GetStarted .NeedHelp {
+    font-size:8pt;
+}
+
+.FirstColumn .ClicDataVersionContainer, .FirstColumn .TwitterFeedContainer  {
+    width: 50%;
+    height: 340px;
+}
+
+.FirstColumn .GetStarted, .SecondColumn .ConnectedUsers, .FirstColumn .TwitterFeed, .SecondColumn .DataAndDashboards, .FirstColumn .ClicDataVersion, .FirstColumn .Poll {
+    margin: 0 5px 0 5px;
+    height: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.TwitterFeedContainer {
+    float: left;
+}
+
+.TwitterFeed.content-hidden > * {
+    visibility: hidden;
+}
+
+.LeftColumnFirst {
+    width: 50% !important;
+    float: left;
+}
+
+
+/* ----------------CONNECTED USERS---------------*/
+
+.SecondColumn .ConnectedUsersContainer {
+    margin-top: 12px;
+    width: 100%;
+}
+
+.SecondColumn .ConnectedUsers {
+    position: relative;
+    margin:0 0 0 5px;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer {
+    padding: 8px;
+    height: 160px;
+    overflow: auto;
+}
+
+.SecondColumn .ConnectedUsers h3 > .toolbar {
+    display: none;
+    position: absolute;
+    right: 2px;
+    top: 8px;
+    font-size: 11px;
+}
+.SecondColumn .ConnectedUsers h3 > .toolbar > * {
+    vertical-align: middle;
+}
+.SecondColumn .ConnectedUsers h3:hover > .toolbar {
+    display: block;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li {
+    margin-bottom: 2px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li.offline {
+    color: #ccc;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li > * {
+    vertical-align: middle;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li .thumbnail
+{
+    width: 28px;
+    height: 28px;
+    border: 1px solid silver;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li .name {
+    position: absolute;
+    left: 40px;
+    right: 50px;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    top: 4px;
+    font-size: 16px;
+    line-height: 1.4;
+    display: inline-block;
+}
+
+.SecondColumn .ConnectedUsers .UserContainer li .toolbar {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    display: none;
+}
+
+
+.SecondColumn .ConnectedUsers li:hover > .toolbar {
+    display: block;
+}
+
+.SecondColumn > div > div, .FirstColumn > div > div, .LeftColumnFirst > div > div {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+
+/* ------------------- POLL ---------------------*/
+.FirstColumn .PollContainer {
+    width: 100%;
+    height: 240px;
+}
+
+.FirstColumn .Poll {
+    position: relative;
+    margin: 0px 6px 0 6px;
+}
+
+.FirstColumn .Poll .loading {
+    position: absolute;
+    top: 32px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #EEE;
+    z-index: 99999;
+}
+
+.FirstColumn .Poll > div {
+    padding: 6px;
+}
+
+.FirstColumn .Poll i {
+    font-size: 40px;
+    color: #CCC;
+    display: inline-block;
+}
+
+.FirstColumn .Poll p {
+    font-size: 13px;
+    vertical-align: top;
+    display: inline-block;
+    width: calc(100% - 40px);
+    margin-left: 8px;
+}
+
+.FirstColumn .Poll button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.FirstColumn .Poll .questionText {
+    margin-bottom: 4px;
+    line-height: 17px;
+}
+
+.FirstColumn .Poll .answers {
+    position: absolute;
+    top: 100px;
+    left: 28px;
+}
+
+.FirstColumn .Poll .answers span {
+    font-size: 13px;
+    vertical-align: top;
+}
+
+.FirstColumn .Poll .results span {
+    font-size: 11px;
+}
+
+.FirstColumn .Poll .results .barContainer {
+    background: #DDD;
+    height: 10px;
+    vertical-align: top;
+    margin-top: 2px;
+}
+
+.FirstColumn .Poll .results .bar {
+    display: inline-block;
+    height: 10px;
+    background: #E1A0AD;
+    vertical-align: top;
+}
+
+.FirstColumn .Poll .results .barNumericValue {
+    font-size: 8px;
+    vertical-align: top;
+    line-height: 10px;
+    float: right;
+}
+
+
+/* -------------------- UPDATES -------------------*/
+.FirstColumn .ClicDataVersionContainer {
+    width: 100%;
+    height: 100px;
+    float: left;
+}
+
+.FirstColumn .ClicDataVersion {
+    margin: 12px 6px 0 6px;
+    height: 88px;
+}
+
+.FirstColumn .ClicDataVersion .versionInfo {
+    margin: 4px;
+}
+
+.FirstColumn .ClicDataVersion .versionInfo span {
+    font-size: 12px;
+}
+
+.FirstColumn .ClicDataVersion .countdown {
+    margin: 4px;
+}
+
+.FirstColumn .ClicDataVersion .countdown i {
+    margin-right: 4px;
+    font-size: 15px;
+}
+
+.FirstColumn .ClicDataVersion .countdown span {
+    line-height: 14px;
+}
+
+.FirstColumn .ClicDataVersion .progressbar {
+    width: 275px;
+    height: 14px;
+    border: 1px solid #888;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    background-color: rgb(215,220,229);
+    overflow:hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.FirstColumn .ClicDataVersion .progressbar > div {
+    position: absolute;
+    left: 0;
+    height: 14px;
+    background: rgb(142,196,229);
+}
+
+.FirstColumn .ClicDataVersion .progressbar > span {
+    font-size: 10px;
+    vertical-align: top;
+    line-height: 14px;
+    position: absolute;
+    left: 70px;
+    color: #333;
+}
+
+/* -------------------- RECENT --------------------*/
+.SecondColumn .DataAndDashboardsContainer {
+    width:100%;
+    height:375px;
+}
+
+.SecondColumn .DataAndDashboards {  
+    position:relative;
+    margin:0 0 0 5px;
+}
+
+.SecondColumn .DataAndDashboards .RecentDashboards
+{
+    padding:8px;
+    min-height: 100px;
+    max-height: 180px;
+    overflow-y:auto;
+}
+.SecondColumn .DataAndDashboards .RecentDashboards li {
+    margin-bottom: 3px;
+    white-space: nowrap;
+}
+.SecondColumn .DataAndDashboards .RecentDashboards li:hover
+{
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.SecondColumn .DataAndDashboards .RecentDashboards li .thumbnail
+{
+    width: 50px;
+    height: 40px;
+    border: 1px solid silver;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    display: inline-block;
+}
+.SecondColumn .DataAndDashboards .RecentDashboards li .thumbnail.loadingbackground
+{
+    -moz-background-size: 30%;
+    -o-background-size: 30%;
+    -webkit-background-size: 30%;
+    background-size: 30%;
+}
+.SecondColumn .DataAndDashboards .RecentDashboards li > * {
+    vertical-align: middle;
+}
+.SecondColumn .DataAndDashboards .RecentDashboards li .name {
+    display: inline-block;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font: 14px/18px 'Open Sans', 'trebuchet ms', arial, sans-serif;
+    color: #555;
+    width: calc(100% - 60px);
+}
+
+#FileDropZone 
+{
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    left: 0;
+    padding:10px 0 10px 0;
+    margin: 10px;
+    border: 2px dashed silver;
+    text-align: center;
+}
+#FileDropZone .CloudIcon {
+    display: block;
+    font-size: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#FileDropZone span
+{
+    font-size:14px;
+    color:silver;
+}
+/* We need a hover class because we're dragging a file*/
+#FileDropZone.hover {
+    -webkit-box-shadow:  0px 0px 10px 2px rgba(29, 113, 209, 0.5);
+    -moz-box-shadow:  0px 0px 10px 2px rgba(29, 113, 209, 0.5);
+    box-shadow:  0px 0px 10px 0px rgba(29, 113, 209, 0.5);
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+
+/* DATA PROGRESS BAR */ 
+.datausage-container {   
+    background-color: rgb(191,195,204);
+    width: 100%;
+    height: 8px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0px 1px 0px rgba(255,255,255,0.25) ,inset 0px 1px 2px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 1px 0px rgba(255,255,255,0.25) ,inset 0px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0px 1px 0px rgba(255,255,255,0.25) ,inset 0px 1px 2px rgba(0,0,0,0.5);
+    overflow:hidden;
+}
+
+.datausage-progress{
+    border: 1px solid rgb(243,121,0);
+    max-width: 100%;
+    min-width: 1%;
+    height: 6px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffc926,endColorstr=#ffff8000,GradientType=0)";
+    background-image: linear-gradient(90deg,rgb(255,128,0) 0%,rgb(255,128,0) 1%,rgb(255,201,38) 99%,rgb(255,201,38) 100%);
+    float:left;
+}

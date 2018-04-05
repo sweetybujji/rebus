@@ -1,0 +1,169 @@
+﻿.visualizer {
+    background-color: #bbbbbb;
+    border: 1px solid #898989;
+    height: 300px;
+    overflow: auto;
+    width: auto;
+}
+.data-formula_bar {
+    margin-top: 0;
+}
+#b-formula_conditions {
+    float: right;
+}
+.data-formula_bar input {
+    border: 1px solid #758da7;
+    padding: 3px;
+    width: 60%;
+}
+.data-vis-root {
+    background-color: #a6a7a9;
+    border: 1px solid #656f78;
+    font-family: Arial,Helvetica,Sans Serif;
+    font-size: 0.9em;
+    height: 250px;
+    overflow: scroll;
+}
+.data-vis-table {
+    background-color: #fff;
+    border-collapse: collapse;
+}
+.data-vis-root .data-vis-table .dead-space {
+    background-color: #a6a7a9;
+}
+.data-vis-table td, .data-vis-table th {
+    border: 1px solid #d6d6d6;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 1em;
+    padding: 4px 5px;
+    white-space: nowrap;
+}
+#visualizer-preview .data-vis-table td, #visualizer-preview .data-vis-table th {
+    cursor: default;
+}
+.unselectable {
+    -moz-user-select: none;
+}
+.dragging td, .dragging th {
+    cursor: move !important;
+}
+.data-vis-table td.selected {
+    background-color: #def2ff;
+}
+.data-vis-table tr.row-header-index th.selected {
+    background-color: #c5e7fc !important;
+}
+.data-vis-table tr.row-header-index th {
+    background-color: #f1f3f2;
+    text-align: center;
+}
+.data-vis-table tr td:first-child {
+    background-color: #f1f3f2;
+    font-weight: bold;
+    padding-right: 5px;
+    width: 40px;
+}
+.data-vis-table tr td.selected:first-child {
+    background-color: #c5e7fc;
+}
+.data-vis-table tr td {
+    padding-right: 40px;
+}
+.data-vis-tab-root {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #e7e8ea;
+    border-color: -moz-use-text-color #54595d #54595d;
+    border-image: none;
+    border-right: 1px solid #54595d;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    padding: 8px;
+}
+
+
+.layout-grid {
+    width: 100%;
+}
+.layout-grid > tbody > tr > td {
+    vertical-align: top;
+}
+.layout-cell {
+    overflow: hidden;
+}
+.layout-grid .layout-cell {
+    height: 100%;
+}
+#klip-preview .layout-cell {
+    border: 1px solid transparent;
+}
+.layout-cell .comp {
+    clear: both;
+    overflow: hidden;
+}
+.layout-cell .floater {
+    float: left;
+    width: 100%;
+}
+.layout-cell .floater.middle {
+    height: 50%;
+}
+.layout-cell .floater.bottom {
+    height: 100%;
+}
+#workspace .layout-grid {
+    border-left: 1px dashed #c5c6c8;
+}
+#workspace .layout-grid > tbody > tr > td {
+    border-bottom: 1px dashed #c5c6c8;
+    border-right: 1px dashed #c5c6c8;
+}
+#workspace .layout-grid .layout-active-cell {
+    background-color: #e5f5fe;
+    border: 1px solid #7acaed;
+}
+#workspace .layout-grid .layout-hover-cell {
+    border: 1px solid #5dc36b;
+}
+#workspace .layout-grid .drop-target-valid > .layout-cell {
+    border: 1px solid #5dc36b;
+}
+#workspace .layout-grid .drop-target-valid, #workspace .layout-grid .drop-target-valid > .layout-cell, #workspace .layout-grid .drop-target-valid > .layout-cell > .comp {
+    cursor: move;
+}
+.visualizer-tab-strip {
+    bottom: -24px;
+    left: -1px;
+    position: absolute;
+}
+.visualizer-tab-strip li {
+    background-image: url("/images/viz-tab-off.png?v=782904219");
+    background-position: left center;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 0.85em;
+    height: 24px;
+    margin-right: 1px;
+    padding-left: 8px;
+}
+.visualizer-tab-strip li.add-datasource-tab {
+    background-image: none;
+    font-size: 0.8em;
+    line-height: 26px;
+    padding-left: 0;
+}
+.visualizer-tab-strip li span {
+    background-image: url("/images/viz-tab-off.png?v=782904219");
+    background-position: right center;
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    padding-right: 20px;
+}
+.visualizer-tab-strip li.active, .visualizer-tab-strip li.active span {
+    background-image: url("/images/viz-tab.png?v=782904219");
+}

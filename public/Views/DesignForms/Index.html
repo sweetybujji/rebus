@@ -1,0 +1,2752 @@
+﻿<style type="text/css">
+    .circlecomponent {
+        background: white;
+        border-radius: 25px;
+        height: 10px;
+        width: 10px;
+        position: relative;
+        border: 1px solid black;
+    }
+
+    .DataModel_Div {
+        border: 1px solid #BABABA;
+        width: 200px;
+        border-radius: 10px;
+        min-height: 116px;
+        background-color: #ebf5fb;
+        padding-bottom: 10px;
+    }
+
+    .Title_Div {
+        border-bottom: 1px solid #BABABA;
+        padding: 5px;
+        font-weight: bold;
+        min-height: 25px;
+        background-color: white;
+        border-top-right-radius: 9px;
+        border-top-left-radius: 9px;
+    }
+
+    .body_Div {
+        min-height: 90px;
+        overflow: hidden;
+        border-bottom-right-radius: 9px;
+        border-bottom-left-radius: 9px;
+        padding-left: 5px;
+        padding-bottom: 10px;
+        padding-top: 5px;
+    }
+
+    .selected_Mani_Div {
+        border: 3px solid orange;
+    }
+
+    .bootstrap-datetimepicker-widget {
+        background-color: white !important;
+    }
+
+    .selected_Header {
+        border-bottom: 3px solid orange;
+    }
+
+    fieldset {
+        /*border: 1px solid gray !important;*/
+        padding: 0 10px 10px 10px;
+        border-bottom: none;
+    }
+
+    legend {
+        border: 0px solid gray;
+        font-size: 14px;
+        width: auto;
+    }
+
+    .modal-dialog {
+        /*position: absolute;        
+        right: 100px;
+        bottom: 0;
+        left: 0;
+        z-index: 10040;
+        overflow: auto;
+        overflow-y: auto;*/
+    }
+
+    .attributecls {
+        float: left;
+        width: 186px;
+        margin-right: 5px;
+        padding: 2px;
+    }
+    /*.attributecls:hover {
+        border: 2px solid gold;
+    }*/
+    .tab-content {
+        padding: 7px 20px !important;
+    }
+
+    .aLabel {
+        border: 1px solid black;
+        font-weight: bold;
+        padding: 2px;
+        border-radius: 5px;
+        /*z-index: 1000;*/
+    }
+
+    /*.modal-header {
+        background: #438eb9;
+        color: white;
+    }*/
+
+    .div_Disable {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    .Valid_attr_apply {
+        background-image: url("/htmlfiles/checked.png");
+        background-repeat: no-repeat;
+        background-position: right top;
+    }
+
+    .dd2-item.dd-item > button {
+        margin-left: 0px !important;
+    }
+
+    .dd-list .dd-list {
+        padding-left: 0px;
+    }
+
+    .dd2-content {
+        margin-bottom: 0px;
+    }
+
+    .custom-list-style {
+        border: 1px solid #d0d3d4;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 0px;
+        border-top: none;
+        border-top-right-radius: 0px !important;
+        border-top-left-radius: 0px !important;
+    }
+</style>
+<link href="AceMasterLayout/DesignFormsStyles/formindex.css" rel="stylesheet" />
+<link href="AceMasterLayout/DesignFormsStyles/index.css" rel="stylesheet" />
+<script src="Scripts/jquery-ui.min.js"></script>
+<link href="AceMasterLayout/DesignFormsStyles/Widgetcs.css" rel="stylesheet" />
+<link href="AceMasterLayout/DesignFormsStyles/klipfolio.css" rel="stylesheet" />
+<link href="AceMasterLayout/DesignFormsStyles/appcss.css" rel="stylesheet" />
+<!--<script src="stylesheets/stylesheets/jquery.dataTables.min.js"></script>-->
+
+<!--DATE PICKER-->
+
+<!--<link rel="stylesheet" href="Scripts/datepicker/css/datepicker.css" />
+<script type="text/javascript" src="Scripts/bootstrap-datepicker.js"></script>-->
+
+<!--DATE PICKER-->
+
+<!--<link href="stylesheets/stylesheets/DataTables.css" rel="stylesheet" />-->
+
+<style>
+    .bootstrap-datetimepicker-widget > .top, .bottom {
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        padding: 15px;
+    }
+
+    #fieldProperties {
+        margin-top: 0px !important;
+    }
+
+    #menu {
+        top: 12px;
+    }
+
+        #menu li.frm a {
+            background-position: -1px -4px;
+        }
+
+        #menu li a {
+            background-color: #a52610;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #9f1e00;
+            border-right: 1px solid #841700;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15);
+            color: #ffda68;
+            display: block;
+            font-size: 95%;
+            font-weight: bold;
+            line-height: 25px;
+            margin: 0 auto 0 5px;
+            padding: 0 10px 1px 30px;
+            text-decoration: none;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        }
+
+    a {
+        color: blue;
+        outline: medium none;
+    }
+
+    a {
+        color: #06c;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    #menu {
+        display: inline-flex;
+        list-style: outside none none;
+        margin: 0 10px 0 0;
+        position: absolute;
+        right: 0;
+        top: 12px;
+    }
+
+    .clearfix[class], #stage[id] {
+        display: block;
+    }
+
+    .tooLong #stage[id] {
+        position: static;
+    }
+
+    .clearfix, #stage {
+        display: inline-block;
+    }
+
+    ul, li {
+        list-style-type: none;
+    }
+
+    #container, #footer {
+        width: 1050px;
+    }
+
+    #container, #footer {
+        margin: 0 auto 10px; /*   width: 900px; */
+    }
+
+    #container {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        position: relative;
+        text-align: left;
+    }
+
+    #nav {
+        background: #c83e43 none repeat scroll 0 0;
+        border-left: 1px solid #c83e43;
+        border-top: 1px solid #c83e43;
+        height: 3em;
+    }
+
+    h1.logo, h3.logo {
+        font-size: 100%;
+        text-decoration: none;
+    }
+
+    .clearfix::after, #stage::after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    #stage {
+        background: #fff url("/images/sidebarbg.png") repeat-y scroll -20px 0;
+        position: relative;
+    }
+
+    #side[id] {
+        height: auto;
+        min-height: 556px;
+        width: 370px;
+        background-color: #f8f8f8;
+    }
+
+    #side {
+        float: left;
+        height: 500px;
+        width: 369px;
+    }
+
+    .afi #tabs {
+        /*   background: #ffff9b url("/Images/tabbottom3.gif") repeat-x scroll center bottom;   */ /*   background: #438eb9 url("/Images/tabbottom3.gif") repeat-x scroll center bottom; */ /*  background:#438eb9 none repeat scroll 0 0; */
+    }
+
+    #tabs {
+        float: left;
+        list-style: outside none none;
+        width: 100%;
+    }
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, sup, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        border: 0 none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #addFields {
+        clear: both;
+        padding: 15px 12px 15px 19px;
+        width: 338px;
+    }
+
+        #addFields ul {
+            list-style: outside none none;
+            margin: 5px 0 7px;
+            width: 49%;
+        }
+
+    #col1, #col3 {
+        float: left;
+    }
+
+        #col1 li, #col3 li {
+            margin: 0 0 6px;
+        }
+
+    body {
+        color: #333;
+        line-height: 1.429;
+        letter-spacing: 0.01em;
+    }
+
+    a.button, button.button, .text .button {
+        color: #464646;
+        cursor: pointer;
+        font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
+        line-height: 130%;
+        margin: 0 0.7em 0 0;
+        text-decoration: none;
+    }
+
+    #main {
+        float: left;
+        height: auto;
+        width: 650px;
+    }
+
+    .afi {
+        background-image: url("/images/sidebarbg.png") !important;
+    }
+
+    .info[class] {
+        display: block;
+    }
+
+    .info {
+        border-bottom: 1px dotted #ccc;
+        clear: both;
+        display: inline-block;
+        margin: 0 0 5px;
+        padding: 0 1% 1.1em;
+    }
+
+    a.button, button.button, .text .button {
+        display: inline-block;
+        margin: 0 .7em 0 0;
+        padding: 5px 10px 6px 10px;
+        border: 1px solid #dedede;
+        border-right: 1px solid #bbb;
+        border-bottom: 1px solid #bfbfbf;
+        background-color: #FFF;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#E9E9E9));
+        background: -webkit-linear-gradient(top, #FFF, #E9E9E9);
+        background: -moz-linear-gradient(top, #FFF, #E9E9E9);
+        background: -ms-linear-gradient(top, #FFF, #E9E9E9);
+        background: -o-linear-gradient(top, #FFF, #E9E9E9);
+        font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
+        font-size: 100%;
+        line-height: 130%;
+        color: #464646;
+        cursor: pointer;
+        text-decoration: none;
+        -webkit-border-radius: 11px;
+        -moz-border-radius: 11px;
+        border-radius: 11px;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+    }
+</style>
+
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#">Home</a>
+        </li>
+        <li class="active">CreateForm</li>
+    </ul>
+    <!-- /.breadcrumb -->
+
+    <div class="nav-search" id="nav-search">
+    </div>
+    <!-- /.nav-search -->
+</div>
+
+<div style="margin-left: 10px; margin-bottom: 10px; margin-top: 10px;"><a class="btn btn-sm btn-primary" href="#FormsList">Forms</a></div>
+
+<div style="margin-top: 10px;">
+    <div class="tooLong" id="container">
+        <input type="button" id="shoprop" style="display: none;" />
+        <input type="hidden" id="hiddenfilename" class="" />
+        <div class="afi" id="stage">
+            <div id="side">
+                <ul id="tabs">
+                    <li id="afi"><a title="Add fields to your form." class="aadfieldtab" onclick="showFields()">Add a Field</a></li>
+                    <li id="cfi"><a title="Change the properties of a field here." onclick="selectField()">Field Settings</a></li>
+                    <li id="cfo"><a title="Change the properties for this form here." onclick="showformprop()">Form Settings</a></li>
+                </ul>
+                <div class="clearfix" id="addFields">
+                    <div id="shake">
+                        <h3 class="stand">Standard</h3>
+                        <ul id="col1">
+                            <li class="dragfld 0" id="Textbox" style="position: relative;"><a class="button"
+                                id="sl"><b></b>Single Line Text</a></li>
+                            <li class="dragfld 1 bigger" id="Checkbox" style="position: relative;"><a class="button"
+                                id="cb"><b></b>Checkboxes</a></li>
+                            <li class="dragfld 1" id="Date" style="position: relative;"><a class="button" id="da">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 22px; left: 4px; line-height: 17px; position: absolute; width: 25px; margin-top: -3px"
+                                    alt="" src="/Images/calendar_2.png" />
+                                Date</a></li>
+                            <li class="dragfld 1" id="DateTime" style="position: relative;"><a class="button"
+                                id="">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    alt="" src="/Images/datetime.png" />
+                                Date Time </a></li>
+                            <li class="dragfld 1" id="Layout" style="position: relative;"><a href="" class="button"
+                                id="na"><b></b>Layout</a></li>
+                            <li class="dragfld 1" id="Textfield" style="position: relative;"><a href="" class="button"
+                                id="nu"><b></b>Numeric</a></li>
+                            <li class="dragfld 3 wide" id="Button" style="position: relative;"><a class="button"
+                                id="">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/button.png"
+                                    alt="" />
+                                Button </a></li>
+                            <li class="dragfld 3 wide" id="DataTable" style="position: relative;"><a class="button"
+                                id="A1"><i class="ace-icon glyphicon glyphicon-align-justify" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>DataGrid </a></li>
+
+                            <li class="dragfld 3 wide" id="ExcelSheet" style="position: relative;"><a href=""
+                                class="button" id="">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/excelicon.png"
+                                    alt="" />
+                                Excel Sheet </a></li>
+                            <li class="dragfld 3 wide" id="QRCode" style="position: relative;"><a class="button"
+                                id="RFID_R">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/QR.png" alt="" />
+                                QR Code Reader</a></li>
+
+                            <li class="dragfld 3 wide" id="SignPad" style="position: relative;"><a class="button"
+                                id="A4"><i class="ace-icon glyphicon glyphicon-pencil" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>Signature Pad </a></li>
+
+
+                            <!--   Model form-->
+
+                            <li class="dragfld 3 wide" id="Modal_form" style="position: relative;"><a class="button"
+                                id="M_Form">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/forms.png" alt="" />
+                                Form from DB</a></li>
+
+                            <!--    Model form-->
+
+                           
+
+
+                            <!--   Tabs form-->
+
+                            <li class="dragfld 3 wide" id="Tabs" style="position: relative;"><a class="button"
+                                id="Elog_Tabs">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/forms.png" alt="" />
+                                Tabs</a></li>
+
+                            <!--    Tabs form-->
+
+                           
+
+
+                        </ul>
+
+
+                        <ul id="col2">
+                            <li class="dragfld 2" id="Dropdown" style="position: relative;"><a href="" class="button"
+                                id="dd"><b></b>Dropdown</a></li>
+                            <li class="dragfld 1 bigger" id="Textarea" style="position: relative;"><a href=""
+                                class="button" id="ml"><b></b>Paragraph Text</a></li>
+                            <li class="dragfld 2" id="Time" style="position: relative; z-index: 0; left: 0px; top: 0px;"><a href="" class="button" id="ti"><b></b>Time</a></li>
+                            <li class="dragfld 0" id="Label" style="position: relative;"><a href="" class="button"
+                                id="">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    alt="" src="/Images/labeltext.png" />
+                                Label Text </a></li>
+                            <li class="dragfld 0" id="Radiobutton" style="position: relative;"><a href="" class="button"
+                                id="mc"><b></b>Radio button</a></li>
+                            <li class="dragfld 3 wide" id="GPS" style="position: relative;"><a href="" class="button">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/GPS-Assist-icon.png"
+                                    alt="" />
+                                GPS </a></li>
+                            <li class="dragfld 2" title="Add an image file" id="image" style="position: relative;">
+                                <a href="" class="button">
+                                    <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                        src="/Images/image2.png"
+                                        alt="" />
+                                    Image </a></li>
+
+                            <li class="dragfld 3 wide" id="ListView" style="position: relative;"><a class="button"
+                                id="AListView"><i class="ace-icon glyphicon glyphicon-th-list" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>List View </a></li>
+
+
+                            <li class="dragfld 5" id="Table" style="position: relative;"><a class="button" id="A2">
+                                <i class="ace-icon glyphicon glyphicon-th" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>Table </a></li>
+                            <li class="dragfld 2" title="Open Camera" id="OpenCamera" style="position: relative;">
+                                <a class="button" style="cursor: pointer;">
+                                    <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                        src="/Images/Camera.png"
+                                        alt="" />
+                                    Camera</a></li>
+                            <!-- <li class="dragfld 2" title="Barcode" id="Barcode" style="position: relative;"><a
+                                class="button" style="cursor: pointer;">
+                                <img style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px;"
+                                    src="/Images/BarCode.png"
+                                    alt="" />
+                                BarCode Reader</a></li>-->
+
+                            <li class="dragfld 3 wide" id="Acc_layout" style="position: relative;"><a class="button"
+                                id="A3"><i class="ace-icon glyphicon glyphicon-collapse-down" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>Accordian Layout </a></li>
+
+
+
+
+                            <!------------------------------------------------------------------------image Uploader--------------------------------->
+
+                            <li class="dragfld 2" title="ImageUploader" id="ImageUploader" style="position: relative;"><a
+                                class="button" style="cursor: pointer;">
+                                <i class="ace-icon glyphicon  glyphicon-upload" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>
+                                Image Uploader</a></li>
+
+                            <!------------------------------------------------------------------------image Uploader--------------------------------->
+
+
+                              <!--  Data Table -->
+
+                            <li class="dragfld 3 wide" id="Li_DataTable" style="position: relative;">
+                                <a class="button" id="ELog_DataTable">
+                                    <i class="ace-icon glyphicon glyphicon-align-justify" style="background-repeat: no-repeat; display: inline-block; height: 16px; left: 8px; line-height: 16px; position: absolute; width: 18px; padding: 2%;"></i>
+                                    Data Table
+                                </a>
+                            </li>
+
+                            <!--    Data Table -->
+
+                        </ul>
+                    </div>
+                    <!-- shake -->
+                </div>
+                <!-- addFields -->
+                <form class="noI " onsubmit="return false;" action="#" id="fieldProperties">
+                    <input type="file" id="file_Upload" style="visibility: hidden;" name="file" />
+                    <ul id="allProps">
+                        <li id="listTitle">
+                            <label class="desc">
+                                Field Label
+                            </label>
+                            <div>
+                                <input type="text" id="fieldTitle" class="form-control textboxprop" />
+                            </div>
+                        </li>
+                        <li id="countbordercolor">
+                            <label class="desc">
+                                Color
+                            </label>
+                            <div>
+                                <select id="bordercolorcount" style="width: 100%;" onchange="setborderandcolor(this.value)">
+                                    <option value="Red" selected>Red</option>
+                                    <option value="Blue">Blue</option>
+                                    <option value="Black" selected>Black</option>
+                                    <option value="Yellow">Yellow</option>
+                                    <option value="Pink">Pink</option>
+                                    <option value="Green" selected>Green</option>
+                                    <option value="Purple" selected>Purple</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li id="countborderli">
+                            <label class="desc">
+                                Border
+                            </label>
+                            <div>
+                                <select id="countborder" style="width: 100%;" onchange="setborderandcolor(this.value)">
+                                    <option value="0" selected>0</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="1">1</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2">2</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3">3</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li id="columncount" style="display: none;">
+                            <label class="desc">
+                                No.of Columns
+                            </label>
+                            <div>
+                                <!--<input type="text" id="columncountval" class="form-control textboxprop" value="1" />-->
+                                <select id="columncountval" style="width: 100%;">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <label id="displaycolumn" style="display: none;">0</label>
+                            <label id="displaybutton" style="display: none;">0</label>
+                        </li>
+                        <li id="listKey">
+                            <label class="desc">
+                                Key Name
+                            </label>
+                            <div>
+                                <input type="text" value="" class="text form-control textboxprop" id="keyfield" />
+                            </div>
+                        </li>
+                        <li id="listType" class="left half">
+                            <label class="desc">
+                                Field Type
+                            </label>
+                            <select ng-change="FieldType()" ng-model="fieldType" ng-init="fieldType='Textbox'"
+                                id="fieldType" class="form-control full">
+                                <option value="Textbox">Single Line Text</option>
+                                <option value="Textarea">Paragraph Text</option>
+                                <!-- <option value="Checkbox">Checkboxes</option>-->
+                                <option value="Dropdown">Drop Down</option>
+                                <!-- <option value="Date">Date</option>
+                                <option value="Time">Time</option>-->
+                                <option value="Textfield">Number</option>
+                                <!-- <option value="DateTime">Date Time</option>
+                                <option value="Label">Label</option>
+                                <option value="Radiobutton">Radiobtn</option>
+                                <option value="QRCode">QRCode</option>
+                                <option value="OpenCamera">Camera</option>
+                                <option value="DataTable">DataGrid</option>
+                                <option value="ListView">ListDataTable</option>
+                                <option value="Acc_layout">Accordian</option>
+                                <option value="SignPad">Signature Pad</option>-->
+
+                            </select></li>
+
+                        <li id="Modal_form_li" class="left half">
+                            <label class="desc">
+                                Select Form Modal
+                            </label>
+                            <select id="Modal_form_Select" class="col-xs-10 col-sm-3 chosen-select form-control textboxprop" onchange="Create_ModalForm()">
+                                <option value="">--Select--</option>
+
+                            </select>
+                        </li>
+
+                        <li id="listSize" class="right half">
+                            <label class="desc">
+                                Field Size
+                            </label>
+                            <select autocomplete="off" id="fieldSize" class="form-control full textboxprop">
+                                <option value="small">Small</option>
+                                <option value="medium">Medium</option>
+                                <option value="large">Large</option>
+                            </select></li>
+                        <li id="imgprop" class="imgp">
+                            <fieldset class="complex clear">
+                                <legend>Image Properties</legend>
+                                <ul id="field" style="margin-left: 10px;">
+                                    <li id="listWidth" class="left half">
+                                        <label class="desc">
+                                            Width
+                                        </label>
+                                        <input type="text" class="text textboxprop" style="width: 70%;" id="Width"></li>
+                                    <li id="listHeight" class="right half">
+                                        <label class="desc">
+                                            Height
+                                        </label>
+                                        <input type="text" class="text textboxprop" style="width: 70%;" id="Height"></li>
+                                    <li class="clear">
+                                        <label class="desc">
+                                            Select a File</label>
+                                        <input type="file" class="imgprop" id="imagefile" style="background: white" />
+                                    <li id="listallignment" class="left half clear">
+                                        <label class="desc">
+                                            Field Allignment
+                                        </label>
+                                        <select autocomplete="off" id="fieldallign" class="select full textboxprop">
+                                            <option value="left">Left</option>
+                                            <option value="center">Center</option>
+                                            <option value="right">Right</option>
+                                        </select></li>
+                                </ul>
+                            </fieldset>
+                        </li>
+                        <li id="excelprop" class="">
+                            <ul id="Ul1">
+                                <li class="left half">
+                                    <label class="desc">
+                                        Choose A File</label>
+                                    <input type="text" class=" text form-control textboxprop" id="Txt_FilePath" name="file" /></li>
+                                <li id="Li1" class="right half"><a id="showdilogexcel" class="btn btn-sm btn-primary" style="color: white; cursor: pointer; margin-right: 20px; margin-top: 0px; text-decoration: none;" ng-click="Browse()">Browse</a> </li>
+                                <li class="left half"><a ng-click="UploadFile()" class="btn  btn-sm btn-primary" id="btn_Getsheets" style="width: -moz-max-content; margin: 10px 12px 6px 1px; cursor: pointer; text-decoration: none; color: white;">Get Sheets</a></li>
+                                <!-- <li class="right half" style="height: 50px;"></li>-->
+                                <li class="left half" id="Div_SelectSheet" style="display: none;">
+                                    <label class="desc">
+                                        Select Sheet :</label><select id="Ddl_SelectSheet" class="select full textboxprop form-control"
+                                            style=""><option value="">-- Select Excel
+                                            Sheet --</option>
+                                        </select>
+                                    <a id="converttotable" class="btn btn-sm btn-primary" style="width: -moz-max-content; margin: 10px 12px 6px 1px; cursor: pointer; text-decoration: none; color: white">Convert</a></li>
+                            </ul>
+                        </li>
+                        <li id="listbtn" class="left half">
+                            <label class="desc">
+                                Button Type
+                            </label>
+                            <select autocomplete="off" id="buttontype" ng-model="buttontype" onchange="fn_Buttons()"
+                                class="select full col-sm-12 textboxprop">
+
+                                <option value="">Button</option>
+                                <option value="Page" id="predirect">Page Redirect</option>
+                                <option value="Link" id="Linkbtn">Link Button</option>
+                                <option value="Save">Save Button</option>
+                                <option value="Cancel">Cancel Button</option>
+                                <option value="Back">Back Button</option>
+                                <option value="Refresh">Refresh Button</option>
+                                <option value="Microflow" id="micro">Call Microflow Button</option>
+                                <option value="Close">Close Page Button</option>
+                                <option value="DropDown">DropDown Button</option>
+                                <option value="REST" id="rest">REST Service Button</option>
+                                <option value="ScallMicroflow" id="save_microflow">save and CallMicroflow</option>
+                            </select>
+                        </li>
+
+
+
+                        <li id="microflowbtn" class="left half" style="display: none; width: 100%; float: right;">
+                            <label class="desc">
+                                Select Microflow
+                            </label>
+                            <select autocomplete="off" id="microflow_Select" ng-model="buttontype" class="select full col-sm-12 textboxprop">
+                                <!-- <option>--Select--</option>
+                                <option>MF_activity_rest.js</option>-->
+                            </select>
+                        </li>
+
+
+
+                        <li id="rest_service" class="left half" style="display: none; width: 100%; float: right;">
+                            <label class="desc">
+                                Select REST type
+                            </label>
+
+                            <select autocomplete="off" id="rest_id" ng-model="buttontype" class="select full col-sm-12 textboxprop">
+                                <option>--Select--</option>
+                                <option value="GET">GET</option>
+                                <option value="POST">POST</option>
+                                <option value="DELETE">DELETE</option>
+                                <option value="PUT">PUT</option>
+                                <option value=""></option>
+                            </select>
+
+                        </li>
+
+                        <li id="Page_redirect" class="left half" style="display: none; width: 100%; float: right;">
+                            <label class="desc">
+                                Select Page Redirect form
+                            </label>
+
+                            <select autocomplete="off" id="pdirect" ng-model="buttontype" class="select full col-sm-12 textboxprop">
+                            </select>
+
+                        </li>
+
+
+                        <li id="Url_link">
+                            <label class="desc">
+                                Enter URL:
+                            </label>
+                            <div>
+                                <input type="text" id="txt_url_link" class="form-control textboxprop" placeholder="Enter Yours Url here..." />
+                            </div>
+                        </li>
+
+                        <li id="Button_Post">
+                            <label class="desc">
+                                Enter Data:
+                            </label>
+                            <div>
+                                <input type="text" id="txt_REST_data" class="form-control textboxprop" placeholder="Enter Yours Data here..." />
+                            </div>
+                        </li>
+
+
+
+                        <li id="listLayout" class="right half" style="display: block;">
+                            <label class="desc">
+                                Field Layout
+                            </label>
+                            <select autocomplete="off" id="fieldLayout" class="form-control full textboxprop">
+                                <option value="1">One Column</option>
+                                <option value="twoColumns">Two Columns</option>
+                                <option value="threeColumns">Three Columns</option>
+                                <option value="notStacked">Side by Side</option>
+                            </select>
+                        </li>
+
+                        <li id="DataStype" class="right half" style="display: block;">
+                            <label class="desc">
+                                DataSource Type
+                            </label>
+                            <select autocomplete="off" id="Datatype" class="form-control full textboxprop">
+                                <option>--select--</option>
+                                <option>Database</option>
+                                <option>XPath</option>
+                                <option>Microflow</option>
+                                <option>Association</option>
+                            </select>
+                        </li>
+
+                        <li id="DataEntity" class="right half" style="display: block;">
+                            <label class="desc">
+                                Select Entity
+                            </label>
+                            <select autocomplete="off" id="sentity" class="form-control full textboxprop">
+                                <option>--Select--</option>
+                            </select>
+                        </li>
+
+
+
+                        <fieldset id="Editable2">
+                            <legend></legend>
+
+                            <li id="Editable" class="right half " style="display: block;">
+                                <label>
+                                    <input name="form-field-checkbox" class="ace edit textboxprop" type="checkbox" id="chk_edit">
+                                    <span class="lbl"><b>Edit</b></span>
+                                </label>
+                            </li>
+
+                        </fieldset>
+
+                        <li id="listDateFormat" class="right half col-sm-12" style="display: block;">
+                            <label class="desc">
+                                Date Format
+                            </label>
+                            <select autocomplete="off" id="dateformat" class="select full textboxprop form-control ">
+                                <option selected="selected" value="date" id="fieldDateAmerican">MM / DD / YYYY</option>
+                                <option value="eurodate" id="fieldDateEuro">DD / MM / YYYY</option>
+                            </select>
+                        </li>
+                        <li class="clear" id="listChoices" style="display: block;">
+                            <fieldset class="choices">
+                                <legend>Choices </legend>
+                                <ul id="fieldChoices">
+                                    <li>
+                                        <input type="radio" title="Make this choice pre-selected." checked="checked" onclick="changeSelectDefault(this)"
+                                            class="" name="allChoices">
+                                        <input type="text" onkeyup="updateChoice(this);" value="" autocomplete="off" maxlength="150"
+                                            class="text">
+                                        <img title="Add another choice." alt="Add" onclick="addSelect(this)" class="notranslate"
+                                            src="/Images/add.png" />
+                                        <img title="Delete this choice." alt="Delete" onclick="deleteSelect(this)" class="notranslate"
+                                            src="/Images/delete.png" /></li>
+                                    <li>
+                                        <input type="radio" title="Make this choice pre-selected." onclick="changeSelectDefault(this)"
+                                            class="" name="allChoices" />
+                                        <input type="text" onkeyup="updateChoice(this);" value="First Choice" autocomplete="off"
+                                            maxlength="150" class="text" />
+                                        <img title="Add another choice." alt="Add" onclick="addSelect(this)" class="notranslate"
+                                            src="/Images/add.png" />
+                                        <img title="Delete this choice." alt="Delete" onclick="deleteSelect(this)" class="notranslate"
+                                            src="/Images/delete.png" /></li>
+                                    <li>
+                                        <input type="radio" title="Make this choice pre-selected." onclick="changeSelectDefault(this)"
+                                            class="" name="allChoices" />
+                                        <input type="text" onkeyup="updateChoice(this);" value="Second Choice" autocomplete="off"
+                                            maxlength="150" class="text">
+                                        <img title="Add another choice." alt="Add" onclick="addSelect(this)" class="notranslate"
+                                            src="/Images/add.png" />
+                                        <img title="Delete this choice." alt="Delete" onclick="deleteSelect(this)" class="notranslate"
+                                            src="/Images/delete.png" /></li>
+                                    <li>
+                                        <input type="radio" title="Make this choice pre-selected." onclick="changeSelectDefault(this)"
+                                            class="" name="allChoices" />
+                                        <input type="text" onkeyup="updateChoice(this);" value="Third Choice" autocomplete="off"
+                                            maxlength="150" class="text" />
+                                        <img title="Add another choice." alt="Add" onclick="addSelect(this)" class="notranslate"
+                                            src="/Images/add.png" />
+                                        <img title="Delete this choice." alt="Delete" onclick="deleteSelect(this)" class="notranslate"
+                                            src="/Images/delete.png" /></li>
+                                </ul>
+                            </fieldset>
+                        </li>
+
+
+                        <li id="list_tbl_name">
+                            <label class="desc">
+                                List of Label Name
+                            </label>
+                            <div>
+                                <input type="text" id="txt_tblname" class="form-control textboxprop" disabled />
+                            </div>
+                        </li>
+
+
+                        <!---------------------------------------------------- Select Edit From----------------------------------------------->
+
+                        <li id="li_Edit_column">
+                            <label class="desc">
+                                Select Edit From
+                            </label>
+                            <select id="Select_Edit_column" class="select full textboxprop form-control">
+                                <option>--Select--</option>
+                            </select>
+
+                        </li>
+                        <!---------------------------------------------------- Select Edit From----------------------------------------------->
+                        <li id="TableColumns" style="display: none;">
+                            <label class='desc'>Select Column Names</label>
+                            <select id='Select_Table_columns' class='select full textboxprop form-control' multiple='multiple'>
+                                <option>--Select--</option>
+                            </select>
+                        </li>
+
+
+
+                        <li class="clear" id="checkboxChoices" style="display: block;">
+                            <fieldset class="choices">
+                                <legend>Choices </legend>
+                                <ul id="checkfieldChoices">
+                                </ul>
+                            </fieldset>
+                        </li>
+                        <li class="clear" id="radiochoices" style="display: block;">
+                            <fieldset class="choices">
+                                <legend>RadioChoices </legend>
+                                <ul id="radiofieldchoices">
+                                </ul>
+                            </fieldset>
+                        </li>
+
+                        <li id="li_MasterTable">
+                            <label class="desc">
+                                Select Master
+                            </label>
+                            <select id="Drp_Master" class="select full textboxprop form-control" onchange="DropdownMaster_columns()">
+                                <option value="">--Select--</option>
+                            </select>
+
+                        </li>
+
+                        <li id="li_Master_child">
+                            <label class="desc">
+                                Select Column
+                            </label>
+                            <select id="Drp_Master_child" class="select full textboxprop form-control Drp_Master_child">
+                                <option value="">--Select--</option>
+                            </select>
+                        </li>
+
+                        <li id="li_Master_display" style="display: none;">
+                            <label class="desc">
+                                Display Column
+                            </label>
+                            <select id="Drp_Master_display" class="select full textboxprop form-control Drp_Master_child">
+                                <option value="">--Select--</option>
+                            </select>
+                        </li>
+
+                        <li id="li_Loading_Dependency" style="display: none;">
+                            <label class="desc">
+                                Loading Dependency
+                            </label>
+                            <select id="Drp_Loading_Dependency" class="select full textboxprop form-control">
+                                <option>--Select--</option>
+                            </select>
+                        </li>
+
+                        <li id="Li_SelectTabs" style="display: none;">
+                            <label class="desc">
+                                Select Tabs
+                            </label>
+                            <select id="Drp_SelectTabs" class="select full textboxprop form-control">
+                                <option value="">--Select--</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </li>
+
+                        <li class="clear" id="Li_TabsChoice" style="display: block;">
+                            <fieldset class="choices">
+                                <legend>Tabs </legend>
+                                <ul id="UL_AddTabsarea">
+                                    <!-- <li>
+                                        <input type="text" onkeyup="updateTab(this);" value="Tab1" autocomplete="off" maxlength="150" class="text">
+                                        <img title="Add another choice." alt="Add" ng-click="addTab(this)" class="notranslate"
+                                            src="/Images/add.png" />
+                                        <img title="Delete this choice." alt="Delete" ng-click="deleteTab(this)" class="notranslate"
+                                            src="/Images/delete.png" /></li>
+                                    <li>
+                                        <input type="text" onkeyup="updateTab(this);" value="Tab2" autocomplete="off"
+                                            maxlength="150" class="text" />
+                                        <img title="Add another choice." alt="Add" ng-click="addTab(this)" class="notranslate"
+                                            src="/Images/add.png" />
+                                        <img title="Delete this choice." alt="Delete" ng-click="deleteTab(this)" class="notranslate"
+                                            src="/Images/delete.png" /></li>-->
+
+                                </ul>
+                            </fieldset>
+                        </li>
+
+
+                        <li id="listOptions" class="left half clear">
+                            <fieldset>
+                                <legend>Is Mandatory</legend>
+                                <input type="checkbox" value="" class="checkbox" id="fieldRequired">
+                                <label for="fieldRequired" class="choice">
+                                    Required</label>
+                            </fieldset>
+                        </li>
+
+
+                        <li id="hidden_check" class="left half clear">
+                            <fieldset>
+                                <input value="" class="checkbox2" id="chk_hidden" type="checkbox" style="margin: 0 5px 2px 10px;">
+                                <legend>Is Hidden</legend>
+
+
+
+                                <ul id="sel_columns" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        Select Field
+                                    </label>
+                                    <select autocomplete="off" id="drp_column" class="select full textboxprop form-control">
+                                    </select>
+                                </ul>
+
+
+                                <ul id="cond_opertors" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        Choose Condition
+                                    </label>
+                                    <select autocomplete="off" id="drp_condition" class="select full textboxprop form-control">
+                                        <option>--Select--</option>
+                                        <option>==</option>
+                                        <option><=</option>
+                                        <option>>=</option>
+
+                                    </select>
+                                </ul>
+
+                                <ul id="comp_val" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        Value
+                                    </label>
+                                    <input type="text" id="cond_val" class="form-control textboxprop" />
+                                </ul>
+
+
+                                <ul id="comp_val2" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        IS value
+                                    </label>
+                                    <select autocomplete="off" id="chk_con" class="select full textboxprop form-control">
+
+                                        <option>true</option>
+                                        <option>false</option>
+
+                                    </select>
+                                </ul>
+
+
+
+                            </fieldset>
+                        </li>
+
+
+
+                        <li id="Show_check" class="left half clear">
+                            <fieldset>
+                                <input value="" class="checkbox2" id="chk_show" type="checkbox" style="margin: 0 5px 2px 10px;">
+                                <legend>Is Show</legend>
+                                <ul id="sel_columns2" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        Select Field
+                                    </label>
+                                    <select autocomplete="off" id="drp_column2" class="select full textboxprop form-control">
+                                    </select>
+                                </ul>
+
+
+                                <ul id="cond_opertors2" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        Choose Condition
+                                    </label>
+                                    <select autocomplete="off" id="drp_condition2" class="select full textboxprop form-control">
+                                        <option>--Select--</option>
+                                        <option>==</option>
+                                        <option><=</option>
+                                        <option>>=</option>
+
+                                    </select>
+                                </ul>
+
+                                <ul id="comp_val3" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        Value
+                                    </label>
+                                    <input type="text" id="cond_val2" class="form-control textboxprop" />
+                                </ul>
+
+
+                                <ul id="comp_val4" class="left half clear " style="display: none;">
+                                    <label class="desc">
+                                        IS value
+                                    </label>
+                                    <select autocomplete="off" id="chk_con2" class="select full textboxprop form-control">
+
+                                        <option>true</option>
+                                        <option>false</option>
+
+                                    </select>
+                                </ul>
+
+
+
+                            </fieldset>
+                        </li>
+
+
+                        <li class="complex clear" id="layoutpropdiv">
+                            <fieldset class="minmax">
+                                <legend>Grid Properties</legend>
+                                <div class="row" style="margin-bottom: 20px;" id="hi_wi">
+                                    <span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            Width</label>
+                                        <input type="text" class="text Value" id="seldivwidth">
+                                        <label class="minor-label quiet italics right" style="margin-right: -8px; font-weight: bold;">
+                                            px</label>
+                                    </span><span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            Hieght</label>
+                                        <input type="text" value="" class="text Value" id="seldivheight">
+                                        <label class="minor-label quiet italics right" style="margin-right: -8px; font-weight: bold;">
+                                            px</label>
+                                    </span>
+                                </div>
+                                <div class="row" style="margin-bottom: 20px;" id="row_col">
+                                    <span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            Rows</label>
+                                        <input id="layoutrows" class="text" type="number" min="1" data-row="1" />
+                                    </span><span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            Columns</label>
+                                        <input id="layoutcols" class="text" type="number" min="1" data-column="1" onkeydown="return isValidKey(event)" />
+                                    </span>
+                                </div>
+
+                                <div class="row" style="margin-bottom: 20px;" id="rows_cols">
+                                    <span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            Row Span</label>
+                                        <input class="text Value" id="gridrowspan" type="number" value="1" min="1" data-rowspan="1">
+                                    </span><span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            Col Span</label>
+                                        <input class="text Value" id="gridcolspan" type="number" value="1" min="1" data-colspan="1">
+                                    </span>
+                                </div>
+
+                                <div class="row" style="margin-bottom: 20px;" id="cell">
+                                    <span style="width: 48%" class="col-sm-6">
+                                        <label for="" class="desc">
+                                            CellPadding</label>
+                                        <input class="text Value" id="cellpadding" type="text" value="5" />
+                                        <label class="minor-label quiet italics right" style="margin-right: -8px; font-weight: bold;">
+                                            px</label>
+                                    </span>
+                                </div>
+                            </fieldset>
+
+                        </li>
+                        <li class="complex clear" id="DateRange">
+                            <fieldset class="minmax">
+                                <legend>Date Range </legend>
+                                <div class="row">
+                                    <span class="col-sm-6">
+                                        <label for="fieldRangeMin" class="desc">
+                                            Min Date</label>
+                                        <input type="text" value="" class="text textboxprop" name="fieldRangeMin" id="dateRangeMin">
+                                    </span>
+
+                                    <span class="col-sm-6">
+                                        <label for="fieldRangeMax" class="desc">
+                                            Max Date</label>
+                                        <input type="text" value="" class="text textboxprop" name="fieldRangeMax" id="dateRangeMax">
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li class="complex clear" id="listRange">
+                            <fieldset class="minmax">
+                                <legend>Characters Length </legend>
+                                <div>
+                                    <span>
+                                        <label for="fieldRangeMin" class="desc">
+                                            Min</label>
+                                        <input type="text" value="" class="text textboxprop" name="fieldRangeMin" id="fieldRangeMin">
+                                    </span><span>
+                                        <label for="fieldRangeMax" class="desc">
+                                            Max</label>
+                                        <input type="text" value="" class="text textboxprop" name="fieldRangeMax" id="fieldRangeMax">
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li id="listTextDefault" class="clear">
+                            <label for="fieldDefault" class="desc">
+                                Default Value
+                            </label>
+                            <div>
+                                <input type="text" maxlength="255" value="" name="text " class="text large textboxprop"
+                                    id="fieldDefault">
+                            </div>
+                        </li>
+                        <li class="clear" id="listButtons">
+                            <!-- <a id="listButtonsDelete" title="Delete this field." onclick="delteField($(this));"
+                                    style="float: left;" class="negative button" href="#">
+                                    <img alt="" src="/Images/delete.png">
+                                    Delete</a>  -->
+                            <button class="btn btn-danger" type="button" id="listButtonsDelete" onclick="delteField($(this));"
+                                title="Delete this field.">
+                                <i class="ace-icon fa fa-trash-o bigger-120"></i>Delete
+                            </button>
+                            <!--  <a onclick="showFields()" title="Add another field." style="float: right;"
+                                        class="button" href="#">
+                                        <img alt="" src="/Images/textfield_add.png">
+                                        Add Field</a>  -->
+                            <button class="btn pull-right" type="button" onclick="showFields()" title="Add another field.">
+                                <i class="ace-icon fa fa-plus-circle bigger-110"></i>Add Field
+                            </button>
+                        </li>
+
+                        <li id="Li_dd_DataTable" class="left half">
+                            <label class="desc">
+                                Select Table Name
+                            </label>
+                            <select id="dd_DataTable" class="col-xs-10 col-sm-3 chosen-select form-control textboxprop">
+                                <option value="">--Select--</option>
+                            </select>
+                        </li>
+                        <li id="Li_PrimaryKey" class="left half">
+                            <label class="desc">
+                                Select Key to Edit
+                            </label>
+                            <select id="dd_PrimaryKey" class="col-xs-10 col-sm-3 chosen-select form-control textboxprop">
+                                <option value="">--Select--</option>
+                            </select>
+                        </li>
+                        <li id="Li_dd_DataColumns" class="left half">
+                            <label class="desc">
+                                Select Columns
+                            </label>
+                            <select id="dd_DataColumns" class="col-xs-10 col-sm-3 chosen-select form-control textboxprop" multiple="true">
+                                <option value="">--Select--</option>
+                            </select>
+                        </li>
+                        <li id="Li_RedirectForm" class="left half">
+                            <label class="desc">
+                                Select Redirection Form
+                            </label>
+                            <select id="dd_RedirectForm" class="col-xs-10 col-sm-3 chosen-select form-control textboxprop">
+                                <option value="">--Select--</option>
+                            </select>
+                        </li>
+                        <li id="Li_Deletefromtable" class="left half">
+                            <label class="desc">
+                                Delete record from table
+                            </label>
+                            <select id="dd_Deletefromtable" class="col-xs-10 col-sm-3 chosen-select form-control textboxprop">
+                                <option value="">--Select--</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </li>
+                    </ul>
+                </form>
+                <form class="noI" onsubmit="return false;" action="#" id="formProperties" style="display: none;">
+                    <ul id="formSettings">
+                        <li>
+                            <label class="desc">
+                                Form Name
+                            </label>
+                            <div>
+                                <input type="text" maxlength="50" value="" class="text large textboxprop" id="formName">
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <label class="desc">
+                                Description</label>
+                            <div>
+                                <textarea id="formDescription" cols="50" rows="10" class="textarea textboxprop"></textarea>
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <label class="desc">
+                                Custom Script</label>
+                            <div>
+                                <textarea class="form-control textboxprop" id="UserFormScript" rows="15"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--side-->
+            <div class="noI " id="main">
+
+                <div style="float: right;">
+                    <button class="btn btn-info btn-sm" type="button" id="btn-SaveForm" onclick="OpenFormFormPropertiesPopUp()" style="margin-top: 3px;"><i class="ace-icon fa fa-floppy-o bigger-120"></i>Save Form</button>
+                </div>
+
+                <div title="Click to edit." class="info" id="wuform" style="margin: 10px 0 0 8px; width: 100%; cursor: pointer;">
+                    <input type="text" id="_TagId" style="display: none;" />
+                    <h2 class="notranslate" id="fname">Untitled Form</h2>
+                    <div class="notranslate" id="fdescription">
+                        This is my form. Please fill it out. It's awesome!
+                    </div>
+                </div>
+                <div id="formPreview" class="widget-body" style="display: block; min-height: 420px; width: 100%; margin: 10px 0 0 8px; padding: 0 0 95px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="FormProperties" class="modal fade" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Form Properties</h4>
+            </div>
+            <div class="modal-body" style="overflow: auto; height: 390px;">
+                <form id="attributeform">
+                    <br />
+                    <br />
+                    <div class="col-sm-12">
+                        <!--<div class="col-sm-2"></div>-->
+                        <div class="col-sm-4">
+                            <label style="float: right;">Form Name<span style="color: red">&nbsp;*</span> : </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" id="FormName" />
+                            <br />
+                            <span id="Er_ELog_FormName" class="error"></span>
+                            <br />
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-sm-12">
+                        <!--<div class="col-sm-2"></div>-->
+                        <div class="col-sm-4">
+                            <label style="float: right;">Form Description : </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" id="FormDescription" />
+                            <br />
+                            <span id="Er_ELog_FormDescription" class="error"></span>
+                            <br />
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-sm-12">
+                        <!--<div class="col-sm-2"></div>-->
+                        <div class="col-sm-4">
+                            <label style="float: right;">Form Type<span style="color: red">&nbsp;*</span> : </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <select id="ELog_FormType">
+                                <option value="">Select</option>
+                            </select>
+                            <br />
+                            <span id="Er_ELog_FormType" class="error"></span>
+                            <br />
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-sm-12">
+                        <!--<div class="col-sm-2"></div>-->
+                        <div class="col-sm-4">
+                            <label style="float: right;">Module<span style="color: red">&nbsp;*</span> : </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <select id="Module">
+                                <option value="">Select</option>
+                            </select>
+                            <br />
+                            <span id="Er_Elog_Module" class="error"></span>
+                            <br />
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-sm-12">
+                        <!--<div class="col-sm-2"></div>-->
+                        <div class="col-sm-4">
+                            <label style="float: right;">Active : </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="block">
+                                <input type="checkbox" class="ace" name="form-field-checkbox" id="FormIsActive" checked="checked">
+                                <span class="lbl bigger-120"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="SaveTheLogSheetForm()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div id="FormScheduleAssignments" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        //Modal content
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Appointment Recurrence</h4>
+            </div>
+            <div class="modal-body" style="height: 470px; min-height: 470px; overflow: auto;">
+                <form id="attributeform">
+
+                    <input type="text" id="ReccurencePatternId" style="display: none;" />
+
+                    <ol class="dd-list">
+                        <li class="dd-item dd2-item" data-id="15">
+                            <div class="dd2-content">Appointment Time</div>
+                            <ol class="dd-list">
+                                <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 control-label" for="AR_Start_Time">Start Time:</label>
+                                        <div class="col-lg-5">
+                                            <input class="form-control" id="AR_Start_Time" placeholder="Enter Start Time" type="text" onchange="AR_Start_End_Change(0)" readonly="readonly" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 control-label" for="AR_End_Time">End Time:</label>
+                                        <div class="col-lg-5">
+                                            <input class="form-control" id="AR_End_Time" placeholder="Enter Start Time" type="text" onchange="AR_Start_End_Change(1)" readonly="readonly" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 control-label" for="AR_Duration">Duration:</label>
+                                        <div class="col-lg-5">
+                                            <input class="form-control" id="AR_Duration" placeholder="Enter Duration" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+
+                    </ol>
+
+                    <ol class="dd-list">
+                        <li class="dd-item dd2-item" data-id="15">
+                            <div class="dd2-content">Recurrence Pattern</div>
+                            <ol class="dd-list">
+                                <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                    <div>
+                                        <input class="form-check-input" name="RP_Type" id="Daily" type="radio" onchange="RecPatChange()" />Daily &nbsp;&nbsp;
+                                        <input class="form-check-input" name="RP_Type" id="Weekly" type="radio" onchange="RecPatChange()" />Weekly&nbsp;&nbsp;
+                                        <input class="form-check-input" name="RP_Type" id="Monthly" type="radio" onchange="RecPatChange()" />Monthly&nbsp;&nbsp;
+                                        <input class="form-check-input" name="RP_Type" id="Yearly" type="radio" onchange="RecPatChange()" />Yearly
+                                    </div>
+
+                                    <br />
+
+                                    <div id="AR_Daily" style="display: none;">
+                                        <div class="form-group row">
+                                            <div class="col-lg-4">
+                                                <input class="form-check-input" name="ARD_Check" id="DailyCheck" type="radio" onchange="DailyCheckChange()" />Every&nbsp&nbsp&nbsp
+                                                <input type="text" id="DailyCheck_Nos" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />
+                                                day(s)
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-4">
+                                                <input class="form-check-input" name="ARD_Check" id="EveryWeekday" type="radio" onchange="DailyCheckChange()" />Every Weekday&nbsp&nbsp&nbsp
+                                                <select id="EveryWeekdaySelect" style="width: 50%;" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="Sunday">Sunday</option>
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="AR_Weekly" style="display: none;">
+                                        <div class="form-group row">
+                                            <div class="col-lg-4">
+                                                Recur every&nbsp&nbsp&nbsp
+                                                <input type="text" id="WeeklyRP_Nos" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" />
+                                                week(s) on:
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <input class="form-check-input" name="ARD_Check" id="Weekly_Sunday" type="radio" />&nbsp;Sunday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Monday" type="radio" />&nbsp;Monday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Tuesday" type="radio" />&nbsp;Tuesday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Wednesday" type="radio" />&nbsp;Wednesday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Thursday" type="radio" />&nbsp;Thursday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Friday" type="radio" />&nbsp;Friday&nbsp;&nbsp;&nbsp
+                                                 <input class="form-check-input" name="ARD_Check" id="Weekly_Saturday" type="radio" />&nbsp;Saturday&nbsp;&nbsp;&nbsp
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div id="AR_Monthly" style="display: none;">
+                                        <div class="form-group row">
+                                            <div class="col-lg-6">
+                                                <input class="form-check-input" name="ARD_Check" id="AR_Monthly_NumberredDay" type="radio" onchange="MonthlyCheckChange()" />Day&nbsp&nbsp&nbsp
+                                                <input type="text" id="AR_Month_NumberredDay_Recc" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />
+                                                of every<input type="text" id="AR_Month_NumberredDay_Repeat" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />&nbsp;&nbsp;months(s)
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-10">
+                                                <input class="form-check-input" name="ARD_Check" id="AR_Monthly_WeekNo" type="radio" onchange="MonthlyCheckChange()" />The&nbsp&nbsp&nbsp;
+                                                <select id="AR_Month_WeekNos" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="1">First</option>
+                                                    <option value="2">Second</option>
+                                                    <option value="3">Third</option>
+                                                    <option value="4">Fourth</option>
+                                                </select>
+                                                <select id="AR_Month_WeekDay" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="Sunday">Sunday</option>
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                </select>
+                                                of every<input type="text" id="AR_Month_WeekNo_Repeat" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />&nbsp;&nbsp;months(s)
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="AR_Yearly" style="display: none;">
+                                        <div class="form-group row">
+                                            <div class="col-lg-6">
+                                                Recur every&nbsp&nbsp&nbsp
+                                                <input type="text" id="AR_Yearly_Nos" style="width: 25%;" onchange="AllowOnlyIntegers(this.id)" />
+                                                year(s)
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-10">
+                                                <input class="form-check-input" name="ARD_Check" id="AR_Yearly_RP_Date" type="radio" onchange="YearlyCheckChange()" />On&nbsp&nbsp&nbsp;   
+                                                <select id="EveryYearlySelect" id="AR_Yearly_RP_Date_Month" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                    <option value="April">April</option>
+                                                    <option value="May">May</option>
+                                                    <option value="June">June</option>
+                                                    <option value="July">July</option>
+                                                    <option value="August">August</option>
+                                                    <option value="September">September</option>
+                                                    <option value="October">October</option>
+                                                    <option value="November">November</option>
+                                                    <option value="December">December</option>
+                                                </select>
+                                                <input type="text" id="AR_Yearly_RP_Date_Date" style="width: 13%;" onchange="AllowOnlyIntegers(this.id)" disabled="disabled" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-10">
+                                                <input class="form-check-input" name="ARD_Check" id="AR_Yearly_RP_MonthWeekDay" type="radio" onchange="YearlyCheckChange()" />On The&nbsp&nbsp&nbsp;   
+                                                <select id="AR_Yearly_RP_MonthWeekDay_WeekNos" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="1">First</option>
+                                                    <option value="2">Second</option>
+                                                    <option value="3">Third</option>
+                                                    <option value="4">Fourth</option>
+                                                </select>
+                                                <select id="AR_Yearly_RP_MonthWeekDay_WeekDay" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="Sunday">Sunday</option>
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                </select>of&nbsp;
+                                                <select id="AR_Yearly_RP_MonthWeekDay_WeekMonth" style="" disabled="disabled">
+                                                    <option value="">Select</option>
+                                                    <option value="January">January</option>
+                                                    <option value="February">February</option>
+                                                    <option value="March">March</option>
+                                                    <option value="April">April</option>
+                                                    <option value="May">May</option>
+                                                    <option value="June">June</option>
+                                                    <option value="July">July</option>
+                                                    <option value="August">August</option>
+                                                    <option value="September">September</option>
+                                                    <option value="October">October</option>
+                                                    <option value="November">November</option>
+                                                    <option value="December">December</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+
+                    <ol class="dd-list">
+                        <li class="dd-item dd2-item" data-id="15">
+                            <div class="dd2-content">Range of recurrence</div>
+                            <ol class="dd-list">
+                                <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                    <div class="form-group row">
+                                        <div class=" col-sm-6 row">
+                                            <label class="col-sm-3 control-label" for="Range_rec_start">Start:</label>
+                                            <div class="col-lg-6 row">
+                                                <input class="form-control" id="Range_rec_start" placeholder="Enter Start Time" type="text" readonly="readonly" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 col-sm-6">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" name="RR_NoEndTime" id="RR_NoEnd" type="radio" onchange="Rangerecurance_CheckChange()">
+                                                No end date
+                                            </label>
+                                            <br />
+                                            <br />
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" name="RR_NoEndTime" id="RR_EndNos" type="radio" onchange="Rangerecurance_CheckChange()">
+                                                End after:&nbsp;&nbsp;<input type="text" id="RR_Endafter" onchange="AllowOnlyIntegers(this.id)" style="width: 25%;" />&nbsp;&nbsp;occurrences
+                                            </label>
+                                            <br />
+                                            <br />
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" name="RR_NoEndTime" id="RR_EndDate" type="radio" onchange="Rangerecurance_CheckChange()">
+                                                End by:&nbsp;&nbsp;<input type="text" id="RR_endTime" style="width: 55%;" placeholder="Enter end Time" readonly="readonly" />
+                                            </label>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+
+                    <ol class="dd-list" id="PatternDisableProperties">
+                        <li class="dd-item dd2-item" data-id="15">
+                            <div class="dd2-content">Disable Pattern</div>
+                            <ol class="dd-list">
+                                <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                    <div class="form-group row">
+
+                                        <div class="col-lg-5 col-sm-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input name="form-field-checkbox" class="ace" type="checkbox" id="DeActivatePattern" onchange="DeActivatePatternClick()">
+                                                    <span class="lbl">DeActivatePattern</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-sm-6 row">
+                                            <label class="col-sm-5 control-label" for="ReccPatDisableReason">Reason for Disable:</label>
+                                            <div class="col-lg-6 row">
+                                                <select class="form-control" id="ReccPatDisableReason">
+                                                    <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="SaveRecurrencePattern()">Ok</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        GetRedirectionForm();
+        $('#Module').chosen({
+            allow_single_deselect: true,
+            "width": "75%"
+        });
+
+        $('#ELog_FormType').chosen({
+            allow_single_deselect: true,
+            "width": "75%"
+        });
+
+
+
+        $.ajax({
+            //url: "../getPatternDisableReasons",
+            url: "../getFormModules",
+            type: "get",
+            beforeSend: function () {
+                StartPageLoader();
+            },
+            success: function (Resp) {
+                //alert(JSON.stringify(Resp));
+                StopPageLoader();
+                if (Resp == false) {
+
+                }
+                else {
+
+                    var OptionCode = "";
+                    for (var i = 0; i < Resp.length; i++) {
+                        OptionCode = OptionCode + "<option value=" + Resp[i]["ModuleId"] + " >" + Resp[i]["ModuleCode"] + "</option>";
+                    }
+                    OptionCode = "<option value='' >Select</option>" + OptionCode;
+                    $("#Module").empty();
+                    $("#Module").append(OptionCode);
+                    $("#Module").trigger("chosen:updated");
+
+                }
+            },
+            error: function (er) {
+                StopPageLoader();
+                alert("Ajax Error : " + er);
+            }
+        });
+
+
+        $.ajax({
+            //url: "../getPatternDisableReasons",
+            url: "../getFormTypes",
+            type: "get",
+            beforeSend: function () {
+                StartPageLoader();
+            },
+            success: function (Resp) {
+                //alert(JSON.stringify(Resp));
+                StopPageLoader();
+                if (Resp == false) {
+
+                }
+                else {
+
+                    var OptionCode = "";
+                    for (var i = 0; i < Resp.length; i++) {
+                        OptionCode = OptionCode + "<option value=" + Resp[i]["FormTypeCode"] + " >" + Resp[i]["FormTypeName"] + "</option>";
+                    }
+                    OptionCode = "<option value='' >Select</option>" + OptionCode;
+                    $("#ELog_FormType").empty();
+                    $("#ELog_FormType").append(OptionCode);
+
+                    $("#ELog_FormType").trigger("chosen:updated");
+
+                }
+            },
+            error: function (er) {
+                StopPageLoader();
+                alert("Ajax Error : " + er);
+            }
+        });
+
+
+        //$.ajax({
+        //    url: "../getPatternDisableReasons",
+        //    type: "get",
+        //    success: function (Resp) {
+        //        if (Resp == false) {
+
+        //        }
+        //        else {
+
+        //            var OptionCode = "";
+        //            for (var i = 0; i < Resp.length; i++) {
+        //                OptionCode = OptionCode + "<option value=" + Resp[i]["reason_id"] + " >" + Resp[i]["reason_name"] + "</option>";
+        //            }
+
+        //            $("#ReccPatDisableReason").append(OptionCode);
+
+        //        }
+        //    }
+        //});
+
+
+
+
+    });
+
+    Entities();
+    Btn_FormsList();
+    DropdownMaster();
+    EditFormName();
+
+    $("#nav").click(function (e) {
+        $(".widget-body").sortable("option", "disabled", false);
+    });
+
+    $('#buttontype').chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#pdirect").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#microflow_Select").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#rest_id").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $('#fieldType').chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $('#fieldSize').chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $('#fieldLayout').chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#chk12").change(function () {
+        //alert("welcome");
+        $(".ace").prop('checked', $(this).prop("checked"));
+    });
+    $("#fieldallign").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#dateformat").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#sentity").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#Datatype").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#drp_column").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#drp_condition").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#chk_con").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#Drp_Master").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#Drp_Master_child").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#Drp_Master_display").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#Drp_Loading_Dependency").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#Drp_SelectTabs").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+
+
+    $("#Select_Edit_column").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#drp_column2").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    //drp_condition2
+    $("#drp_condition2").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    //$("#comp_val4").chosen({
+    //    allow_single_deselect: true,
+    //    "width": "100%"
+    //});
+    $(".dd-list").nestable();
+    $('#AR_Start_Time').datetimepicker({
+        pickDate: false,
+        //format: 'LT',
+        format: 'HH:mm',
+        pick12HourFormat: false
+    });
+    $('#AR_End_Time').datetimepicker({
+        pickDate: false,
+        //format: 'LT',
+        format: 'HH:mm',
+        pick12HourFormat: false
+    });
+    $("#Range_rec_end").datetimepicker({
+        format: 'DD/MM/YYYY',
+        pickTime: false
+    });
+    $("#Modal_form_Select").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#dd_DataTable").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#dd_PrimaryKey").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+
+    $("#dd_DataColumns").val("");
+    $("#dd_DataColumns").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#dd_RedirectForm").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    $("#dd_Deletefromtable").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+
+
+
+    //FOR DATE PICKER
+    var startDate;
+    var endDate;
+    $('#Range_rec_start').datepicker({ format: 'dd/mm/yyyy' });
+
+    //  Range_Rec_Start();
+    //function Range_Rec_Start() {
+    $('#Range_rec_start').on('changeDate', function (ev) {
+
+        startDate = new Date(ev.date.valueOf());
+        startDate.setDate(startDate.getDate(new Date(ev.date.valueOf())));
+        $('#RR_endTime').datepicker('setStartDate', startDate);
+    });
+    // }
+    $('#RR_endTime').on('changeDate', function (ev) {
+
+        startDate = new Date(ev.date.valueOf());
+        startDate.setDate(startDate.getDate(new Date(ev.date.valueOf())));
+        $('#Range_rec_start').datepicker('setEndDate', startDate);
+    });
+
+
+    $("#RR_endTime").datepicker({
+        format: 'dd/mm/yyyy'
+    });
+
+    $("#PatternActivationDate").datepicker({
+        format: 'dd/mm/yyyy'
+    });
+
+    $(".prev i").addClass("ace-icon glyphicon glyphicon-backward");
+    $(".next i").addClass("ace-icon glyphicon glyphicon-forward");
+
+    //END DATE PICKER
+
+    function Entities() {
+        try {
+            var entity = "";
+            $.ajax({
+                url: "../Datagrid_Entites",
+                type: "get",
+                async: false,
+                success: function (result) {
+                    for (var i = 0; i < result.length; i++) {
+
+                        //var newOption = $('<option value="' + result[i].entity_tbl_name + '">' + result[i].entity_tbl_name + '</option>');
+                        //var DataGridvalue = $('<option value="' + result[i].entity_tbl_name + '">' + result[i].entity_tbl_name + '</option>');
+                        ////  var Matertables = $('<option value="' + result[i].entity_tbl_name + '">' + result[i].entity_tbl_name + '</option>');
+                        //$('#sentity').append(newOption);
+                        //$('#Modal_form_Select').append(DataGridvalue);
+                        //// $("#Drp_Master").append(Matertables);
+
+                        var newOption = $('<option value="' + result[i]["TableName"] + '">' + result[i]["TableName"] + '</option>');
+                        var DataGridvalue = $('<option value="' + result[i]["TableName"] + '">' + result[i]["TableName"] + '</option>');
+                        var DataEntity = $('<option value="' + result[i]["TableName"] + '">' + result[i]["TableName"] + '</option>');
+
+                        $('#sentity').append(newOption);
+                        $('#Modal_form_Select').append(DataGridvalue);
+                        $('#dd_DataTable').append(DataEntity);
+
+
+                    }
+                    $("#sentity").trigger("chosen:updated");
+                    $("#Modal_form_Select").trigger("chosen:updated");
+                    $("#dd_DataTable").trigger("chosen:updated");
+                    //$("#Drp_Master").trigger("chosen:updated");
+                }
+            });
+        } catch (e) {
+            alert("Error:" + "\t" + "Entities" + e);
+        }
+    }
+
+    function Btn_FormsList() {
+        try {
+
+
+            $.ajax({
+                url: "../GetFormsList",
+                type: "GET",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+
+                        $("#pdirect").append("<option value=" + data[i]["tagid"] + " Redirect_tag=" + data[i]["logsheetname"] + ">" + data[i]["logsheetname"] + "</option>").trigger("chosen:updated");
+
+                    }
+                }
+            });
+
+            $.ajax({
+                url: "../microflowdata",
+                type: "get",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#microflow_Select").append("<option value=" + data[i].filename + ">" + data[i].filename + "</option>").trigger("chosen:updated");
+                    }
+
+
+                    $('#microflow_Select').on('change', function (evt, params) {
+                        var mvalue = $('#microflow_Select :selected').text();
+                        $(".mf").attr('Microflow_data', mvalue);
+                    });
+                }
+
+            });
+
+        } catch (e) {
+
+            alert("Error : Btn_FormsList" + e);
+        }
+    }
+    function fn_Buttons() {
+        try {
+
+            var optionval = $("#buttontype").val();
+
+            if (optionval == "Page") {
+                $("#rest_service").hide();
+                $("#Page_redirect").show();
+
+
+            }
+
+            else if (optionval == "Microflow") {
+                $("#microflowbtn").show();
+
+            }
+
+            else if (optionval == "REST") {
+
+                $("#microflowbtn").hide();
+                $("#rest_service").show();
+                $("#rest_id option[value='? undefined:undefined ?']").remove();
+
+            }
+
+        } catch (e) {
+
+            alert("Error : fn_Buttons" + e);
+        }
+    }
+
+
+    function DropdownMaster() {
+        try {
+            $.ajax({
+                url: "../DropDown_Master",
+                type: "get",
+                success: function (result) {
+                    for (var i = 0; i < result.length; i++) {
+                        var Mastertables = $('<option value="' + result[i].tablename + '">' + result[i].tablename + '</option>');
+                        $("#Drp_Master").append(Mastertables);
+                    }
+                    $("#Drp_Master").trigger("chosen:updated");
+                }
+            });
+
+
+        } catch (e) {
+            alert("Error:" + "\t" + "DropdownMaster" + e);
+        }
+
+    }
+    // DropdownMaster_columns();
+
+
+
+
+    /*              Appointment Recurrence          */
+
+    function AR_Start_End_Change(_id) {
+        try {
+
+            var timefrom = new Date();
+            temp = $('#AR_Start_Time').val().split(":");
+            timefrom.setHours((parseInt(temp[0]) - 1 + 24) % 24);
+            timefrom.setMinutes(parseInt(temp[1]));
+
+            var timeto = new Date();
+            temp = $('#AR_End_Time').val().split(":");
+            timeto.setHours((parseInt(temp[0]) - 1 + 24) % 24);
+            timeto.setMinutes(parseInt(temp[1]));
+
+            if (timeto < timefrom) {
+                alert('End time Should be greater than Start time');
+            }
+            else {
+                var AR_Start_Time = $("#AR_Start_Time").val(), AR_End_Time = $("#AR_End_Time").val();
+                var ary1 = AR_Start_Time.split(':'), ary2 = AR_End_Time.split(':');
+                var minsdiff = parseInt(ary2[0], 10) * 60 + parseInt(ary2[1], 10) - parseInt(ary1[0], 10) * 60 - parseInt(ary1[1], 10);
+                var duration = String(100 + Math.floor(minsdiff / 60)).substr(1) + ':' + String(100 + minsdiff % 60).substr(1);
+                $("#AR_Duration").val(duration);
+
+            }
+
+
+            if ($("#AR_Start_Time").val() == "" || $("#AR_End_Time").val() == "") {
+                $("#AR_Duration").val("");
+            }
+
+        }
+        catch (e) {
+            alert("Error : AR_Start_End_Change : " + e);
+        }
+    }
+
+    function RecPatChange() {
+        try {
+            if ($("#Daily").is(':checked')) {
+                $("#AR_Daily").css("display", "block");
+                $("#AR_Weekly").css("display", "none");
+                $("#AR_Monthly").css("display", "none");
+                $("#AR_Yearly").css("display", "none");
+
+
+            }
+            else if ($("#Weekly").is(':checked')) {
+                $("#AR_Daily").css("display", "none");
+                $("#AR_Weekly").css("display", "block");
+                $("#AR_Monthly").css("display", "none");
+                $("#AR_Yearly").css("display", "none");
+            }
+            else if ($("#Monthly").is(':checked')) {
+                $("#AR_Daily").css("display", "none");
+                $("#AR_Weekly").css("display", "none");
+                $("#AR_Monthly").css("display", "block");
+                $("#AR_Yearly").css("display", "none");
+            }
+            else if ($("#Yearly").is(':checked')) {
+                $("#AR_Daily").css("display", "none");
+                $("#AR_Weekly").css("display", "none");
+                $("#AR_Monthly").css("display", "none");
+                $("#AR_Yearly").css("display", "block");
+            }
+        }
+        catch (e) {
+            alert("Error : RecPatChange: " + e)
+        }
+    }
+
+    function DailyCheckChange() {
+        try {
+            if ($("#DailyCheck").is(':checked')) {
+                $("#DailyCheck_Nos").removeAttr("disabled");
+                $("#DailyCheck_Nos").val("1");
+                $("#EveryWeekdaySelect").attr("disabled", "disabled");
+                $("#EveryWeekdaySelect").val("");
+            }
+            else if ($("#EveryWeekday").is(':checked')) {
+                $("#DailyCheck_Nos").attr("disabled", "disabled");
+                $("#DailyCheck_Nos").val("");
+                $("#EveryWeekdaySelect").removeAttr("disabled");
+                $("#EveryWeekdaySelect").val("");
+            }
+            else {
+
+            }
+        }
+        catch (e) {
+            alert("Error : DailyCheckChange: " + e)
+        }
+    }
+
+    function YearlyCheckChange() {
+        try {
+
+
+            if ($("#AR_Yearly_RP_Date").is(':checked')) {
+
+                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", true);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", true);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", true);
+                $("#EveryYearlySelect").attr("disabled", false);
+                $("#AR_Yearly_RP_Date_Date").attr("disabled", false);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val("");
+                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val("");
+                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val("");
+
+
+            }
+
+            else if ($("#AR_Yearly_RP_MonthWeekDay").is(':checked')) {
+                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", false);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", false);
+                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", false);
+                $("#EveryYearlySelect").attr("disabled", true);
+                $("#AR_Yearly_RP_Date_Date").attr("disabled", true);
+                $("#EveryYearlySelect").val("");
+                $("#AR_Yearly_RP_Date_Date").val("");
+
+            }
+
+        } catch (e) {
+
+            alert("Error : YearlyCheckChange" + e);
+        }
+
+
+    }
+
+    function MonthlyCheckChange() {
+
+        try {
+
+            if ($("#AR_Monthly_NumberredDay").is(':checked')) {
+                $("#AR_Month_NumberredDay_Recc").attr("disabled", false);
+                $("#AR_Month_NumberredDay_Repeat").attr("disabled", false);
+                $("#AR_Month_WeekNos").attr("disabled", true);
+                $("#AR_Month_WeekDay").attr("disabled", true);
+                $("#AR_Month_WeekNo_Repeat").attr("disabled", true);
+                $("#AR_Month_WeekNo_Repeat").val("");
+                $("#AR_Month_WeekNos").val("");
+                $("#AR_Month_WeekDay").val("");
+
+            }
+
+            else if ($("#AR_Monthly_WeekNo").is(':checked')) {
+                $("#AR_Month_NumberredDay_Recc").attr("disabled", true);
+                $("#AR_Month_NumberredDay_Repeat").attr("disabled", true);
+                $("#AR_Month_WeekNos").attr("disabled", false);
+                $("#AR_Month_WeekDay").attr("disabled", false);
+                $("#AR_Month_WeekNo_Repeat").attr("disabled", false);
+                $("#AR_Month_NumberredDay_Recc").val("");
+                $("#AR_Month_NumberredDay_Repeat").val("");
+            }
+
+
+
+        } catch (e) {
+
+            alert("Error :MonthlyCheckChange" + e);
+        }
+
+    }
+
+    function Rangerecurance_CheckChange() {
+        try {
+
+
+
+            if ($("#RR_NoEnd").is(':checked')) {
+                $("#RR_Endafter").val("");
+                $("#RR_endTime").val("");
+                $("#RR_Endafter").attr("disabled", "disabled");
+                $("#RR_endTime").attr("disabled", "disabled");
+            }
+            else if ($("#RR_EndNos").is(':checked')) {
+                $("#RR_Endafter").val("");
+                $("#RR_endTime").val("");
+                $("#RR_Endafter").attr("disabled", false);
+                $("#RR_endTime").attr("disabled", "disabled");
+            }
+            else if ($("#RR_EndDate").is(':checked')) {
+                $("#RR_Endafter").val("");
+                $("#RR_endTime").val("");
+                $("#RR_Endafter").attr("disabled", "disabled");
+                $("#RR_endTime").attr("disabled", false);
+            }
+
+
+
+        } catch (e) {
+
+            alert("Error : Rangerecurance_CheckChange" + e);
+        }
+
+
+    }
+
+
+    function SaveRecurrencePattern() {
+        try {
+
+            var AR_Start_Time = $("#AR_Start_Time").val();
+            var AR_End_Time = $("#AR_End_Time").val();
+            var AR_Duration = $("#AR_Duration").val();
+
+            var RecurrencePattern = "";
+            var ReccurenceInterval = "";
+            var PatternObject = new Array();
+
+            if ($("#Daily").is(':checked')) {
+                RecurrencePattern = "Daily";
+                ReccurenceInterval = "1";
+
+                if ($("#DailyCheck").is(':checked')) {
+                    var DailyRecurrenceType = "DailyCheck";
+                    var DailyCheck_DaysNos = $("#DailyCheck_Nos").val();
+
+                    if (DailyCheck_DaysNos == "") {
+                        alert("Please enter all the details");
+                        return;
+                    }
+
+                    PatternObject.push({
+                        DailyRecurrenceType: DailyRecurrenceType,
+                        DailyCheck_DaysNos: DailyCheck_DaysNos,
+                        EveryWeekdaySelect: ""
+                    });
+                }
+                else if ($("#EveryWeekday").is(':checked')) {
+                    var DailyRecurrenceType = "WeekDayCheck";
+                    var EveryWeekdaySelect = $("#EveryWeekdaySelect").val();
+
+                    if (EveryWeekdaySelect == "") {
+                        alert("Please enter all the details");
+                        return;
+                    }
+
+                    PatternObject.push({
+                        DailyRecurrenceType: DailyRecurrenceType,
+                        DailyCheck_DaysNos: "",
+                        EveryWeekdaySelect: EveryWeekdaySelect
+                    });
+                }
+
+            }
+            else if ($("#Weekly").is(':checked')) {
+                RecurrencePattern = "Weekly";
+                ReccurenceInterval = $("#WeeklyRP_Nos").val();
+
+                if (ReccurenceInterval == "") {
+                    alert("Please enter all the details");
+                    return;
+                }
+
+                var WeeklyRP_Day = "";
+                if ($("#Weekly_Sunday").is(':checked')) { WeeklyRP_Day = "Sunday"; }
+                else if ($("#Weekly_Monday").is(':checked')) { WeeklyRP_Day = "Monday"; }
+                else if ($("#Weekly_Tuesday").is(':checked')) { WeeklyRP_Day = "Tuesday"; }
+                else if ($("#Weekly_Wednesday").is(':checked')) { WeeklyRP_Day = "Wednesday"; }
+                else if ($("#Weekly_Thursday").is(':checked')) { WeeklyRP_Day = "Thursday"; }
+                else if ($("#Weekly_Friday").is(':checked')) { WeeklyRP_Day = "Friday"; }
+                else if ($("#Weekly_Saturday").is(':checked')) { WeeklyRP_Day = "Saturday"; }
+                else {
+                    alert("Select recurring week day");
+                    return;
+                }
+
+                PatternObject.push({
+                    ReccurenceInterval: ReccurenceInterval,
+                    WeeklyRP_Day: WeeklyRP_Day
+                });
+
+            }
+            else if ($("#Monthly").is(':checked')) {
+                RecurrencePattern = "Monthly";
+                ReccurenceInterval = "1";
+
+                if ($("#AR_Monthly_NumberredDay").is(':checked')) {
+                    RecurrencePattern_Monthly = "Day";
+
+                    var AR_Month_NumberredDay_Recc = $("#AR_Month_NumberredDay_Recc").val();
+                    var AR_Month_NumberredDay_Repeat = $("#AR_Month_NumberredDay_Repeat").val();
+
+                    if (AR_Month_NumberredDay_Recc == "" || AR_Month_NumberredDay_Repeat == "") {
+                        alert("Please enter all the details");
+                        return;
+                    }
+
+                    PatternObject.push({
+                        RecurrencePattern_Monthly: RecurrencePattern_Monthly,
+                        AR_Month_NumberredDay_Recc: AR_Month_NumberredDay_Recc,
+                        AR_Month_NumberredDay_Repeat: AR_Month_NumberredDay_Repeat,
+                        AR_Month_WeekNos: "",
+                        AR_Month_WeekDay: "",
+                        AR_Month_WeekNo_Repeat: ""
+                    });
+
+                }
+                else if ($("#AR_Monthly_WeekNo").is(':checked')) {
+                    RecurrencePattern_Monthly = "NumberedWeekDay";
+
+                    var AR_Month_WeekNos = $("#AR_Month_WeekNos").val();
+                    var AR_Month_WeekDay = $("#AR_Month_WeekDay").val();
+                    var AR_Month_WeekNo_Repeat = $("#AR_Month_WeekNo_Repeat").val();
+
+                    if (AR_Month_WeekNos == "" || AR_Month_WeekDay == "" || AR_Month_WeekNo_Repeat == "") {
+                        alert("Please enter all the details");
+                        return;
+                    }
+
+                    PatternObject.push({
+                        RecurrencePattern_Monthly: RecurrencePattern_Monthly,
+                        AR_Month_NumberredDay_Recc: "",
+                        AR_Month_NumberredDay_Repeat: "",
+                        AR_Month_WeekNos: AR_Month_WeekNos,
+                        AR_Month_WeekDay: AR_Month_WeekDay,
+                        AR_Month_WeekNo_Repeat: AR_Month_WeekNo_Repeat
+                    });
+
+                }
+
+            }
+            else if ($("#Yearly").is(':checked')) {
+
+                RecurrencePattern = "Yearly";
+                var ReccurenceInterval = $("#AR_Yearly_Nos").val();
+
+                if ($("#AR_Yearly_RP_Date").is(':checked')) {
+                    ReccuringPoint = "Date";
+                    var EveryYearlySelect = $("#EveryYearlySelect").val();
+                    var AR_Yearly_RP_Date_Date = $("#AR_Yearly_RP_Date_Date").val();
+
+
+                    if (EveryYearlySelect == "" || AR_Yearly_RP_Date_Date == "") {
+                        alert("Please enter all the details");
+                        return;
+                    }
+
+                    PatternObject.push({
+                        ReccuringPoint: ReccuringPoint,
+                        ReccurenceInterval: ReccurenceInterval,
+                        EveryYearlySelect: EveryYearlySelect,
+                        AR_Yearly_RP_Date_Date: AR_Yearly_RP_Date_Date,
+
+                        AR_Yearly_RP_MonthWeekDay_WeekNos: "",
+                        AR_Yearly_RP_MonthWeekDay_WeekDay: "",
+                        AR_Yearly_RP_MonthWeekDay_WeekMonth: ""
+                    });
+
+                }
+                else if ($("#AR_Yearly_RP_MonthWeekDay").is(':checked')) {
+                    ReccuringPoint = "MonthWeekDay";
+                    var AR_Yearly_RP_MonthWeekDay_WeekNos = $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val();
+                    var AR_Yearly_RP_MonthWeekDay_WeekDay = $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val();
+                    var AR_Yearly_RP_MonthWeekDay_WeekMonth = $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val();
+
+                    if (AR_Yearly_RP_MonthWeekDay_WeekNos == "" || AR_Yearly_RP_MonthWeekDay_WeekDay == "" || AR_Yearly_RP_MonthWeekDay_WeekMonth == "") {
+                        alert("Please enter all the details");
+                        return;
+                    }
+
+                    PatternObject.push({
+                        ReccuringPoint: ReccuringPoint,
+                        ReccurenceInterval: ReccurenceInterval,
+                        EveryYearlySelect: "",
+                        AR_Yearly_RP_Date_Date: "",
+
+                        AR_Yearly_RP_MonthWeekDay_WeekNos: AR_Yearly_RP_MonthWeekDay_WeekNos,
+                        AR_Yearly_RP_MonthWeekDay_WeekDay: AR_Yearly_RP_MonthWeekDay_WeekDay,
+                        AR_Yearly_RP_MonthWeekDay_WeekMonth: AR_Yearly_RP_MonthWeekDay_WeekMonth
+
+                    });
+
+                }
+
+            }
+            else {
+                alert("Select Recurrence Pattern");
+                return;
+            }
+
+            var RecStartDate = $("#Range_rec_start").val();
+
+            if (RecStartDate == "") {
+                alert("Enter Start Date");
+                return;
+            }
+            else {
+                RecStartDate = RecStartDate.split('/')[2] + "-" + RecStartDate.split('/')[1] + "-" + RecStartDate.split('/')[0];
+            }
+
+            var RecEndReason = "";
+            var RecEndNos = "";
+            var RecEndDate = "";
+
+            if ($("#RR_NoEnd").is(':checked')) {
+                RecEndReason = "0";
+            }
+            else if ($("#RR_EndNos").is(':checked')) {
+                RecEndReason = "EndNos";
+                RecEndNos = $("#RR_Endafter").val();
+            }
+            else if ($("#RR_EndDate").is(':checked')) {
+                RecEndReason = "EndDate";
+                RecEndDate = $("#RR_endTime").val();
+
+                if (RecEndDate == "") {
+                    alert("Enter End Date");
+                    return;
+                }
+                else {
+                    RecEndDate = RecEndDate.split('/')[2] + "-" + RecEndDate.split('/')[1] + "-" + RecEndDate.split('/')[0];
+                }
+            }
+
+            var DeActivatePattern = ($("#DeActivatePattern").is(':checked'));
+            var ReccPatDisableReason = $("#ReccPatDisableReason").val();
+
+            var ActivePattern = "Active";
+            if (DeActivatePattern == false) {
+                ReccPatDisableReason = "";
+                ActivePattern = "Active";
+                $("#ReccPatDisableReason").val("");
+            }
+            else {
+                ActivePattern = "InActive";
+            }
+
+            RecPatObj = JSON.stringify({
+                _tagid: $("#_TagId").val(),
+                ReccurencePatternId: $("#ReccurencePatternId").val(),
+                AR_Start_Time: AR_Start_Time,
+                AR_End_Time: AR_End_Time,
+                AR_Duration: AR_Duration,
+                RecurrencePattern: RecurrencePattern,
+                RecStartDate: RecStartDate,
+                RecEndReason: RecEndReason,
+                RecEndNos: RecEndNos,
+                RecEndDate: RecEndDate,
+                PatternObject: PatternObject,
+                ActivePattern: ActivePattern,
+                ReccPatDisableReason: ReccPatDisableReason
+            });
+
+            $.ajax({
+                url: "../SaveRecurrencePattern",
+                type: "post",
+                contentType: "application/json",
+                data: RecPatObj,
+                success: function (Resp) {
+
+                    if (Resp == false) {
+                        alert("Please try again");
+                    }
+                    else {
+                        $("#ReccurencePatternId").val(Resp);
+                        alert("Successfully Saved");
+                    }
+
+                }
+            });
+
+        }
+        catch (e) {
+            alert("Error : SaveRecurrencePattern " + e);
+        }
+    }
+
+
+
+
+    /*              Appointment Recurrence          */
+
+
+    function DeActivatePatternClick() {
+        var DeActivatePattern = $("#DeActivatePattern").prop('checked');
+
+        if (DeActivatePattern == true) {
+            $("#ReccPatDisableReason").attr("disabled", false);
+        }
+        else {
+            $("#ReccPatDisableReason").val("");
+            $("#ReccPatDisableReason").attr("disabled", true);
+        }
+    }
+
+    function AllowOnlyIntegers(_id) {
+        var Val = $("#" + _id + "").val();
+        $("#" + _id + "").val(parseInt(Val, 10));
+        if (Val == "") {
+            $("#" + _id + "").val("")
+        }
+        else if (isNaN(Val)) {
+            $("#" + _id + "").val("");
+        }
+        else if (parseFloat(Val) != parseInt(Val)) {
+            $("#" + _id + "").val(parseInt(Val));
+        }
+        if ($("#AR_Month_NumberredDay_Recc").val() >= 31) {
+            alert("Please Enter less than 30 Days")
+            $("#" + _id + "").val("");
+        }
+    }
+
+    function EditFormName() {
+        $.ajax({
+            url: '../GetFormsList',
+            type: "GET",
+            contentType: "application/json",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var EditFormName = $('<option value="' + data[i]['tagid'] + '">' + data[i]['logsheetname'] + '</option>');
+                    $("#Select_Edit_column").append(EditFormName);
+                }
+                $("#Select_Edit_column").trigger("chosen:updated");
+            }
+
+        });
+
+    }
+
+</script>
+<script type="text/javascript">
+    $("#dd_DataColumns").chosen().change(function (e, params) {
+        try {
+            alert(params.selected);
+            ChosenCommonFunc(params.selected, 'dd_DataColumns');
+        }
+        catch (er) {
+            alert(er.message);
+        }
+    });
+
+    function ChosenCommonFunc(SelectedVal, Id) {
+        alert(SelectedVal);
+        if (SelectedVal != "") {
+            var isExists = $('#' + Id + ' option[value=""]').length;
+            if (isExists >= 0) {
+                $("#" + Id + " option[value='']").removeAttr("selected");
+            }
+        }
+        else {
+            $("#" + Id + " option[value!='']").removeAttr("selected");
+        }
+        var count = $('#' + Id + ' option:selected').length;
+        if (count == 0) {
+            $('#' + Id).val("");
+        }
+        $('#' + Id).trigger("chosen:updated");
+    }
+</script>

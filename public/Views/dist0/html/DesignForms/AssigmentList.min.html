@@ -1,0 +1,246 @@
+<html>
+<head>
+    <title>E-LogSheet::AssigmentList</title>
+    <!---      Scripts -->
+    <!-- <link rel="stylesheet" href="Scripts/jquery.dataTables.min.css" />-->
+    <link rel="stylesheet" type="text/css" href="../AceMasterLayout/assets/css/ace.min.css">
+    <!-- <link href="stylesheets/stylesheets/formindex.css" rel="stylesheet" />-->
+    <!-- <link href="stylesheets/stylesheets/index.css" rel="stylesheet" />-->
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.select.min.js"></script>
+
+    <!---      Scripts -->
+    <style>
+        th, td
+        {
+            padding: 5px;
+        }
+
+        table
+        {
+            border-collapse: unset;
+        }
+    </style>
+</head>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        //try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+    <ul class="breadcrumb">
+        <li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a> </li>
+        <li class="active">Assigments</li>
+    </ul>
+    <!-- /.breadcrumb -->
+    <div class="nav-search" id="nav-search">
+    </div>
+    <!-- /.nav-search -->
+</div>
+<body>
+    <div class="tooLong" id="container" style="min-height: 500px; height: auto;">
+        <br>
+        <!--        <table id="Tbl_Assigmentlist" class='table table-striped table-bordered table-hover'>
+        </table>-->
+        <!--        <table id="Tbl_Assigmentlist" class='table table-striped table-bordered table-hover'>
+        </table>-->
+        <!--<div style="margin-left:50%; font-size:medium;">User Details:</div>-->
+        <table id="Tbl_Users" class="table" style="width: 55%;">
+        </table>
+        <hr>
+        <div class="col-sm-12 table-header" style="background-color: #438eb9; margin-bottom: 1px;">
+            <label style="color: white; font: bold;">
+                <label id="lbl_name"></label>
+                &nbsp;&nbsp;Assignments 
+            </label>
+        </div>
+        <table id="Tbl_Assigmentlist" class="table table-striped table-bordered table-hover">
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    var myTable;
+    $(document).ready(function () {
+        AssigmentListLoading();
+    });
+
+    function AssigmentListLoading() {
+        try {
+
+        
+        $("#Tbl_Users").show();
+        StartPageLoader();
+        $.ajax({
+            url: "../GetAssigmentList",
+            type: "GET",
+            data: {},
+            async: false,
+            cache: false,
+            success: function (data) {
+                StopPageLoader();
+                var UserDetails = " <tr>";
+                UserDetails += "<th style='text-align:right!important;'>User Code : &nbsp;</th>";
+                UserDetails += "<td style='text-align:left!important;'>" + data["UserCode"] + "</td>";
+                UserDetails += " </tr><tr><th style='text-align:right!important;'>User Name : &nbsp;</th>";
+                // UserDetails+=" <th>Firstname</th>";
+                UserDetails += "<td style='text-align:left!important;'>" + data["UserName"] + "</td>";
+                UserDetails += " </tr> <tr>"
+                UserDetails += "<th style='text-align:right!important;'>Role Name : &nbsp;</th>"
+                UserDetails += "<td style='text-align:left!important;'>" + data["Rolename"] + "</td></tr>";
+                $("#Tbl_Users").append(UserDetails);
+                $("#lbl_name").empty();
+                $("#lbl_name").append(data["UserName"]);
+                if (data != false) {
+                    var TableCode = "";
+                    var THead = "";
+                    THead = THead + "<tr style='cursor:default;' >";
+                    THead = THead + "<th style='display:none;' class='center'>App ID</th>";
+                    THead = THead + "<th style='display:none;' class='center'>logSheetId</th>";
+                    THead = THead + "<th class='center'>Task Name</th>";
+                    THead = THead + "<th style='display:none;' class='center'>Scheduled Date</th>";
+                    THead = THead + "<th class='center'>Start Time</th>";
+                    THead = THead + "<th class='center'>End Time</th>";
+                    THead = THead + "<th style='display:none;' class='center'>Appointment <br/>Duration</th>";
+                    THead = THead + "<th style='display:none;' class='center'>Status</th>";
+                    THead = THead + "<th class='center'>Accept</th>";
+                    THead = THead + "</tr>";
+                    TableCode = "<tbody>";
+                    if (data.Appointments == undefined) {
+                        var AssHtml = "<h3 style='text-align:center;'>No Assignments Found</h3>";
+                        $("#Tbl_Assigmentlist").append(AssHtml);
+                    }
+                    else {
+                        for (var i = 0; i < data.Appointments.length; i++) {
+                            if (data.Appointments[i]["accept"] != "false") {
+                                TableCode = TableCode + "<tr style='cursor:pointer;'>";
+                                TableCode = TableCode + "<td style='display:none;' >" + data.Appointments[i]["patternid"] + "</td>";
+                                TableCode = TableCode + "<td style='display:none;' >" + data.Appointments[i]["logsheetid"] + "</td>";
+
+                                //form Name
+                                if (data.Appointments[i]["accept"] == "Accepted") {
+                                    TableCode = TableCode + "<td data_attr=" + data.Appointments[i]["patternid"] + " id=" + data.Appointments[i]["logsheetid"] + " onclick='Assignment_Redirect(this)'>" + data.Appointments[i]["formname"] + "</td>";
+                                }
+                                else {
+                                    TableCode = TableCode + "<td data_attr=" + data.Appointments[i]["patternid"] + " id=" + data.Appointments[i]["logsheetid"] + ">" + data.Appointments[i]["formname"] + "</td>";
+                                }
+
+                                if (data.Appointments[i]["dateofoccurence"] == "" || data.Appointments[i]["dateofoccurence"] == null || data.Appointments[i]["dateofoccurence"] == undefined) {
+                                    TableCode = TableCode + "<td></td>";
+                                }
+                                else {
+                                    var DOC = (data.Appointments[i]["dateofoccurence"]).split('-');
+                                    DOC = DOC[2] + "-" + DOC[1] + "-" + DOC[0];
+                                    TableCode = TableCode + "<td style='display:none;' id=" + data.Appointments[i]["logsheetid"] + " onclick='Assignment_Redirect(this);'>" + DOC + "</td>";
+                                }
+
+                                //Start time
+                                if (data.Appointments[i]["accept"] == "Accepted") {
+                                    TableCode = TableCode + "<td id=" + data.Appointments[i]["logsheetid"] + " onclick='Assignment_Redirect(this)'>" + data.Appointments[i]["fromtime"] + "</td>";
+                                }
+                                else {
+                                    TableCode = TableCode + "<td id=" + data.Appointments[i]["logsheetid"] + ">" + data.Appointments[i]["fromtime"] + "</td>";
+                                }
+
+                                //End time
+                                if (data.Appointments[i]["accept"] == "Accepted") {
+                                    TableCode = TableCode + "<td id=" + data.Appointments[i]["logsheetid"] + " onclick='Assignment_Redirect(this)'>" + data.Appointments[i]["totime"] + "</td>";
+                                }
+                                else {
+                                    TableCode = TableCode + "<td id=" + data.Appointments[i]["logsheetid"] + " >" + data.Appointments[i]["totime"] + "</td>";
+                                }
+
+
+
+                                TableCode = TableCode + "<td style='display:none;' >" + data.Appointments[i]["duration"] + "</td>";
+
+                                TableCode = TableCode + "<td id=" + data.Appointments[i]["logsheetid"] + " style='display:none;' onclick='Assignment_Redirect(this);'>" + data.Appointments[i]["appointmentstatus"] + "</td>";
+                                //TableCode = TableCode + "<td><button patternid=" + data.Appointments[i]["patternid"] + " logsheetid=" + data.Appointments[i]["logsheetid"] + " Duration=" + data.Appointments[i]["duration"] + " class='btn btn-sm btn-primary' onclick='fn_Accept(this);'>Accept</button></td>";
+                                if (data.Appointments[i]["accept"] == "Accepted") {
+                                    TableCode = TableCode + "<td><i class='ace-icon fa fa-check'></i>Accepted</td>";
+                                }
+                                else {
+                                    TableCode = TableCode + "<td><button patternid=" + data.Appointments[i]["patternid"] + " logsheetid=" + data.Appointments[i]["logsheetid"] + " Duration=" + data.Appointments[i]["duration"] + " class='btn btn-sm btn-primary' onclick='fn_Accept(this);'>Accept</button></td>";
+                                }
+                                TableCode = TableCode + "</tr>";
+                            }
+                        }
+                        TableCode = TableCode + "</tbody>";
+                        TableCode = "<thead>" + THead + "<thead>" + TableCode + "<tfoot style='display:none;' >" + THead + "<tfoot>";
+
+                        $("#Tbl_Assigmentlist").append(TableCode);
+                        $("#Tbl_Assigmentlist").DataTable({ "paging": true });
+                    }
+                }
+                else {
+                    $("#Tbl_Users").hide();
+                    alert("No data found");
+                }
+
+            },
+            error: function () {
+                alert("Ajax Error");
+            }
+        });
+        } catch (e) {
+            alert("Error:" + "\t" + "AssigmentListLoading" + e);
+
+        }
+
+    }
+
+
+    function Assignment_Redirect(obj) {
+        var logsheetid = $(obj).attr("id");
+        window.location.href = "../../Home#/FormViewer?_tagid=" + logsheetid + "";
+    }
+
+    function fn_Accept(obj) {
+        try {
+            var patternid = $(obj).attr('patternid');
+            var logsheetid = $(obj).attr('logsheetid');
+            var formname = $(obj).parent().parent().find("td:nth-child(2)").text();
+            var TaskName = $(obj).parent().parent().find("td:nth-child(3)").text();
+            var Date = $(obj).parent().parent().find("td:nth-child(4)").text().split('-');
+            var Schuduled_date = Date[2] + '-' + Date[1] + '-' + Date[0];
+            var Start_time = $(obj).parent().parent().find("td:nth-child(5)").text();
+            var End_time = $(obj).parent().parent().find("td:nth-child(6)").text();
+            var Duration = $(obj).attr('Duration');
+            var status = $(obj).parent().parent().find("td:nth-child(8)").text();
+            var Accept = "Accepted";
+
+            var JSON_data = JSON.stringify({
+                patternid: patternid,
+                logsheetid: logsheetid,
+                formname: formname,
+                TaskName: TaskName,
+                Schuduled_date: Schuduled_date,
+                Start_time: Start_time,
+                End_time: End_time,
+                Duration: Duration,
+                status: status,
+                Accept: Accept
+            });
+            StartPageLoader();
+            $.ajax({
+                url: "../AssignmentsAccept",
+                type: "POST",
+                contentType: "application/json",
+                async: false,
+                data: JSON_data,
+                success: function (data) {
+                    StartPageLoader();
+                    alert("Successfully Accepted");
+                    window.location.reload();
+                }
+            });
+
+        } catch (e) {
+            alert("Error:" + "\t" + "fn_Accept" + e);
+        }
+    }
+</script>

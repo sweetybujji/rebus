@@ -1,0 +1,27 @@
+{
+  "name": "iARMSDevFramework",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cassandra-driver": "^3.3.0",
+    "child-process-promise": "^2.2.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "3.2.6",
+    "express-session": "^1.15.6",
+    "formidable": "^1.1.1",
+    "fs": "0.0.1-security",
+    "guid": "0.0.12",
+    "jade": "*",
+    "node-cassandra-cql": "^0.4.4",
+    "node-uuid": "^1.4.8",
+    "passport": "^0.4.0",
+    "passport-google-oauth2": "^0.1.6",
+    "passport-local": "^1.0.0",
+    "strong-soap": "^1.2.6",
+    "underscore": "^1.8.3"
+  }
+}

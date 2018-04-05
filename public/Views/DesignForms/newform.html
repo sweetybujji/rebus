@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <style type="text/css">
+        /*-----------------------------------------------Css for Toolbar-------------------------------------------------------------------*/
+        .icon-bar {
+            width: 100%;
+            background-color: white;
+            overflow: auto;
+            border-bottom: 1px solid lightgrey;
+        }
+
+            .icon-bar a {
+                float: right;
+                width: 7%;
+                text-align: center;
+                padding: 12px 0;
+                transition: all 0.3s ease;
+                color: #ffb752;
+                font-size: 20px;
+            }
+
+            .icon-bar input {
+                float: right;
+                margin-top: 1%;
+            }
+
+
+            .icon-bar a:hover {
+                background-color: lightgrey;
+            }
+
+        .active {
+            background-color: white !important;
+        }
+
+        .footer {
+            margin-top: 45px !important;
+        }
+
+        .navbar {
+            width: 101% !important;
+        }
+
+      
+        /*----------------------------------------Css for Toolbar End--------------------------------------------------------*/
+        /*css for form*/
+          body {
+            width: 99% !important;
+        }
+        .row input {
+            width: 90%;
+        }
+        .row {
+            margin-top: 2%;
+        }        
+        /*css for form*/
+
+
+    </style>
+</head>
+<body>
+
+    <!-------------------------------------Div for Toolbar-------------------------------------------------------------->
+    <!--   onclick="navigation('http://localhost:8028/list','inpage')"-->
+    <div class="icon-bar">
+        <a title="Delete"><i class="fa fa-trash"></i></a>
+        <a title="Edit" onclick="updatedata()"><i class="fa fa-pencil-square-o"></i></a>
+        <a id="savelink" title="Save" onclick="save()"><i class="fa fa-floppy-o"></i></a>
+        <a href="#list" title="List"><i class="fa fa-th-list"></i></a>
+        <a title="Excel"><i class="fa fa-file-excel-o"></i></a>
+        <a title="PDF"><i class="fa fa-file-pdf-o"></i></a>
+        <a title="Settings"><i class="fa fa-cog"></i></a>
+        <a title="User"><i class="fa fa-users"></i></a>
+        <!--  <input TYPE="TEXT" placeholder="Search"/>-->
+    </div>
+    <!--------------------------------------Div for Toolbar End--------------------------------------------------------------->
+    <div class="formdiv" style="margin-left:5%;">
+        <div class="row">
+            <!--<div class="col-sm-2">
+            <label>UserName:</label>
+            
+        </div>-->
+            <label id="idlabel" style="display: none"></label>
+            <div class="col-xs-10 col-sm-4">
+                <label>UserName:</label>
+                <input type="text" id="uname" placeholder="Username" tabindex="1" />
+            </div>
+
+            <div class="col-xs-10 col-sm-4">
+                <label>FirstName:</label>
+                <input type="text" id="Text1" placeholder="FirstName" tabindex="2" />
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>LastName:</label>
+                <input type="text" id="Text6" placeholder="LastName" tabindex="3" />
+            </div>
+
+        </div>
+        <div class="row">
+            <!--<div class="col-sm-2">
+            <label>Department:</label>
+           
+        </div>-->
+            <div class="col-xs-10 col-sm-4">
+                <label>Department:</label>
+                <input type="text" id="dept" placeholder="Department" tabindex="4" />
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Designation:</label>
+                <input type="text" id="Text2" placeholder="Designation" tabindex="5" />
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Gender:</label>
+                <input type="text" id="Text5" placeholder="Gender" tabindex="6" />
+            </div>
+
+        </div>
+        <div class="row">
+            <!-- <div class="col-sm-2">
+            <label>Emp Id:</label>
+           
+        </div>-->
+            <div class="col-xs-10 col-sm-4">
+                <label>Emp Id:</label>
+                <input type="text" id="empid" placeholder="Emp Id" tabindex="7" />
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Display Name:</label>
+                <input type="text" id="Text3" placeholder="Display Name" tabindex="8" />
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Website/Blog:</label>
+                <input type="text" id="Text4" placeholder="Website/Blog" tabindex="9" />
+            </div>
+
+        </div>
+
+    </div>
+    <!-- <button class="btn btn-lg btn-info" style="margin-left: 20px; margin-top: 20px;" onclick="navigation('#MicroFlow','inpage')">Navigation</button>-->
+
+
+
+    <div id="Confirm_Modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button aria-hidden="true" data-dismiss="modal" class="bootbox-close-button close" type="button" style="margin-top: -10px;">×</button><div class="bootbox-body">Are you sure?</div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal" data-bb-handler="cancel">Cancel</button>
+                    <button class="btn btn-primary" id="confirmok" data-dismiss="modal" type="button" data-bb-handler="confirm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

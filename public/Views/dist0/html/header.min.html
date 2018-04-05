@@ -1,0 +1,766 @@
+<div class="main-content-inner"><div class="breadcrumbs" id="breadcrumbs"><script type="text/javascript">try {
+
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }</script><ul class="breadcrumb"><li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a></li><!-- <li><a href="#Homepage">Homepage</a></li>
+			<li class="active"><a href="#CreateDashboard">Create
+					Dashboard</a></li> --></ul><!-- /.breadcrumb --></div><!--<div class="icon-bar">
+        <a title="Settings">
+            <img src="../Images/ToolbarIcons/Settings.png" /></a>
+        <a title="Upload Image">
+            <img src="../Images/ToolbarIcons/UploadImage.png" /></a>
+        <a title="CSV">
+            <img src="../Images/ToolbarIcons/UploadFile.png" /></a>
+        <a title="PDF">
+            <img src="../Images/ToolbarIcons/ExportPDF.png" /></a>
+        <a title="Excel">
+            <img src="../Images/ToolbarIcons/ExportExcel.png" /></a>
+        <a title="Delete">
+            <img src="../Images/ToolbarIcons/Delete.png" /></a>
+        <a id="savelink" title="Save" onclick="fn_save_details()">
+            <img src="../Images/ToolbarIcons/Save.png" /></a>
+        <a title="Update" onclick="fn_update_data()">
+            <img src="../Images/ToolbarIcons/Edit.png" /></a>
+        <a href="#newform" title="New">
+            <img src="../Images/ToolbarIcons/Create.png" /></a>
+        <a href="#SampleFormList" title="List">
+            <img src="../Images/ToolbarIcons/List.png" /></a>
+    </div>--><div class="page-content"><!--<div class="page-header">--><!--</div>--><div class="row"><!-- PAGE CONTENT STARTS --><!--            <div class="col-sm-10 pricing-box" id="FormPreview" style="text-align: center;">
+
+                <span>No Dashboards are Configured.</span>
+
+
+                
+
+
+
+            </div>--><div class="col-sm-8 infobox-container"><div class="infobox infobox-green"><div class="infobox-icon"><i class="ace-icon fa fa-comments"></i></div><div class="infobox-data"><span class="infobox-data-number">32</span><div class="infobox-content">comments + 2 reviews</div></div><div class="stat stat-success">8%</div></div><div class="infobox infobox-blue"><div class="infobox-icon"><i class="ace-icon fa fa-twitter"></i></div><div class="infobox-data"><span class="infobox-data-number">11</span><div class="infobox-content">new followers</div></div><div class="badge badge-success">+32% <i class="ace-icon fa fa-arrow-up"></i></div></div><div class="infobox infobox-pink"><div class="infobox-icon"><i class="ace-icon fa fa-shopping-cart"></i></div><div class="infobox-data"><span class="infobox-data-number">8</span><div class="infobox-content">new orders</div></div><div class="stat stat-important">4%</div></div><div class="infobox infobox-red"><div class="infobox-icon"><i class="ace-icon fa fa-flask"></i></div><div class="infobox-data"><span class="infobox-data-number">7</span><div class="infobox-content">experiments</div></div></div><div class="infobox infobox-orange2"><div class="infobox-chart"><!--<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>--> <svg id="barchart_orange"></svg></div><div class="infobox-data"><span class="infobox-data-number">6,251</span><div class="infobox-content">pageviews</div></div><div class="badge badge-success">7.2% <i class="ace-icon fa fa-arrow-up"></i></div></div><div class="infobox infobox-blue2"><div class="infobox-progress"><!--                        <div class="easy-pie-chart percentage" data-percent="42" data-size="46">
+                            <span class="percent">42</span>%
+                        </div>--><div class="GaugeMeter" id="PreviewGaugeMeter_2" data-percent="42" data-prepend="<font style='color:White;font-size:35px;margin-left:-15px'></font>" data-size="50" data-theme="blue" data-back="RGBa(0,0,0,.1)" data-animate_gauge_colors="1" data-animate_text_colors="1" data-width="5" data-label_color="#6FB3E0"></div></div><div class="infobox-data"><span class="infobox-text">traffic used</span><div class="infobox-content"><span class="bigger-110">~</span> 58GB remaining</div></div></div><div class="space-6"></div><div class="infobox infobox-green infobox-small infobox-dark"><div class="infobox-progress"><!--                        <div class="easy-pie-chart percentage" data-percent="61" data-size="39">
+                            <span class="percent">61</span>%
+                        </div>--><div class="GaugeMeter" id="PreviewGaugeMeter_1" data-percent="60" data-prepend="<font style='color:White;font-size:35px;margin-left:-15px'></font>" data-size="50" data-theme="White" data-back="RGBa(0,0,0,.1)" data-animate_gauge_colors="1" data-animate_text_colors="1" data-width="5" data-label_color="#FFF"></div></div><div class="infobox-data"><div class="infobox-content">Task</div><div class="infobox-content">Completion</div></div></div><div class="infobox infobox-blue infobox-small infobox-dark"><div class="infobox-chart"><!--<span class="sparkline" data-values="3,4,2,3,4,4,2,2"></span>--> <svg id="barchart_White"></svg></div><div class="infobox-data"><div class="infobox-content">Earnings</div><div class="infobox-content">$32,000</div></div></div><div class="infobox infobox-grey infobox-small infobox-dark"><div class="infobox-icon"><i class="ace-icon fa fa-users"></i></div><div class="infobox-data"><div class="infobox-content">Users</div><div class="infobox-content">1,205</div></div></div></div><div class="col-sm-4 pie-main"><div class="widget-box"><div class="widget-header widget-header-flat widget-header-small"><h5 class="widget-title"><i class="ace-icon fa fa-signal"></i> Traffic Sources</h5></div><div class="widget-body" id="piechart-container"><svg id="piechart"></svg></div><!-- /.widget-body --></div><!-- /.widget-box --></div><!--  <div class="col-sm-3 pricing-box">
+                <div class="widget-box pricing-box-small widget-color-blue">
+                    <div class="widget-header">
+                        <h5 class="widget-title bigger lighter">Domain Model</h5>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main no-padding">
+                             <a href="#DomainModel" class="profile-picture" onclick="menulinks(this)"><img id="Img2" class="editable img-responsive editable-click editable-empty" alt="Domain Model" 
+                                    src="/Images/Mendix Images/entity_relationship_model_icon.jpg" />
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="#DomainModel" class="btn btn-block btn-sm btn-primary" onclick="menulinks(this)">More info 
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 pricing-box">
+                <div class="widget-box pricing-box-small widget-color-orange">
+                    <div class="widget-header">
+                        <h5 class="widget-title bigger lighter">MicroFlow</h5>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main no-padding">
+                             <a href="#MicroFlow" class="profile-picture" onclick="menulinks(this)"><img id="Img1" class="editable img-responsive editable-click editable-empty" alt="MicroFlow" 
+                                    src="/Images/Mendix Images/WORKFLOW.jpg" />
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="#MicroFlow" class="btn btn-block btn-sm btn-warning" onclick="menulinks(this)">More info 
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 pricing-box">
+                <div class="widget-box pricing-box-small widget-color-green">
+                    <div class="widget-header">
+                        <h5 class="widget-title bigger lighter">Design Forms</h5>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main no-padding">
+                          
+                            <a href="#FormsList" class="profile-picture" onclick="menulinks(this)"><img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Design Forms" 
+                                    src="/Images/Mendix Images/form.png" />
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#FormsList" class="btn btn-block btn-sm btn-success" onclick="menulinks(this)">More info 
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>--><!-- PAGE CONTENT ENDS --></div><div class="hr hr32 hr-dotted"></div><div class="row"><div class="col-sm-5"><div class="widget-box transparent"><div class="widget-header widget-header-flat"><h4 class="widget-title lighter"><i class="ace-icon fa fa-star orange"></i> Popular Domains</h4><div class="widget-toolbar"><a href="#" data-action="collapse"><i class="ace-icon fa fa-chevron-up"></i></a></div></div><div class="widget-body"><div class="widget-main no-padding"><table class="table table-bordered table-striped"><thead class="thin-border-bottom"><tr><th><i class="ace-icon fa fa-caret-right blue"></i>name</th><th><i class="ace-icon fa fa-caret-right blue"></i>price</th><th class="hidden-480"><i class="ace-icon fa fa-caret-right blue"></i>status</th></tr></thead><tbody><tr><td>internet.com</td><td><small><s class="red">$29.99</s> </small><b class="green">$19.99</b></td><td class="hidden-480"><span class="label label-info arrowed-right arrowed-in">on sale</span></td></tr><tr><td>online.com</td><td><b class="blue">$16.45</b></td><td class="hidden-480"><span class="label label-success arrowed-in arrowed-in-right">approved</span></td></tr><tr><td>newnet.com</td><td><b class="blue">$15.00</b></td><td class="hidden-480"><span class="label label-danger arrowed">pending</span></td></tr><tr><td>web.com</td><td><small><s class="red">$24.99</s> </small><b class="green">$19.95</b></td><td class="hidden-480"><span class="label arrowed"><s>out of stock</s></span></td></tr><tr><td>domain.com</td><td><b class="blue">$12.00</b></td><td class="hidden-480"><span class="label label-warning arrowed arrowed-right">SOLD</span></td></tr></tbody></table></div><!-- /.widget-main --></div><!-- /.widget-body --></div><!-- /.widget-box --></div><!-- /.col --><div class="col-sm-7"><div class="widget-box transparent"><div class="widget-header widget-header-flat"><h4 class="widget-title lighter"><i class="ace-icon fa fa-signal"></i> Sale Status</h4><div class="widget-toolbar"><a href="#" data-action="collapse"><i class="ace-icon fa fa-chevron-up"></i></a></div></div><div class="widget-body"><div class="widget-main padding-4"><!--<div id="sales-charts"></div>--> <svg id="sales-charts"></svg></div><!-- /.widget-main --></div><!-- /.widget-body --></div><!-- /.widget-box --></div><!-- /.col --></div><!-- /.row --><!-- /.col --></div></div><script type="text/javascript">$(function () {
+
+
+        piechart();
+        barchart_orange();
+        barchart_White();
+        drawLineChartD3();
+        $(".GaugeMeter").gaugeMeter();
+       
+    })
+
+
+    function piechart() {
+        //pie chart
+
+        var hopsData = [{
+            name: 'Opera',
+            acres: 40
+        }, {
+            name: 'Safari',
+            acres: 60
+        }, {
+            name: 'Chrome',
+            acres: 70
+        }, {
+            name: 'Other Browsers',
+            acres: 80
+        }, {
+            name: 'Mozilla',
+            acres: 90
+        }]
+
+        var height = 150;
+        var width = 150;
+        var totalRadius = Math.min(width, height) / 2;
+        var donutHoleRadius = totalRadius * 0.5;
+        var color = d3.scale.ordinal()
+    .range(["#E3746F", "#C37AB0", "#58ADDB", "#8ECD65", "#FEE897", "#d0743c", "#ff8c00"]);
+        //var color = d3.scale.category10();
+
+        var svg = d3.select('#piechart').attr('width', width).attr('height', height - 80)
+        .append('g')
+        .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+
+        //`translate(${width / 2}, ${height / 2})`
+        var seriesNames = []; var xaxisNames = [];
+        xaxisNames.push("name");
+        seriesNames.push("acres");
+
+        svg.append("g")
+            .attr("class", "slices");
+        svg.append("g")
+            .attr("class", "labelName");
+        svg.append("g")
+            .attr("class", "labelValue");
+        svg.append("g")
+            .attr("class", "lines");
+
+
+        var arc = d3.svg.arc().innerRadius(0).outerRadius(totalRadius);
+        var div = d3.select(".main-content-inner").append("div").attr("class", "toolTip");
+
+        //var pie = d3.layout.pie()
+        //  .value((d) => d.acres)
+        //  .sort(null)
+
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function (d) {
+                return d[seriesNames[0]];
+            });
+
+        var path = svg
+          .selectAll('path')
+          .data(pie(hopsData))
+          .enter()
+          .append('path')
+          .attr('d', arc)
+          //.attr('fill', (d, i) => color(d.data.name))
+          .attr("fill", function (d, i) {
+              return color(d.data[xaxisNames[0]]);
+
+          })
+
+
+        path.transition().duration(1000).attrTween("d", function (d) {
+            this._current = this._current || d;
+            var interpolate = d3.interpolate(this._current, d);
+            this._current = interpolate(0);
+            return function (t) {
+                return arc(interpolate(t));
+            };
+        })
+        path.on("mouseenter", function (d) {
+            div.style("left", d3.event.pageX + 10 + "px");
+            div.style("top", d3.event.pageY - 25 + "px");
+            div.style("display", "inline-block");
+            div.html((d.data[xaxisNames[0]]) + "<br>" + (d.data[seriesNames[0]]) + "");
+            d3.select(this)
+               .attr("stroke", "white")
+               .transition()
+               .duration(2000)
+               //.attr("d", arcOver)             
+               .attr("stroke-width", 8);
+        });
+        path.on("mouseout", function (d) {
+            div.style("display", "none");
+            d3.select(this).transition()
+                       .attr("d", arc)
+                       .attr("stroke", "none");
+        });
+
+        //path.exit().remove();
+
+
+        var arc = d3.svg.arc().outerRadius(totalRadius * 0.8).innerRadius(totalRadius * 0);
+
+        //var arc = d3.svg.arc().outerRadius(totalRadius * 0.8);
+
+        var outerArc = d3.svg.arc()
+            .innerRadius(totalRadius * 0.9)
+            .outerRadius(totalRadius * 0.9);
+
+
+
+        var legendItemSize = 18
+        var legendSpacing = 4
+
+        var legend = svg
+          .selectAll('.legend')
+          .data(color.domain())
+          .enter()
+          .append('g')
+          .attr('class', 'legend')
+          .attr('transform', function (d, i) {
+              var height = legendItemSize + legendSpacing
+              var offset = height * color.domain().length / 2
+              var x = legendItemSize * 20 - 240;
+              var y = (i * height) - offset - 0;
+              //return `translate(${x}, ${y})`
+              return 'translate(' + x + ',' + y + ')';
+          })
+        function fade(opacity, d) {
+            d3.select('#piechart').selectAll("path").filter(function (e) {
+                //alert(JSON.stringify(e));
+                //alert(e.name);
+                //alert(d);
+                return e.data.name !== d;
+            }).transition().style("opacity", opacity);
+        }
+        ;
+        legend
+          .append('rect')
+          .attr('width', legendItemSize)
+          .attr('height', legendItemSize)
+          .style('fill', color).on("mouseover",
+                        function (d, i) {
+                            fade(.2, d);
+                        }).on("mouseout", function (d, i) {
+                            fade(1, d);
+                        });
+
+        legend
+          .append('text')
+          .attr('x', legendItemSize + legendSpacing)
+          .attr('y', legendItemSize - legendSpacing)
+            .style("fill","#555")
+          .text(function (d) {
+              return d;
+          })
+
+        /* ------- TEXT LABELS -------*/
+
+        //var text = svg.select(".labelName").selectAll("text")
+        //    .data(pie(hopsData), function (d) { return d.data.name });
+
+        //text.enter()
+        //    .append("text")
+        //    .attr("dy", ".35em")
+        //    .text(function (d) {
+        //        return (d.data[xaxisNames[0]] + ": " + d.data[seriesNames[0]] + "");
+        //    });
+
+        function midAngle(d) {
+            return d.startAngle + (d.endAngle - d.startAngle) / 2;
+        }
+
+
+
+        //text
+        //    .transition().duration(1000)
+        //    .attrTween("transform", function (d) {
+        //        this._current = this._current || d;
+        //        var interpolate = d3.interpolate(this._current, d);
+        //        this._current = interpolate(0);
+        //        return function (t) {
+        //            var d2 = interpolate(t);
+        //            var pos = outerArc.centroid(d2);
+        //            pos[0] = totalRadius * (midAngle(d2) < Math.PI ? 1 : -1);
+        //            return "translate(" + pos + ")";
+        //        };
+        //    })
+        //    .styleTween("text-anchor", function (d) {
+        //        this._current = this._current || d;
+        //        var interpolate = d3.interpolate(this._current, d);
+        //        this._current = interpolate(0);
+        //        return function (t) {
+        //            var d2 = interpolate(t);
+        //            return midAngle(d2) < Math.PI ? "start" : "end";
+        //        };
+        //    })
+        //    .text(function (d) {
+        //        return (d.data[xaxisNames[0]] + ": " + d.data[seriesNames[0]] + "");
+        //    });
+
+
+        //text.exit()
+        //    .remove();
+
+        /* ------- SLICE TO TEXT POLYLINES -------*/
+
+        //    var polyline = svg.select(".lines").selectAll("polyline")
+        //        .data(pie(hopsData), function (d) { return d.data[xaxisNames[0]] });
+
+        //    polyline.enter()
+        //        .append("polyline");
+
+        //    polyline.transition().duration(1000)
+        //        .attrTween("points", function (d) {
+        //            this._current = this._current || d;
+        //            var interpolate = d3.interpolate(this._current, d);
+        //            this._current = interpolate(0);
+        //            return function (t) {
+        //                var d2 = interpolate(t);
+        //                var pos = outerArc.centroid(d2);
+        //                pos[0] = totalRadius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+        //                return [arc.centroid(d2), outerArc.centroid(d2), pos];
+        //            };
+        //        });
+
+        //    polyline.exit()
+        //        .remove();
+    }
+    function barchart_orange() {
+
+        var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+        var margin = { top: 20, right: 20, bottom: 70, left: 40 },
+            //width = 100 - margin.left - margin.right,
+            //height = 100 - margin.top - margin.bottom;
+
+            width = 40,
+            height = 30;
+
+
+        // Parse the date / time
+        var parseDate = d3.time.format("%Y-%m").parse;
+
+        var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+
+        var y = d3.scale.linear().range([height, 0]);
+
+        //var xAxis = d3.svg.axis()
+        //    .scale(x)
+        //    .orient("bottom")
+        //    .tickFormat(d3.time.format("%Y-%m"));
+
+        //var yAxis = d3.svg.axis()
+        //    .scale(y)
+        //    .orient("left")
+        //    .ticks(10);
+        //+margin.left + margin.right
+        //     + margin.top + margin.bottom
+        var svg = d3.select("#barchart_orange")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+        // .attr("transform", "translate(" + width + "," + height + ")");
+        // "translate(" + margin.left + "," + margin.top + ")");
+
+
+        var data = [{ "date": "2013-01", "value": 53 }, { "date": "2013-02", "value": 165 }, { "date": "2013-03", "value": 155 }, { "date": "2013-04", "value": 175 }, { "date": "2013-05", "value": 185 }, { "date": "2013-06", "value": 95 }, { "date": "2013-07", "value": 125 }, { "date": "2013-08", "value": 145 }];
+
+        //d3.csv("bar-data.csv", function (error, data) {
+
+        data.forEach(function (d) {
+            d.date = parseDate(d.date);
+            d.value = +d.value;
+        });
+
+        x.domain(data.map(function (d) { return d.date; }));
+        y.domain([0, d3.max(data, function (d) { return d.value; })]);
+
+        //svg.append("g")
+        //    .attr("class", "x axis")
+        //    .attr("transform", "translate(0," + height + ")")
+        //    .call(xAxis)
+        //  .selectAll("text")
+        //    .style("text-anchor", "end")
+        //    .attr("dx", "-.8em")
+        //    .attr("dy", "-.55em")
+        //    .attr("transform", "rotate(-90)" );
+
+        //svg.append("g")
+        //    .attr("class", "y axis")
+        //    .call(yAxis)
+        //  .append("text")
+        //    .attr("transform", "rotate(-90)")
+        //    .attr("y", 6)
+        //    .attr("dy", ".71em")
+        //    .style("text-anchor", "end")
+        //    .text("Value ($)");
+
+        svg.selectAll("bar")
+            .data(data)
+          .enter().append("rect").attr("class", "mini_bar")
+            .style("fill", "orange")
+            .attr("x", function (d) { return x(d.date); })
+            .attr("width", x.rangeBand() - 1)
+            .attr("y", function (d) { return y(d.value); })
+            .attr("height", function (d) { return height - y(d.value); })
+            .on("mousemove", function (d) {
+                divTooltip.style("left", d3.event.pageX + 1 + "px");
+                divTooltip.style("top", d3.event.pageY - 2 + "px");
+                divTooltip.style("display", "inline-block");
+                var x = d3.event.pageX, y = d3.event.pageY
+                var elements = document.querySelectorAll(':hover');
+                //alert(JSON.stringify(elements));
+
+
+                l = elements.length
+                l = l - 1
+                elementData = elements[l].__data__
+                elementlabeldata = elements[l - 1].__data__
+
+                divTooltip.html(elementData.value);
+            })
+         .on("mouseout", function (d) {
+             divTooltip.style("display", "none");
+         });
+
+        ;
+
+        // });
+
+
+    }
+
+    function barchart_White() {
+
+        var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+        var margin = { top: 20, right: 20, bottom: 70, left: 40 },
+            //width = 100 - margin.left - margin.right,
+            //height = 100 - margin.top - margin.bottom;
+
+            width = 40,
+            height = 30;
+
+
+        // Parse the date / time
+        var parseDate = d3.time.format("%Y-%m").parse;
+
+        var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+
+        var y = d3.scale.linear().range([height, 0]);
+
+        //var xAxis = d3.svg.axis()
+        //    .scale(x)
+        //    .orient("bottom")
+        //    .tickFormat(d3.time.format("%Y-%m"));
+
+        //var yAxis = d3.svg.axis()
+        //    .scale(y)
+        //    .orient("left")
+        //    .ticks(10);
+        //+margin.left + margin.right
+        //     + margin.top + margin.bottom
+        var svg = d3.select("#barchart_White")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+        // .attr("transform", "translate(" + width + "," + height + ")");
+        // "translate(" + margin.left + "," + margin.top + ")");
+
+
+        var data = [{ "date": "2013-01", "value": 53 }, { "date": "2013-02", "value": 165 }, { "date": "2013-03", "value": 155 }, { "date": "2013-04", "value": 175 }, { "date": "2013-05", "value": 185 }, { "date": "2013-06", "value": 95 }, { "date": "2013-07", "value": 125 }, { "date": "2013-08", "value": 145 }];
+
+        //d3.csv("bar-data.csv", function (error, data) {
+
+        data.forEach(function (d) {
+            d.date = parseDate(d.date);
+            d.value = +d.value;
+        });
+
+        x.domain(data.map(function (d) { return d.date; }));
+        y.domain([0, d3.max(data, function (d) { return d.value; })]);
+
+        //svg.append("g")
+        //    .attr("class", "x axis")
+        //    .attr("transform", "translate(0," + height + ")")
+        //    .call(xAxis)
+        //  .selectAll("text")
+        //    .style("text-anchor", "end")
+        //    .attr("dx", "-.8em")
+        //    .attr("dy", "-.55em")
+        //    .attr("transform", "rotate(-90)" );
+
+        //svg.append("g")
+        //    .attr("class", "y axis")
+        //    .call(yAxis)
+        //  .append("text")
+        //    .attr("transform", "rotate(-90)")
+        //    .attr("y", 6)
+        //    .attr("dy", ".71em")
+        //    .style("text-anchor", "end")
+        //    .text("Value ($)");
+
+        svg.selectAll("bar")
+            .data(data)
+          .enter().append("rect").attr("class", "mini_bar")
+            .style("fill", "white")
+            .attr("x", function (d) { return x(d.date); })
+            .attr("width", x.rangeBand() - 1)
+            .attr("y", function (d) { return y(d.value); })
+            .attr("height", function (d) { return height - y(d.value); })
+            .on("mousemove", function (d) {
+                divTooltip.style("left", d3.event.pageX + 1 + "px");
+                divTooltip.style("top", d3.event.pageY - 2 + "px");
+                divTooltip.style("display", "inline-block");
+                var x = d3.event.pageX, y = d3.event.pageY
+                var elements = document.querySelectorAll(':hover');
+                //alert(JSON.stringify(elements));
+
+
+                l = elements.length
+                l = l - 1
+                elementData = elements[l].__data__
+                elementlabeldata = elements[l - 1].__data__
+
+                divTooltip.html(elementData.value);
+            })
+         .on("mouseout", function (d) {
+             divTooltip.style("display", "none");
+         });
+
+        ;
+
+        // });
+
+
+    }
+
+    function drawLineChartD3() {
+
+        var margin = { top: 20, right: 10, bottom: 40, left: 30 },
+            width = parseInt(600, 10) - margin.left - margin.right,
+            height = parseInt(230, 10) - margin.top - margin.bottom;
+
+
+        var x0 = d3.scale.ordinal()
+            .rangeRoundBands([0, width], .1);
+
+        var x1 = d3.scale.ordinal();
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+        //var y1 = d3.scale.linear().range([height, 0]);
+
+        var colorRange = d3.scale.category10();
+        var color = d3.scale.ordinal()
+            .range(colorRange.range());
+
+        var xAxis = d3.svg.axis()
+            .scale(x0)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(d3.format(".2s"));
+
+        var divTooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+
+        var svg = d3.select("#sales-charts")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        dataset = [
+          { label: "Men", "Not Satisfied": 20, "Not Much Satisfied": 10, "Satisfied": 50, "Very Satisfied": 30 },
+          { label: "Women", "Not Satisfied": 15, "Not Much Satisfied": 30, "Satisfied": 40, "Very Satisfied": 45 },
+  { label: "Gender", "Not Satisfied": 15, "Not Much Satisfied": 30, "Satisfied": 40, "Very Satisfied": 35 },
+  { label: "Male", "Not Satisfied": 50, "Not Much Satisfied": 40, "Satisfied": 30, "Very Satisfied": 25 },
+   { label: "Female", "Not Satisfied": 50, "Not Much Satisfied": 40, "Satisfied": 30, "Very Satisfied": 45 },
+  { label: "NMale", "Not Satisfied": 50, "Not Much Satisfied": 40, "Satisfied": 30, "Very Satisfied": 65 },
+   { label: "NFeMale", "Not Satisfied": 50, "Not Much Satisfied": 40, "Satisfied": 30, "Very Satisfied": 55 }
+        ];
+
+
+        var options = d3.keys(dataset[0]).filter(function (key) { return key !== "label" && key !== "Not Satisfied" && key !== "Not Much Satisfied" && key !== "Satisfied" && key !== "Very Satisfied"; });
+        var totaloptions = d3.keys(dataset[0]).filter(function (key) { return key !== "label" });
+
+        var lineoptions = d3.keys(dataset[0]).filter(function (key) { return key !== "label" });
+
+        var finalseries = options.map(function (name) { return { name: name, Type: "bar" }; });
+
+        lineoptions.map(function (name) { finalseries.push({ name: name, Type: "Line" }) });
+
+
+
+        dataset.forEach(function (d) {
+            d.bars = options.map(function (name) { return { name: name, value: +d[name] }; });
+            d.line = lineoptions.map(function (name) { return { name: name, value: +d[name] }; });
+            d.totaloptions = totaloptions.map(function (name) { return { name: name, value: +d[name] }; })
+        });
+
+
+
+        x0.domain(dataset.map(function (d) { return d.label; }));
+        x1.domain(options).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, d3.max(dataset, function (d) { return d3.max(d.totaloptions, function (d) { return d.value; }); })]);
+      
+        color.domain(d3.keys(dataset[0]).filter(function (key) { return key !== "label"; }));
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 9)
+            .attr("x", -77)
+            .attr("dy", "-3.8em")
+            .style("text-anchor", "end")
+            .style("fill","#555")
+            .text("Satisfaction %");
+
+      
+
+        var line = svg.append("g").attr("class", "line")
+
+        lineoptions.map(function (c) {
+            var valueline = d3.svg.line()
+.x(function (d) {
+    return x0(d.label) + x0.rangeBand() / 2;
+}).y(function (d) {
+    return y(d[c]);
+}).interpolate("cardinal");
+
+            line.append("path").attr("d", valueline(dataset)).attr("class", c.replace(/ /g, '_')).style("stroke", color(c));
+
+
+            svg.selectAll("dot").data(dataset).enter().append("circle")
+            .attr("r", 5)
+            .attr("cx", function (d) { return x0(d.label) + x0.rangeBand() / 2 })
+             .attr("cy", function (d) { return y(d[c]); }).style('fill', color(c))
+            .on("mouseover", function (d) {
+                var getcolor = d3.select(this).style('fill');
+                d3.select(this).style('fill', 'none').style('fill-opacity', '1').style("stroke", getcolor).style("stroke-width", '5').transition()
+                   .duration(1000)
+                   .attr("r", 5);
+                divTooltip.style("left", d3.event.pageX + 10 + "px");
+                divTooltip.style("top", d3.event.pageY - 25 + "px");
+                divTooltip.style("display", "inline-block");
+                var x = d3.event.pageX, y = d3.event.pageY
+                var elements = document.querySelectorAll(':hover');
+                l = elements.length
+                l = l - 1
+                elementData = elements[l].__data__
+                divTooltip.html(elementData.label + "<br>" + c + "<br>" + elementData[c]);
+            })
+            .on("mouseout", function (d) {
+                var color_normal = d3.select(this).style('stroke');
+                d3.select(this).style('fill', color_normal).style("stroke", "none").style("stroke-width", '0')
+                .attr("r", 5);
+                divTooltip.style("display", "none");
+            });
+        });
+
+        var legend = svg.selectAll(".legend")
+            .data(finalseries.slice())
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function (d, i) {
+               
+                var len = (dataset[0].bars).length + 2;
+                return "translate(29," + ((i - len) * 20 + 30) + ")";
+            });
+
+        legend.append("rect")
+            .attr("x", width - 18)
+            .attr("width", 18)
+            .attr("height", function (b) { return b.Type == 'bar' ? 18 : 7 })
+            .attr('y', function (b) { return b.Type == 'bar' ? 0 : 6 })
+            .style("fill", function (b) { return color(b.name) })
+            .on("mouseover", function (d, i) {
+                svg.selectAll(".rect rect").each(function () {
+                    if ($(this).hasClass(d.name.replace(/ /g, "_"))) { $(this).removeClass("disabled_rect"); }
+                    else { $(this).addClass("disabled_rect"); }
+                })
+
+                svg.selectAll(".line path").each(function () {
+                    if ($(this).hasClass(d.name.replace(/ /g, "_"))) { $(this).removeClass("disabled_rect"); }
+                    else { $(this).addClass("disabled_rect"); }
+                })
+            })
+                .on("mouseout", function (d, i) {
+                    svg.selectAll("rect").style("stroke", "white");
+                    // svg.selectAll("path").style("stroke", "white");
+                    svg.selectAll(".line path").each(function () { $(this).removeClass("disabled_rect"); })
+                    svg.selectAll(".rect rect").each(function () { $(this).removeClass("disabled_rect"); });
+
+                });
+
+
+
+        legend.append("text")
+            .attr("x", width - 24)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            .style("text-anchor", "end")
+               .style("fill", "#555")
+            .text(function (d) { return d.name; });
+
+
+
+
+    }
+
+
+
+    function wrap(text, width) {
+        text.each(function () {
+            var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1, // ems
+                    y = text.attr("y"),
+                    dy = parseFloat(text.attr("dy")),
+                    tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                }
+            }
+        });
+    }</script>

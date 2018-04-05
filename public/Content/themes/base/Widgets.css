@@ -1,0 +1,758 @@
+﻿/*****************************************************************************/
+/* Widget Browser
+/*****************************************************************************/
+.WidgetBrowser { height: 370px; }
+.WidgetBrowser .Overview { width: 200%;}
+#WidgetMasterTypes { float: left; width: 50%; }
+.WidgetBrowser .scrollable { height: 170px;  margin-right: 0; }
+.WidgetBrowser .scrollable .mCSB_container { width: 220px;}
+.WidgetBrowser .SearchInput .InputContainer {margin-right: 30px;}
+.WidgetBrowser .SearchInput .InputContainer input {width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+.WidgetBrowser .SearchInput button {position: absolute;right: 4px;top: 35px;}
+#WidgetSubTypes  { float: left; width: 50%; }
+
+    .WidgetBrowser .widgetIcon, .WidgetBrowser .widgetCategory, .widgetIconDragging {
+        float: left;
+        width: 70px;
+        height: 72px;
+        text-align: center;
+        position: relative;
+        background-repeat: no-repeat;
+        -moz-background-size: 32px;
+        -o-background-size: 32px;
+        -webkit-background-size: 32px;
+        background-size: 32px;
+        background-position: center 10px;
+    }
+
+.WidgetBrowser .widgetIcon.disabled, .WidgetBrowser .widgetCategory.disabled {
+    cursor: default;
+    position: relative;
+}
+    .WidgetBrowser .widgetIcon.disabled:before, .WidgetBrowser .widgetCategory.disabled:before {
+        content: 'Soon!';
+        position: absolute;
+        z-index: 10;
+        -moz-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        -o-transform: rotate(30deg);
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+        opacity: 1;
+        color: #FFF;
+        background: #FA0000;
+        left: 19px;
+        top: 26px;
+        font-size: 12px;
+        line-height: 1;
+        padding: 2px;
+    }
+    .WidgetBrowser .widgetIcon.disabled:after, .WidgetBrowser .widgetCategory.disabled:after {
+        content: ' ';
+        position: absolute;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: rgba(255, 255, 255, 0.6);
+        bottom: 0;
+    }
+.WidgetBrowser .widgetIcon:not(.disabled):hover, .WidgetBrowser .widgetCategory:hover {
+    cursor: pointer;
+}
+.WidgetBrowser .widgetIcon:not(.disabled):hover header span, .WidgetBrowser .widgetCategory:hover header span {
+    text-decoration: underline;
+}
+.WidgetBrowser .widgetIcon header, .WidgetBrowser .widgetCategory header, .widgetIconDragging header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 1.2;
+    height: 30px;
+}
+.WidgetBrowser .widgetIcon header span, .WidgetBrowser .widgetCategory header span, .widgetIconDragging header span {
+    display: inline-block;
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #555;
+    font-size: 9pt;
+    -webkit-text-shadow: 1px 1px 1px rgba(0,0,0,.05);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.05);
+}
+.WidgetBrowser .widgetCategory header span, .widgetIconDragging header span {
+    max-width: 55px;
+}
+.WidgetBrowser .widgetCategory header i {
+    font-style: normal;
+    margin-left: 5px;
+    color: #888;
+}
+.WidgetBrowser .widgetCategory header * {
+    vertical-align: middle;
+}
+ 
+
+
+
+
+/*******************/
+/* Widget Specific */
+/*******************/
+
+/* The first child should always take all the available space */
+.WidgetContainer > :first-child {
+    width: 100%;
+    height: 100%;
+    
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+    overflow: hidden;
+}
+.WidgetContainer.WidgetSelectable > :first-child,
+.WidgetContainer.WidgetClickable > :first-child {
+    cursor: pointer;
+}
+.WidgetContainer.in-error {
+    overflow: auto;
+    border: 1px solid red;
+    color: red;
+    padding: 5px;
+}
+.WidgetContainer.in-error:before {
+    content: attr(title);
+}
+.WidgetContainer.in-error > :first-child {
+    display: none;
+}
+
+/* When a widget needs to pass on-top of every widget for some reason (such as opening a ddl inside the widget itself, the ddl has to be on top to always be seen) */
+.WidgetContainer.on-top { z-index: 4000 !important; }
+
+/* Text */
+.WidgetTextParagraph :first-child { overflow: auto; }
+
+.WidgetText textarea
+{   
+    box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none;
+    box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+    border-style: solid;
+    word-wrap: break-word;
+    line-height: normal;
+}
+
+.WidgetText textarea:focus
+{
+    border:none;
+}
+
+
+.PostItTextContainer p, .BalloonPostItContainer p
+{
+    margin:0;
+    width:100%;
+    display:inline-block;
+    word-wrap:break-word;
+    font: 11px 'andale mono', 'monotype.com', 'lucida console', monospace;
+}
+
+.PostItTextContainer p span, .BalloonPostItContainer p span
+{
+    width:100%;
+    display:inline-block;
+    line-height: normal;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+.WidgetText p
+{
+    margin:0;
+    padding:0;
+    word-wrap:break-word;
+}
+.WidgetText p span
+{
+    display:inline-block;
+    width:100%;
+    line-height: normal;   
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+/* Image */
+.WidgetMediaImage div 
+{
+    -webkit-print-color-adjust: exact;
+	background-repeat: no-repeat;
+	background-position: center center;
+    
+}
+
+
+/* Input Numeric */
+.WidgetInputNumeric input { width: 100%; height: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.WidgetInputNumeric input[type="range"] { margin: 0; /*reset stupid TextFont.css*/padding: 0; border: none; outline: none; resize: none; border-radius: 0; box-shadow: none; }
+.WidgetInputNumeric input[type="text"] { box-shadow: none; }
+
+.WidgetInputNumeric.knob { overflow:hidden;}
+
+/* Input Text */
+.WidgetInputText input { width: 100%; height: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Input List */
+.WidgetInputList:not([class*='ddl']) ul, .WidgetInputList:not([class*='ddl']) li  { padding: 0; margin: 0; list-style-type: none; }
+.WidgetInputList:not([class*='ddl']) ul, .WidgetInputList:not([class*='ddl']) select { width: 100%; height: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.WidgetInputList:not([class*='ddl']) ul { overflow: auto !important; }
+.WidgetInputList:not([class*='ddl']) li { white-space: nowrap; overflow: auto; }
+.WidgetInputList:not([class*='ddl']) li:not(:last-child) { border-bottom: 1px solid rgba(0,0,0,.05); }
+.WidgetInputList:not([class*='ddl']) li label { display: inline-block; float: left; width: 100%; cursor: pointer; padding: 4px 0; line-height: 1.2; }
+.WidgetInputList:not([class*='ddl']) li label > * { vertical-align: middle; }
+.WidgetInputList:not([class*='ddl']) ul li.selected { background-color: rgba(0,0,0,.05); }
+
+.WidgetInputList[class*='ddl'] .btn { color: rgb(51, 51, 51); background: none; font-weight: normal; text-shadow: none; background-color: rgb(255, 255, 255); border-color: rgb(204, 204, 204); }
+.WidgetInputList[class*='ddl'] .btn:hover { color: rgb(51, 51, 51); background-color: rgb(235, 235, 235); border-color: rgb(173, 173, 173); }
+.WidgetInputList[class*='ddl'] .btn-group.open .dropdown-toggle { -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.WidgetInputList[class*='ddl'] .dropdown-menu > li > a { padding: 0; /* we put the padding on the label, because the click handler is on the label */ }
+.WidgetInputList[class*='ddl'] .multiselect-search { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* dropdown: please take full width+height of the container */
+.WidgetInputList[class*='ddl'] .btn-container { height: 100%; }
+.WidgetInputList[class*='ddl'] .multiselect { width: 100%; height: 100%; padding: 5px; }
+.WidgetInputList[class*='ddl'] .multiselect-container.dropdown-menu { min-width: 0; width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.WidgetInputList[class*='ddl'] .open .dropdown-toggle { -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.WidgetInputList[class*='ddl'] label { color: inherit; display: block; vertical-align: middle; padding: 3px; }
+
+/* Input Tree */
+.WidgetInputTree > div { overflow: auto !important; }
+.WidgetInputTree li > * {  }
+.WidgetInputTree .root li { margin-left: 17px; position: relative; }
+.WidgetInputTree li > button { padding: 0; width: auto; margin-bottom: 1px; line-height: 14px; position: absolute; left: -11px;}
+.WidgetInputTree li > button > i { padding: 0; margin: 0; color: black; font-size: 14px; font-weight: normal;}
+.WidgetInputTree li.collapsed > ul { display: none; }
+.WidgetInputTree li.collapsed > button > i:first-child { display: none; }
+.WidgetInputTree li:not(.collapsed) > button> i:last-child { display: none; }
+.WidgetInputTree label { font-size: inherit; color: inherit; }
+.WidgetInputTree label > * { /*vertical-align: middle; This causing some shifting for small font-size.. */  }
+
+/* Input autocomplete */
+.WidgetInputAutocomplete .bootstrap-tagsinput {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: transparent;
+    box-shadow: none;
+}
+.WidgetInputAutocomplete .bootstrap-tagsinput .tag {
+    display: inline-block;
+    padding: 2px 5px;
+    margin-bottom: 2px;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 3px;
+    line-height: 1.2;
+    border: 1px solid #ccc;
+}
+.WidgetInputAutocomplete .twitter-typeahead {
+    position: static !important;
+}
+
+.WidgetInputAutocomplete .twitter-typeahead .tt-query, .WidgetInputAutocomplete .twitter-typeahead .tt-hint {
+  margin-bottom: 0;
+}
+
+.WidgetInputAutocomplete .twitter-typeahead .tt-hint
+{
+    display: none;
+}
+
+.WidgetInputAutocomplete .bootstrap-tagsinput .tag [data-role="remove"]:after {
+    content: '×';
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.WidgetInputAutocomplete .tt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.WidgetInputAutocomplete .tt-suggestion > p {
+  display: block;
+  padding: 3px 20px;
+  margin: 0;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: nowrap;
+}
+.WidgetInputAutocomplete .tt-suggestion > p:hover, .WidgetInputAutocomplete .tt-suggestion > p:focus, .WidgetInputAutocomplete .tt-suggestion.tt-cursor p {
+    color: black;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+.WidgetInputAutocomplete input {
+    vertical-align: middle !important;
+}
+.WidgetInputAutocomplete.loading .bootstrap-tagsinput:after {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(/Global/Images/Loaders/PreloaderBlackOnLight.gif);
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+/* Input Date*/
+.WidgetInputDateRange * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.WidgetInputDateRange {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(#fff,#dedede);
+    background-image: linear-gradient(#fff,#dedede);
+    border: #ccc solid 1px;
+}
+
+
+.WidgetInputDateRange  .YearContainer {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    border-bottom: #ccc solid 1px;
+}
+
+.WidgetInputDateRange  .Years {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.WidgetInputDateRange  .Month {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+}
+
+.WidgetInputDateRange  .MonthYear {
+    display: inline-block;
+    font: bold 11px/18px 'Helvetica Neue',Arial,sans-serif;
+    color: #333;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    white-space: nowrap;
+    cursor: pointer;
+}
+.WidgetInputDateRange  .MonthYear:hover:not(.MonthYearSelected) {
+    background: #616161;
+	background: rgba(0,0,0,.075);
+    cursor: pointer;
+}
+
+.WidgetInputDateRange  .MonthYear.Year {
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(#fff,#dedede);
+    background-image: linear-gradient(#fff,#dedede);
+}
+
+
+.WidgetInputDateRange  .MonthContainer .MonthYear:not(:last-child),  .YearContainer .Years .slider div:not(.isLastDisplayed)  {
+    border-right: #ccc solid 1px;
+}
+
+.WidgetInputDateRange  .Year {
+    position: relative;
+    height: 100%;
+}
+
+.WidgetInputDateRange  .MonthContainer {
+    position: relative;
+    width: 100%;
+    height: 50%;
+}
+
+    .WidgetInputDateRange .slider {
+        position: absolute;
+        min-width: 100%;
+        height: 100%;
+        left: 0;
+        -moz-transition: all .1s;
+        -o-transition: all .1s;
+        -webkit-transition: all .1s;
+        transition: all .1s;
+        white-space: nowrap;
+    }
+
+.WidgetInputDateRange .borderless.leftArrow {
+    position: absolute;
+    left: -2px;
+    z-index: 9999;
+    display: none;
+}
+
+.WidgetInputDateRange .borderless.rightArrow {
+    position: absolute;
+    right: -2px;
+    z-index: 9999;
+    display: none;
+}
+
+.WidgetInputDateRange .borderless.leftArrow:hover, .borderless.rightArrow:hover  {
+    display: block;
+}
+
+.WidgetInputDateRange  .isFirstDisplayed:hover ~ .leftArrow, .WidgetInputDateRange  .isLastDisplayed:hover ~ .rightArrow {
+    opacity: 1;
+}
+
+.WidgetInputDateRange  .MonthYear.MonthYearSelected {
+    color: whitesmoke !important;
+    padding: 3px 0px 3px 3px;
+    background-image: -webkit-linear-gradient(#428bca,#428bca);
+    background-image: linear-gradient(#428bca,#428bca);
+}
+
+    .WidgetInputDateRange .MonthContainer .Month {
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+    
+/* Date Picker */
+.WidgetInputDatePicker input { width: 100%; height: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.widgetInputPicker {
+    left: calc(100% - 320px)!important;
+}
+
+.widgetInputPicker:after, .widgetInputPicker:before {
+    left: 200px;
+}
+
+.hiddenPicker {opacity: 0;}
+
+/* Social */
+.WidgetSocial iframe { float: left; padding: 2px; }
+.WidgetSocial.verticalAlignment { text-align: center; }
+.WidgetSocial.verticalAlignment iframe { display: block;  }
+
+/* PostIt Comment*/
+.WidgetCommentPostIt { overflow: hidden;}
+
+.PostItTextContainer {
+    position: absolute;
+    left: 10%;
+    right: 5%;
+    top: 8%;
+    bottom: 10%;
+}
+
+.BalloonPostItContainer {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 10%;
+    bottom: 30%;
+}
+
+.BalloonPostItContainer.SquareShaped {
+    bottom: 44%;
+    left:10%;
+    right:15%;
+}
+
+.PostItTextContainer textarea, .BalloonPostItContainer textarea {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0; /* don't want to add to container size */
+    border: 0; /* don't want to add to container size */
+    resize: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: black;
+    background-color: transparent;
+}
+
+.WidgetCommentPostIt svg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+
+/* Indicators */
+.WidgetIndicatorIcon .icon { -moz-background-size: contain; -o-background-size: contain; -webkit-background-size: contain; background-size: contain; background-repeat: no-repeat; background-position: 50% 50%; -webkit-print-color-adjust:exact;}
+
+
+.WidgetIndicatorText .IndicatorContainer {   
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align:center;
+    overflow-y: auto;
+    /* Firefox is experiencing bug with flex-wrap markup. flex not used until fixed */
+    /*display: flex;         
+    display: -webkit-flex;     
+    display: -moz-flex;  
+  
+    display: -ms-flex;   
+    display: -ms-flexbox; 
+    
+    justify-content: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -ms-flex-pack: center; 
+
+    
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;    
+    -ms-flex-align:center;
+    
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;*/
+}
+
+.WidgetIndicatorText .placeholder { width: 100%; height: 100%; position: relative; margin: 0; }
+.WidgetIndicatorText .IndicatorContainer .ColumnIndicator {
+    display:inline-block;
+    width:auto;
+    height:auto;
+}
+
+.WidgetIndicatorText .IndicatorContainer .ColumnIndicator span {
+    display:block;
+    line-height:normal;
+}
+
+
+/* Widget Table Flat */
+
+.WidgetTableFlat .table-container {
+    /* all things inside are absolute */
+    position: relative;
+    overflow: hidden;
+}
+.WidgetTableFlat .scroll-area, .WidgetTableFlat .static-header, .WidgetTableFlat .static-footer {
+    position: absolute; /* the top and bottom are set dynamically according to the style config of the widget */
+    left: 0;
+    right: 0;
+    white-space: nowrap; /* columns have to stay next to the other */
+    overflow: hidden;
+}
+.WidgetTableFlat .static-header { top: 0; }
+.WidgetTableFlat .static-footer { bottom: 0; }
+.WidgetTableFlat :not(.is-header-static) .static-header { display: none; }
+.WidgetTableFlat :not(.is-footer-static) .static-footer { display: none; }
+.WidgetTableFlat .scroll-area { overflow: auto; }
+.WidgetTableFlat .scroll-area span.url:hover { text-decoration: underline !important; }
+
+/* Every cells of the table (header, data, footer) */
+.WidgetTableFlat .header > span, .WidgetTableFlat .footer > span, .WidgetTableFlat .data > span {
+    display: block; /* take all the space horizontally, the next one goes to the line */
+    
+    overflow: hidden; 
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; /* ellipsis when the content is too big */
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; /* we don't want any troubles \o/ */
+}
+
+.WidgetTableFlat .data span {
+    padding: 0 8px; /* some space on left and right */
+}
+.WidgetTableFlat .header span, .WidgetTableFlat .footer span {
+    padding: 8px; /* some space around */
+}
+
+/* columns */
+.WidgetTableFlat .col { width: 100px; display: inline-block; position: relative;  vertical-align: top; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.WidgetTableFlat .col.hovered { cursor: pointer; }
+.WidgetTableFlat .col.hovered:before {
+    background: rgb(125,126,125);
+    background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+    background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+    opacity: .02;
+    content: ' ';
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* columns resize handle (only on the right of each column) */
+.WidgetTableFlat .ui-resizable { position: relative;}
+.WidgetTableFlat .ui-resizable-handle { position: absolute; font-size: 0.1px; z-index: 4001 !important; display: block;  }
+.WidgetTableFlat .ui-resizable-e { cursor: e-resize; width: 5px; right: 0px; top: 0; height: 100%; }
+.WidgetTableFlat .ui-resizable:hover .ui-resizable-e { /*background: rgba(0,0,0,.05);*/ }
+
+/* The data being organized in columns, the :hover is set manually using javascript. Horizontal hovering on rows. */
+.WidgetTableFlat .data > span { position: relative; /* to use the :before :after with absolute */ }
+.WidgetTableFlat .data > span.hovered:not(.selected):before {
+    background: rgb(125,126,125);
+    background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(100%,rgba(14,14,14,1)));
+    background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    background: linear-gradient(to bottom,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+    opacity: .1;
+    content: ' ';
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+.WidgetTableFlat .data > span.selected { 
+    background: #00b7ea !important; /* Old browsers */
+    background: -moz-linear-gradient(top,  #00b7ea 0%, #009ec3 100%) !important; /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7ea), color-stop(100%,#009ec3)) !important; /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #00b7ea 0%,#009ec3 100%) !important; /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #00b7ea 0%,#009ec3 100%) !important; /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #00b7ea 0%,#009ec3 100%) !important; /* IE10+ */
+    background: linear-gradient(to bottom,  #00b7ea 0%,#009ec3 100%) !important; /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 ) !important; /* IE6-9 */
+    color: whitesmoke !important;
+}
+.WidgetTableFlat .data span.selected:after {
+    opacity: 1;
+    background: transparent;
+}
+
+
+/* Widget Table Pivot */
+.WidgetTablePivot * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.WidgetTablePivot .table-container { overflow: auto; }
+.WidgetTablePivot table { table-layout: fixed; border-collapse: collapse; border-spacing: 0; /*width: 100%; NOT VERY COMPATIBLE WITH TABLE LAYOUT FIXED *//*height: 100%; DOESNT WORK WITH COLLAPSE */ }
+.WidgetTablePivot table tbody { background-color: white; }
+.WidgetTablePivot td, .WidgetTablePivot th { padding: 4px; text-align: center; border: 0; vertical-align: middle; overflow: hidden; border: 1px solid #e0e0e0; line-height: 1.4; /* to auto extend the height when the font size is big */}
+.WidgetTablePivot td.total, .WidgetTablePivot th.total { border-color: #444; }
+.WidgetTablePivot tbody th.dimval { text-align: left; }
+
+.WidgetTablePivot td.error {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAiElEQVQoU42S0Q2AIAxE659/GhMn00RncGZHIWAPaa0oBJILiDyvPaFAfUjyZi17Mjt5R7w4GiD9GICZtTVCDkDHGlh7pSQtkTAMZJ3yPuJzBAw08uZac7KAOE0MLCVIgeQCCAJknZ6UXsTdjzihvE9P+Xnpp5Se/wWyIBC5OlUBkx5+Lm7EeQF14MUgCwRAAQAAAABJRU5ErkJggg==') /*/Global/Images/invalid.png*/;
+    background-repeat: no-repeat;
+    background-position: top right;
+    -moz-background-size: 6px 6px;
+    -o-background-size: 6px 6px;
+    -webkit-background-size: 6px 6px;
+    background-size: 6px 6px;
+}
+.WidgetTablePivot th.topLeft { border: none; }
+.WidgetTablePivot th { font-weight: normal; }
+.WidgetTablePivot th.dimval {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(237,237,237,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFF', endColorstr='#EEE',GradientType=0 );
+}
+.WidgetTablePivot th.dim, .WidgetTablePivot .col-headers {
+    background: #4F85BB;
+    color: white;
+    font-weight: bold;
+}
+.WidgetTablePivot .total {
+    background-color: rgba(68,68,68,1);
+    color: #ececec;
+    font-weight: bold;
+}
+.WidgetTablePivot .total.grand { text-shadow: 1px 1px 2px black; }
+.WidgetTablePivot .total.intersection { color: #fcfcfc; }
+.WidgetTablePivot .expandable:before { font-family: FontAwesome; padding-right: 5px; opacity: 0.5; cursor: pointer; }
+.WidgetTablePivot .col-headers span { padding-right: 5px; }
+.WidgetTablePivot .col-headers span:not(:last-child):after { content: ', '; }
+.WidgetTablePivot .expandable:hover:before { cursor: pointer; opacity: 1; }
+.WidgetTablePivot .expandable:not(.collapsed):before { content: "\f0d7"; }
+.WidgetTablePivot .collapsed:before { content: "\f0da"; }
+.WidgetTablePivot .col-headers { text-align: left; }
+.WidgetTablePivot .col-headers button.expand { font-family: FontAwesome; padding: 5px 0; opacity: 0.8; }
+.WidgetTablePivot .hhidden, .WidgetTablePivot .vhidden { display: none; }
+
+/* columns resize handle (only on the right of each column) */
+.WidgetTablePivot .ui-resizable { position: relative;}
+.WidgetTablePivot .ui-resizable-handle { position: absolute; font-size: 0.1px; z-index: 4001 !important; display: block;  }
+.WidgetTablePivot .ui-resizable-e { cursor: e-resize; width: 5px; right: 0px; top: 0; height: 100%; }
+.WidgetTablePivot .ui-resizable:hover .ui-resizable-e { /*background: rgba(0,0,0,.05);*/ }
+
+
+
+
+
+
+
+
+
+
+
+/* Widget Map Region */
+
+
+.WidgetMapRegion svg > g:first-of-type > rect { stroke: none !important; }

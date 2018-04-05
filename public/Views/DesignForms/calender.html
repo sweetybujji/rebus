@@ -1,0 +1,175 @@
+<html>
+<head>
+    <title></title>
+    <link rel='stylesheet' href='./Scripts/FullCalendar/fullcalendar.css' />
+    <script type="text/javascript" src="./Scripts/FullCalendar/fullcalendar.min.js"></script>
+    <style>
+        .fc-today {
+            background: #ffff99 !important;
+            border: 1px solid #438eb9 !important;
+            border-top: 1px solid #ddd !important;
+            font-weight: bold;
+            color: white !important;
+        }
+    </style>
+</head>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+    </script>
+    <ul class="breadcrumb">
+        <li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a> </li>
+        <li class="active">Appointments</li>
+    </ul>
+    <!-- /.breadcrumb -->
+    <div class="nav-search" id="nav-search">
+    </div>
+    <!-- /.nav-search -->
+</div>
+<body>
+    <div class="row" style="margin: 2% -4% 0% 13%;">
+        <div class="col-sm-4">
+            <label>
+                Select Month:</label>
+            <select id="Drp_Months" class="form-control" onchange="fn_month_year();">
+                <option value="">--Select--</option>
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">Octomber</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label>
+                Select Year:</label>
+            <select id="Drp_Year" class="form-control" onchange="fn_month_year();">
+                <option value="">--Select--</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+    </div>
+    <div id='calendar' style="padding: 3%;">
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('#Drp_Months').chosen({
+            allow_single_deselect: true,
+            "width": "100%"
+        });
+        $('#Drp_Year').chosen({
+            allow_single_deselect: true,
+            "width": "100%"
+        });
+        $("#Drp_Months").trigger("chosen:updated");
+        $("#Drp_Year").trigger("chosen:updated");
+        $('#calendar').fullCalendar({});
+        $(".fc-today").css({ "background-color": "lime" });
+        $(".fc-day-number").css({ "font-size": "16px", "float": "left" });
+        $(".fc-event-inner").css({ "width": "100%" });
+        $(".fc-header").css({ "background-color": "#438eb9" });
+        $(".fc-header-title").css({ "color": "white" });
+        $(".fc-event").css({ "height:": "60px !important" });
+        $(".fc-button-prev").hide();
+        $(".fc-button-next").hide();
+        $(".fc-button-today").remove();
+    });
+    function fn_month_year() {
+        try {
+            var Month = $("#Drp_Months option:selected").val();
+            var Year = $("#Drp_Year option:selected").val();
+            if (Month == "" || Year == "" || Month == null || Year == null || Month == "undefined" || Year == "undefined") {
+                return;
+            }
+            else {
+                $('table').remove();
+                $('#calendar').fullCalendar({
+                    theme: true,
+                    year: Year,
+                    month: Month,
+                    date: 1,
+                    eventMouseover: function (data, event, view) {
+                        tooltip = '<div class="tooltiptopicevent" style="width:auto;height:auto;background:#feb811;position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' + 'title: ' + ': ' + data.title + '</br>' + 'start: ' + ': ' + data.start + '</div>';
+                        $("body").append(tooltip);
+                        $(this).mouseover(function (e) {
+                            $(this).css('z-index', 10000);
+                            $('.tooltiptopicevent').fadeIn('500');
+                            $('.tooltiptopicevent').fadeTo('10', 1.9);
+                        }).mousemove(function (e) {
+                            $('.tooltiptopicevent').css('top', e.pageY + 10);
+                            $('.tooltiptopicevent').css('left', e.pageX + 20);
+                        });
+
+
+                    },
+                    eventMouseout: function (data, event, view) {
+                        $(this).css('z-index', 8);
+                        $('.tooltiptopicevent').remove();
+                    },
+                    // 'renderEvent': newEvent
+                });
+                var selected_data = JSON.stringify({
+                    Month: Month,
+                    Year: Year
+                });
+
+
+                $.ajax({
+                    url: "../GetAppointment",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: selected_data,
+                    async: false,
+                    success: function (data) {
+                        if (data.length > 0) {
+                            var event = [];
+                            // var event2 = [{ "SheetName": "Employee Registration Form", "Date": "2017-08-01" }, { "SheetName": "Employee Registration Form", "Date": "2017-08-04" }, { "SheetName": "Employee Registration Form", "Date": "2017-08-07" }, { "SheetName": "Employee Registration Form", "Date": "2017-08-10" }, { "SheetName": "Employee Registration Form", "Date": "2017-08-13" }, { "SheetName": "Employee Registration Form", "Date": "2017-08-16" }, { "SheetName": "Employee Registration Form", "Date": "2017-08-19" }, { "SheetName": "EmployeeRegistration Form", "Date": "2017-08-22" }, { "SheetName": "List_testing", "Date": "2017-08-01" }, { "SheetName": "List_testing", "Date": "2017-08-16" }];
+                            for (var i = 0; i < data.length; i++) {
+
+                                var newEvent = new Object();
+                                newEvent.title = data[i]['LogSheetName'];
+                                //newEvent.start = new Date(data[i]['AlarmDate']);
+                                newEvent.start = new Date(data[i]['TestDate']);
+                                newEvent.time = data[i]['StartTime'];
+                                event.push(newEvent);
+                            }
+                        }
+                        else {
+                            alert("No Appointments Found");
+                        }
+                        $('#calendar').fullCalendar('addEventSource', event);
+
+                    }
+                });
+
+                /*************************************************************************************Calendar CSS****************************************/
+                $(".fc-today").css({ "background-color": "lime" });
+                $(".fc-day-number").css({ "font-size": "16px", "float": "left" });
+                $(".fc-event-inner").css({ "width": "100%" });
+                $(".fc-header").css({ "background-color": "#438eb9" });
+                $(".fc-header-title").css({ "color": "white" });
+                $(".fc-event").css({ "height:": "60px !important" });
+                $(".fc-button-prev").hide();
+                $(".fc-button-next").hide();
+                $('.fc-button-today').hide();
+                /*************************************************************************************Calendar CSS****************************************/
+            }
+        }
+        catch (e) {
+            alert("Error:" + "\t" + "fn_month_year" + "\t" + e);
+        }
+    }
+
+   
+</script>

@@ -1,0 +1,764 @@
+﻿.news { position: relative; overflow: auto; }
+    .news .slider { text-align: center; width: auto !important; }
+    .news li { list-style: none; }
+        .news ul li { float: left; height: 360px; }
+
+
+.news .dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 10px;
+}
+	.news .dots li {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin: 0 4px;
+			
+		text-indent: -999em;
+		
+        background: white;
+		border: 1px groove #bbb;
+		border-radius: 6px;
+			
+		cursor: pointer;
+		opacity: .4;
+			
+		-webkit-transition: background .5s, opacity .5s;
+		-moz-transition: background .5s, opacity .5s;
+		transition: background .5s, opacity .5s;
+	}
+		.news .dots li.active {
+			background: rgb(55,55,55);
+			opacity: 1;
+		}
+
+.news li > img {
+    height: 150px;
+    margin: 10px;
+}
+
+    .news li > div {
+        color: #888;
+        text-align: left;
+        padding: 0 20px 0 20px;
+        height: 140px;
+        overflow: hidden;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.news button.close {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    top: auto;
+}
+
+
+#ContentArea 
+{
+    position: absolute;
+    top:35px;
+    bottom:0px;
+    left:240px;
+    right:0px;
+    background: #dadada;
+    border-top-left-radius: 7px;
+    overflow: hidden; 
+    
+    -webkit-transition: left 0.5s; /* Safari and Chrome */
+    -moz-transition: left 0.5s; /* Firefox 4 */
+    -o-transition: left 0.5s; /* Opera */
+    transition: left 0.5s;
+}
+#ContentArea.fullscreen 
+{
+    left: 0;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* TOP BAR */
+/* ----------------------------------------------------------------------------------------- */
+#TopBarMenu {
+	position: absolute;
+	height: 28px;
+	right: 40px;
+	top: 3px;
+}
+
+#TopBarMenu ul  
+{
+    padding: 0; 
+    margin: 0;
+}
+
+#TopBarMenu > ul > li { 
+	text-align: center; 
+	list-style-type: none; 
+	float: left;
+	position: relative;
+    margin-left: 25px;
+    top: 2px;
+}	
+
+#TopBarMenuUser ul
+{
+    margin-left:75px;
+}
+
+#TopBarMenuUser li
+{
+    list-style-type: none; 
+    height:20px;
+    margin-bottom:0px;
+    vertical-align: middle;
+}
+
+#TopBarMenuUser li img
+{
+    margin-right: 8px;
+}
+#TopBarMenuUser li a
+{
+    vertical-align: top;
+    line-height: 16px;
+}
+
+
+/* Red circle with # of notifications/alerts */
+#TopBarMenu .alert {
+	background: #C00;
+	width: 18px;
+	height: 18px;
+	font-size: 10px;
+	font-weight: 600;
+	color: #FFF;
+	text-align: center;
+	line-height: 18px;
+	display: block;
+	border-radius: 100px;
+	position: absolute;
+	top: -2px;
+	right: -7px;
+	/*z-index: 100;*/
+	display: none;
+}	
+
+
+/* Buttons used in menu top toolbar such as alert, logout */
+.TopBarMenuButtonSymbol
+{
+    border: 0;
+    background: none;
+    cursor: pointer;
+	color: #DEE1E7;
+	    
+}
+    .TopBarMenuButtonSymbol:hover {
+        color: white;
+        -webkit-text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+        text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+    }
+
+#TopBarMenu > ul > li > button {
+    margin-top: 2px;
+    border-radius: 8px;
+    border-style: none;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    top: -2px;
+}
+
+#TopBarUpgrade #TrialMessage{
+    color: #F90;
+    margin-right: 8px;
+}
+#TopBarUpgrade button {
+    background: #F90;
+}
+#TopBarUpgrade button:hover {
+    background: #E80;
+}
+
+#TopBarHelp button 
+{
+    background: #777;
+    margin-right: 25px;
+    font-weight: normal;
+}
+#TopBarHelp button:hover
+{
+    background: #666;
+}
+
+#Logo
+{
+    background: #373737;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width: 240px;
+    height: 75px;    
+    cursor: pointer;
+}
+    #Logo img
+    {
+        padding-top: 0px;
+        padding-left: 1px;
+        width: 240px;
+        height: 75px;
+        -moz-transition: padding-left 0.5s, padding-top 0.5s, width 0.5s, height 0.5s; /* Firefox 4 */
+        -webkit-transition: padding-left 0.5s, padding-top 0.5s, width 0.5s, height 0.5s; /* Safari and Chrome */
+        -o-transition: padding-left 0.5s, padding-top 0.5s, width 0.5s, height 0.5s;
+        transition: padding-left 0.5s, padding-top 0.5s, width 0.5s, height 0.5s; /* Opera */
+    }
+#Logo img.fullscreen { padding-left: 5px; padding-top: 0; margin-top:-5px; width: 150px; height: 45px; }
+
+
+/* ----------------------------------------------------------------------------------------- */
+/* LEFT SIDE BAR */
+/* ----------------------------------------------------------------------------------------- */
+
+/* SD: Seriously, this css needs to be refactor. The sidemenu css was just wrong to begin with .. */
+
+#SidebarMenuNavigationMain .NavigationTree
+{
+    height: 350px;
+    width: 100%;    
+}
+
+#SidebarMenuNavigationMain .NavigationTree > ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#SidebarMenuNavigationMain .NavigationTree > ul > li
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#SidebarMenuNavigationMain  
+{
+    position:absolute;
+    left:0px;
+	width: 240px; 
+	padding: 0; 
+	margin: 0; 
+	border-bottom: 1px solid #858585; 
+	top: 75px;
+}
+
+#SidebarMenuNavigationMain li.nav {		
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	border-top: 1px solid #858585;
+	border-bottom: 1px solid #4A4A4A;
+}
+
+    #SidebarMenuNavigationMain li.nav > a, #SidebarMenuNavigationMain ul.subNav > li > a {
+        width: 100%;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #FFF;
+        display: inline-block;
+        padding: 11px 18px 11px 45px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+        text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+    }
+		
+#SidebarMenuNavigationMain .SidebarMenuIcon
+{
+    position: absolute;
+	display: inline-block;
+	padding-top:7px;
+	padding-left: 10px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+	color: white;   
+}
+	
+#SidebarMenuNavigationMain li.nav > a:hover {
+	background: #616161;
+	background: rgba(0,0,0,.075);
+}
+
+    #SidebarMenuNavigationMain li.nav.active > a {
+        background: #066ECD;
+        background: -moz-linear-gradient(top, #A8CCEC 0%, #4993D7 2%, #066ECD 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A8CCEC), color-stop(2%,#4993D7), color-stop(100%,#066ECD)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #A8CCEC 0%, #4993D7 2%,#066ECD 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #A8CCEC 0%, #4993D7 2%,#066ECD 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, #A8CCEC 0%, #4993D7 2%,#066ECD 100%); /* IE10+ */
+        background: linear-gradient(top, #A8CCEC 0%, #4993D7 2%,#066ECD 100%); /* W3C */
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#4993D7', endColorstr='#066ECD')";
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4993D7', endColorstr='#066ECD');
+        border-top: none;
+    }
+
+
+#SidebarMenuNavigationMain .dropdown .dropdownArrow {
+	width: 0;
+	height: 0;
+	display: inline-block;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;	
+	border-top: 5px solid #000;
+    border-top-color: #525252;
+	position: absolute;
+	top: 19px;
+	right: 20px;
+}	
+		
+#SidebarMenuNavigationMain li.nav .subNav 
+{
+	background: #555;
+	width: 235px;
+	display: none;
+	list-style-type: none;
+	padding-top: 1em;
+	padding-bottom: .75em;
+	padding-left: 15px;
+	padding-right: 30px;
+	-moz-box-shadow:    inset 0 0 3px #333;
+	-webkit-box-shadow: inset 0 0 3px #333;
+	box-shadow:         inset 0 0 3px #333;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: none;
+	position: relative;
+	top: 0;
+	left: -20px;
+	filter: none;
+}
+
+#SidebarMenuNavigationMain .subNav > li {
+    list-style-type: none;
+   margin-right: 20px;
+   margin-left: 20px;
+}
+#SidebarMenuNavigationMain li.nav .subNav li a .bullet {
+    margin-right: 20px;
+    font-size: 6px;
+    vertical-align: middle;
+}		
+
+#SidebarMenuNavigationMain li.nav .subNav > li > a {
+    width: auto;
+    font-size: 12px;
+    display: block;
+    padding: 6px 15px 6px 30px;	 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+}
+			
+#SidebarMenuNavigationMain li.nav .subNav > li > a:hover, #SidebarMenuNavigationMain li.nav .subNav > li > a.subMenuSelected 
+{
+    background: #616161;
+	background: rgba(0,0,0,.075);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#SidebarMenuNavigationMain li.nav .subNav > li > a.subMenuSelected {
+    background: rgba(0,0,0,.2);
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* FOLDER TREEVIEW
+/* ----------------------------------------------------------------------------------------- */
+
+.MenuTreeContainer { position: relative;  }
+
+/* Loading overlay */
+.MenuTreeContainer .loading 
+{
+    position:absolute;
+    left: 0;
+    top: 0;
+    right: -30px;
+    bottom: -10px;
+    z-index: 10;
+}
+
+.MenuTreeScrollbars { width: 230px; height: 300px; }
+
+.MenuTreeToolbar { padding-top: 5px; padding-bottom: 5px; padding-left: 10px; width: 100%; margin-top: -10px; margin-bottom: 10px; border-bottom: 1px solid #666; }
+.MenuTreeToolbar input { width: 170px; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+
+.MenuTreeToolbar button
+{
+    color: #ccc;
+    padding: 0 2px;
+}
+.MenuTreeToolbar button:not([disabled]):hover {
+    color: #888;
+}
+
+.MenuTreeToolbar > * {
+    vertical-align: middle;
+}
+
+.MenuTree a {
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+    text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+}
+
+.MenuTree ul { margin: 0; margin-left: 10px; overflow: hidden; }
+.MenuTree ul, .MenuTree li { list-style-type: none; }
+.MenuTree ul ul { margin-left: 20px; }
+.MenuTree ul > li { padding: 0; margin: 0; }
+.MenuTree ul > li > input { }
+.MenuTree ul > li > a { position: relative; padding: 5px 0; }
+.MenuTree ul > li > a:hover:not([disabled]) 
+{
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+    background: #616161;
+	background: rgba(0,0,0,.075);
+}
+.MenuTree ul > li > a.selected 
+{
+    background: rgba(0,0,0,.2) !important;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.MenuTree ul > li > a > .label {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    position: absolute;
+    right: 0px;
+    left: 25px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.MenuTree ul > li > a > .buttons { display: none; position: absolute; right: 5px; top: 0px; bottom: 0; }
+.MenuTree ul > li > a > .buttons > * { vertical-align: middle; margin-left: 6px; }
+.MenuTree ul > li > a:hover > .buttons { display: block; }
+.MenuTree ul > li > a:hover > .label { right: 45px; }
+.MenuTree .buttons button { color: #CCC; font-size: 11pt; padding: 0; }
+.MenuTree .buttons button:not([disabled]):hover { color: #888; }
+
+/* ----------------------------------------------------------------------------------------- */
+/* PROFILE/NOTIFICATION POPUPS */
+/* ----------------------------------------------------------------------------------------- */
+ #AlertPopup, #QuickAlertPopup {
+	top: 45px;
+	left: -275px;
+}
+ #QuickAlertPopup {
+     opacity: 0.6;
+}
+
+#AlertPopup div > a:not(:first-child) {
+	float: right;
+}
+
+#UserProfilePopup {
+	top: 45px;
+	left: -275px;
+}
+
+/* User photo in User Profile popup */
+#UserProfilePopupUserPhoto {
+    width: 64px;
+    height: 64px; 
+    float: left;
+    margin-right: 7px;
+}
+
+/* User name in User Profile popup */
+#UserProfilePopupUserName {
+    margin-bottom: 8px;
+    margin-top: 2px;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 20px;
+}
+
+
+#AlertPopupContent {
+    overflow: auto;
+    max-height: 500px;
+}
+
+#AlertPopupContent .mCSB_container {
+    width: calc(100% - 20px);
+    margin-right: 0;
+}
+
+#AlertPopupContent hr {
+    width:100%;
+    height:1px;
+    border-bottom: dotted 1px gray;
+    padding: 0;
+    margin: 0;
+    padding-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* Title of alerts in alert popup */
+.Alert:not(:first-child) {
+    border-top: 1px dotted black;
+    padding-top: 4px;
+    margin-top: 4px;
+}
+
+.AlertPopupTitle {
+    color: #06C;
+    font-weight: bold;
+    text-align: left;
+}
+
+.AlertPopupContainer {
+    position:relative;
+    padding-left: 4px;
+}
+
+.AlertPopupDate {
+    font-style: italic;
+    /*font-size: 8pt;
+    line-height: 8pt;*/
+    display: inline;
+    margin-right: 4px;
+}
+
+/* Text of alerts in alert popup */
+.AlertPopupText {
+    display: inline;
+    text-align: left;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Text of loading & empty messages in alert popup */
+#AlertPopupEmptyText *, #AlertPopupLoading * {
+	font-style: italic;
+	font-size: 13px;
+}
+
+
+
+/* ------------------------------------------------------------ */
+/*                  Change Password Popup                       */
+/* ------------------------------------------------------------ */
+.ChangePasswordPopup .ChangePasswordLabel {
+    margin-left: 34px;
+    margin-top: 10px;
+    width: 150px;
+    display: inline-block;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: Segoe UI;
+    font-size: 14px;
+}
+
+.ChangePasswordPopup .ChangePasswordInput
+{
+    width:260px;
+}
+.ChangePasswordPopup .newPasswordContainer .ChangePasswordInput
+{   width:100px; }
+
+.ChangePasswordPopup .ButtonsContainer
+{
+    position: absolute; 
+    right: 5px; 
+    bottom: 5px;
+}
+
+.ChangePasswordPopup .ButtonsContainer button
+{
+    margin-left:15px;
+}
+.passwordStrength .strengthDetail p {color:black;}
+
+.ChangePasswordPopup .ButtonsContainer button span
+{
+    margin-left:5px;
+}
+
+.ChangePasswordPopup .ChangePasswordLoader
+{
+    position:absolute; 
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    background-color:rgba(255, 255, 255, .65);
+    display:none;
+}
+
+.ChangePasswordPopup .ChangePasswordLoader img
+{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-16px;
+    margin-left:-16px;
+}
+
+.ChangePasswordPopup .ChangePasswordSuccessMessage
+{
+    text-align:center;
+    width:100%;
+    top:50%;
+    margin-top:-10px;
+    position:absolute;
+    display:inline-block;
+    font-family: Segoe UI;
+    font-size: 14px;
+}
+
+/* ------------------------------------------------------------ */
+/*                  Send message Popup                          */
+/* ------------------------------------------------------------ */
+.sendMessagePopup {}
+.sendMessagePopup textarea { width: 100%; height: 100px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.sendMessagePopup span.text { -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: inline-block; width: 470px; white-space: nowrap; margin-bottom: 10px; }
+.sendMessagePopup .buttonsContainer { position: absolute; text-align: right; left: 0; right: 0; bottom: 0; }
+.sendMessagePopup .buttonsContainer button { margin-left: 5px; }
+.sendMessagePopup .buttonsContainer button :first-child { margin-right: 3px; }
+
+
+/* ------------------------------------------------------------ */
+/*                  Data Preview from DataExplorer                          */
+/* ------------------------------------------------------------ */
+.SourcePreviewContainer
+{
+    width:770px;
+    height:520px;
+    overflow:auto;
+    border-spacing:0px;
+}
+
+.SourcePreviewContainer thead 
+{
+    font-weight:bold;
+}
+
+.SourcePreviewContainer th
+{
+    width:auto;
+    white-space: nowrap;
+    padding: 5px;
+}
+
+.SourcePreviewContainer td
+{
+    padding: 5px;
+    width: auto;
+    white-space: nowrap;
+    font-size: 12px;
+    border-top: 1px dotted #BABABA; 
+}
+
+.SourcePreviewContainer tr:nth-child(even)
+{
+    background-color:#EFEFEF;
+}
+.SourcePreviewContainer tr:nth-child(odd):first-child
+{
+    background:none;
+}
+
+
+/* ------------------------------------------------------------ */
+/*                          System Messages                       */
+/* ------------------------------------------------------------ */
+
+.systemMessageContainer {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    height: 48px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #B31233;
+    background: #FFF;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: top;
+    box-shadow: #B31233 0 0 4px;
+    border-bottom: 8px solid #B31233;
+    color: #B31233;
+    overflow: hidden;
+}
+.systemMessageContainer span {
+    font-weight: bold;
+    font-size: 12px;
+}
+.systemMessageContainer a {
+    margin-left: 12px;
+}
+
+.bottomBorder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #c16;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+							color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+							color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+							color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+			 				to(transparent));
+	background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+						transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+						transparent 75%, transparent);
+	background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+						transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+						transparent 75%, transparent);
+	background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+						transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+						transparent 75%, transparent);
+	background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+						transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+						transparent 75%, transparent);
+	background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+						transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+						transparent 75%, transparent);
+}

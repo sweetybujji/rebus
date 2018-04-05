@@ -1,0 +1,846 @@
+<html>
+<head>
+    <title>E-LogSheet::FormsList</title>
+    <link rel="stylesheet" type="text/css"
+        href="../AceMasterLayout/assets/css/ace.min.css" />
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="stylesheets/accepts/js/dataTables.select.min.js"></script>
+    <script src="../Scripts/bootbox.min.js"></script>
+    <!--DATE PICKER-->
+    <link rel="stylesheet" href="Scripts/datepicker/css/datepicker.css" />
+    <script type="text/javascript" src="Scripts/bootstrap-datepicker.js"></script>
+    <!--DATE PICKER-->
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="#">Home</a>
+            </li>
+            <li class="active">Forms List</li>
+        </ul>
+        <!-- /.breadcrumb -->
+
+        <div class="nav-search" id="nav-search">
+        </div>
+        <!-- /.nav-search -->
+    </div>
+
+
+    <style type="text/css">
+        .Linking:hover {
+            cursor: pointer;
+            font-weight: bold;
+            color: #4286F4;
+        }
+
+        .LinkingDel:hover {
+            cursor: pointer;
+            font-weight: bold;
+            color: #FF0000;
+        }
+        .modal-header {
+            background-color: #438eb9;
+            color: white;
+        }
+
+        .dd2-item.dd-item > button {
+            margin-left: 0px !important;
+        }
+
+        .dd-list .dd-list {
+            padding-left: 0px;
+        }
+
+        .dd2-content {
+            margin-bottom: 0px;
+        }
+
+        .custom-list-style {
+            border: 1px solid #d0d3d4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 0px;
+            border-top: none;
+            border-top-right-radius: 0px !important;
+            border-top-left-radius: 0px !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="tooLong" id="container" ng-controller="MySecondController " style="min-height: 500px; height: auto;">
+        <br />
+        <div style="background-color: #438eb9; margin-bottom: 1px;" class="col-sm-12 table-header">
+            <label style="color: white; font: bold;">Assignments </label>
+        </div>
+        <table id="Tbl_Formslist" class='table table-striped table-bordered table-hover'>
+        </table>
+
+    </div>
+
+    <!-- For model pouup-->
+    <div id="AssignmentsPopUp" class="modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" id="txt_tagid" style="display: none;" />
+                    <h4 class="modal-title"><span>&nbsp;Assignments</span></h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div style="margin-left: 1%;">
+                                <label for="form-field-select-3">Form Type:&nbsp;&nbsp; </label>
+                                <input type="text" style="display: none;" id="LogSheetTagId" />
+                                <select id="FormType" class="col-xs-10 col-sm-3 chosen-select form-control" onchange="FormTypeFunction(this.value)">
+                                    <option value="">--Select Type--</option>
+                                    <option value="Form">Form</option>
+                                    <option value="Transaction">Transaction</option>
+                                    <option value="Logsheet">Logsheet</option>
+                                    <option value="Inspection">Inspection</option>
+                                    <option value="Audit">Audit</option>
+                                </select>
+                            </div>
+                            <br>
+                            <form id="SuccessForm" class="ng-pristine ng-valid">
+                                <ol class="dd-list Assiged_id">
+                                    <li class="dd-item dd2-item" data-id="15">
+                                        <div class="dd2-content">Give Access</div>
+                                        <ol class="dd-list ">
+                                            <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                                <div>
+                                                    <label for="form-field-select-3">Role Type:&nbsp;&nbsp;</label><select id="Role_type" class="col-xs-10 col-sm-3 chosen-select form-control" style=""><option value="">Select Role</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                                <br>
+                                <ol class="dd-list give_acess">
+                                    <li class="dd-item dd2-item" data-id="15">
+                                        <div class="dd2-content">Assignment</div>
+                                        <ol class="dd-list ">
+                                            <li class="dd-item dd2-item custom-list-style" data-id="16">
+                                                <div class="row">
+                                                    <div class=" col-sm-6 " id="Designation">
+                                                        <label>Select Designation:</label><select class="col-xs-10 col-sm-3 chosen-select form-control" multiple="" data-placeholder="Select Designation" id="Designation_sel"  onchange="designation()"></select>
+                                                    </div>
+                                                    <div class=" col-sm-6 ">
+                                                        <label>Select Name:</label><select class="form-control" data-placeholder="Select Name" multiple="" id="user_data3" ></select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class=" col-sm-6 " id="id_informed">
+                                                        <label>To Be Informed:</label><select class="form-control" data-placeholder="Select to be Informed" multiple="" id="tobeinformed"></select>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                                <br />
+                                <!--<ol class="dd-list informed">
+                                    <li class="dd-item dd2-item" data-id="15">
+                                        <div class="dd2-content">Inform To</div>
+                                        <ol class="dd-list ">
+                                            <li class="dd-item dd2-item custom-list-style row" data-id="16">
+                                                <div class=" col-sm-6 " id="id_informed1">
+                                                    <label>Select Name:</label><select class="form-control" data-placeholder="Select Name" multiple="" id="tobeinformed"></select>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>-->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-info btn-sm" type="button" style="" onclick="SaveTheAssignmentsData()"><i class="ace-icon fa fa-check bigger-110"></i>Save Assignments</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- For model pouup-->
+
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        FormsListLoading();
+    });
+
+
+    function FormsListLoading() {
+        try {
+            StartPageLoader();
+            $.ajax({
+                url: "../GetFormsListCassandra",
+                type: "GET",
+                data: {},
+                async: false,
+                cache: false,
+                success: function (data) {
+                    //alert("data : " + JSON.stringify(data));
+                    StopPageLoader();
+                    if (data != "false") {
+                        var TableCode = "";
+                        TableCode = TableCode + "<thead>\n";
+                        TableCode = TableCode + "<tr>\n";
+                        TableCode = TableCode + "<th class='center'>Form Name</th>\n";
+                        TableCode = TableCode + "<th class='center'>Form Type</th>\n";
+                        TableCode = TableCode + "<th class='center'>Assign Form</th>\n";
+                        TableCode = TableCode + "<th class='center'>Created By</th>\n";
+                        TableCode = TableCode + "</tr>\n";
+                        TableCode = TableCode + "</thead>\n";
+                        TableCode = TableCode + "<tbody>\n";
+
+                        for (var i = 0; i < data.length; i++) {
+                            var date = data[i]["createdate"];
+                            var d = new Date(date.split("/").reverse().join("-"));
+                            var dd = d.getDate();
+                            var mm = d.getMonth() + 1;
+                            var yy = d.getFullYear();
+                            TableCode = TableCode + "<tr id='TRID_" + data[i]["tagid"] + "'>";
+                            TableCode = TableCode + "<td>" + data[i]["logsheetname"] + "</td>";
+                            if (data[i]["type_form"] == null || data[i]["type_form"] == "") {
+                                TableCode = TableCode + "<td></td>";
+                            }
+                            else {
+                                TableCode = TableCode + "<td>" + data[i]["type_form"] + "</td>";
+                            }
+                            TableCode = TableCode + "<td class='Linking' onclick=OpenAssignmentsPopUp('" + data[i]["tagid"] + "')><i class='glyphicon glyphicon-edit'></i>Assignments</td>";
+                            TableCode = TableCode + "<td>" + dd + "-" + mm + "-" + yy + "</td>";
+                            TableCode = TableCode + "</tr>";
+                        }
+
+                        TableCode = TableCode + "</tbody>\n";
+                        var tbody = $("#Tbl_Formslist");
+                        //alert("TableCode : " + TableCode);
+                        tbody.append(TableCode);
+                        $('#Tbl_Formslist').dataTable({
+                            bAutoWidth: false,
+                            "aaSorting": []
+                        });
+                    }
+                    else {
+                        alert("No data found");
+                    }
+                },
+                error: function () {
+                    alert("Ajax Error");
+                }
+            });
+        }
+        catch (e) {
+            alert("Error :FormsListLoading" + "\t" + e);
+        }
+    }
+
+    $("#FormType").chosen({
+        allow_single_deselect: true,
+        "width": "40%"
+    });
+    $("#Role_type").chosen({
+        allow_single_deselect: true,
+        "width": "40%"
+    });
+    $("#Designation_sel").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#user_data3").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+    $("#tobeinformed").chosen({
+        allow_single_deselect: true,
+        "width": "100%"
+    });
+
+    function OpenAssignmentsPopUp(_tagid) {
+
+        $("#AssignmentsPopUp").modal('show');
+
+        $("#LogSheetTagId").val(_tagid);
+        StartPageLoader();
+        $.ajax({
+            url: "../getAssigningRolesData",
+            type: "GET",
+            success: function (RoleData) {
+
+                if (RoleData == false) {
+                }
+                else {
+                    var AssigData = '';
+                    $("#Designation_sel").empty().trigger("chosen:updated");
+                    for (var i = 0; i < RoleData.length; i++) {
+                        AssigData += '<option value=' + RoleData[i]["roleid"] + '>' + RoleData[i]["rolename"] + '</option>';
+                    }
+                    $("#Designation_sel").append(AssigData).trigger("chosen:updated");
+                }
+
+                $.ajax({
+                    url: "../getAssigningUsersData",
+                    type: "GET",
+                    success: function (UserData) {
+                        if (UserData == false) {
+                        }
+                        else {
+                            var UsersData = "";
+                            //var user_data = responce.rows;
+                            for (var i = 0; i < UserData.length; i++) {
+                                UsersData += '<option value=' + UserData[i]["userid"] + '>' + UserData[i]["username"] + '</option>';
+                            }
+                            $("#user_data3").append(UsersData).trigger("chosen:updated");
+                            $("#tobeinformed").append(UsersData).trigger("chosen:updated");
+                        }
+                        StopPageLoader();
+                    },
+                    error: function (err) {
+                        StopPageLoader();
+                    }
+                });
+
+            },
+            error: function (err) {
+                StopPageLoader();
+            }
+        });
+
+        //for hide
+        $(".give_acess").hide();
+        $(".Assiged_id").hide();
+        $(".informed").hide();
+        if (tagid) {
+
+            $("#save_lbl").remove();
+            $("#lbl_form").prepend("<span>Edit</span>&nbsp;")
+            var tagid = $("#_TagId").val();
+            var elogsheetupdate = JSON.stringify({
+                _tagid: tagid,
+            });
+
+            StopPageLoader();
+            $.ajax({
+                url: "../getdashboardbyid",
+                type: "post",
+                contentType: "application/json",
+                data: elogsheetupdate,
+                success: function (data) {
+                    // alert(JSON.stringify(data));
+                    var mydatarow = data.DataFromDB;
+                    for (var i = 0; i < mydatarow.length; i++) {
+                        // alert(mydatarow[i]["type_form"]);
+                        $("#FormType").val(mydatarow[i]["type_form"]).trigger("chosen:updated");
+
+                    }
+                    if ($("#FormType").val() == "Form") {
+                        $(".give_acess").hide();
+                    }
+                    else {
+                        $(".give_acess").show();
+                    }
+
+                    // $(".give_acess").show();
+                    $.ajax({
+                        url: "../EditFormdata",
+                        type: "GET",
+                        success: function (data) {
+                            var myeditdata = data.rows;
+                            var dsg_arr = new Array();
+                            var usr_arr = new Array();
+                            for (var i = 0; i < myeditdata.length; i++) {
+                                // alert(myeditdata[i]["assignedto"]); 
+                                if (myeditdata[i]["tagid"] == tagid) {
+                                    if (myeditdata[i]["assignedlist"] == "Designation") {
+                                        dsg_arr.push(myeditdata[i]["assignedto"]);
+                                        $("#Designation_sel").val(dsg_arr).attr("selected", true).trigger("chosen:updated");
+                                    }
+                                    else if (myeditdata[i]["assignedlist"] == "Name") {
+                                        usr_arr.push(myeditdata[i]["assignedto"]);
+
+                                        $("#user_data3").val(usr_arr).attr("selected", true).trigger("chosen:updated");
+                                    }
+
+
+                                }
+
+
+                            }
+                        }
+
+                    });
+                }
+            });
+
+
+
+        }
+        else {
+            // alert("Error Occured");
+        }
+
+    }
+
+
+    function SaveTheAssignmentsData() {
+
+        try {
+            var FormId = $("#LogSheetTagId").val();
+            var FormType = $("#FormType").val();
+
+            var AssignmentType = "";
+            var Assignees = new Array();
+
+            if (FormType == "") {
+                alert("Select Form Type");
+                return;
+            }
+            else if (FormType == "Form" || FormType == "Transaction") {
+                FormData = JSON.stringify({
+                    FormId: FormId,
+                    FormType: FormType
+                });
+            }
+            else if (FormType == "Logsheet" || FormType == "Inspection" || FormType == "Audit") {
+
+                if ($("#Designation_sel option:selected").val()) {
+                    AssignmentType = "Designation";
+                    $('#Designation_sel :selected').each(function (i, selected) {
+                        Assignees[i] = $(selected).val();
+                    })
+                }
+                else if ($("#user_data3 option:selected").val()) {
+                    AssignmentType = "Name";
+                    $('#user_data3 :selected').each(function (i, selected) {
+                        Assignees[i] = $(selected).val();
+                    })
+                }
+                else {
+                    alert("Select Assignment Type");
+                    return;
+                }
+
+                FormData = JSON.stringify({
+                    FormId: FormId,
+                    FormType: FormType,
+                    AssignmentType: AssignmentType,
+                    Assignees: Assignees
+                });
+            }
+
+
+
+            alert("FormData  : " + FormData);
+
+
+            //alert("myid : " + myid);
+            /*
+            var FormData = "";
+            if (FormType == "") {
+                Flag = 0;
+                alert("Select FormType");
+                FormData = "";
+            }
+            else if (FormType == "Form" || FormType == "Transaction") {
+                Flag = 0;
+                FormData = JSON.stringify({
+                    FormId: FormId,
+                    FormType: FormType,
+                    AssignmentType: AssignmentType,
+                    Assignees: Assignees
+                });
+            }
+            else if (FormType == "Logsheet" || FormType == "Inspection" || FormType == "Audit") {
+                Flag = 0;
+                if ($("#Designation_sel option:selected").val()) {
+                    AssignmentType = "Designation";
+                    $('#Designation_sel :selected').each(function (i, selected) {
+                        Assignees[i] = $(selected).val();
+                    })
+                }
+                else if ($("#user_data3 option:selected").val()) {
+                    AssignmentType = "Name";
+                    $('#user_data3 :selected').each(function (i, selected) {
+                        Assignees[i] = $(selected).val();
+                    })
+                }
+                else {
+                    alert("Select Assignment Type");
+                    return;
+                }
+
+                FormData = JSON.stringify({
+                    FormId: FormId,
+                    FormType: FormType,
+                    AssignmentType: AssignmentType,
+                    Assignees: Assignees
+                });
+            }
+            */
+
+
+            if (FormType == "" || FormData == "") {
+            }
+            else {
+                console.log("FormData : " + FormData);
+                Flag = 0;
+                $.ajax({
+                    type: 'POST',
+                    datatype: 'json',
+                    url: "../../SaveFormTypeandAssignments",
+                    data: FormData,
+                    contentType: 'application/json',
+                    async: false,
+                    cache: false,
+                    success: function (Response) {
+                        if (Response == "Save") {
+                            alert("SuccessFully Saved");
+                            $(".bootbox").fadeOut();
+                        }
+                        if (Response == true) {
+                            $(".bootbox").fadeOut();
+
+                            $("#FormScheduleAssignments").modal('show');
+
+                            FormData = JSON.stringify({
+                                FormId: FormId
+                            });
+
+                            $.ajax({
+                                type: 'POST',
+                                datatype: 'json',
+                                url: "../../GetFormReccurencePattern_FormId",
+                                data: FormData,
+                                contentType: 'application/json',
+                                async: false,
+                                cache: false,
+                                success: function (Res) {
+
+                                    if (Res == false) {
+                                        $("#PatternDisableProperties").css("display", "none");
+                                    }
+                                    else {
+                                        Res = JSON.parse(Res);
+                                        var PatternData = Res["PatternData"];
+                                        var ReccurenceData = Res["ReccurenceData"];
+
+                                        $("#ReccurencePatternId").val(PatternData["pattern_id"]);
+                                        $("#AR_Start_Time").val(PatternData["start_time"]);
+                                        $("#AR_End_Time").val(PatternData["end_time"]);
+                                        $("#AR_Duration").val(PatternData["duration"]);
+
+                                        var StartDate = PatternData["start_date"];
+                                        var dateformat = new Date(StartDate.split('-')[0], StartDate.split('-')[1], StartDate.split('-')[2]);
+                                        $("#Range_rec_start").datepicker("setDate", dateformat);
+
+                                        if (PatternData["end_pattern"] == "0") {
+                                            $("#RR_NoEnd").attr("checked", "checked");
+                                        }
+                                        else if (PatternData["end_pattern"] == "EndNos") {
+                                            $("#RR_EndNos").attr("checked", "checked");
+                                            $("#RR_Endafter").val(PatternData["end_nos"]);
+                                            $("#RR_endTime").val("");
+                                            $("#RR_endTime").attr("disabled", "disabled");
+                                        }
+                                        else if (PatternData["end_pattern"] == "EndDate") {
+                                            $("#RR_EndDate").attr("checked", "checked");
+                                            $("#RR_Endafter").val("");
+                                            $("#RR_Endafter").attr("disabled", "disabled");
+
+                                            var EndDate = PatternData["end_date"];
+                                            var dateformat2 = new Date(EndDate.split('-')[0], EndDate.split('-')[1], EndDate.split('-')[2]);
+                                            $("#RR_endTime").datepicker("setDate", dateformat2);
+                                        }
+                                        if (PatternData["reccurance_interval"] == "Daily") {
+                                            $("#Daily").attr("checked", "checked");
+                                            $("#AR_Daily").css("display", "block");
+                                            $("#AR_Weekly").css("display", "none");
+                                            $("#AR_Monthly").css("display", "none");
+                                            $("#AR_Yearly").css("display", "none");
+
+                                            if (ReccurenceData["interval_weekday"] == "DailyCheck") {
+                                                $("#DailyCheck").attr("checked", "checked");
+                                                $("#DailyCheck_Nos").val(ReccurenceData["days_nos"]);
+                                                $("#DailyCheck_Nos").attr("disabled", false);
+                                                $("#EveryWeekdaySelect").val("");
+                                                $("#EveryWeekdaySelect").attr("disabled", "disabled");
+                                            }
+                                            else if (ReccurenceData["interval_weekday"] == "WeekDayCheck") {
+                                                $("#EveryWeekday").attr("checked", "checked");
+                                                $("#DailyCheck_Nos").val("");
+                                                $("#DailyCheck_Nos").attr("disabled", "disabled");
+                                                $("#EveryWeekdaySelect").val(ReccurenceData["weekday"]);
+                                                $("#EveryWeekdaySelect").attr("disabled", false);
+                                            }
+
+                                        }
+
+                                        else if (PatternData["reccurance_interval"] == "Weekly") {
+                                            $("#Weekly").attr("checked", "checked");
+                                            $("#AR_Daily").css("display", "none");
+                                            $("#AR_Weekly").css("display", "block");
+                                            $("#AR_Monthly").css("display", "none");
+                                            $("#AR_Yearly").css("display", "none");
+
+                                            $("#WeeklyRP_Nos").val(ReccurenceData["weeks_interval"]);
+                                            $("#Weekly_" + ReccurenceData["weeks_interval_day"] + "").attr("checked", "checked");
+
+                                        }
+                                        else if (PatternData["reccurance_interval"] == "Monthly") {
+                                            $("#Monthly").attr("checked", "checked");
+                                            $("#AR_Daily").css("display", "none");
+                                            $("#AR_Weekly").css("display", "none");
+                                            $("#AR_Monthly").css("display", "block");
+                                            $("#AR_Yearly").css("display", "none");
+
+                                            if (ReccurenceData["datemonth_weekdayofthemonth"] == "Day") {
+                                                $("#AR_Monthly_NumberredDay").attr("checked", "checked");
+
+                                                $("#AR_Month_NumberredDay_Recc").val(ReccurenceData["dateofthemonth"]);
+                                                $("#AR_Month_NumberredDay_Repeat").val(ReccurenceData["monthinterval"]);
+                                                $("#AR_Month_NumberredDay_Recc").attr("disabled", false);
+                                                $("#AR_Month_NumberredDay_Repeat").attr("disabled", false);
+
+                                                $("#AR_Month_WeekNos").val("");
+                                                $("#AR_Month_WeekDay").val("");
+                                                $("#AR_Month_WeekNo_Repeat").val("");
+
+                                                $("#AR_Month_WeekNos").attr("disabled", "disabled");
+                                                $("#AR_Month_WeekDay").attr("disabled", "disabled");
+                                                $("#AR_Month_WeekNo_Repeat").attr("disabled", "disabled");
+                                            }
+                                            else if (ReccurenceData["datemonth_weekdayofthemonth"] == "NumberedWeekDay") {
+                                                $("#AR_Monthly_WeekNo").attr("checked", "checked");
+
+                                                $("#AR_Month_NumberredDay_Recc").val("");
+                                                $("#AR_Month_NumberredDay_Repeat").val("");
+                                                $("#AR_Month_NumberredDay_Recc").attr("disabled", "disabled");
+                                                $("#AR_Month_NumberredDay_Repeat").attr("disabled", "disabled");
+
+                                                $("#AR_Month_WeekNos").val(ReccurenceData["monthinterval_week"]);
+                                                $("#AR_Month_WeekDay").val(ReccurenceData["weekday"]);
+                                                $("#AR_Month_WeekNo_Repeat").val(ReccurenceData["weekno"]);
+
+                                                $("#AR_Month_WeekNos").attr("disabled", false);
+                                                $("#AR_Month_WeekDay").attr("disabled", false);
+                                                $("#AR_Month_WeekNo_Repeat").attr("disabled", false);
+                                            }
+
+                                        }
+                                        else if (PatternData["reccurance_interval"] == "Yearly") {
+                                            $("#Yearly").attr("checked", "checked");
+                                            $("#AR_Daily").css("display", "none");
+                                            $("#AR_Weekly").css("display", "none");
+                                            $("#AR_Monthly").css("display", "none");
+                                            $("#AR_Yearly").css("display", "block");
+
+                                            if (ReccurenceData["datemonth_weekdayofthemonth"] == "Date") {
+
+                                                $("#AR_Yearly_RP_Date").attr("checked", "checked");
+                                                $("#AR_Yearly_Nos").val(ReccurenceData["yearlyinterval"]);
+
+                                                $("#EveryYearlySelect").val(ReccurenceData["datemonth_month"]);
+                                                $("#AR_Yearly_RP_Date_Date").val(ReccurenceData["datemonth_date"]);
+                                                $("#EveryYearlySelect").attr("disabled", false);
+                                                $("#AR_Yearly_RP_Date_Date").attr("disabled", false);
+
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val("");
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val("");
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val("");
+
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", "disabled");
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", "disabled");
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", "disabled");
+
+                                            }
+                                            else if (ReccurenceData["datemonth_weekdayofthemonth"] == "MonthWeekDay") {
+
+                                                $("#AR_Yearly_RP_MonthWeekDay").attr("checked", "checked");
+                                                $("#AR_Yearly_Nos").val(ReccurenceData["yearlyinterval"]);
+
+                                                $("#EveryYearlySelect").val("");
+                                                $("#AR_Yearly_RP_Date_Date").val("");
+                                                $("#EveryYearlySelect").attr("disabled", "disabled");
+                                                $("#AR_Yearly_RP_Date_Date").attr("disabled", "disabled");
+
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").val(ReccurenceData["weekno"]);
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").val(ReccurenceData["weekday"]);
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").val(ReccurenceData["monthname"]);
+
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekNos").attr("disabled", false);
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekDay").attr("disabled", false);
+                                                $("#AR_Yearly_RP_MonthWeekDay_WeekMonth").attr("disabled", false);
+
+
+                                            }
+
+                                        }
+
+                                        if (PatternData["active"] == "Active") {
+                                            $("#DeActivatePattern").attr('checked', false);
+                                            $("#ReccPatDisableReason").val("");
+                                            $("#ReccPatDisableReason").attr("disabled", true);
+                                        }
+                                        else if (PatternData["active"] == "InActive") {
+                                            $("#DeActivatePattern").attr('checked', true);
+                                            $("#ReccPatDisableReason").val(PatternData["inactivereason"]);
+                                        }
+                                    }
+                                }
+                            });
+
+                        }
+                        else {
+
+                        }
+                    }
+                });
+
+            }
+
+        }
+        catch (e) {
+            alert("Error : SaveTheAssignments : " + e);
+        }
+
+
+    }
+
+
+    $('#FormType').on('change', function () {
+        if (this.value == "Form") {
+            $(".give_acess").hide();
+            $(".Assiged_id").show();
+            $("#user_data3 option").removeAttr("selected").trigger("chosen:updated");
+            $("#Designation_sel option").removeAttr("selected").trigger("chosen:updated");
+        }
+        else if (this.value == "Transaction") {
+            $(".give_acess").hide();
+            $(".Assiged_id").show();
+            $("#Designation_sel option").removeAttr("selected").trigger("chosen:updated");
+            $("#user_data3 option").removeAttr("selected").trigger("chosen:updated");
+        }
+        else {
+            $(".give_acess").show();
+            $(".Assiged_id").hide();
+            $(".nam").hide();
+            $(".desg").hide();
+        }
+    });
+
+    $("#Designation_sel").chosen().change(function (e, params) {
+        $("#user_data3 option").removeAttr("selected").trigger("chosen:updated");
+    });
+    $("#user_data3").chosen().change(function (e, params) {
+        $("#Designation_sel option").removeAttr("selected").trigger("chosen:updated");
+    });
+
+
+    function FormTypeFunction(val)
+    {
+        if (val == "Form" || val == "Transaction") {
+            $.ajax({
+                url: "../GetRolesForBinding",
+                type: "get",
+                contentType: "application/json",
+                success: function (Resp) {
+                    $("#Role_type").empty().trigger("chosen:updated");
+                    var data = "<option value=''>Select Role</option>";
+                    for (var i = 0; i <= 2; i++) {
+                        data += "<option value=" + Resp[i]['attr_8bab441e8b430eea1109fc16ef5de074b78db8b7'] + ">" + Resp[i]['attr_e3adce28dfba24ece4888ebc5043e73f4526d61d'] + "</option>";
+                    }
+                    $("#Role_type").append(data).trigger("chosen:updated");
+
+                },
+                error: function (e) {
+                    alert("Error : GetRolesForBinding : " + e);
+
+                }
+            });
+
+        }
+        else {
+            $.ajax({
+                url: "../GetRolesForBinding",
+                type: "get",
+                contentType: "application/json",
+                success: function (Resp) {
+                    $("#Role_type").empty().trigger("chosen:updated");
+                    var data = "<option value=''>Select Role</option>";
+                    for (var i = 0; i <= 2; i++) {
+                        data += "<option value=" + Resp[i]['attr_8bab441e8b430eea1109fc16ef5de074b78db8b7'] + ">" + Resp[i]['attr_e3adce28dfba24ece4888ebc5043e73f4526d61d'] + "</option>";
+                    }
+                    $("#Role_type").append(data).trigger("chosen:updated");
+
+                },
+                error: function (e) {
+                    alert("Error : GetRolesForBinding : " + e);
+
+                }
+            });
+             }
+    }
+
+
+    function designation()
+    {
+        var selected = [];
+     
+        $('#Designation_sel option:selected').each(function (i, sel) {
+           // alert($(sel).val());
+            selected.push({ "depid": $(sel).val() });
+        });
+      //  alert(JSON.stringify(selected));
+        var Data = JSON.stringify(selected);
+        $.ajax({
+            url: "../getAssigningUsersData",
+            type: "POST",
+            data: Data,
+            contentType: "application/json",
+            success: function (Resp) {
+                var UsersData = "";
+                $("#user_data3").empty().trigger("chosen:updated");
+                for (var i = 0; i < Resp.length; i++)
+                {
+                    var str = Resp[i]["data"];
+                    
+                    for (var j = 0; j < str.length; j++)
+                    {
+                        UsersData += '<option value=' + str[j]["userid"] + '>' + str[j]["username"] + '</option>';
+                    }
+                    
+                  //  alert(str[0]["username"]);
+                  //  alert(str[0]["userid"]);
+                }
+                $("#user_data3").append(UsersData).trigger("chosen:updated");
+            },
+            error: function (e) {
+            alert("Error : GetRolesForBinding : " + e);
+
+               }
+        });
+
+    }
+
+</script>

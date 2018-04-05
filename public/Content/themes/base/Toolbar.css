@@ -1,0 +1,103 @@
+﻿.ContentArea {
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    position: absolute;
+    background: #dadada;
+    border-top-left-radius: 7px; 
+    color: Black;
+}
+
+.ContentArea .Content {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    overflow: auto;
+    /*min-width: 1024px;*/
+}
+
+.ContentArea > .Content > .ContentViewport {
+    position: relative;
+    min-width: 1024px;
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+}
+
+.ContentArea .Toolbar {
+    height: 40px;
+    -webkit-border-top-left-radius: 7px;
+    border-top-left-radius: 7px;
+    background: -webkit-linear-gradient(top, white 0%,#EEE 100%);
+    background: -o-linear-gradient(top, white 0%,#EEE 100%);
+    background: -ms-linear-gradient(top, white 0%,#EEE 100%);
+    background: -moz-linear-gradient(top, white 0%,#EEE 100%);
+    background: linear-gradient(top, white 0%,#EEE 100%);
+    line-height: 40px;
+    position: relative;
+    min-width: 1024px;
+}
+.ContentArea .Toolbar  > * { vertical-align: middle; }
+
+.ContentArea .Toolbar.fullscreen {
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.ContentArea .Toolbar h1 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #555;
+    -webkit-text-shadow: 1px 1px 2px rgba(255, 255, 255, .5);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, .5);
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 600px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 40px;
+    white-space: nowrap;
+}
+
+.ContentArea .Toolbar .Buttons {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+.ContentArea .Toolbar button,.ContentArea .Toolbar a {
+    line-height: 40px;
+    font-size: 13pt;
+    padding: 0 8px;
+}
+
+.ContentArea .Toolbar .Buttons button.selected, .ContentArea .Toolbar .Buttons button.enabled {
+    background: rgb(73,155,234);
+    background: -moz-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(73,155,234,1)), color-stop(100%,rgba(32,124,229,1)));
+    background: -webkit-linear-gradient(top, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: -o-linear-gradient(top, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: -ms-linear-gradient(top, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    background: linear-gradient(to bottom, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 );
+    color: whitesmoke;
+}
+
+.ContentArea .Toolbar .ToolbarSeparator 
+{
+    border-left: 1px solid #ddd;
+    height: 20px;
+    margin: 10px 5px 0px 5px;
+}
+
+.ContentArea .Toolbar .ToolbarMenu {
+    float: right;
+    margin-right: 12px;
+}

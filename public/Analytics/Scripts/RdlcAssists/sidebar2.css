@@ -1,0 +1,221 @@
+﻿*{font-family:'WOL_Reg','Segoe UI',Tahoma,Helvetica,sans-serif;}
+
+.side-button{
+  height:50px;
+  width:70px;
+  background:none repeat scroll 0 0 #DF314D;
+  position:absolute;
+   z-index:1;
+  top:60px;
+  left:300px;
+  transition: all 0.5s ease-in-out;
+  cursor:pointer;
+  border-radius:0 5px 5px 0;
+}
+
+.side-button:hover{
+  width:80px;
+  background:#52B0E3;
+  transition: all 0.5s ease-in-out;
+}
+
+.side-button:after{
+ color: #EEEEEE;
+    content: "MENU";
+    font-size: 1em;
+    left: 10px;
+    position: absolute;
+    top: 13px;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.side-button:hover:after{
+  content:"MENU";
+  font-size:23px;
+  position:absolute;
+  left:10px;
+  top:8px;
+  color:#eee;
+  transition-delay: 2s;
+  transition: all 0.5s ease-in-out;
+}
+
+html, body { height: 98%; width: 100%; margin: 0; }
+
+.left .side-button:after{
+  content:"MENU";
+}
+.filterli
+{
+    background-image: url('../../RdlcAssists/custom-reports-icon.png'); 
+    background-repeat: no-repeat;
+    z-index:-1;
+}
+.liselected
+{
+    background: none repeat scroll 0 0 #FF9900;
+}
+
+.left .side-button:hover:after{
+  content:"MENU";
+}
+
+.sidebar{
+  width:300px;
+  /*background:#aaa;*/
+  position:absolute;
+  top:65px;
+  bottom:0;
+  left:-300px;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+}
+
+/* If you want to make 100% width, you can skip this one. */
+
+/* Remove the default margin and padding and style of UL tags */
+.categorylist ul  
+{
+    margin:0;
+    padding:0;
+     top:300px;
+    list-style:none;
+}
+.categorylist ul li{
+    margin:0;
+    padding:0;   
+    list-style:none;
+}
+ 
+/* We set the first level menu background. These properties will apply to the submenu as well. Note: the list must have a relative position, this position is used for allocating the position the arrow and rss icon. */
+.categorylist ul li{
+    background: #afd0e7;
+    border-bottom: 1px solid #f1f8fd;
+    position: relative;
+    cursor:pointer;
+}
+ 
+/* We style menu link */
+.categorylist ul li a {
+    text-decoration: none;
+    color: #234E96;
+    padding: 7px 7px;
+    display:inline-block;
+}
+ 
+/* We style the border top of the first sub menu */
+.categorylist ul li ul li.lisubfirst{
+    border-top: 1px solid #f1f8fd;
+}
+ 
+/* We remove the border bottom of the last sub menu */
+.categorylist ul li ul li.lisublast{
+    border-bottom:none;
+}
+ 
+/* We style the second level menu*/
+.categorylist ul li ul li{
+    background:#c2dbed;
+}
+ 
+/* We style the second level link */
+.categorylist ul li ul li a{
+   padding: 10px 20px;
+   width: 100%;
+}
+ 
+ .categorylist ul li ul li a:hover{
+ 
+   color:#60A917;
+   font-weight:bold;
+}
+
+/* We style the first level menu */
+.categorylist ul li ul li ul li{
+    background:#d7e9f6;
+}
+ 
+/* We style the third level link */
+.categorylist ul li ul li ul li a{
+     padding: 10px 40px;
+     
+}
+ 
+/* We include a rss icon and place it absolutely to the top right 10px */
+.spanrss{   
+    width:16px;
+    height:16px;
+    position:absolute;
+    right:10px;
+    top:10px;
+    display:inline-block;
+}
+ 
+/* Make sure we specify the dimension and set it to inline-block */
+.spanrss a{
+    width:16px;
+    height:16px;
+    display:inline-block;
+    overflow:hidden;
+    cursor:pointer;
+}
+ 
+/* We style the arrow up and down icon. */
+.spanarrowup, .spanarrowdown{
+    width:15px;
+    height:15px;
+    position:absolute;
+    right:32px;
+    top:11px;
+    cursor:pointer;
+    background:url(arrow_top.png) no-repeat;
+    display:inline-block;
+    overflow:hidden;
+}
+ 
+.spanarrowdown{
+    background:url(arrow_bottom.png) no-repeat;
+}
+            
+/*
+.sidebar ul{
+  width:200px;
+  list-style-type:none;
+  background:#555;
+  font-size:13px;
+  color:#eee; 
+  text-align:center;
+  padding-left:0;
+ /* text-transform:uppercase;
+  position:absolute;
+
+  z-index:1;
+  transition: all 0.7s ease-in-out;
+}
+
+.sidebar ul li{
+  height:25px;
+  margin-bottom:1px;
+  padding-top:7px;
+  background:#333;
+  cursor:pointer;
+  transition: all 0.4s ease-in-out;
+  position:relative;
+}
+
+.sidebar ul li:hover{  
+background: none repeat scroll 0 0 #FF9900;
+}
+*/
+
+.left{
+  left:0;
+}
+
+.top{
+  top:0!important; 
+  height: 100%;
+  overflow: hidden;
+   overflow-y: auto;
+    max-width:200px;
+}

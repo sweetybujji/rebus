@@ -1,0 +1,351 @@
+﻿.visualizer-tab-strip
+{
+    bottom: -24px;
+    left: -1px;
+    position: absolute;
+}
+
+    .visualizer-tab-strip li
+    {
+        background-position: left center;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+        font-size: 0.85em;
+        height: 24px;
+        margin-right: 1px;
+        padding-left: 8px;
+    }
+
+        .visualizer-tab-strip li.add-datasource-tab
+        {
+            background-image: none;
+            font-size: 0.8em;
+            line-height: 26px;
+            padding-left: 0;
+        }
+
+        .visualizer-tab-strip li span
+        {
+            background-position: right center;
+            display: block;
+            height: 24px;
+            line-height: 24px;
+            padding-right: 20px;
+        }
+
+.tabstriplist
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+    .tabstriplist li
+    {
+        display: inline;
+        padding: 1px;
+    }
+
+        .tabstriplist li a
+        {
+            text-decoration: none;
+            padding: .2em 1em;
+            color: #fff;
+            background: none repeat scroll 0 0 rgb(49, 123, 191);
+        }
+
+            .tabstriplist li a:hover
+            {
+                color: #fff;
+                background-color: #369;
+            }
+
+#vf-menu
+{
+    border-right: 1px solid #6d6e70;
+    height: 34px;
+}
+
+.vf-menu-tail
+{
+    display: inline-block;
+    height: 9px;
+    width: 15px;
+    z-index: 41;
+}
+
+#vf-menu .menu-item-button
+{
+    cursor: pointer;
+    height: 32px;
+}
+
+#vf-menu .menu-item-gap
+{
+    height: 30px;
+    width: 10px;
+}
+
+#vf-menu .menu-item-gap_small
+{
+    height: 30px;
+    width: 5px;
+}
+
+#vf-menu .menu-item-separator
+{
+    border-right: 1px solid #6d6e70;
+    height: 43px;
+    position: relative;
+    top: -5px;
+}
+
+#vf-menu .menu-item-label
+{
+    font-size: 0.8em;
+    line-height: 32px;
+    padding-right: 5px;
+}
+
+#vf-menu ul
+{
+    padding: 5px;
+}
+
+#vf-menu li
+{
+    display: inline-block;
+    float: left;
+}
+
+#vf-formula-bar
+{
+    background-color: #565656;
+    background-repeat: repeat-x;
+    border: 1px solid #363636;
+    padding: 2px 3px 3px;
+}
+
+    #vf-formula-bar.formula-error
+    {
+        background-color: #7b4343;
+    }
+
+    #vf-formula-bar ul
+    {
+        display: inline-block;
+        position: relative;
+    }
+
+    #vf-formula-bar li
+    {
+        display: inline-block;
+        line-height: 24px;
+        padding: 0;
+    }
+
+.rootNode > ul, .rootNode > li
+{
+    margin-bottom: 2px;
+}
+
+#vf-formula-bar li.lparen
+{
+    margin-left: 0;
+    padding-left: 1px;
+}
+
+.vf-node
+{
+    border: medium none;
+    color: #f5f5f5;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 0 1px;
+}
+
+    .vf-node.hover, .vf-node.active
+    {
+        background: none repeat scroll 0 0 #d1efdb;
+        border: medium none;
+        border-radius: 2px;
+        color: #006400;
+    }
+
+#vf-formula-bar .insertion
+{
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.vf-node.insertion.active
+{
+      background-color: transparent;
+    background-image: url("../../temp/formula-insertion_back.png");
+    color: white;
+}
+
+.vf-node.activeParent
+{
+    border-radius: 2px;
+}
+
+.vf-node.activePeer
+{
+    border-radius: 2px;
+}
+
+.active .vf-node
+{
+    color: darkgreen;
+}
+
+li.data
+{
+    color: #a3caff;
+    font-weight: bold;
+}
+
+    li.data.active
+    {
+        color: #006cff;
+    }
+
+.active li.data
+{
+    color: #006cff;
+}
+
+li.reference
+{
+    color: #dcc765;
+    text-decoration: underline;
+}
+
+    li.reference.active
+    {
+        color: #917700;
+    }
+
+.active li.reference
+{
+    color: #917700;
+}
+
+li.variable
+{
+    color: #f79cfa;
+    font-style: italic;
+}
+
+    li.variable.active
+    {
+        color: #9d3ba1;
+    }
+
+.active li.variable
+{
+    color: #9d3ba1;
+}
+
+.operator
+{
+    padding: 0 2px;
+}
+
+#vf-formula-bar li.fn-name
+{
+    margin-right: 0;
+    padding-right: 0;
+    text-transform: uppercase;
+}
+
+#vf-formula-bar .active li.fn-name
+{
+    color: darkgreen;
+}
+
+li.arg_placeholder
+{
+    color: #d3d3d3;
+    font-style: italic;
+    font-weight: normal;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+    li.arg_placeholder.optional
+    {
+        background-image: none;
+        color: #d6d6d6;
+        font-style: italic;
+        font-weight: normal !important;
+    }
+
+.active li.arg_placeholder.optional
+{
+    color: #5fa877;
+}
+
+li.arg_placeholder.active
+{
+    color: darkgreen;
+}
+
+#vf-formula-bar ul.function
+{
+    padding: 0;
+}
+
+.data-vis-tab-root
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #e7e8ea;
+    border-color: -moz-use-text-color #54595d #54595d;
+    border-image: none;
+    border-right: 1px solid #54595d;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    padding: 8px;
+}
+
+.fn-picker
+{
+}
+
+    .fn-picker li
+    {
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #bbbbbb;
+        color: #3c6686;
+        cursor: pointer;
+        padding: 7px 6px;
+    }
+
+        .fn-picker li.funcCat
+        {
+            
+            background-position: right center;
+            background-repeat: no-repeat;
+            color: black;
+            font-weight: bold;
+        }
+
+        .fn-picker li.funSelected
+        {
+            background-color: #cfebfc !important;
+        }
+
+        .fn-picker li.funcCat.funcSelected
+        {
+            background-color: #dadada;
+        }
+
+        .fn-picker li.funcCat:hover, .fn-picker li[ftype="func"]:hover
+        {
+            background-color: #dadada;
+        }
