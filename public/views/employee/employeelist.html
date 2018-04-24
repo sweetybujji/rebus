@@ -1,0 +1,77 @@
+<link rel="stylesheet" type="text/css" href="../css/common/rubus-app.css" />
+
+<body>
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+        <ul class="breadcrumb">
+            <li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a></li>
+            <li><a>Employee</a></li>
+            <li>Employee</li>
+        </ul>
+    </div>
+    <div class="icon-bar">
+        <a class="disableicons Toolbar_Settings" title="Settings">
+            <img src="../img/ToolbarIcons/Settings.png" /></a>
+        <a class="disableicons Toolbar_UploadImage" title="Upload Image">
+            <img src="../img/ToolbarIcons/UploadImage.png" /></a>
+        <a class="disableicons Toolbar_UploadFile" title="Upload CSV">
+            <img src="../img/ToolbarIcons/UploadFile.png" /></a>
+        <a class="Toolbar_ExportPDF" title="Export PDF" onclick="ExportToPdf('Employeetable')">
+            <img src="../img/ToolbarIcons/ExportPDF.png" /></a>
+        <a class="Toolbar_ExportExcel" title="Export Excel" onclick="ExportToExcel('Employeetable')">
+            <img src="../img/ToolbarIcons/ExportExcel.png" /></a>
+        <a class="disableicons Toolbar_Draft" title="Open Draft">
+            <img src="../img/ToolbarIcons/OpenDraft.png" /></a>
+        <a class="disableicons Toolbar_Preview" title="Preview">
+            <img src="../img/ToolbarIcons/Preview.png"></a>
+        <a class="disableicons Toolbar_Create" title="Invoke">
+            <img src="../img/ToolbarIcons/Invoke.png" /></a>
+        <a class="disableicons Toolbar_Cancel" title="Cancel">
+            <img src="../img/ToolbarIcons/Cancel.png"></a>
+        <a class="Toolbar_Delete" title="Delete Record" ng-click="fn_deleteemployee()">
+            <img src="../img/ToolbarIcons/Delete.png" /></a>
+        <a class="Toolbar_List" title="View Entries" href="#EmployeeList">
+            <img src="../img/ToolbarIcons/List.png" /></a>
+        <a class="Toolbar_Edit" title="Edit" ng-click="fn_employeeform_update()">
+            <img src="../img/ToolbarIcons/Edit.png" /></a>
+        <a class="disableicons Toolbar_Save" title="Save">
+            <img src="../img/ToolbarIcons/Save.png" /></a>
+        <a class="disableicons Toolbar_AddConnection" title="Add Connection">
+            <img src="../img/ToolbarIcons/AddConnection.png"></a>
+        <a class="disableicons Toolbar_AddDB" title="Add Stored Procedure">
+            <img src="../img/ToolbarIcons/AddDB.png"></a>
+        <a class="Toolbar_Create" title="Create" href="#Employee">
+            <img src="../img/ToolbarIcons/Create.png" /></a>
+        <div class="page-header">
+            <h1>Employees List<small><i class="ace-icon fa fa-angle-double-right"></i>
+            </small>
+            </h1>
+        </div>
+    </div>
+    <div style="background-color: #438eb9; margin-bottom: 1px;" class="col-sm-12 table-header visible_list">
+        <label style="color: white; font: bold;">Employees List</label>
+    </div>
+    <div ng-init="fn_get_employeedata_list()">
+    <table class="table table-striped table-bordered table-hover" id="Employeetable">
+        <thead id="listhead">
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Work Location</th>
+                <th>Joining Date</th>
+                <th>Designation</th>
+                <th>Reporting Manager</th>
+                <th>Mobile Number</th>
+                <th>Email</th>
+            </tr>
+            <tbody id="list_EmployeeBody">
+            </tbody>
+    </table>
+  </div>
+</body>

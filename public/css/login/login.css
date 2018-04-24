@@ -1,0 +1,32 @@
+ .OR-footer {
+            padding-top: 0;
+            width: 100%;
+            background-color: #438EB9;
+            z-index: 1027 !important;
+            color: #1d2537;
+            text-align: center;
+            min-height: 30px;
+            line-height: 2;
+        }
+
+        .navbar {
+            background: none !important;
+        }
+
+            .navbar .navbar-brand {
+                padding: 10px 0 !important;
+                margin: 0 !important;
+            }
+
+       
+        .loginedit {
+            border: none !important;
+            border-bottom: 1px solid #cbcdc8 !important;
+            background-color: transparent !important;
+            text-align: center !important;
+        }
+
+        .Error {
+            color: #a94442;
+            font-size: 12px;
+        }

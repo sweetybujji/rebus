@@ -1,0 +1,19 @@
+.row select {
+    width: 90%;
+}
+body {
+    width: 99% !important;
+}
+
+table tr td {
+    cursor: pointer;
+}
+.red-text {
+    color: #F44336!important;
+}
+.row input {
+    width: 90%;
+}
+.newform {
+    margin-top: 2%;
+}

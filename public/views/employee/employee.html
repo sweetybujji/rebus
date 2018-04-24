@@ -1,0 +1,175 @@
+<link rel="stylesheet" type="text/css" href="../css/common/rubus-error.css" />
+<link rel="stylesheet" type="text/css" href="../css/common/rubus-app.css" />
+<body>
+<div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+            <ul class="breadcrumb">
+                <li><i class="ace-icon fa fa-home home-icon"></i><a href="#">Home</a></li>
+                <li><a>Employee</a></li>
+                <li>Employee</li>
+            </ul>
+        </div>
+    </div>
+    <div class="icon-bar">
+        <a class="disableicons Toolbar_Settings" title="Settings">
+            <img src="../img/ToolbarIcons/Settings.png" />
+        </a>
+        <a class="disableicons Toolbar_UploadImage" title="Upload Image">
+            <img src="../img/ToolbarIcons/UploadImage.png" />
+        </a>
+        <a class="disableicons Toolbar_UploadFile" title="Upload CSV">
+            <img src="../img/ToolbarIcons/UploadFile.png" />
+        </a>
+        <a class="disableicons Toolbar_ExportPDF" title="Export PDF">
+            <img src="../img/ToolbarIcons/ExportPDF.png" />
+        </a>
+        <a class="disableicons Toolbar_ExportExcel" title="Export Excel">
+            <img src="../img/ToolbarIcons/ExportExcel.png" />
+        </a>
+        <a class="disableicons Toolbar_Draft" title="Open Draft">
+            <img src="../img/ToolbarIcons/OpenDraft.png" />
+        </a>
+        <a class="disableicons Toolbar_Preview" title="Preview">
+            <img src="../img/ToolbarIcons/Preview.png">
+        </a>
+        <a class="disableicons Toolbar_Create" title="Invoke">
+            <img src="../img/ToolbarIcons/Invoke.png" />
+        </a>
+        <a class="Toolbar_Cancel" title="Cancel">
+            <img src="../img/ToolbarIcons/Cancel.png">
+        </a>
+        <a class="disableicons Toolbar_Delete" title="Delete Record">
+            <img src="../img/ToolbarIcons/Delete.png" />
+        </a>
+        <a class="Toolbar_List" title="View Entries" href="#EmployeeList">
+            <img src="../img/ToolbarIcons/List.png" />
+        </a>
+        <a class="disableicons Toolbar_Edit" title="Edit">
+            <img src="../img/ToolbarIcons/Edit.png" />
+        </a>
+        <a class="Toolbar_Save" title="Save" ng-click="fn_save_employeedetails()">
+            <img src="../img/ToolbarIcons/Save.png" />
+        </a>
+        <a class="disableicons Toolbar_AddConnection" title="Add Connection">
+            <img src="../img/ToolbarIcons/AddConnection.png">
+        </a>
+        <a class="disableicons Toolbar_AddDB" title="Add Stored Procedure">
+            <img src="../img/ToolbarIcons/AddDB.png">
+        </a>
+        <a class="Toolbar_Create" title="Create" ng-click="$scope.employee_cleartextbox()">
+            <img src="../img/ToolbarIcons/Create.png" />
+        </a>
+        <div class="page-header">
+            <h1>
+                Employee Creation <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                </small>
+            </h1>
+        </div>
+    </div>
+    <div class="formdiv" style="margin-left: 5%;">
+        <div class="row  newform">
+            <input type="text" id="idEmployeelabel" style="display: none" />
+            <div class="col-xs-10 col-sm-4">
+                <label class="StateName">Employee Id<i style="color: red;">*</i></label>
+                <input type="text" id="txt_EmpId" placeholder="Emp Id" tabindex="1" maxlength="10" />
+                <span class="Error row" id="er_EmpId" hidden></span>
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label class="CountryName">Employee Name<i style="color: red;">*</i></label>
+                <input type="text" id="txt_EmployeeName" placeholder="Employee Name" tabindex="2" maxlength="50" />
+                <span class="Error row" id="er_EmployeeName" hidden></span>
+            </div>
+        </div>
+        <div class="row newform">
+            <div class="col-xs-10 col-sm-4">
+                <label>Department<i style="color: red;">*</i></label>
+                <input type="text" id="txt_Department" placeholder="Department" tabindex="3" />&nbsp;&nbsp;<i class="ace-icon fa fa-external-link fa-large" style="cursor: pointer;" ng-click="fn_get_department()"></i>
+                <span class="Error row" id="er_Department" hidden></span>
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Work Location<i style="color: red;">*</i></label>
+                <input type="text" id="txt_WorkLocation" placeholder="Work Location" tabindex="4" />&nbsp;&nbsp;<i class="ace-icon fa fa-external-link fa-large" style="cursor: pointer;" ng-click="fn_get_location()"></i>
+                <span class="Error row" id="er_WorkLocation" hidden></span>
+            </div>
+        </div>
+        <div class="row newform">
+            <div class="col-xs-10 col-sm-4">
+                <label>Joining Date<i style="color: red;">*</i></label>
+                <input type="text" id="txt_JoiningDate" placeholder="Joining Date" tabindex="5" />
+                <span class="Error row" id="er_JoiningDate" hidden></span>
+            </div>
+            <div class="col-xs-10 col-sm-4">
+                <label>Designation<i style="color: red;">*</i></label>
+                <select id="txt_Designation" tabindex="6">
+                    <option value="">--select--</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Tester">Tester</option>
+                </select>
+                <span class="Error row" id="er_Designation" hidden></span>
+            </div>
+        </div>
+        <div class="row newform">
+            <div class="col-xs-10 col-sm-4">
+                <label>Reporting Manager<i style="color: red;">*</i></label>
+                <input type="text" id="txt_ReportingManager" placeholder="Reporting Manager" tabindex="7" />
+                <span class="Error row" id="er_ReportingManager" hidden></span>
+            </div>
+            <div class="col-xs-10 col-sm-1">
+                <label>Code</label>
+                <input type="text" id="txt_Code" class="" placeholder="ex:+91" tabindex="8" maxlength="4" />
+            </div>
+            &nbsp;&nbsp;
+            <div class="col-xs-10 col-sm-3">
+                <label>Mobile Number</label>
+                <input type="text" id="txt_MobileNumber" placeholder="Mobile Number" tabindex="9" class="txtNumber" style="width: 87%;" maxlength="15" />
+                <span class="Error row" id="er_MobileNumber" hidden></span>
+            </div>
+        </div>
+        <div class="row newform">
+            <div class="col-xs-10 col-sm-4">
+                <label>Email</label>
+                <input type="text" id="txt_Email" placeholder="Email" tabindex="10" />
+                <span class="Error row" id="er_Email" hidden></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+   function GetLabelNames() {
+ try {
+            StartPageLoader();
+            $.ajax({
+                url: "/GetLabelNames",
+                type: 'get',
+                success: function (response) {
+
+                    if (response != false && response != "false") {
+                        for (var i = 0; i < response.length; i++) {
+                            var Text = response[i].French.replace("@@", "'");
+                            $("." + response[i].LabelName).html(Text);
+                        }
+                    }
+
+                    StopPageLoader();
+                },
+                error: function (jqXHR, exception) {
+                    fn_errorNotification(jqXHR.status, jqXHR, exception, "error occured at data getting with code GetLabelNames", "error_alert", "", "");
+                    StopPageLoader();
+                }
+            });
+
+        }
+        catch (er) {
+
+            fn_errorNotification('', '', '', "error occured at data getting with code GetLabelNames", "error_alert", "", "");
+            StopPageLoader();
+        }
+    }
+</script>

@@ -1,0 +1,61 @@
+.icon-bar {
+    width: 100%;
+    background-color: white;
+    overflow: auto;
+}
+.icon-bar a {
+        float: right;
+        width: auto;
+        text-align: center;
+        padding: 12px 9px !important;
+        transition: all 0.3s ease;     
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+.disableicons {
+    opacity: 0.3;
+    pointer-events: none !important;
+    cursor: default;
+}
+
+.icon-bar a img {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.icon-bar input {
+    float: right;
+    margin-top: 1%;
+}
+
+
+.icon-bar a:hover {
+    background-color: lightgrey;
+}
+
+.active {
+    background-color: white !important;
+}
+.footer {
+    margin-top: 45px !important;
+}
+.navbar {
+    width: 101% !important;
+}
+.breadcrumb a {
+    cursor: pointer;
+}
+
+
+  a,
+        a label
+        {
+            cursor: pointer;
+        }
+
+        .footer .footer-inner .footer-content
+        {
+            line-height: 10px;
+            font-size: 10px;
+        }
